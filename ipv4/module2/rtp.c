@@ -3,50 +3,13 @@
 #include <vxworks.h>
 #include <stdio.h>
 #include <msgQLibCommon.h>
-#include <msgQLib.h>
-#include <time.h>
-#include <ioctl.h>
-#include <ioLib.h>
-#include <rtpLibcommon.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <sysctlLib.h>
 #include <taskLib.h>
-#include <stdlib.h>
 #include <string.h>
-#include <net/if.h>
-#include <net/route.h>
-#include <ipnet/ipioctl.h>
-#include <ipnet/ipioctl_var.h>
-#include <stdio.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <stdint.h>
 #include <errno.h>
-#include <cpuset.h>
-#include <sys/mman.h>
-#include <sys/fcntlcom.h>
-#include <unistd.h>
-#include <arpa/inet.h>
-#include <msgQLib.h>
-#include <fioLib.h>
-#include <sockLib.h>
-#include <socket.h>
 #include <inetLib.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <net/if_dl.h>
-#include <net/if_types.h>
-#include <net/ifaddrs.h>
-#include <netinet6/in6_var.h>
-#include <netinet/ip.h>
-#include <sys/ioctl.h>
-#include <timers.h>
-#include <timerLib.h>
 #include <dirent.h>
-#include <zlib.h>
-#include <math.h>
+#include <time.h>
 #include "module2.h"
 
  /* ------------------------------------------------------------------------- */
@@ -120,7 +83,6 @@
  * 
  * Justification : This is checked and considered safe.
  */  
-
  
  /************************************************************************
  * GLOBAL VARIABLES
@@ -130,7 +92,6 @@ MSG_Q_ID diagMsgQId        = MSG_Q_ID_NULL;
 
 MSG_Q_ID messages = MSG_Q_ID_NULL;
 TASK_ID task;
-
 
 /************************************************************************
  * INTERNAL VARIABLES
@@ -155,12 +116,9 @@ LOCAL char _tempDir[BUFLEN];
 LOCAL uint32_t _sdbuf[BUFLEN];
 LOCAL FILE * _fs;
 
-
 LOCAL const char _message[]      = "Start";
 LOCAL const char _respondOK[]    = "Let's communicate!";
 LOCAL const char _respondNotOK[] = "Communication breakdown...";
-
-
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
@@ -178,15 +136,12 @@ int main (void) {
     return 0;
 }
 
-
-
 LOCAL void _module2_init(void)
 {
     if (_sharedMemAlloc_module2() == ERROR)
     {
         printf ("Error allocating module 2\n");
-    }
-    
+    }  
 
     if (taskSpawn ("readErrors", 205, VX_FP_TASK, 200, (FUNCPTR) _module2_ReadErrors, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */
                 0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
@@ -219,7 +174,6 @@ LOCAL void _module2_ReadErrors(void)
 {
     int fd;
     int i = 0;
-
 
     FOREVER
     {   
@@ -280,7 +234,6 @@ LOCAL STATUS _module2_ReadDiagMsgQ(void)
     
     /* Read diagnostic data from _msg queue */
     length = msgQReceive (diagMsgQId, (char *) &_diag_data_struct_mod1, sizeof (_diag_data_struct_mod1), WAIT_FOREVER);  /* PRQA S 3101 */ /* PRQA S 3102 */
-
 
     _diag_data_struct_mod2 = _diag_data_struct_mod1;
 
@@ -351,7 +304,6 @@ LOCAL void * _module2_shMem_open(const char * fname, size_t size)
     
     return retAddr;
 }
-
 
 LOCAL STATUS _module2_shMem_Check(void)
 {
@@ -508,7 +460,6 @@ LOCAL void _receiveCommand(void)
 
 LOCAL void _sendFile(char fs_name[])
 {
-
     
     _processFileName(fs_name);
     
@@ -529,7 +480,6 @@ LOCAL void _sendFile(char fs_name[])
     {
         printf("File %s deleted\n", _tempDir);
     }
-    
     
     //(void) nanosleep (&nsTime, NULL_PTR);
 }
@@ -591,8 +541,7 @@ LOCAL void _processFileSize(void)
     printf ("Size of file is sent!\n");
 
     printf ("\n\n\n\n\n\n char: %d, unsigned char: %d, int: %d, long long: %d \n\n\n\n\n\n\n",
-            sizeof (char), sizeof (unsigned char), sizeof (int), sizeof (long long));
-            
+            sizeof (char), sizeof (unsigned char), sizeof (int), sizeof (long long));          
 }
 
 LOCAL void _processFileName(char fs_name[])
@@ -600,7 +549,6 @@ LOCAL void _processFileName(char fs_name[])
     struct timespec nsTime;
     nsTime.tv_sec  = 0;
     nsTime.tv_nsec = 50000000;
-    
     
     printf ("File name to send: %s\n", fs_name);
     
@@ -680,7 +628,6 @@ LOCAL void _initCommunication(void)
     printf ("Listetning...\n");
             
    _establishCommunication();
-
 }
 
 LOCAL void _establishCommunication(void)

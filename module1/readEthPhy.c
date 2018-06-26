@@ -124,34 +124,17 @@
 /* ------------------------------------------------------------------------- */
 #include <vxworks.h>
 #include <stdio.h>
-#include <msgQLib.h>
-#include <sockFunc.h>
-#include <net/socketvar.h>
-#include <ipnet_h.h>
-#include <logLib.h>
-#include <muxLib.h>
-#include <net/ethernet.h>
-#include <ipnet_ip4.h>
-#include <ipcom_sock.h>
-#include <netinet/in.h>
 #include <memLib.h>
 #include <netLib.h>
-#include <ioctl.h>
 #include <pmapLib.h>
 #include <vmLibCommon.h>
-#include <semLib.h>
 #include <msgQLibCommon.h>
 #include <time.h>
-#include <net/if.h>
-#include <net/ethernet.h>
-#include <ifLib.h>
 #include <sys/mman.h>
-#include <sys/stat.h>
-#include <semLibCommon.h>
 #include <net/utils/ifconfig.h>
-#include <ioLib.h>
 #include <rtpLibcommon.h>
-#include <dirent.h>
+#include <sys/fcntlcom.h>
+#include <stat.h> 
 #include "readEthPhy.h"
 
 /************************************************************************
@@ -176,7 +159,6 @@ LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr;
 LOCAL char _errors[ERROR_BUFF_SIZE];
 
 LOCAL uint8_t _delete_cnt = 0U;
-
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
