@@ -10,6 +10,7 @@
 #include <inetLib.h>
 #include <dirent.h>
 #include <time.h>
+#include <sys/mman.h>
 #include "module2.h"
 
  /* ------------------------------------------------------------------------- */
