@@ -1,0 +1,44 @@
+
+Initialising Winsock...Initialised.
+Socket created.
+Connect to remote serverConnectedData sent
+Reply received
+Server reply: 18
+Let's communicate!
+Connection established!!!
+
+*****************************************************************************BURAZ
+AAALOOOO
+Command sent
+phy_id_reg1 0x0180
+link_status 0x0000 Link is down!
+link_control 0x0000 Link control disabled!
+power_mode 0x0000 No change!
+loopback_mode 0x0000 Internal loopback!
+phy_init_fail 0x0000 No PHY initialization error detected!
+wakeup 0x0000 No local or remote wake-up detected!
+link_status_fail 0x0000 Link status not changed!
+link_status_up 0x0000 Link status not changed!
+link_up 0x0000 Link failure!
+tx_mode 0x0000 Transmitter disabled!
+loc_rcvr_status 0x0000 Local receiver not OK!
+rem_rcvr_status 0x0000 Remote receiver not OK!
+phy_state 0x0000 PHY Idle!
+Waiting for thread to end...
+Thread joined
+BURAZ
+AAALOOOO
+Command sent
+jabber_detect 0x0000 No jabber condition detected!
+phy_id_reg1 0x0180
+phy_id_reg2 0x0000
+type_no 0x0040
+revision_no 0x0008
+phy_id_reg3 0x0000
+Waiting for thread to end...
+Thread joined
+BURAZ
+AAALOOOO
+Command sent
+Waiting for thread to end...
+Thread joined
