@@ -1,8 +1,25 @@
+/**
+ *  \file 
+ *      moduleOneStartup.c
+ *      
+ *  \brief 
+ *       Interface functions for starting module that are used in
+ *       tttechBroadRReach.c file.
+ *   
+ *  \version
+ *       [19-Apr-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
+ */
+
+/* ------------------------------------------------------------------------- */
+/* ------------------------------  Includes  ------------------------------- */
+/* ------------------------------------------------------------------------- */
 #include <vxworks.h>
 #include <stdio.h>
 #include <msgQLibCommon.h>
 #include <vmLibCommon.h>
 #include <pmapLib.h>
+#include "moduleOneHandleRoutines.h"
 #include "readEthPhy.h"
 
 /************************************************************************
@@ -11,14 +28,20 @@
 MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
 MSG_Q_ID diagMsgQId     = MSG_Q_ID_NULL;
 
-LOCAL char * ethIf_macVirtAddr = BR_NULL_PTR;
 /* Phy address register */
 volatile uint32_t * phyGmiiAddress;
 /* Phy data register */
 volatile uint32_t * phyGmiiData;
 
+/************************************************************************
+ * INTERNAL VARIABLES
+ ***********************************************************************/
+LOCAL char * ethIf_macVirtAddr = BR_NULL_PTR;
 LOCAL s_DIAG_DATA       _diag_data_struct;
 
+/************************************************************************
+ * FUNCTION IMPLEMENTATION
+ ***********************************************************************/
 void module1_InitPhy(void)
 {
     FILE * fd;

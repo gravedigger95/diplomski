@@ -94,12 +94,10 @@ typedef struct diagnosticDataMsgQ
     uint8_t loc_rcvr_status; //comm status reg bit 12 0x17
     uint8_t rem_rcvr_status; //comm status reg bit 11 0x17
     uint8_t signal_quality;
-
     uint16_t phy_id_reg1; //phy id reg 1 bit [15:0] 0x2
     uint8_t phy_state;
-        
+   
     s_ERRORS errors_array[4];
-        
 } s_DIAG_DATA;
 
 typedef struct diagnosticDataShM
@@ -111,19 +109,8 @@ typedef struct diagnosticDataShM
     uint8_t revision_no; //phy id reg 2 bit [3:0] 0x3
     uint8_t phy_id_reg3; //phy id reg 3 bit [7:0] 0x10
     uint8_t int_status; //gen status reg bit 15 0x18
-    
-    /*
-    uint8_t init_phy_err;
-    uint8_t msgq_open_err;
-    uint8_t msgq_send_err;
-    uint8_t msgq_recv_err;
-    uint8_t sh_mem_err;
-    uint8_t sh_mem_check_err;
-    uint16_t padding2;
-    */
 } s_DIAG_SHM_DATA;
 
-extern MSG_Q_ID routinesMsgQId;
 extern MSG_Q_ID diagMsgQId;
 
 /* Phy address register */
@@ -140,10 +127,6 @@ extern volatile uint32_t * phyGmiiData;
  */
 LOCAL void _module1_ReadChipRegisters(void);
 /** 
- * \brief Init function for eth phy chip interface
- */
-//void module1_InitPhy(void);
-/** 
  * \brief This function reads TJA1100 address register 
  * 
  * \param regNumber Number of desired BroadRReach register
@@ -156,18 +139,6 @@ uint32_t mdio_read_br(uint32_t regNumber);
  * \param dataWrite Data to be written
  */
 void mdio_write_br(uint32_t regNumber, uint16_t dataWrite);
-/*
- * \brief This function creates two public message queues.
- *        One for sending diagnostic data to user space, and other
- *        for calling different routines, e.g. ping...
- * \return OK if queues creating was successful, ERROR otherwise
- */
-//LOCAL STATUS _module1_CreateMsgQueues(void);
-/** 
- * \brief This function gets number of routine which will be called
- * \return OK if successful, ERROR otherwise
- */
-STATUS module1_GetRoutineNum(void);
 /** 
  * \brief This function periodically reads diagnostic msgQ and shared memory
  * \return OK if successful, ERROR otherwise
@@ -204,26 +175,10 @@ LOCAL void * _module2_shMem_open(void);
  */
 LOCAL STATUS _module2_shMem_Check(void);
 /** 
- * \brief This function sends routine number to module 1 which activates
- *        appropriate routine
- * \param routineNum Number of desired routine
- * \return OK if successful, ERROR otherwise
- */
-LOCAL STATUS _module2_SetRoutineNum(uint8_t routineNum);
-/** 
  * \brief This function opens shared memory in module 1 and allocates it
  * \return Pointer to allocated shared memory 
  */
 LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size);
-/** 
- * \brief This function writes errors flag array to file.
- */
-void writeToFile(void);
-/** 
- * \brief Routine used to ping PC when triggered
- * \return OK if successful, ERROR otherwise 
- */
-LOCAL STATUS _pingRoutine(void);
 /** 
  * \brief Initial function for starting RTP task in user space.
  * \metric STAV1 10 Assembler instructions that tool can't handle.
@@ -231,10 +186,6 @@ LOCAL STATUS _pingRoutine(void);
  * \return OK if successful, ERROR otherwise 
  */
 STATUS rtpModule(void);
-/** 
- * \brief This function is used for activating desired routines.
- */
-LOCAL void _testModes(int routine_trigger);
 /** 
  * \brief Routine for testing normal operation mode.
  */
@@ -245,5 +196,4 @@ LOCAL void _normalOperationTest(uint16_t mode);
  */
 LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos);
 
-void tunnelGifTest ();
 #endif /* READETHPHY_H_ */
