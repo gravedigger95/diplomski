@@ -1,5 +1,5 @@
-module2/Debug/Objects/module2/rtp.o: \
-  C:/WindRiver/workspace/module2/rtp.c \
+module2/Debug/Objects/module2/moduleTwoHandleRoutines.o: \
+  C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.c \
   C:/WindRiver/compilers/diab-5.9.4.6/include/diab/lpragma.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/vxWorks.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/vsbConfig.h \
@@ -67,28 +67,10 @@ module2/Debug/Objects/module2/rtp.o: \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/tool/common/private/toolMacrosP.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/stdio.h \
   C:/WindRiver/compilers/diab-5.9.4.6/include/diab/va_list.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/msgQLibCommon.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/vwModNum.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLib.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLibCommon.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objSysCall.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/taskLib.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/taskLibCommon.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/eventLibCommon.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/arch/arm/coprocArm.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/taskSysCall.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/string.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/time.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/clockLib.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timespec.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/timerLib.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/mman.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_phys_addr_t.h \
-  C:/WindRiver/workspace/module2/moduleTwoServer.h \
+  C:/WindRiver/workspace/module2/moduleTwoCommunication.h \
   C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.h \
   C:/WindRiver/workspace/module2/moduleTwoFileSending.h \
-  C:/WindRiver/workspace/module2/moduleTwoCommunication.h \
-  C:/WindRiver/workspace/module2/module2.h
+  C:/WindRiver/workspace/module2/moduleTwoRTP.h
 
 C:/WindRiver/compilers/diab-5.9.4.6/include/diab/lpragma.h:
 
@@ -224,47 +206,11 @@ C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj
 
 C:/WindRiver/compilers/diab-5.9.4.6/include/diab/va_list.h:
 
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/msgQLibCommon.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/vwModNum.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLib.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLibCommon.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objSysCall.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/taskLib.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/taskLibCommon.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/eventLibCommon.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/arch/arm/coprocArm.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/taskSysCall.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/string.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/time.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/clockLib.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timespec.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/timerLib.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/mman.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_phys_addr_t.h:
-
-C:/WindRiver/workspace/module2/moduleTwoServer.h:
+C:/WindRiver/workspace/module2/moduleTwoCommunication.h:
 
 C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.h:
 
 C:/WindRiver/workspace/module2/moduleTwoFileSending.h:
 
-C:/WindRiver/workspace/module2/moduleTwoCommunication.h:
-
-C:/WindRiver/workspace/module2/module2.h:
+C:/WindRiver/workspace/module2/moduleTwoRTP.h:
 

@@ -1,5 +1,5 @@
-module2/Debug/Objects/module2/rtp.o: \
-  C:/WindRiver/workspace/module2/rtp.c \
+module2/Debug/Objects/module2/moduleTwoRTP.o: \
+  C:/WindRiver/workspace/module2/moduleTwoRTP.c \
   C:/WindRiver/compilers/diab-5.9.4.6/include/diab/lpragma.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/vxWorks.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/vsbConfig.h \
@@ -88,7 +88,7 @@ module2/Debug/Objects/module2/rtp.o: \
   C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.h \
   C:/WindRiver/workspace/module2/moduleTwoFileSending.h \
   C:/WindRiver/workspace/module2/moduleTwoCommunication.h \
-  C:/WindRiver/workspace/module2/module2.h
+  C:/WindRiver/workspace/module2/moduleTwoRTP.h
 
 C:/WindRiver/compilers/diab-5.9.4.6/include/diab/lpragma.h:
 
@@ -266,5 +266,5 @@ C:/WindRiver/workspace/module2/moduleTwoFileSending.h:
 
 C:/WindRiver/workspace/module2/moduleTwoCommunication.h:
 
-C:/WindRiver/workspace/module2/module2.h:
+C:/WindRiver/workspace/module2/moduleTwoRTP.h:
 

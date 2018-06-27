@@ -125,11 +125,31 @@ module2/$(MODE_DIR)/% : VSB_DIR = $(PRJ_ROOT_DIR)/../VSB_zfas-alt-soc-gen5_smp_C
 module2/$(MODE_DIR)/% : VSB_CONFIG_FILE = $(VSB_DIR)/h/config/vsbConfig.h
 module2/$(MODE_DIR)/% : OBJ_DIR := module2/$(MODE_DIR)
 
-module2/$(MODE_DIR)/Objects/module2/rtp.o : $(PRJ_ROOT_DIR)/rtp.c $(FORCE_FILE_BUILD)
+module2/$(MODE_DIR)/Objects/module2/moduleTwoCommunication.o : $(PRJ_ROOT_DIR)/moduleTwoCommunication.c $(FORCE_FILE_BUILD)
 	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/dcc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -Y I,+C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/c++03:C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public:$(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/../../include/diab -Xansi -WDVSB_DIR=$(VSB_DIR)  -W:c++:.CPP  -Xfp-fast -Xforce-declarations -ei4171,4188,4191,4223,4513,5152,5457,2273,5387,5388,1546   -Xmake-dependency=0xd $(IDE_DEFINES) $(DEFINES) $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -o "$@" -c "$<"
 
 
-OBJECTS_module2 = module2/$(MODE_DIR)/Objects/module2/rtp.o
+module2/$(MODE_DIR)/Objects/module2/moduleTwoFileSending.o : $(PRJ_ROOT_DIR)/moduleTwoFileSending.c $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/dcc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -Y I,+C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/c++03:C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public:$(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/../../include/diab -Xansi -WDVSB_DIR=$(VSB_DIR)  -W:c++:.CPP  -Xfp-fast -Xforce-declarations -ei4171,4188,4191,4223,4513,5152,5457,2273,5387,5388,1546   -Xmake-dependency=0xd $(IDE_DEFINES) $(DEFINES) $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -o "$@" -c "$<"
+
+
+module2/$(MODE_DIR)/Objects/module2/moduleTwoHandleRoutines.o : $(PRJ_ROOT_DIR)/moduleTwoHandleRoutines.c $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/dcc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -Y I,+C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/c++03:C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public:$(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/../../include/diab -Xansi -WDVSB_DIR=$(VSB_DIR)  -W:c++:.CPP  -Xfp-fast -Xforce-declarations -ei4171,4188,4191,4223,4513,5152,5457,2273,5387,5388,1546   -Xmake-dependency=0xd $(IDE_DEFINES) $(DEFINES) $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -o "$@" -c "$<"
+
+
+module2/$(MODE_DIR)/Objects/module2/moduleTwoRTP.o : $(PRJ_ROOT_DIR)/moduleTwoRTP.c $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/dcc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -Y I,+C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/c++03:C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public:$(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/../../include/diab -Xansi -WDVSB_DIR=$(VSB_DIR)  -W:c++:.CPP  -Xfp-fast -Xforce-declarations -ei4171,4188,4191,4223,4513,5152,5457,2273,5387,5388,1546   -Xmake-dependency=0xd $(IDE_DEFINES) $(DEFINES) $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -o "$@" -c "$<"
+
+
+module2/$(MODE_DIR)/Objects/module2/moduleTwoServer.o : $(PRJ_ROOT_DIR)/moduleTwoServer.c $(FORCE_FILE_BUILD)
+	$(TRACE_FLAG)if [ ! -d "`dirname "$@"`" ]; then mkdir -p "`dirname "$@"`"; fi;echo "building $@"; $(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/dcc $(DEBUGFLAGS_C-Compiler) $(CC_ARCH_SPEC) -Y I,+C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/c++03:C:/WindRiver/workspace/VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public:$(WIND_HOME)/compilers/diab-5.9.4.6/WIN32/bin/../../include/diab -Xansi -WDVSB_DIR=$(VSB_DIR)  -W:c++:.CPP  -Xfp-fast -Xforce-declarations -ei4171,4188,4191,4223,4513,5152,5457,2273,5387,5388,1546   -Xmake-dependency=0xd $(IDE_DEFINES) $(DEFINES) $(ADDED_CFLAGS) $(IDE_INCLUDES) $(ADDED_INCLUDES) -o "$@" -c "$<"
+
+
+OBJECTS_module2 = module2/$(MODE_DIR)/Objects/module2/moduleTwoCommunication.o \
+	 module2/$(MODE_DIR)/Objects/module2/moduleTwoFileSending.o \
+	 module2/$(MODE_DIR)/Objects/module2/moduleTwoHandleRoutines.o \
+	 module2/$(MODE_DIR)/Objects/module2/moduleTwoRTP.o \
+	 module2/$(MODE_DIR)/Objects/module2/moduleTwoServer.o
 
 ifeq ($(TARGET_JOBS),1)
 module2/$(MODE_DIR)/module2.vxe : $(OBJECTS_module2) | check_objdirs
@@ -152,7 +172,8 @@ TARGET_JOBS_RULE?=echo "Update the makefile template via File > Import > Build S
 %_jobs : 
 	$(TRACE_FLAG)$(TARGET_JOBS_RULE)
 
-DEP_FILES := module2/$(MODE_DIR)/Objects/module2/rtp.d
+DEP_FILES := module2/$(MODE_DIR)/Objects/module2/moduleTwoCommunication.d module2/$(MODE_DIR)/Objects/module2/moduleTwoFileSending.d module2/$(MODE_DIR)/Objects/module2/moduleTwoHandleRoutines.d \
+	 module2/$(MODE_DIR)/Objects/module2/moduleTwoRTP.d module2/$(MODE_DIR)/Objects/module2/moduleTwoServer.d
 -include $(DEP_FILES)
 
 OBJ_DIRS := module2/$(MODE_DIR)/Objects/module2
