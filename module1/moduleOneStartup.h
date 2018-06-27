@@ -55,6 +55,13 @@ void module1_InitPhy(void);
  */
 LOCAL STATUS _module1_CreateMsgQueues(void);
 /** 
+ * \brief Initial function for starting RTP task in user space.
+ * \metric STAV1 10 Assembler instructions that tool can't handle.
+ *
+ * \return OK if successful, ERROR otherwise 
+ */
+STATUS rtpModule(void);
+/** 
  * \brief Functions for starting module 1 tasks for reading ETH PHY chip
  *        registers and retrieving test mode numbers.
  */

@@ -140,11 +140,6 @@ uint32_t mdio_read_br(uint32_t regNumber);
  */
 void mdio_write_br(uint32_t regNumber, uint16_t dataWrite);
 /** 
- * \brief This function periodically reads diagnostic msgQ and shared memory
- * \return OK if successful, ERROR otherwise
- */
-LOCAL STATUS _module2_ReadDiagMsgQ(void);
-/** 
  * \brief This is task function for module1ReadChipRegisters()
  *        used for reading TJA1100 registers and sending data to 
  *        diagMsgQ via diag_data_struct
@@ -164,32 +159,10 @@ LOCAL STATUS _sharedMemAlloc(void);
  */
 LOCAL STATUS _module1_FillSharedMem(void);
 /** 
- * \brief This function opens shared memory in module 2 and allocates it
- * \return Pointer to allocated shared memory 
- */
-LOCAL void * _module2_shMem_open(void);
-/** 
- * \brief This function is used for checking if module 1 wrote correctly
- *        in shared memory
- * \return OK if successful, ERROR otherwise 
- */
-LOCAL STATUS _module2_shMem_Check(void);
-/** 
  * \brief This function opens shared memory in module 1 and allocates it
  * \return Pointer to allocated shared memory 
  */
 LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size);
-/** 
- * \brief Initial function for starting RTP task in user space.
- * \metric STAV1 10 Assembler instructions that tool can't handle.
- *
- * \return OK if successful, ERROR otherwise 
- */
-STATUS rtpModule(void);
-/** 
- * \brief Routine for testing normal operation mode.
- */
-LOCAL void _normalOperationTest(uint16_t mode);
 /** 
  * \brief Function that gets time of error.
  * \metric STAV1 11 Library functions.

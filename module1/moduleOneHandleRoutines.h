@@ -39,6 +39,10 @@ LOCAL void _testModes(int routine_trigger);
  */
 LOCAL STATUS _pingRoutine(void);
 /** 
+ * \brief Routine for testing normal operation mode.
+ */
+LOCAL void _normalOperationTest(uint16_t mode);
+/** 
  * \brief This function sends routine number to module 1 which activates
  *        appropriate routine
  * \param routineNum Number of desired routine
