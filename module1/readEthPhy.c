@@ -125,7 +125,6 @@
 #include <vxworks.h>
 #include <stdio.h>
 #include <memLib.h>
-#include <netLib.h>
 #include <pmapLib.h>
 #include <vmLibCommon.h>
 #include <msgQLibCommon.h>
@@ -135,28 +134,22 @@
 #include <rtpLibcommon.h>
 #include <sys/fcntlcom.h>
 #include <stat.h> 
+#include <taskLibCommon.h>
 #include "readEthPhy.h"
 
 /************************************************************************
  * GLOBAL VARIABLES
  ***********************************************************************/
-MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
-MSG_Q_ID diagMsgQId     = MSG_Q_ID_NULL;
+
 
 /************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
-LOCAL char * ethIf_macVirtAddr = BR_NULL_PTR;
-/* Phy address register */
-LOCAL volatile uint32_t * phyGmiiAddress;
-/* Phy data register */
-LOCAL volatile uint32_t * phyGmiiData;
 
 LOCAL s_DIAG_DATA       _diag_data_struct;
 LOCAL s_DIAG_SHM_DATA   _diag_shm;
 LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr;
 
-LOCAL char _errors[ERROR_BUFF_SIZE];
 
 LOCAL uint8_t _delete_cnt = 0U;
 
@@ -172,11 +165,6 @@ LOCAL void _module1_ReadChipRegisters(void)
     uint32_t size_f;
     
     (void) time (&rawtime);
-
-    for (i = 0U; i < 4U; i++)
-    {
-        _errors[i] = (char) 0;
-    }
 
     /*
     printf ("BCR 0x%04x\n\n", mdio_read_br (0x0));
@@ -271,35 +259,6 @@ LOCAL void _module1_ReadChipRegisters(void)
     
 }
 
-void module1_InitPhy(void)
-{
-    FILE * fd;
-    
-    const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
-    _errors[0] = (char) 0;
-
-    ethIf_macVirtAddr = pmapGlobalMap (hwRegEthIfBaseaddr, (size_t) 0xFF,  /* PRQA S 0317 */
-                MMU_ATTR_SUP_RW | MMU_ATTR_CACHE_OFF | MMU_ATTR_CACHE_GUARDED); /* PRQA S 4436 */
-    
-    if ((ethIf_macVirtAddr == PMAP_FAILED) || (ethIf_macVirtAddr == BR_NULL_PTR)) /* PRQA S 0306 */
-    {
-        printf ("pmapGlobalMap returned ERROR. (ethIf)\n"); 
-        _errors[0] = (char) 1;
-    }
-    
-    phyGmiiAddress = ethIf_macVirtAddr + 0x10U; /* PRQA S 0488 */ /* PRQA S 0563 */
-    phyGmiiData = ethIf_macVirtAddr + 0x14U; /* PRQA S 0488 */ /* PRQA S 0563 */
-   
-    fd = fopen ("/mmc0:1/err/errorLog.txt", "w");
-    if (NULL_PTR != fd)  
-    { 
-        fprintf (fd, "Error log: \n"); 
-        (void) fclose (fd);
-    }
-
-    (void) _module1_CreateMsgQueues(); 
-}
-
 uint32_t mdio_read_br(uint32_t regNumber)
 {
     uint8_t cnt = 0U;
@@ -344,30 +303,6 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
     }
 }
 
-LOCAL STATUS _module1_CreateMsgQueues(void)
-{
-    int8_t ret = OK;
-    _errors[1] = (char) 0;
-
-    /* Open public message queues */
-    diagMsgQId = msgQOpen ("/diagMsgQ", MAX_MSG, sizeof (_diag_data_struct), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
-    if (MSG_Q_ID_NULL == diagMsgQId)
-    {
-        printf ("openMsgQ  diagMsgQId ERROR\n");
-        _errors[1] = (char) 1;
-        ret = ERROR;
-    }
-    
-    routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof (uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
-    if (MSG_Q_ID_NULL == routinesMsgQId)
-    {
-        printf ("openMsgQ  routinesMsgQId ERROR\n");   
-        _errors[1] = (char) 1;
-        ret = ERROR;
-    }
-    return ret;
-}
-
 void module1_ReadChipRegistersTask(void)
 {
     _sharedMemAlloc();
@@ -390,7 +325,6 @@ STATUS module1_GetRoutineNum(void)
 {
     int32_t routineNum = 0;
     int32_t length     = 0;
-    _errors[3]         = (char) 0;
     
     FOREVER
     {
@@ -399,13 +333,9 @@ STATUS module1_GetRoutineNum(void)
         if (length < 0)
         {
             printf ("getRoutineNum ERROR\n");
-            _errors[3] = (char) 1;
             return (ERROR);
         }
-        else
-        {
-            _errors[3] = (char) 0;
-        }
+
         printf ("routineNum %d\n", routineNum);
         /* Start desired routine */
         
@@ -434,7 +364,6 @@ LOCAL STATUS _sharedMemAlloc(void)
 LOCAL STATUS _module1_FillSharedMem(void)
 {
     int8_t ret = OK;
-    _errors[4] = (char) 0;
 
     if (_diag_shm_ptr != NULL_PTR)
     {
@@ -473,7 +402,6 @@ LOCAL STATUS _module1_FillSharedMem(void)
     else
     {
         printf ("fillShMem ERROR\n");
-        _errors[4] = (char) 1;
         ret = ERROR;
     }
     return ret;
@@ -532,37 +460,6 @@ STATUS rtpModule(void)
     }
     
     return (OK);
-}
-
-void writeToFile(void)
-{
-    int fd;
-    
-    /* Write _errors to file */
-    FOREVER 
-    {
-        fd = open ("/mmc0:1/myErrorsArray", O_RDWR, 0664); /* PRQA S 0339 */
-        if (ERROR == fd) 
-        {                   
-            fd = open ("/mmc0:1/myErrorsArray", O_CREAT | O_RDWR, 0664); /* PRQA S 0339 */
-            if (ERROR != fd)
-            {
-                write (fd, _errors , sizeof (_errors));
-                (void) close (fd);
-            }
-            else
-            {
-                printf ("------------------------------------Can not create file /myErrorsArray\n");
-            }
-        }
-        else
-        {
-            write (fd, _errors , sizeof (_errors));
-            (void) close (fd);
-        }
-
-        (void) taskDelay (TASK_DELAY_100MS);
-    }
 }
 
 LOCAL STATUS _pingRoutine(void)

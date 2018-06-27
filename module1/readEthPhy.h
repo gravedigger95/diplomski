@@ -126,8 +126,13 @@ typedef struct diagnosticDataShM
 extern MSG_Q_ID routinesMsgQId;
 extern MSG_Q_ID diagMsgQId;
 
+/* Phy address register */
+extern volatile uint32_t * phyGmiiAddress;
+/* Phy data register */
+extern volatile uint32_t * phyGmiiData;
+
 /************************************************************************
- * INTERNAL FUNCTION DECLARATIONS
+ * FUNCTION DECLARATIONS
  ***********************************************************************/
 /** 
  * \brief Function that reads registers and fill diag data structure
@@ -137,7 +142,7 @@ LOCAL void _module1_ReadChipRegisters(void);
 /** 
  * \brief Init function for eth phy chip interface
  */
-void module1_InitPhy(void);
+//void module1_InitPhy(void);
 /** 
  * \brief This function reads TJA1100 address register 
  * 
@@ -157,7 +162,7 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite);
  *        for calling different routines, e.g. ping...
  * \return OK if queues creating was successful, ERROR otherwise
  */
-LOCAL STATUS _module1_CreateMsgQueues(void);
+//LOCAL STATUS _module1_CreateMsgQueues(void);
 /** 
  * \brief This function gets number of routine which will be called
  * \return OK if successful, ERROR otherwise
