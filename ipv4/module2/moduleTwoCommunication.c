@@ -1,8 +1,14 @@
-/*
- * moduleTwoCommunication.c
- *
- *  Created on: Jun 27, 2018
- *      Author: bura
+/**
+ *  \file 
+ *      moduleTwoCommunication.c
+ *      
+ *  \brief 
+ *       Interface functions for reading shared memory and message queues for
+ *       reading diagnostic data from module one.
+ *   
+ *  \version
+ *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */
@@ -68,6 +74,7 @@
 #include <vxworks.h>
 #include <stdio.h>
 #include <msgQLibCommon.h>
+#include <sys/mman.h>
 #include "moduleTwoCommunication.h"
 
 /************************************************************************

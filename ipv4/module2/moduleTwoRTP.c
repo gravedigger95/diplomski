@@ -1,3 +1,15 @@
+/**
+ *  \file 
+ *      moduleTwoRTP.c
+ *      
+ *  \brief 
+ *       Functions for initializing module two RTP and starting backgrount task
+ *       state machine.
+ *   
+ *  \version
+ *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
+ */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
@@ -8,7 +20,6 @@
 #include <string.h>
 #include <stdint.h>
 #include <time.h>
-#include <sys/mman.h>
 #include "moduleTwoServer.h"
 #include "moduleTwoHandleRoutines.h"
 #include "moduleTwoFileSending.h"

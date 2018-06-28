@@ -1,14 +1,65 @@
-/*
- * moduleOneHandleRoutines.c
- *
- *  Created on: Jun 27, 2018
- *      Author: bura
+/**
+ *  \file 
+ *      moduleOneHandleRoutines.c
+ *      
+ *  \brief 
+ *       Functions for receiving routine numbers and starting test modes.
+ *   
+ *  \version
+ *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
+ */
+ /* ------------------------------------------------------------------------- */
+/*                         SUPRESSED MISRA VIOLATONS                         */
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+/* Error Message: Msg(7:3200) 'printf',... returns a value which is not being 
+ * used.MISRA C:2012 Rule-17.7
+ * 
+ * Justification : This is not considered safety critical on QM level so is 
+ * considered acceptable.
+ */
+ /* PRQA S 3200 EOF */
+ /* ------------------------------------------------------------------------- */
+ /* Error message : Msg(7:0602) [U] The identifier '<identifier_name>' is reserved for 
+ * use by the library.
+ * 
+ * Justification : Named according to the ZFAS coding guidelines at 
+ * CGL-D-ZFAS-Z-01-001.docx 
+ */
+/* PRQA S 0602 EOF */
+/* ------------------------------------------------------------------------- */
+/* Error message : Msg(7:3101) Unary '-' applied to an operand of type unsigned int 
+ * or unsigned long gives an unsigned result.MISRA C:2012 Rule-10.1;
+ * REFERENCE - ISO:C90-6.3.3.3 Unary Arithmetic Operators - Semantics
+ * 
+ * Justification : This is VxWorks macro. It is checked and considered safe.
+ */
+/* ------------------------------------------------------------------------- */
+/* Error message : Msg(7:3102) Unary '-' applied to an operand whose underlying
+ * type is unsigned.MISRA C:2012 Rule-10.1; REFERENCE - 
+ * ISO:C90-6.3.3.3 Unary Arithmetic Operators - Semantics
+ * 
+ * Justification : This is VxWorks macro. It is checked and considered safe.
+ */
+/* ------------------------------------------------------------------------- */
+/* Error Message: Msg(8:3335) No function declaration. Implicit declaration inserted: 
+ * 'extern int ping6();'.MISRA C:2012 Rule-17.3; REFERENCE - ISO:C90-6.3.2.2 Function Calls - Semantics
+ * 
+ * Justification : This is Wind River's function and is not introduced through .h file
+ * so it is used as it is.
  */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
 #include <vxworks.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <msgQLibCommon.h>
+#include <taskLibCommon.h>
+#include "moduleOneReadEthPhy.h"
 #include "moduleOneHandleRoutines.h"
 
 /************************************************************************

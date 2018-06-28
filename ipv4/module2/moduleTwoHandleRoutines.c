@@ -1,8 +1,13 @@
-/*
- * moduleTwoHandleRoutines.c
- *
- *  Created on: Jun 27, 2018
- *      Author: bura
+/**
+ *  \file 
+ *      moduleTwoHandleRoutines.c
+ *      
+ *  \brief 
+ *       State machine functions that handle user commands.
+ *   
+ *  \version
+ *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */

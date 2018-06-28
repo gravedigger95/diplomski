@@ -82,8 +82,6 @@ module2/Debug/Objects/module2/moduleTwoRTP.o: \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/clockLib.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timespec.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/timerLib.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/mman.h \
-  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_phys_addr_t.h \
   C:/WindRiver/workspace/module2/moduleTwoServer.h \
   C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.h \
   C:/WindRiver/workspace/module2/moduleTwoFileSending.h \
@@ -253,10 +251,6 @@ C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj
 C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timespec.h:
 
 C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/timerLib.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/mman.h:
-
-C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_phys_addr_t.h:
 
 C:/WindRiver/workspace/module2/moduleTwoServer.h:
 

@@ -1,8 +1,13 @@
-/*
- * moduleTwoFileSending.c
- *
- *  Created on: Jun 27, 2018
- *      Author: bura
+/**
+ *  \file 
+ *      moduleTwoFileSending.c
+ *      
+ *  \brief 
+ *       Functions that handle file sending to PC side.
+ *   
+ *  \version
+ *       [19-Apr-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */

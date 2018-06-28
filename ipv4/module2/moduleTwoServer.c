@@ -1,8 +1,14 @@
-/*
- * moduleTwoServer.c
- *
- *  Created on: Jun 27, 2018
- *      Author: bura
+/**
+ *  \file 
+ *      moduleTwoServer.c
+ *      
+ *  \brief 
+ *       Functions for starting TCP/IP server and accepting communication
+ *       with PC side via socket.
+ *   
+ *  \version
+ *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */

@@ -1,12 +1,12 @@
 /**
  *  \file 
- *      readEthPhy.c
+ *      moduleOneReadEthPhy.c
  *      
  *  \brief 
  *       Functions to read and write in TJA1100 registers.
  *   
  *  \version
- *       [19-Apr-2018] [Stefan Masalusic] Initial creation
+ *       [27-Jun-2018] [Stefan Masalusic] Initial creation
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -31,19 +31,6 @@
  */
 /* PRQA S 0602 EOF */
 /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(5:0317) [I] Implicit conversion from a pointer to void to
- * a pointer to object type.MISRA C:2012 Rule-11.5; REFERENCE - ISO:C90-6.3.4 
- * Cast Operators - Semantics
- * 
- * Justification : This is checked and considered safe.
- */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:4436) A constant expression of 'essentially signed' type 
- * (signed int) is being converted to unsigned type, 'unsigned short' on assignment.MISRA C:2012 Rule-10.3
- * 
- * Justification : This is checked and considered safe.
- */
-/* ------------------------------------------------------------------------- */
 /* Error Message: Msg(7:4542) A non-negative constant expression of 'essentially 
  * signed' type (signed char) is being used as the left-hand operand of this bitwise operator (&).MISRA C:2012 Rule-10.1
  * 
@@ -59,34 +46,6 @@
  * implementation or it is used for the error checking and is considered OK.
  */
 /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:0563) [C] Right operand of assignment is not of compatible 
- * pointer type.MISRA C:2012 Rule-1.1; REFERENCE - ISO:C90-6.3.16.1 Simple Assignment - Constraints
- * 
- * Justification : This is checked and considered OK on safety aspect. It 
- * is confirmed on long period usage and multiple testing levels.
- */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(5:0488) Performing pointer arithmetic.MISRA C:2012 Rule-18.4; 
- * REFERENCE - ISO:C90-6.3.6 Additive Operators - Constraints
- * 
- * Justification : This is used for accessing the registers. The offset is added to 
- * mapped address in  virtual memory. It is checked and considered safe.
- */
-/* ------------------------------------------------------------------------- */
-/* Error message : Msg(7:3101) Unary '-' applied to an operand of type unsigned int 
- * or unsigned long gives an unsigned result.MISRA C:2012 Rule-10.1;
- * REFERENCE - ISO:C90-6.3.3.3 Unary Arithmetic Operators - Semantics
- * 
- * Justification : This is VxWorks macro. It is checked and considered safe.
- */
-/* ------------------------------------------------------------------------- */
-/* Error message : Msg(7:3102) Unary '-' applied to an operand whose underlying
- * type is unsigned.MISRA C:2012 Rule-10.1; REFERENCE - 
- * ISO:C90-6.3.3.3 Unary Arithmetic Operators - Semantics
- * 
- * Justification : This is VxWorks macro. It is checked and considered safe.
- */
-/* ------------------------------------------------------------------------- */
 /* Error Message: Msg(7:0310) Casting to different object pointer type.MISRA C:2012 
  * Rule-11.3; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantic
  * 
@@ -100,26 +59,6 @@
  * Justification : This is checked and considered safe.
  */
 /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:0339) Octal constant used.MISRA C:2012 Rule-7.1
- * 
- * Justification : The code that produces this message is part of VxWorks
- *                 kernel code.  
- */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(8:3335) No function declaration. Implicit declaration inserted: 
- * 'extern int ping6();'.MISRA C:2012 Rule-17.3; REFERENCE - ISO:C90-6.3.2.2 Function Calls - Semantics
- * 
- * Justification : This is Wind River's function and is not introduced through .h file
- * so it is used as it is.
- */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:1861) The operands of this bitwise operator are of 
- * different 'essential signedness' but will generate a result of type 
- * 'signed int'.MISRA C:2012 Rule-10.41
- * 
- * Justification : This is used as bit mask.
- */
-/* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
 #include <vxworks.h>
@@ -128,19 +67,21 @@
 #include <pmapLib.h>
 #include <vmLibCommon.h>
 #include <msgQLibCommon.h>
+#include <taskLibCommon.h>
 #include <time.h>
+#include <string.h>
 #include <sys/mman.h>
+#include <unistd.h>
 #include <net/utils/ifconfig.h>
 #include <sys/fcntlcom.h>
 #include <stat.h> 
-#include "readEthPhy.h"
+#include "moduleOneReadEthPhy.h"
 
 /************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
 
 LOCAL s_DIAG_DATA       _diag_data_struct;
-LOCAL s_DIAG_SHM_DATA   _diag_shm;
 LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr;
 LOCAL uint8_t _delete_cnt = 0U;
 
