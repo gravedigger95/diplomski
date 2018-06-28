@@ -181,34 +181,34 @@ LOCAL STATUS _module1_CreateMsgQueues(void)
 void module1_StartTasks(void)
 {
     if (taskSpawn("readDiag", 202, 0, 2000, (FUNCPTR) module1_ReadChipRegistersTask, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
-    		0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
+            0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
             printf("taskSpawn of readDiagTask failed\n"); /* PRQA S 3200 */
             (void) msgQClose(diagMsgQId);
             (void) msgQUnlink("/diagMsgQ");
     }
-	
+    
     if (taskSpawn("getRoutine", 204, 0, 100, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
-    		0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
+            0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         printf("taskSpawn of getRoutineNum failed\n"); /* PRQA S 3200 */
         (void) msgQClose(routinesMsgQId);
         (void) msgQUnlink("/routinesMsgQ");
     }
-	
+    
 }    
 
 void module1_ConfigureEthInterface(void)
 {
-	ifconfig("hmi0 inet6 add fd53:7cb8:383:3::4f prefixlen 64"); /* PRQA S 3200 */ /* PRQA S 0752 */
-	ifconfig("hmi0 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
-	Sysctl("net.inet6.forwarding=1"); /* PRQA S 3335 */
+    ifconfig("hmi0 inet6 add fd53:7cb8:383:3::4f prefixlen 64"); /* PRQA S 3200 */ /* PRQA S 0752 */
+    ifconfig("hmi0 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
+    Sysctl("net.inet6.forwarding=1"); /* PRQA S 3335 */
 }
 
 void module1_ConfigureVLAN(void)
 {
-	ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
-	ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
+    ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
+    ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
 }
 
 
