@@ -20,17 +20,22 @@
                           (((x) & (uint16_t) 0xff00) >> (uint16_t) 8))
 
 /************************************************************************
+ * EXTERNAL VARIABLES
+ ***********************************************************************/
+extern int _newSocket, _s;
+
+/************************************************************************
  * FUNCTION DECLARATIONS
  ***********************************************************************/
 /** 
  * \brief This function listen, accept and test communication with PC.
  */
-void _establishCommunication(void);
+LOCAL void _establishCommunication(void);
 /** 
  * \brief This function is used for initializing sockets and testing connection
  *        for communication with PC.
  */
-void _initCommunication(void);
+void initCommunication(void);
 
 
 #endif /* MODULETWOSERVER_H_ */

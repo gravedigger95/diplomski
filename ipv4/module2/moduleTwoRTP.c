@@ -40,37 +40,13 @@
  */
 /* PRQA S 0602 EOF */
 /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:3200) 'printf',... returns a value which is not being 
- * used.MISRA C:2012 Rule-17.7
- * 
- * Justification : This is not considered safety critical on QM level so is 
- * considered acceptable.
- */
-/* PRQA S 3200 EOF */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(5:0306) [I] Cast between a pointer to object and an integral 
- * type.MISRA C:2012 Rule-11.4, Rule-11.6; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantics
- * 
- * Justification : The code that produces this message is part of VxWorks
- * implementation or it is used for the error checking and is considered OK.
- */
- /* PRQA S 0306 EOF */
-  /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(5:0316) [I] Cast from a pointer to void to a pointer to 
- * object type.MISRA C:2012 Rule-11.5; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantics
- * 
- * Justification : This is checked and considered safe.
- */
- /* PRQA S 0316 EOF */ 
-  /* ------------------------------------------------------------------------- */
 /* Error Message: Msg(7:0310) Casting to different object pointer type.MISRA C:2012 
  * Rule-11.3; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantic
  * 
  * Justification : This is checked and considered safe. It is confirmed by multiple
  * testing cases and long period project usage. 
  */
- /* PRQA S 0310 EOF */
- /* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
 /* Error message : Msg(7:3101) Unary '-' applied to an operand of type unsigned int 
  * or unsigned long gives an unsigned result.MISRA C:2012 Rule-10.1;
  * REFERENCE - ISO:C90-6.3.3.3 Unary Arithmetic Operators - Semantics
@@ -92,16 +68,9 @@
  * Justification : This implementation increase code visibility.
  */
 /************************************************************************
- * GLOBAL VARIABLES
+ * INTERNAL VARIABLES
  ***********************************************************************/
-MSG_Q_ID routinesMsgQId    = MSG_Q_ID_NULL;
-MSG_Q_ID messages          = MSG_Q_ID_NULL;
-
-/************************************************************************
- * EXTERNAL VARIABLES
- ***********************************************************************/
-extern uint8_t _changeState; 
-extern uint8_t _msg;
+LOCAL MSG_Q_ID messages = MSG_Q_ID_NULL;
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
@@ -121,75 +90,68 @@ int main (void) {
 
 LOCAL void _module2_init(void)
 {
-    if (_sharedMemAlloc_module2() == ERROR)
+    if (sharedMemAlloc_module2() == ERROR)
     {
-        printf ("Error allocating module 2\n");
+        (void) printf ("Error allocating module 2\n");
     }  
     
     messages = msgQCreate (BUFLEN, BUFLEN, MSG_Q_FIFO);
     if (MSG_Q_ID_NULL == messages)
     {
-        printf ("MsgQCreate failed!\n");
+    	(void) printf ("MsgQCreate failed!\n");
     }
     _changeState = 1;
     
-    if (msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL) == ERROR)
+    if (msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL) == ERROR) /* PRQA S 0310 */
     {
-        printf ("msgQSend RTP main ERROR\n");
+    	(void) printf ("msgQSend RTP main ERROR\n");
     }
         
-    (void) _initCommunication();
+    (void) initCommunication();
         
-    if (taskSpawn ("bgTask", 115, VX_FP_TASK, 2000, (FUNCPTR) _backgroundTask, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */
+    if (taskSpawn ("bgTask", 115, VX_FP_TASK, 2000, (FUNCPTR) _backgroundTask, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */ /* PRQA S 0310 */
                     0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
-        printf("taskSpawn of backgroundTask failed\n");
+    	(void) printf("taskSpawn of backgroundTask failed\n");
     }
 }
 
 LOCAL void _backgroundTask(void)
 {
-    printf ("USAO U BG TASK\n\n");
     FOREVER
     {
-        msgQReceive (messages, (char *) &_msg, sizeof (_msg), WAIT_FOREVER); /* PRQA S 3101 */ /* PRQA S 3102 */
+        (void) msgQReceive (messages, (char *) &_msg, sizeof (_msg), WAIT_FOREVER); /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */ 
         if (STATEMACHINE_EXIT_BG_TASK == _msg)
         {
-            printf ("Terminating task...\n");
-            _processMessage();
-            msgQClose (messages);
+        	(void) printf ("Terminating task...\n");
+            processMessage();
+            (void) msgQClose (messages);
             taskExit(1);
         }   
-        _processMessage();
+        processMessage();
         
-        msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL);
+        (void) msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */
     }
 } 
 
-STATUS _module2_SetRoutineNum(int routineNum)
+STATUS module2_SetRoutineNum(int routineNum)
 {
-    int8_t ret = OK;
+    int8_t ret              = OK;
+    MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
 
     /* Open _msg queue */
     routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof(uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR); 
     if (MSG_Q_ID_NULL == routinesMsgQId)
     {
-        printf ("setRoutineNum open ERROR\n");
+    	(void) printf ("setRoutineNum open ERROR\n");
         ret = ERROR;
     }
     
     /* Send routine number to module 1 */ 
-    printf ("Set rooutine num: %d\n", routineNum);
-    if (msgQSend (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), NO_WAIT, MSG_PRI_NORMAL) == ERROR)
+    if (msgQSend (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), NO_WAIT, MSG_PRI_NORMAL) == ERROR) /* PRQA S 0310 */
     {
-        printf ("setRoutineNum send ERROR\n");
+    	(void) printf ("setRoutineNum send ERROR\n");
         ret = ERROR;
     }
     return ret;
 }
-
-
-
-
-
-

@@ -36,14 +36,14 @@ LOCAL void _processFileName(char fs_name[]);
 LOCAL void _processFileSize(void);
 /** 
  * \brief This function sends file data through socket.
- * \metric STCAL 9 Required for correct implementation of file sending.
+ * \metric STCAL 10 Required for correct implementation of file sending.
  */
 LOCAL void _processFileSending(void);
 /** 
  * \brief This function sends number of files that are going to be sent through socket
  *        and calls _sendFile(). 
  */
-void _uploadFile(void);
+void uploadFile(void);
 /** 
  * \brief This function sends file to PC.
  */

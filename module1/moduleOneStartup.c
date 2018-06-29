@@ -15,14 +15,6 @@
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:3200) 'printf',... returns a value which is not being 
- * used.MISRA C:2012 Rule-17.7
- * 
- * Justification : This is not considered safety critical on QM level so is 
- * considered acceptable.
- */
- /* PRQA S 3200 EOF */
  /* ------------------------------------------------------------------------- */
  /* Error message : Msg(7:0602) [U] The identifier '<identifier_name>' is reserved for 
  * use by the library.
@@ -38,7 +30,7 @@
  * Justification : This is checked and considered safe. This implementation increases
  * code simplicity and visibility.
  */
- /* PRQA S 4542 EOF */
+/* ------------------------------------------------------------------------- */
 /* Error Message: Msg(5:0317) [I] Implicit conversion from a pointer to void to
  * a pointer to object type.MISRA C:2012 Rule-11.5; REFERENCE - ISO:C90-6.3.4 
  * Cast Operators - Semantics
@@ -80,6 +72,13 @@
  * so it is used as it is.
  */
 /* ------------------------------------------------------------------------- */
+/* Error Message: Msg(7:0752) String literal passed as argument to function 
+ * whose parameter is not a 'pointer to const'.MISRA C:2012 Rule-7.4; 
+ * REFERENCE - ISO:C90-6.1.4 String Literals - Semantics
+ * 
+ * Justification : This implementation increase code visibility.
+ */
+/* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
 #include <vxworks.h>
@@ -108,24 +107,23 @@ volatile uint32_t * phyGmiiData;
 /************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
-LOCAL char * ethIf_macVirtAddr = BR_NULL_PTR;
-LOCAL s_DIAG_DATA       _diag_data_struct;
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
 void module1_InitPhy(void)
 {
+	char * ethIf_macVirtAddr = BR_NULL_PTR;
     FILE * fd;
     
     const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
 
     ethIf_macVirtAddr = pmapGlobalMap (hwRegEthIfBaseaddr, (size_t) 0xFF,  /* PRQA S 0317 */
-                MMU_ATTR_SUP_RW | MMU_ATTR_CACHE_OFF | MMU_ATTR_CACHE_GUARDED); /* PRQA S 4436 */
+                MMU_ATTR_SUP_RW | MMU_ATTR_CACHE_OFF | MMU_ATTR_CACHE_GUARDED); /* PRQA S 4436 */ /* PRQA S 4542 */
     
     if ((ethIf_macVirtAddr == PMAP_FAILED) || (ethIf_macVirtAddr == BR_NULL_PTR)) /* PRQA S 0306 */
     {
-        printf ("pmapGlobalMap returned ERROR. (ethIf)\n"); 
+        (void) printf ("pmapGlobalMap returned ERROR. (ethIf)\n"); 
     }
     
     phyGmiiAddress = ethIf_macVirtAddr + 0x10U; /* PRQA S 0488 */ /* PRQA S 0563 */
@@ -134,7 +132,7 @@ void module1_InitPhy(void)
     fd = fopen ("/mmc0:1/err/errorLog.txt", "w");
     if (NULL_PTR != fd)  
     { 
-        fprintf (fd, "Error log: \n"); 
+        (void) fprintf (fd, "Error log: \n"); 
         (void) fclose (fd);
     }
 
@@ -151,7 +149,7 @@ STATUS rtpModule(void)
     
     if (RTP_ID_ERROR == id) /* PRQA S 0306 */
     {
-        printf ("ERROR to start %s\n", argv[0]);
+        (void) printf ("ERROR to start %s\n", argv[0]);
     }
     
     return (OK);
@@ -160,19 +158,20 @@ STATUS rtpModule(void)
 LOCAL STATUS _module1_CreateMsgQueues(void)
 {
     int8_t ret = OK;
+    s_DIAG_DATA diag_data_struct;
 
     /* Open public message queues */
-    diagMsgQId = msgQOpen ("/diagMsgQ", MAX_MSG, sizeof (_diag_data_struct), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
+    diagMsgQId = msgQOpen ("/diagMsgQ", MAX_MSG, sizeof (diag_data_struct), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
     if (MSG_Q_ID_NULL == diagMsgQId)
     {
-        printf ("openMsgQ  diagMsgQId ERROR\n");
+        (void) printf ("openMsgQ  diagMsgQId ERROR\n");
         ret = ERROR;
     }
     
     routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof (uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
     if (MSG_Q_ID_NULL == routinesMsgQId)
     {
-        printf ("openMsgQ  routinesMsgQId ERROR\n");   
+        (void) printf ("openMsgQ  routinesMsgQId ERROR\n");   
         ret = ERROR;
     }
     return ret;
@@ -183,15 +182,15 @@ void module1_StartTasks(void)
     if (taskSpawn("readDiag", 202, 0, 2000, (FUNCPTR) module1_ReadChipRegistersTask, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
-            printf("taskSpawn of readDiagTask failed\n"); /* PRQA S 3200 */
-            (void) msgQClose(diagMsgQId);
-            (void) msgQUnlink("/diagMsgQ");
+        (void) printf("taskSpawn of readDiagTask failed\n");
+        (void) msgQClose(diagMsgQId);
+        (void) msgQUnlink("/diagMsgQ");
     }
     
     if (taskSpawn("getRoutine", 204, 0, 100, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
-        printf("taskSpawn of getRoutineNum failed\n"); /* PRQA S 3200 */
+        (void) printf("taskSpawn of getRoutineNum failed\n");
         (void) msgQClose(routinesMsgQId);
         (void) msgQUnlink("/routinesMsgQ");
     }
@@ -200,15 +199,15 @@ void module1_StartTasks(void)
 
 void module1_ConfigureEthInterface(void)
 {
-    ifconfig("hmi0 inet6 add fd53:7cb8:383:3::4f prefixlen 64"); /* PRQA S 3200 */ /* PRQA S 0752 */
-    ifconfig("hmi0 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
-    Sysctl("net.inet6.forwarding=1"); /* PRQA S 3335 */
+    (void) ifconfig("hmi0 inet6 add fd53:7cb8:383:3::4f prefixlen 64"); /* PRQA S 0752 */
+    (void) ifconfig("hmi0 up"); /* PRQA S 0752 */
+    (void) Sysctl("net.inet6.forwarding=1"); /* PRQA S 3335 */
 }
 
 void module1_ConfigureVLAN(void)
 {
-    ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
-    ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 3200 */ /* PRQA S 0752 */
+	(void) ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 0752 */
+	(void) ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 0752 */
 }
 
 

@@ -15,14 +15,6 @@
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
  /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:3200) 'printf',... returns a value which is not being 
- * used.MISRA C:2012 Rule-17.7
- * 
- * Justification : This is not considered safety critical on QM level so is 
- * considered acceptable.
- */
- /* PRQA S 3200 EOF */
- /* ------------------------------------------------------------------------- */
  /* Error message : Msg(7:0602) [U] The identifier '<identifier_name>' is reserved for 
  * use by the library.
  * 
@@ -37,7 +29,6 @@
  * Justification : This is checked and considered safe. This implementation increases
  * code simplicity and visibility.
  */
- /* PRQA S 4542 EOF */
 /* ------------------------------------------------------------------------- */
 /* Error Message: Msg(5:0306) [I] Cast between a pointer to object and an integral 
  * type.MISRA C:2012 Rule-11.4, Rule-11.6; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantics
@@ -98,7 +89,7 @@ LOCAL void _module1_ReadChipRegisters(void)
     
     (void) time (&rawtime);
 
-    /*
+   /* 
     printf ("BCR 0x%04x\n\n", mdio_read_br (0x0));
     printf ("BSR 0x%04x\n\n", mdio_read_br (0x1));
     printf ("ESR 0x%04x\n\n", mdio_read_br (0xF));
@@ -186,7 +177,7 @@ LOCAL void _module1_ReadChipRegisters(void)
 
     if (_delete_cnt == (uint8_t) 255U)
     {
-        remove ("/mmc0:1/err/errorLog.txt");
+        (void) remove ("/mmc0:1/err/errorLog.txt");
     }
     
 }
@@ -237,7 +228,7 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
 
 void module1_ReadChipRegistersTask(void)
 {
-    _sharedMemAlloc();
+    (void) _sharedMemAlloc();
     
     FOREVER
     {
@@ -261,7 +252,7 @@ LOCAL STATUS _sharedMemAlloc(void)
 
     if (NULL_PTR == _diag_shm_ptr)
     {
-        printf("module 1 shared memory alloc error.\n");
+        (void) printf("module 1 shared memory alloc error.\n");
         err = ERROR;
     }
     
@@ -307,7 +298,7 @@ LOCAL STATUS _module1_FillSharedMem(void)
     }
     else
     {
-        printf ("fillShMem ERROR\n");
+        (void) printf ("fillShMem ERROR\n");
         ret = ERROR;
     }
     return ret;
@@ -320,7 +311,7 @@ LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size)
     int8_t err = OK;
 
     /* create a new SHM object if it doesn't exist*/
-    fd = shm_open (fname, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+    fd = shm_open (fname, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR); /* PRQA S 4542 */
     if (fd == -1) 
     {
         perror ("shm_open");
@@ -330,14 +321,14 @@ LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size)
     /* set object size */
     if ((ftruncate (fd, (off_t) size) == -1) || (ERROR == err))
     {
-        fprintf (stderr, "BR ERROR truncating shm:'%s' sizeof()=%ld\n", fname, (unsigned long) size);
+    	(void) fprintf (stderr, "BR ERROR truncating shm:'%s' sizeof()=%ld\n", fname, (unsigned long) size);
         perror ("ftruncate");
         err = ERROR;  
         retAddr = NULL_PTR;
     }
     /* Map shared memory object in the address space of the process */
     retAddr = mmap(NULL_PTR, size,
-            PROT_READ | PROT_WRITE, /* PRQA S 0306 */
+            PROT_READ | PROT_WRITE, /* PRQA S 0306 */ /* PRQA S 4542 */
             MAP_SHARED, fd, 0);
     if ((MAP_FAILED == retAddr) || (ERROR == err)) /* PRQA S 0306 */
     { 
@@ -359,7 +350,7 @@ LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos)
 
     if (strftime (_diag_data_struct.errors_array[pos].timestamp, 26, "%Y-%m-%d %H:%M:%S", time_info) == (size_t) 0)
     {
-        printf ("sprintf error\n");
+    	(void) printf ("sprintf error\n");
     }   
     fd = fopen ("/mmc0:1/err/errorLog.txt", "a");
 

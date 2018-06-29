@@ -10,12 +10,12 @@
  *       [27-Jun-2018] [Stefan Masalusic] Initial creation
  * ------------------------------------------------------------------------------
  */
- /* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
- /* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
 /* Error message : Msg(7:0602) [U] The identifier '<identifier_name>' is reserved for 
  * use by the library.
  * 
@@ -24,37 +24,13 @@
  */
 /* PRQA S 0602 EOF */
 /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:3200) 'printf',... returns a value which is not being 
- * used.MISRA C:2012 Rule-17.7
- * 
- * Justification : This is not considered safety critical on QM level so is 
- * considered acceptable.
- */
-/* PRQA S 3200 EOF */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(5:0306) [I] Cast between a pointer to object and an integral 
- * type.MISRA C:2012 Rule-11.4, Rule-11.6; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantics
- * 
- * Justification : The code that produces this message is part of VxWorks
- * implementation or it is used for the error checking and is considered OK.
- */
- /* PRQA S 0306 EOF */
-  /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(5:0316) [I] Cast from a pointer to void to a pointer to 
- * object type.MISRA C:2012 Rule-11.5; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantics
- * 
- * Justification : This is checked and considered safe.
- */
- /* PRQA S 0316 EOF */ 
-  /* ------------------------------------------------------------------------- */
 /* Error Message: Msg(7:0310) Casting to different object pointer type.MISRA C:2012 
  * Rule-11.3; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantic
  * 
  * Justification : This is checked and considered safe. It is confirmed by multiple
  * testing cases and long period project usage. 
  */
- /* PRQA S 0310 EOF */
- /* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
 /* Error Message: Msg(7:4397) An expression which is the result of a ~ or << 
  * operation has not been cast to its essential type.MISRA C:2012 Rule-10.7
  * 
@@ -66,6 +42,7 @@
 #include <vxworks.h>
 #include <stdio.h>
 #include <socket.h>
+#include <sockLib.h>
 #include <inetLib.h>
 #include <errno.h>
 #include <string.h>
@@ -74,23 +51,12 @@
 /************************************************************************
  * GLOBAL VARIABLES
  ***********************************************************************/
-struct sockaddr_in _server;
-struct sockaddr_in _client;
-int _s, _newSocket, _c, _recvSize;
-
-/************************************************************************
- * INTERNAL VARIABLES
- ***********************************************************************/
-LOCAL const char _message[]      = "Start";
-LOCAL const char _respondOK[]    = "Let's communicate!";
-LOCAL const char _respondNotOK[] = "Communication breakdown...";
-
-LOCAL char _buffer[BUFLEN];
+int _s, _newSocket;
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
-void _initCommunication(void)
+void initCommunication(void)
 {
     /*
         struct addrinfo hints;
@@ -120,73 +86,82 @@ void _initCommunication(void)
         setsockopt(_s, SOL_SOCKET, SO_SNDBUF, (char *) &size, sizeof(size));
         setsockopt(_s, SOL_SOCKET, sO_RCVBUF, (char *) &size, sizeof(size));
     */    
+    struct sockaddr_in server;
     
     _s = socket (AF_INET, SOCK_STREAM, 0);
     if (SOCKET_ERROR == _s)
     {
-        printf ("Could not create socket!\n");
+        (void) printf ("Could not create socket!\n");
     }
-    printf ("\n\nSocket created.\n");
+    (void) printf ("\n\nSocket created.\n");
     
-    memset ((char *) &_server, 0, sizeof (_server));
-    _server.sin_family = AF_INET;
-    _server.sin_addr.s_addr = INADDR_ANY;
-    _server.sin_port = htons_br ((uint16_t) SWU_BR_SERVERPORT); /* PRQA S 4397 */
-    //inet_pton(AF_INET6, "::0", &_server.sin6_addr);
+    (void) memset ((char *) &server, 0, sizeof (server)); /* PRQA S 0310 */
+    server.sin_family = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
+    server.sin_port = htons_br ((uint16_t) SWU_BR_SERVERPORT); /* PRQA S 4397 */
+    //inet_pton(AF_INET6, "::0", &server.sin6_addr);
     
-    if (bind (_s, (struct sockaddr *) &_server , (int32_t) sizeof (_server)) == SOCKET_ERROR)
+    if (bind (_s, (struct sockaddr *) &server , (int32_t) sizeof (server)) == SOCKET_ERROR) /* PRQA S 0310 */
     {
-        printf ("Bind failed: %s\n", strerror (errno));
+        (void) printf ("Bind failed: %s\n", strerror (errno));
     }
              
-    printf ("Bind done!");
+    (void) printf ("Bind done!");
             
-    printf ("Listetning...\n");
+    (void) printf ("Listetning...\n");
             
    _establishCommunication();
 }
 
-void _establishCommunication(void)
+LOCAL void _establishCommunication(void)
 {
-    listen (_s, BACKLOG);
+    const char message[]      = "Start";
+    const char respondOK[]    = "Let's communicate!";
+    const char respondNotOK[] = "Communication breakdown...";
+    char buffer[BUFLEN];
+    struct sockaddr_in client;
+    int recvSize;
+    int c;
+
+    (void) listen (_s, BACKLOG);
     
-    printf ("Waiting for incoming connections...\n\n\n\n");
+    (void) printf ("Waiting for incoming connections...\n\n\n\n");
     
-    _c = (int32_t) sizeof (struct sockaddr_in); 
+    c = (int32_t) sizeof (struct sockaddr_in); 
     
-    _newSocket = accept (_s, (struct sockaddr *) &_client, &_c);
+    _newSocket = accept (_s, (struct sockaddr *) &client, &c); /* PRQA S 0310 */
     if (SOCKET_ERROR == _newSocket)
     {
-        printf ("Accept failed with error!\n");
+        (void) printf ("Accept failed with error!\n");
     }
-    printf ("Connection accepted!");
+    (void) printf ("Connection accepted!");
     
     /* Receive initial message from client */
-    _recvSize = recv (_newSocket, _buffer, BUFLEN, 0);
-    if (SOCKET_ERROR == _recvSize)
+    recvSize = recv (_newSocket, buffer, BUFLEN, 0);
+    if (SOCKET_ERROR == recvSize)
     {
-        printf ("Recv from _client failed!");
+        (void) printf ("Recv from client failed!");
     }
-    printf ("Reply received --------->");
+    (void) printf ("Reply received --------->");
     
-    _buffer[_recvSize] = '\0';
-    printf (_buffer);
-    printf ("\n");
+    buffer[recvSize] = '\0';
+    (void) printf (buffer);
+    (void) printf ("\n");
     
     /* Send initial response to client */
-    if (strcmp (_buffer, _message) == 0)
+    if (strcmp (buffer, message) == 0)
     {
-        if (send (_newSocket, _respondOK, strlen (_respondOK), 0) == SOCKET_ERROR)
+        if (send (_newSocket, respondOK, strlen (respondOK), 0) == SOCKET_ERROR)
         {
-            printf ("First send() failed\n");
+            (void) printf ("First send() failed\n");
         }
-        printf ("Everything is fine, let's chat!\n\n");
+        (void) printf ("Everything is fine, let's chat!\n\n");
     }
     else
     {
-        if (send (_newSocket, _respondNotOK, strlen (_respondOK), 0) == SOCKET_ERROR)
+        if (send (_newSocket, respondNotOK, strlen (respondOK), 0) == SOCKET_ERROR)
         {
-            printf ("Second send() failed\n");
+            (void) printf ("Second send() failed\n");
         }
     }
 }

@@ -72,6 +72,9 @@ module2/Debug/Objects/module2/moduleTwoCommunication.o: \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLib.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLibCommon.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objSysCall.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/unistd.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/unistd.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_swab.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/mman.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_phys_addr_t.h \
   C:/WindRiver/workspace/module2/moduleTwoCommunication.h
@@ -219,6 +222,12 @@ C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj
 C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objLibCommon.h:
 
 C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/objSysCall.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/unistd.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/unistd.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_swab.h:
 
 C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/mman.h:
 

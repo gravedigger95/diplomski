@@ -8,7 +8,6 @@
 #ifndef MODULEONESTARTUP_H_
 #define MODULEONESTARTUP_H_
 
-
 /************************************************************************
  * FUNCTION DECLARATIONS
  ***********************************************************************/
@@ -33,6 +32,7 @@ STATUS rtpModule(void);
 /** 
  * \brief Functions for starting module 1 tasks for reading ETH PHY chip
  *        registers and retrieving test mode numbers.
+ * \metric STAV1 13 Assembler instructions that tool can't handle.
  */
 void module1_StartTasks(void);
 /** 

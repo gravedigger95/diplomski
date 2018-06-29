@@ -14,14 +14,6 @@
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------- */
-/* Error Message: Msg(7:3200) 'printf',... returns a value which is not being 
- * used.MISRA C:2012 Rule-17.7
- * 
- * Justification : This is not considered safety critical on QM level so is 
- * considered acceptable.
- */
- /* PRQA S 3200 EOF */
  /* ------------------------------------------------------------------------- */
  /* Error message : Msg(7:0602) [U] The identifier '<identifier_name>' is reserved for 
  * use by the library.
@@ -45,11 +37,11 @@
  * Justification : This is VxWorks macro. It is checked and considered safe.
  */
 /* ------------------------------------------------------------------------- */
-/* Error Message: Msg(8:3335) No function declaration. Implicit declaration inserted: 
- * 'extern int ping6();'.MISRA C:2012 Rule-17.3; REFERENCE - ISO:C90-6.3.2.2 Function Calls - Semantics
+/* Error Message: Msg(7:0752) String literal passed as argument to function 
+ * whose parameter is not a 'pointer to const'.MISRA C:2012 Rule-7.4; 
+ * REFERENCE - ISO:C90-6.1.4 String Literals - Semantics
  * 
- * Justification : This is Wind River's function and is not introduced through .h file
- * so it is used as it is.
+ * Justification : This implementation increase code visibility.
  */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
@@ -57,6 +49,7 @@
 #include <vxworks.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <ping6Lib.h>
 #include <msgQLibCommon.h>
 #include <taskLibCommon.h>
 #include "moduleOneReadEthPhy.h"
@@ -76,11 +69,11 @@ STATUS module1_GetRoutineNum(void)
         length = msgQReceive (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), WAIT_FOREVER); /* PRQA S 0310 */ /* PRQA S 3101 */ /* PRQA S 3102 */
         if (length < 0)
         {
-            printf ("getRoutineNum ERROR\n");
+            (void) printf ("getRoutineNum ERROR\n");
             return (ERROR);
         }
 
-        printf ("routineNum %d\n", routineNum);
+        (void) printf ("routineNum %d\n", routineNum);
         /* Start desired routine */
         
         _testModes (routineNum);
@@ -93,14 +86,14 @@ LOCAL STATUS _pingRoutine(void)
 {
     int8_t ret = 0;
     
-    if (ERROR == ping6 (PC_IPV6, NUM_OF_PACKETS)) /* PRQA S 3335 */
+    if (ERROR == ping6 (PC_IPV6, NUM_OF_PACKETS)) /* PRQA S 0752 */
     {
-        printf ("Ping6 ERROR\n");
+    	(void) printf ("Ping6 ERROR\n");
         ret = ERROR;
     }       
     else
     {
-        printf ("Ping6 success\n");
+    	(void) printf ("Ping6 success\n");
         ret = OK;
     }
 
@@ -116,7 +109,7 @@ LOCAL void _normalOperationTest(uint16_t mode)
     mode |= (uint16_t) 0x4000U;    
     mdio_write_br (CONFIGURATION_REGISTER_1, mode);
     
-    printf ("Normal mode ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
+    (void) printf ("Normal mode ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
 }
 
 LOCAL void _testModes(int routine_trigger)
@@ -127,7 +120,7 @@ LOCAL void _testModes(int routine_trigger)
     test_case = ((uint32_t) routine_trigger & (uint32_t) 0x00FFFFFF);
     
     mode_reg = (uint16_t) mdio_read_br (EXTENDED_CONTROL_REGISTER);
-    printf ("ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
+    (void) printf ("ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
     mode_reg |= (uint16_t) ((uint16_t) 1 << (uint16_t) 2);
     mdio_write_br (EXTENDED_CONTROL_REGISTER, mode_reg);
     
@@ -153,7 +146,7 @@ LOCAL void _testModes(int routine_trigger)
         mode_reg |= (uint16_t) ((uint16_t) test_case << (uint16_t) 6);
         mdio_write_br (EXTENDED_CONTROL_REGISTER, mode_reg);
         
-        printf ("Entered test mode %d. ECR reg: 0x%X\n", test_case, mdio_read_br (EXTENDED_CONTROL_REGISTER));
+        (void) printf ("Entered test mode %d. ECR reg: 0x%X\n", test_case, mdio_read_br (EXTENDED_CONTROL_REGISTER));
     }
 
 }

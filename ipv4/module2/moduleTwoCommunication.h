@@ -59,6 +59,12 @@ typedef struct diagnosticDataShM
 } s_DIAG_SHM_DATA;
 
 /************************************************************************
+ * EXTERNAL VARIABLES
+ ***********************************************************************/
+extern s_DIAG_SHM_DATA _diag_shm_struct;
+extern s_DIAG_DATA _diag_data_struct_mod2;
+
+/************************************************************************
  * FUNCTION DECLARATIONS
  ***********************************************************************/
 /** 
@@ -81,6 +87,6 @@ LOCAL STATUS _module2_shMem_Check(void);
  * \brief This function opens shared memory in module 1 and allocates it
  * \return OK if successful, ERROR otherwise
  */
-STATUS _sharedMemAlloc_module2(void);
+STATUS sharedMemAlloc_module2(void);
 
 #endif /* MODULETWOCOMMUNICATION_H_ */

@@ -67,9 +67,30 @@ module2/Debug/Objects/module2/moduleTwoHandleRoutines.o: \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/tool/common/private/toolMacrosP.h \
   C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/stdio.h \
   C:/WindRiver/compilers/diab-5.9.4.6/include/diab/va_list.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/sockLib.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/time.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timeval.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_itimerval.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/cdefs.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/sys/select.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/signal.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_stack_t.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_sigset_t.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sigevent.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sigeventCommon.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_union_sigval.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/regs.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/arch/arm/regsArm.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/time.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/clockLib.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timespec.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/timerLib.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/sys/socket.h \
+  C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/version.h \
   C:/WindRiver/workspace/module2/moduleTwoCommunication.h \
   C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.h \
   C:/WindRiver/workspace/module2/moduleTwoFileSending.h \
+  C:/WindRiver/workspace/module2/moduleTwoServer.h \
   C:/WindRiver/workspace/module2/moduleTwoRTP.h
 
 C:/WindRiver/compilers/diab-5.9.4.6/include/diab/lpragma.h:
@@ -206,11 +227,53 @@ C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj
 
 C:/WindRiver/compilers/diab-5.9.4.6/include/diab/va_list.h:
 
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/sockLib.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/time.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timeval.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_itimerval.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sys/cdefs.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/sys/select.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/signal.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_stack_t.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_sigset_t.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sigevent.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/sigeventCommon.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_union_sigval.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/regs.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/arch/arm/regsArm.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/time.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/clockLib.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/base/b_struct_timespec.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/timerLib.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/public/sys/socket.h:
+
+C:/WindRiver/workspace/module2/../VSB_zfas-alt-soc-gen5_smp_CBEV_REL_X27X_03_maj/usr/h/version.h:
+
 C:/WindRiver/workspace/module2/moduleTwoCommunication.h:
 
 C:/WindRiver/workspace/module2/moduleTwoHandleRoutines.h:
 
 C:/WindRiver/workspace/module2/moduleTwoFileSending.h:
+
+C:/WindRiver/workspace/module2/moduleTwoServer.h:
 
 C:/WindRiver/workspace/module2/moduleTwoRTP.h:
 

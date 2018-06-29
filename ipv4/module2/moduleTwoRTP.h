@@ -21,10 +21,6 @@
 
 #define STATEMACHINE_EXIT_BG_TASK ((uint8_t) 6U)
 
-extern MSG_Q_ID routinesMsgQId;
-extern MSG_Q_ID diagMsgQId;
-extern MSG_Q_ID messages;
-
 /************************************************************************
  * FUNCTION DECLARATIONS
  ***********************************************************************/
@@ -34,7 +30,7 @@ extern MSG_Q_ID messages;
  * \param routineNum Number of desired routine
  * \return OK if successful, ERROR otherwise
  */
-STATUS _module2_SetRoutineNum(int routineNum);
+STATUS module2_SetRoutineNum(int routineNum);
 /** 
  * \brief This function is background task for communication with PC and
  *        triggering appropriate routines for testing.

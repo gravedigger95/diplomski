@@ -36,6 +36,12 @@
                          (((x) & 0xff000000U) >> 24U))
 
 /************************************************************************
+ * EXTERNAL VARIABLES
+ ***********************************************************************/
+extern uint8_t _changeState; 
+extern uint8_t _msg;
+
+/************************************************************************
  * FUNCTION DECLARATIONS
  ***********************************************************************/
 /** 
@@ -46,6 +52,6 @@ LOCAL void _receiveCommand(void);
  * \brief This function is simple switch-case which acts like state-machine and calls
  *        functions or sends structs via socket.
  */
-void _processMessage(void);
+void processMessage(void);
 
 #endif /* MODULETWOHANDLEROUTINES_H_ */
