@@ -71,7 +71,7 @@
  * GLOBAL VARIABLES
  ***********************************************************************/
 s_DIAG_SHM_DATA _diag_shm_struct;
-s_DIAG_DATA _diag_data_struct_mod2;
+s_DIAG_DATA _diag_data_struct_mod1;
 
 /************************************************************************
  * INTERNAL VARIABLES
@@ -85,19 +85,16 @@ STATUS _module2_ReadDiagMsgQ(void)
 {
     int32_t length;
     int8_t ret   = OK;
-    s_DIAG_DATA diag_data_struct_mod1;
     MSG_Q_ID diagMsgQId = MSG_Q_ID_NULL;
     
-    diagMsgQId = msgQOpen ("/diagMsgQ", 1, sizeof (diag_data_struct_mod1), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
+    diagMsgQId = msgQOpen ("/diagMsgQ", 1, sizeof (_diag_data_struct_mod1), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
     if (MSG_Q_ID_NULL == diagMsgQId)
     {
         ret = ERROR;
     }
     
     /* Read diagnostic data from _msg queue */
-    length = msgQReceive (diagMsgQId, (char *) &diag_data_struct_mod1, sizeof (diag_data_struct_mod1), WAIT_FOREVER);  /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */
-
-    _diag_data_struct_mod2 = diag_data_struct_mod1;
+    length = msgQReceive (diagMsgQId, (char *) &_diag_data_struct_mod1, sizeof (_diag_data_struct_mod1), WAIT_FOREVER);  /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */
 
     if (length < 0)
     {

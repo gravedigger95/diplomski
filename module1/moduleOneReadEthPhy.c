@@ -185,17 +185,13 @@ LOCAL void _module1_ReadChipRegisters(void)
 uint32_t mdio_read_br(uint32_t regNumber)
 {
     uint8_t cnt = 0U;
-    uint32_t temp = 0U;
 
-    temp = *phyGmiiAddress;
-    temp &= CLEAR_MASK;
+    *phyGmiiAddress &= CLEAR_MASK;
 
     /* Setting mask on address register */
     regNumber <<= (uint32_t) BIT_OFFSET;
     regNumber += (uint32_t) SET_READ_MASK;
-    temp |= regNumber;
-
-    *phyGmiiAddress = temp;
+    *phyGmiiAddress |= regNumber;
 
     while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)) || ((uint8_t) 255 != cnt))
     {
@@ -208,18 +204,15 @@ uint32_t mdio_read_br(uint32_t regNumber)
 void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
 {
     uint8_t cnt = 0U;
-    uint32_t temp = 0U;
 
     /* Setting mask on address register */
-    temp = *phyGmiiAddress;
-    temp &= CLEAR_MASK;
+    *phyGmiiAddress &= CLEAR_MASK;
     regNumber <<= BIT_OFFSET;
     regNumber += SET_WRITE_MASK;
-    temp |= regNumber;
+    *phyGmiiAddress |= regNumber;
     
     *phyGmiiData = dataWrite;
-    *phyGmiiAddress = temp;
-    
+
     while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)) || ((uint8_t) 255 != cnt))
     {
         cnt++;

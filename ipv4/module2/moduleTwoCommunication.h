@@ -62,7 +62,7 @@ typedef struct diagnosticDataShM
  * EXTERNAL VARIABLES
  ***********************************************************************/
 extern s_DIAG_SHM_DATA _diag_shm_struct;
-extern s_DIAG_DATA _diag_data_struct_mod2;
+extern s_DIAG_DATA _diag_data_struct_mod1;
 
 /************************************************************************
  * FUNCTION DECLARATIONS

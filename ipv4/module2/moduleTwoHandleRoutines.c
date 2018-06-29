@@ -69,7 +69,7 @@ void processMessage(void)
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
             break;
         case STATEMACHINE_SEND_MSG_QUEUE:
-            if (send (_newSocket, (char *) &_diag_data_struct_mod2, sizeof (_diag_data_struct_mod2), 0) == SOCKET_ERROR) /* PRQA S 0310 */
+            if (send (_newSocket, (char *) &_diag_data_struct_mod1, sizeof (_diag_data_struct_mod1), 0) == SOCKET_ERROR) /* PRQA S 0310 */
             {
             	(void) printf ("msgq struct send() FAILED!\n\n");
             }

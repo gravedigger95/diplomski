@@ -54,14 +54,13 @@ LOCAL FILE * _fs;
  ***********************************************************************/
 void uploadFile(void)
 {
-    uint32_t const filesNum  = 1U;
-    uint32_t networkFilesNum = 0U;
+    uint32_t networkFilesNum = 1U;
     DIR * dirp;
     char tempStr[BUFLEN];
     
     (void) printf ("changeSTAT: %d\n\n", _changeState);
     _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
-    networkFilesNum = htonl_br (filesNum);
+    networkFilesNum = htonl_br (networkFilesNum);
     
     if (send (_newSocket, (char *) &networkFilesNum, sizeof (networkFilesNum), 0) == SOCKET_ERROR) /* PRQA S 0310 */
     {
@@ -142,7 +141,6 @@ LOCAL void _processFileSending(void)
 LOCAL void _processFileSize(void)
 {
     uint32_t fileLentgh      = 0U;
-    uint32_t convertedNumber = 0U;
     
     (void) printf ("Sending %s to the _client... \n\n", _tempDir);
     _fs = fopen (_tempDir, "rb");
@@ -156,8 +154,8 @@ LOCAL void _processFileSize(void)
     fileLentgh = (uint32_t) ftell (_fs);
     
     /* Send file size */
-    convertedNumber = htonl_br (fileLentgh);
-    if (send (_newSocket, (char *) &convertedNumber, sizeof (convertedNumber), 0) == SOCKET_ERROR) /* PRQA S 0310 */
+    fileLentgh = htonl_br (fileLentgh);
+    if (send (_newSocket, (char *) &fileLentgh, sizeof (fileLentgh), 0) == SOCKET_ERROR) /* PRQA S 0310 */
     {
     	(void) printf ("Name of the file send() FAILED!\n\n");
     }
