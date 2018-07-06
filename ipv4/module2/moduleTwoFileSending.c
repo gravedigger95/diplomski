@@ -182,7 +182,7 @@ LOCAL void _processFileName(char fs_name[])
     }
     (void) nanosleep (&nsTime, NULL_PTR);
 
-    (void) printf ("Name of file is sent\n\n");     
+    (void) printf ("Name of file is sent\n\n");
     
     (void) memset (_tempDir, 0, BUFLEN); 
     (void) strcpy (_tempDir, "/mmc0:1/err/");

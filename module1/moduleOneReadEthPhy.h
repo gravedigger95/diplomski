@@ -132,13 +132,13 @@ LOCAL void _module1_ReadChipRegisters(void);
  * \param regNumber Number of desired BroadRReach register
  * \return dataRead Data read from register
  */
-uint32_t mdio_read_br(uint32_t regNumber);
+uint32_t mdio_read_br(uint32_t addr);
 /** 
  * \brief This function writes to TJA1100 address register 
  * \param regNumber Number of desired BroadRReach register
  * \param dataWrite Data to be written
  */
-void mdio_write_br(uint32_t regNumber, uint16_t dataWrite);
+void mdio_write_br(uint32_t addr, uint16_t data);
 /** 
  * \brief This is task function for module1ReadChipRegisters()
  *        used for reading TJA1100 registers and sending data to 

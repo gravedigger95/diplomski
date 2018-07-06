@@ -128,7 +128,13 @@ void module1_InitPhy(void)
     
     phyGmiiAddress = ethIf_macVirtAddr + 0x10U; /* PRQA S 0488 */ /* PRQA S 0563 */
     phyGmiiData = ethIf_macVirtAddr + 0x14U; /* PRQA S 0488 */ /* PRQA S 0563 */
-   
+    
+    printf("phyGmiiAddress = 0x%08x\n", phyGmiiAddress);
+    printf("phyGmiiData = 0x%08x\n", phyGmiiData);
+    printf("phyGmiiAddress = 0x%08x\n", *phyGmiiAddress);
+    printf("phyGmiiData = 0x%08x\n", *phyGmiiData);
+     
+    
     fd = fopen ("/mmc0:1/err/errorLog.txt", "w");
     if (NULL_PTR != fd)  
     { 

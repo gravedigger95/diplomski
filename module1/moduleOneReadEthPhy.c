@@ -184,7 +184,7 @@ LOCAL void _module1_ReadChipRegisters(void)
 
 uint32_t mdio_read_br(uint32_t regNumber)
 {
-    uint8_t cnt = 0U;
+    uint16_t cnt = 0U;
 
     *phyGmiiAddress &= CLEAR_MASK;
 
@@ -193,9 +193,14 @@ uint32_t mdio_read_br(uint32_t regNumber)
     regNumber += (uint32_t) SET_READ_MASK;
     *phyGmiiAddress |= regNumber;
 
-    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)) || ((uint8_t) 255 != cnt))
+    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)))
     {
         cnt++;
+    	if(cnt > (uint32_t) 500)
+    	{
+			printf(" BR mdio_read_br(): Error reading back register\n");
+    		return 0;
+    	}
     }
     
     return *phyGmiiData;
@@ -203,19 +208,24 @@ uint32_t mdio_read_br(uint32_t regNumber)
 
 void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
 {
-    uint8_t cnt = 0U;
+    uint16_t cnt = 0U;
 
+    *phyGmiiData = dataWrite;
+    
     /* Setting mask on address register */
     *phyGmiiAddress &= CLEAR_MASK;
     regNumber <<= BIT_OFFSET;
     regNumber += SET_WRITE_MASK;
     *phyGmiiAddress |= regNumber;
-    
-    *phyGmiiData = dataWrite;
 
-    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)) || ((uint8_t) 255 != cnt))
+    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)))
     {
         cnt++;
+    	if(cnt > (uint32_t) 500)
+    	{
+			printf(" BR mdio_read_br(): Error reading back register\n");
+    		return;
+    	}
     }
 }
 
