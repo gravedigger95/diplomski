@@ -4,7 +4,9 @@
  *      
  *  \brief 
  *       Interface functions for starting module that are used in
- *       tttechBroadRReach.c file.
+ *       tttechBroadRReach.c file. Functions for initializing PHY,
+ *       creating message queues, configuring ethernet interface,
+ *       starting tasks and RT process (moduleTwo).
  *   
  *  \version
  *       [19-Apr-2018] [Stefan Masalusic] Initial creation
@@ -55,7 +57,7 @@
  * pointer type.MISRA C:2012 Rule-1.1; REFERENCE - ISO:C90-6.3.16.1 Simple Assignment - Constraints
  * 
  * Justification : This is checked and considered OK on safety aspect. It 
- * is confirmed on long period usage and multiple testing levels.
+ * is confirmed on multiple testing levels.
  */
 /* ------------------------------------------------------------------------- */
 /* Error Message: Msg(5:0488) Performing pointer arithmetic.MISRA C:2012 Rule-18.4; 

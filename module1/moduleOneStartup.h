@@ -19,6 +19,7 @@ void module1_InitPhy(void);
  * \brief This function creates two public message queues.
  *        One for sending diagnostic data to user space, and other
  *        for calling different routines, e.g. ping...
+ *        
  * \return OK if queues creating was successful, ERROR otherwise
  */
 LOCAL STATUS _module1_CreateMsgQueues(void);

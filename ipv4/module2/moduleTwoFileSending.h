@@ -28,6 +28,7 @@
  ***********************************************************************/
 /** 
  * \brief This function prepares and send filename to PC via socket.
+ * \param fs_name[] Name of file to be sent
  */
 LOCAL void _processFileName(char fs_name[]);
 /** 
@@ -46,6 +47,7 @@ LOCAL void _processFileSending(void);
 void uploadFile(void);
 /** 
  * \brief This function sends file to PC.
+ * \param fs_name[] Name of file to be sent with full path
  */
 LOCAL void _sendFile(char fs_name[]);
 

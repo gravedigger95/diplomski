@@ -3,7 +3,7 @@
  *      moduleTwoHandleRoutines.c
  *      
  *  \brief 
- *       State machine functions that handle user commands.
+ *       State machine functions that handle user commands using state machine.
  *   
  *  \version
  *       [27-Jun-2018] [Stefan Masalusic] Initial creation

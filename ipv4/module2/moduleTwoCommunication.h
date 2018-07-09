@@ -74,6 +74,8 @@ extern s_DIAG_DATA _diag_data_struct_mod1;
 STATUS _module2_ReadDiagMsgQ(void);
 /** 
  * \brief This function opens shared memory in module 2 and allocates it
+ * \param fname Name of shared memory
+ * \param size Size of shared memory
  * \return Pointer to allocated shared memory 
  */
 LOCAL void * _module2_shMem_open(const char * fname, size_t size);

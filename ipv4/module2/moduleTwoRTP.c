@@ -3,7 +3,7 @@
  *      moduleTwoRTP.c
  *      
  *  \brief 
- *       Functions for initializing module two RTP and starting backgrount task
+ *       Functions for initializing module two RTP and starting background task
  *       state machine.
  *   
  *  \version
@@ -44,7 +44,7 @@
  * Rule-11.3; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantic
  * 
  * Justification : This is checked and considered safe. It is confirmed by multiple
- * testing cases and long period project usage. 
+ * testing cases.
  */
 /* ------------------------------------------------------------------------- */
 /* Error message : Msg(7:3101) Unary '-' applied to an operand of type unsigned int 

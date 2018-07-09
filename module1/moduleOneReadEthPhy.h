@@ -128,14 +128,16 @@ extern volatile uint32_t * phyGmiiData;
 LOCAL void _module1_ReadChipRegisters(void);
 /** 
  * \brief This function reads TJA1100 address register 
- * 
  * \param regNumber Number of desired BroadRReach register
+ * 
  * \return dataRead Data read from register
+ * \retval 0           Reading from register failed
+ * \retval phyGmiiData Reading from register success
  */
 uint32_t mdio_read_br(uint32_t addr);
 /** 
- * \brief This function writes to TJA1100 address register 
- * \param regNumber Number of desired BroadRReach register
+ * \brief This function writes data to TJA1100 address register 
+ * \param regNumber Number of BroadRReach register
  * \param dataWrite Data to be written
  */
 void mdio_write_br(uint32_t addr, uint16_t data);
@@ -143,7 +145,6 @@ void mdio_write_br(uint32_t addr, uint16_t data);
  * \brief This is task function for module1ReadChipRegisters()
  *        used for reading TJA1100 registers and sending data to 
  *        diagMsgQ via diag_data_struct
- * \return OK if successful, ERROR otherwise
  */
 void module1_ReadChipRegistersTask(void);
 /** 
@@ -153,18 +154,21 @@ void module1_ReadChipRegistersTask(void);
 LOCAL STATUS _sharedMemAlloc(void);
 /** 
  * \brief This function fills DIAG_SHM_DATA_t struct with diagnostic data 
- *        that is doesn't change often
  * \metric STAV1 10 Loading data in shMem structure.
  * \return OK if successful, ERROR otherwise 
  */
 LOCAL STATUS _module1_FillSharedMem(void);
 /** 
- * \brief This function opens shared memory in module 1 and allocates it
+ * \brief This function opens shared memory and allocates it
+ * \param fname Shared memory name
+ * \param size Shared memory size
  * \return Pointer to allocated shared memory 
  */
 LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size);
 /** 
  * \brief Function that gets time of error.
+ * \param time_info Struct tm with current processor time
+ * \param pos Position of error in errors_array struct
  * \metric STAV1 11 Library functions.
  */
 LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos);

@@ -102,11 +102,6 @@ LOCAL STATUS _pingRoutine(void)
 
 LOCAL void _normalOperationTest(uint16_t mode)
 {
-    mode = mdio_read_br (0x0);
-    mode |= 0xA900;
-    mdio_write_br (0x0, mode);
-
-	/*
     mode &= 0xFE3FU;
     mdio_write_br (EXTENDED_CONTROL_REGISTER, mode);
     
@@ -115,7 +110,7 @@ LOCAL void _normalOperationTest(uint16_t mode)
     mdio_write_br (CONFIGURATION_REGISTER_1, mode);
     
     (void) printf ("Normal mode ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
-    */
+    
 }
 
 LOCAL void _testModes(int routine_trigger)

@@ -3,7 +3,8 @@
  *      moduleOneReadEthPhy.c
  *      
  *  \brief 
- *       Functions to read and write in TJA1100 registers.
+ *       Functions to read and write in TJA1100 registers and functions
+ *       that fill shared memory and message queue with diagnostic data.
  *   
  *  \version
  *       [27-Jun-2018] [Stefan Masalusic] Initial creation
@@ -41,7 +42,7 @@
  * Rule-11.3; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantic
  * 
  * Justification : This is checked and considered safe. It is confirmed by multiple
- * testing cases and long period project usage. 
+ * testing cases.
  */
 /* ------------------------------------------------------------------------- */
 /* Error Message: Msg(5:0316) [I] Cast from a pointer to void to a pointer to 

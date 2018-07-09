@@ -3,8 +3,8 @@
  *      moduleTwoCommunication.c
  *      
  *  \brief 
- *       Interface functions for reading shared memory and message queues for
- *       reading diagnostic data from module one.
+ *       Interface functions for reading shared memory and message queues with
+ *       diagnostic data from moduleOne.
  *   
  *  \version
  *       [27-Jun-2018] [Stefan Masalusic] Initial creation
@@ -41,7 +41,7 @@
  * Rule-11.3; REFERENCE - ISO:C90-6.3.4 Cast Operators - Semantic
  * 
  * Justification : This is checked and considered safe. It is confirmed by multiple
- * testing cases and long period project usage. 
+ * testing cases.
  */
  /* ------------------------------------------------------------------------- */
 /* Error message : Msg(7:3101) Unary '-' applied to an operand of type unsigned int 
