@@ -1,10 +1,17 @@
 /*
  * readEthPhy.h
+ 
+   /* &&&&&&&&& Missing description for the file.  
  *
  *  Created on: Apr 26, 2018
  *      Author: bura
+ 
+  /* &&&&&&&&& Missing "\version" field.  
  */
-
+ 
+ /* &&&&&&&&& Please consider moving LOCAL function declarations from the .h file into corresponding .c file. */
+ 
+  /* &&&&&&&&& File has to have Unix line endings. */
 #ifndef READETHPHY_H_
 #define READETHPHY_H_
 
@@ -53,11 +60,11 @@
 #define PHY_ID_REG3_MASK    ((uint32_t) 0x00FFU)
 #define INT_STATUS_MASK     ((uint32_t) 0x8000U)
 
-#define BR_NULL_PTR     (void *) (0)
+#define BR_NULL_PTR     (void *) (0)/*&&&&&&&&& Unnecessary doubling the same define   */
 #define NULL_PTR        (void *) (0)
 
-#define TASK_DELAY_25MS (uint32_t) (25U)
-#define TASK_DELAY_100MS (uint32_t) (100U)
+#define TASK_DELAY_25MS (uint32_t) (25U) /*&&&&&&&&& Please change misleading macro name for task delay - it is 250ms dela */
+#define TASK_DELAY_100MS (uint32_t) (100U)/*&&&&&&&&& Please change misleading macro name for task delay - it is 1000ms dela */
 
 /* Registers */
 #define BASIC_STATUS_REGISTER ((uint32_t) (0x1))

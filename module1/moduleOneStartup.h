@@ -1,10 +1,17 @@
 /*
  * moduleOneStartup.h
+ 
+   /* &&&&&&&&& Missing description for the file.  
  *
  *  Created on: Jun 27, 2018
  *      Author: bura
+ 
+ /* &&&&&&&&& Missing "\version" field.  
  */
-
+ 
+ /* &&&&&&&&& Please consider moving LOCAL function declarations from the .h file into corresponding .c file. */
+ 
+  /* &&&&&&&&& File has to have Unix line endings. */
 #ifndef MODULEONESTARTUP_H_
 #define MODULEONESTARTUP_H_
 

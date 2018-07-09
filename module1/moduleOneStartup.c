@@ -10,6 +10,12 @@
  *       [19-Apr-2018] [Stefan Masalusic] Initial creation
  * ------------------------------------------------------------------------------
  */
+ /* &&&&&&&&& File has to have Unix line endings. */
+ /* &&&&&&&&& Please make descriptive comments in the bodies of the functions
+          so the function's flows are easier to understand, where necessary */
+          
+ /* &&&&&&&&& Please substitute tabs with spaces. */
+          
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */
 /* ------------------------------------------------------------------------- */
@@ -118,14 +124,14 @@ void module1_InitPhy(void)
     
     const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
 
-    ethIf_macVirtAddr = pmapGlobalMap (hwRegEthIfBaseaddr, (size_t) 0xFF,  /* PRQA S 0317 */
+    ethIf_macVirtAddr = pmapGlobalMap (hwRegEthIfBaseaddr, (size_t) 0xFF/* &&&&&&&&& Please substitute magic numbers with meaningful macros*/ ,  /* PRQA S 0317 */
                 MMU_ATTR_SUP_RW | MMU_ATTR_CACHE_OFF | MMU_ATTR_CACHE_GUARDED); /* PRQA S 4436 */ /* PRQA S 4542 */
     
     if ((ethIf_macVirtAddr == PMAP_FAILED) || (ethIf_macVirtAddr == BR_NULL_PTR)) /* PRQA S 0306 */
     {
         (void) printf ("pmapGlobalMap returned ERROR. (ethIf)\n"); 
     }
-    
+    /* &&&&&&&&& Please substitute magic numbers with meaningful macros*/
     phyGmiiAddress = ethIf_macVirtAddr + 0x10U; /* PRQA S 0488 */ /* PRQA S 0563 */
     phyGmiiData = ethIf_macVirtAddr + 0x14U; /* PRQA S 0488 */ /* PRQA S 0563 */
    
@@ -136,7 +142,7 @@ void module1_InitPhy(void)
         (void) fclose (fd);
     }
 
-    (void) _module1_CreateMsgQueues(); 
+    (void) _module1_CreateMsgQueues(); /* &&&&&&&&& Please consider checking return value or provide the relevant justification for not doing it. */
 }
 
 STATUS rtpModule(void)
@@ -145,14 +151,14 @@ STATUS rtpModule(void)
     const char * argv[] = {"/mmc0:1/module2.vxe", "module2", NULL_PTR};
     const char * envp[] = {"HEAP_INITIAL_SIZE=0x19000", "HEAP_MAX_SIZE=0x1000000", NULL_PTR};
     
-    id = rtpSpawn (argv[0], argv, envp, 207, 0x19000, 0x01, VX_FP_TASK);
+    id = rtpSpawn (argv[0], argv, envp, 207, 0x19000, 0x01, VX_FP_TASK);/* &&&&&&&&& Please substitute magic numbers with meaningful macros*/
     
     if (RTP_ID_ERROR == id) /* PRQA S 0306 */
     {
         (void) printf ("ERROR to start %s\n", argv[0]);
     }
     
-    return (OK);
+    return (OK);/*&&&&&&&&& This function always returns "OK", opposite to function documentation.*/
 }
 
 LOCAL STATUS _module1_CreateMsgQueues(void)
@@ -178,20 +184,20 @@ LOCAL STATUS _module1_CreateMsgQueues(void)
 }
 
 void module1_StartTasks(void)
-{
+{/* &&&&&&&&& Please substitute magic numbers with meaningful macros*/
     if (taskSpawn("readDiag", 202, 0, 2000, (FUNCPTR) module1_ReadChipRegistersTask, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of readDiagTask failed\n");
-        (void) msgQClose(diagMsgQId);
+        (void) msgQClose(diagMsgQId); /*&&&&&&&&& Please check: according to the WR documentation the Unlink should be before the Close */
         (void) msgQUnlink("/diagMsgQ");
     }
-    
+    /* &&&&&&&&& Please substitute magic numbers with meaningful macros*/
     if (taskSpawn("getRoutine", 204, 0, 100, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of getRoutineNum failed\n");
-        (void) msgQClose(routinesMsgQId);
+        (void) msgQClose(routinesMsgQId); /*&&&&&&&&& Please check: according to the WR documentation the Unlink should be before the Close */
         (void) msgQUnlink("/routinesMsgQ");
     }
     
@@ -206,7 +212,7 @@ void module1_ConfigureEthInterface(void)
 
 void module1_ConfigureVLAN(void)
 {
-	(void) ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 0752 */
+	(void) ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 0752 */ //&&&&&&&&&& this address is not to be configured since it is used as address of SSH debug ipv4 interface on EMAC0.
 	(void) ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 0752 */
 }
 

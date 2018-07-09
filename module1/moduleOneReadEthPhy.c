@@ -9,6 +9,11 @@
  *       [27-Jun-2018] [Stefan Masalusic] Initial creation
  * ------------------------------------------------------------------------------
  */
+   /* &&&&&&&&& File has to have Unix line endings. */
+   
+   /* &&&&&&&&& Please substitute tabs with spaces. */
+   
+   /* &&&&&&&&& Please substitute magic numbers with meaningful macros*/
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */
 /* ------------------------------------------------------------------------- */
@@ -195,7 +200,7 @@ uint32_t mdio_read_br(uint32_t regNumber)
 
     while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)) || ((uint8_t) 255 != cnt))
     {
-        cnt++;
+        cnt++; /*&&&&&&&&& Please consider introducing some notification if the read was not successful*/
     }
     
     return *phyGmiiData;
@@ -215,7 +220,7 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
 
     while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)) || ((uint8_t) 255 != cnt))
     {
-        cnt++;
+        cnt++;/*&&&&&&&&& Please consider introducing some notification if the write was not successful*/
     }
 }
 
@@ -231,7 +236,7 @@ void module1_ReadChipRegistersTask(void)
         (void) msgQSend (diagMsgQId, (char *) &_diag_data_struct, sizeof (_diag_data_struct), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */  
 
         /* Read register values for sh mem */
-        (void) _module1_FillSharedMem();
+        (void) _module1_FillSharedMem(); /*&&&&&&&&& Please consider checking the return value, or put reasonable justification for not doing it*/
         (void) taskDelay (TASK_DELAY_25MS);
     }
 }

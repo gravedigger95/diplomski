@@ -9,6 +9,10 @@
  *       [27-Jun-2018] [Stefan Masalusic] Initial creation
  * ------------------------------------------------------------------------------
  */
+   /* &&&&&&&&& File has to have Unix line endings. */
+   
+   /* &&&&&&&&& Please substitute tabs with spaces. */
+ 
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */
 /* ------------------------------------------------------------------------- */
@@ -70,8 +74,9 @@ STATUS module1_GetRoutineNum(void)
         if (length < 0)
         {
             (void) printf ("getRoutineNum ERROR\n");
-            return (ERROR);
+            return (ERROR); //&&&&&&&&&&& More then one function exit.
         }
+        //&&&&&&&&&&&&  if function exits from FOREVER , can it be called again in same driving cycle?
 
         (void) printf ("routineNum %d\n", routineNum);
         /* Start desired routine */
@@ -81,7 +86,7 @@ STATUS module1_GetRoutineNum(void)
         (void) taskDelay (TASK_DELAY_100MS);
     }
 }
-
+ 
 LOCAL STATUS _pingRoutine(void)
 {
     int8_t ret = 0;
@@ -112,7 +117,7 @@ LOCAL void _normalOperationTest(uint16_t mode)
     (void) printf ("Normal mode ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
 }
 
-LOCAL void _testModes(int routine_trigger)
+LOCAL void _testModes(int routine_trigger)// &&&&&&&&&  where _testmode's results are stored, to be read and shown through module3 ?
 {
     uint32_t    test_case = 0U;
     uint16_t    mode_reg = 0U;
@@ -123,7 +128,7 @@ LOCAL void _testModes(int routine_trigger)
     (void) printf ("ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
     mode_reg |= (uint16_t) ((uint16_t) 1 << (uint16_t) 2);
     mdio_write_br (EXTENDED_CONTROL_REGISTER, mode_reg);
-    
+   /* &&&&&&&&& Please substitute magic numbers with meaningful macros*/ 
     if ((uint32_t) 6 == test_case)
     {
         (void) _pingRoutine();
