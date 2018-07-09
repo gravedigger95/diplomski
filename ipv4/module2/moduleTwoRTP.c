@@ -98,13 +98,13 @@ LOCAL void _module2_init(void)
     messages = msgQCreate (BUFLEN, BUFLEN, MSG_Q_FIFO);
     if (MSG_Q_ID_NULL == messages)
     {
-    	(void) printf ("MsgQCreate failed!\n");
+        (void) printf ("MsgQCreate failed!\n");
     }
     _changeState = 1;
     
     if (msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL) == ERROR) /* PRQA S 0310 */
     {
-    	(void) printf ("msgQSend RTP main ERROR\n");
+        (void) printf ("msgQSend RTP main ERROR\n");
     }
         
     (void) initCommunication();
@@ -112,7 +112,7 @@ LOCAL void _module2_init(void)
     if (taskSpawn ("bgTask", 115, VX_FP_TASK, 2000, (FUNCPTR) _backgroundTask, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */ /* PRQA S 0310 */
                     0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
-    	(void) printf("taskSpawn of backgroundTask failed\n");
+        (void) printf("taskSpawn of backgroundTask failed\n");
     }
 }
 
@@ -123,7 +123,7 @@ LOCAL void _backgroundTask(void)
         (void) msgQReceive (messages, (char *) &_msg, sizeof (_msg), WAIT_FOREVER); /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */ 
         if (STATEMACHINE_EXIT_BG_TASK == _msg)
         {
-        	(void) printf ("Terminating task...\n");
+            (void) printf ("Terminating task...\n");
             processMessage();
             (void) msgQClose (messages);
             taskExit(1);
@@ -143,14 +143,14 @@ STATUS module2_SetRoutineNum(int routineNum)
     routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof(uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR); 
     if (MSG_Q_ID_NULL == routinesMsgQId)
     {
-    	(void) printf ("setRoutineNum open ERROR\n");
+        (void) printf ("setRoutineNum open ERROR\n");
         ret = ERROR;
     }
     
     /* Send routine number to module 1 */ 
     if (msgQSend (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), NO_WAIT, MSG_PRI_NORMAL) == ERROR) /* PRQA S 0310 */
     {
-    	(void) printf ("setRoutineNum send ERROR\n");
+        (void) printf ("setRoutineNum send ERROR\n");
         ret = ERROR;
     }
     return ret;

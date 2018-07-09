@@ -64,14 +64,14 @@ void uploadFile(void)
     
     if (send (_newSocket, (char *) &networkFilesNum, sizeof (networkFilesNum), 0) == SOCKET_ERROR) /* PRQA S 0310 */
     {
-    	(void) printf ("Number of files send() FAILED!\n\n");
+        (void) printf ("Number of files send() FAILED!\n\n");
     }
     (void) printf ("Number of files is sent!\n");
            
     dirp = opendir ("/mmc0:1/err");
     if (NULL_PTR == dirp) 
     {
-    	(void) printf ("error opening dir!\n\n");
+        (void) printf ("error opening dir!\n\n");
     }
     else
     {
@@ -95,11 +95,11 @@ LOCAL void _sendFile(char fs_name[])
     /* Remove file when sent */
     if (remove (_tempDir) == ERROR)
     {
-    	(void) printf ("File has not been deleted!\n");
+        (void) printf ("File has not been deleted!\n");
     }
     else
     {
-    	(void) printf("File %s deleted\n", _tempDir);
+        (void) printf("File %s deleted\n", _tempDir);
     }    
 }
 
@@ -128,7 +128,7 @@ LOCAL void _processFileSending(void)
      
         if (send (_newSocket, (uint8_t *) sdbuf, (uint32_t) blockSize, 0) < 0) /* PRQA S 0310 */
         {
-        	(void) fprintf (stderr, "ERROR: Failed to send file %s. (errno = %d)\n", _tempDir, errno);
+            (void) fprintf (stderr, "ERROR: Failed to send file %s. (errno = %d)\n", _tempDir, errno);
             break;
         }
         (void) memset (sdbuf, 0, (uint32_t) blockSize);
@@ -146,7 +146,7 @@ LOCAL void _processFileSize(void)
     _fs = fopen (_tempDir, "rb");
     if (NULL_PTR == _fs)
     {
-    	(void) printf ("ERROR: File %s not found.\n", _tempDir);
+        (void) printf ("ERROR: File %s not found.\n", _tempDir);
     }
         
     (void) fseek (_fs, 0, SEEK_END);
@@ -157,7 +157,7 @@ LOCAL void _processFileSize(void)
     fileLentgh = htonl_br (fileLentgh);
     if (send (_newSocket, (char *) &fileLentgh, sizeof (fileLentgh), 0) == SOCKET_ERROR) /* PRQA S 0310 */
     {
-    	(void) printf ("Name of the file send() FAILED!\n\n");
+        (void) printf ("Name of the file send() FAILED!\n\n");
     }
     (void) printf ("Size of file is sent!\n");
 
@@ -178,7 +178,7 @@ LOCAL void _processFileName(char fs_name[])
     /* Send file name without path */
     if (send (_newSocket, fs_name, strlen (fs_name), 0) == SOCKET_ERROR)
     {
-    	(void) printf("Name of the file send() FAILED!\n\n");
+        (void) printf("Name of the file send() FAILED!\n\n");
     }
     (void) nanosleep (&nsTime, NULL_PTR);
 

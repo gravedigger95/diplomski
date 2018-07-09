@@ -6,7 +6,11 @@
  *       Functions for receiving routine numbers and starting test modes.
  *   
  *  \version
- *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [7-Jun-2018] [Stefan Masalusic] Initial creation
+ *  \history
+ *       [7-May-2018]  Added module1_GetRoutineNum function
+ *       [9-May-2018]  Added _testModes, _pingRoutine and
+ *                     _normalOperationTest functions    
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -61,24 +65,19 @@
 STATUS module1_GetRoutineNum(void)
 {
     int32_t routineNum = 0;
-    int32_t length     = 0;
     
     FOREVER
     {
         /* Read routine number sent from module 2 */ 
-        length = msgQReceive (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), WAIT_FOREVER); /* PRQA S 0310 */ /* PRQA S 3101 */ /* PRQA S 3102 */
-        if (length < 0)
+        if ((msgQReceive (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), WAIT_FOREVER)) > 0) /* PRQA S 0310 */ /* PRQA S 3101 */ /* PRQA S 3102 */
         {
-            (void) printf ("getRoutineNum ERROR\n");
-            return (ERROR);
-        }
-
-        (void) printf ("routineNum %d\n", routineNum);
-        /* Start desired routine */
+            (void) printf ("routineNum %d\n", routineNum);
+            /* Start desired routine */
         
-        _testModes (routineNum);
+            _testModes (routineNum);
 
-        (void) taskDelay (TASK_DELAY_100MS);
+            (void) taskDelay (TASK_DELAY_1000MS);
+        }
     }
 }
 
@@ -86,22 +85,33 @@ LOCAL STATUS _pingRoutine(void)
 {
     int8_t ret = 0;
     
+    _diag_data_struct.routine_status = ROUTINE_ACTIVE;
+    _diag_data_struct.routine_result = ROUTINE_NORESULT;
+    
     if (ERROR == ping6 (PC_IPV6, NUM_OF_PACKETS)) /* PRQA S 0752 */
     {
-    	(void) printf ("Ping6 ERROR\n");
+        (void) printf ("Ping6 ERROR\n");
+        _diag_data_struct.ping_result = 0;
         ret = ERROR;
     }       
     else
     {
-    	(void) printf ("Ping6 success\n");
+        (void) printf ("Ping6 success\n");
+        _diag_data_struct.ping_result = 1;
         ret = OK;
     }
+    
+    _diag_data_struct.routine_status = ROUTINE_FINISHED;
+    _diag_data_struct.routine_result = ROUTINE_CORRECTRESULTS;
 
     return ret;
 }
 
 LOCAL void _normalOperationTest(uint16_t mode)
 {
+    _diag_data_struct.routine_status = ROUTINE_ABORTED;
+    _diag_data_struct.routine_result = ROUTINE_NORESULT;
+	
     mode &= 0xFE3FU;
     mdio_write_br (EXTENDED_CONTROL_REGISTER, mode);
     
@@ -116,25 +126,30 @@ LOCAL void _normalOperationTest(uint16_t mode)
 LOCAL void _testModes(int routine_trigger)
 {
     uint32_t    test_case = 0U;
-    uint16_t    mode_reg = 0U;
-
+    uint16_t    mode_reg  = 0U;
+    _diag_data_struct.routine_status = ROUTINE_IDLE;
+    _diag_data_struct.routine_result = ROUTINE_NORESULT;
+    
     test_case = ((uint32_t) routine_trigger & (uint32_t) 0x00FFFFFF);
     
     mode_reg = (uint16_t) mdio_read_br (EXTENDED_CONTROL_REGISTER);
     (void) printf ("ECR reg: 0x%X\n", mdio_read_br (EXTENDED_CONTROL_REGISTER));
-    mode_reg |= (uint16_t) ((uint16_t) 1 << (uint16_t) 2);
+    mode_reg |= (uint16_t) ((uint16_t) CONFIGURATION_REGISTER_ACCESS_ENABLED << (uint16_t) SHIFT_TWO);
     mdio_write_br (EXTENDED_CONTROL_REGISTER, mode_reg);
     
-    if ((uint32_t) 6 == test_case)
+    if ((uint32_t) PING_TEST_ROUTINE == test_case)
     {
         (void) _pingRoutine();
     }
-    else if ((uint32_t) 0 == test_case)
+    else if ((uint32_t) NORMAL_OP == test_case)
     {
         _normalOperationTest (mode_reg);
     }
     else
     {
+        _diag_data_struct.routine_status = ROUTINE_ACTIVE;
+        _diag_data_struct.routine_result = ROUTINE_NORESULT;
+    
         mode_reg = (uint16_t) mdio_read_br (CONFIGURATION_REGISTER_1);
         mode_reg &= 0xBFFFU;
         mdio_write_br (CONFIGURATION_REGISTER_1, mode_reg);
@@ -144,7 +159,7 @@ LOCAL void _testModes(int routine_trigger)
         mdio_write_br (EXTENDED_CONTROL_REGISTER, mode_reg);
         
         mode_reg &= 0xFE3FU;
-        mode_reg |= (uint16_t) ((uint16_t) test_case << (uint16_t) 6);
+        mode_reg |= (uint16_t) ((uint16_t) test_case << (uint16_t) SHIFT_SIX);
         mdio_write_br (EXTENDED_CONTROL_REGISTER, mode_reg);
         
         (void) printf ("Entered test mode %d. ECR reg: 0x%X\n", test_case, mdio_read_br (EXTENDED_CONTROL_REGISTER));

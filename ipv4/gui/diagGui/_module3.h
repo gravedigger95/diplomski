@@ -49,8 +49,13 @@ typedef struct diagnosticDataMsgQ
     uint16_t phy_id_reg1; //phy id reg 1 bit [15:0] 0x2
     uint8_t phy_state;
 
+    uint8_t ping_result;
+    uint8_t routine_status;
+    uint8_t routine_result;
+
     s_ERRORS errors_array[4];
 
+    uint8_t padding1;
 
 } s_DIAG_DATA;
 

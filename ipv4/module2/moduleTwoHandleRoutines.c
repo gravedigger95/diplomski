@@ -71,7 +71,7 @@ void processMessage(void)
         case STATEMACHINE_SEND_MSG_QUEUE:
             if (send (_newSocket, (char *) &_diag_data_struct_mod1, sizeof (_diag_data_struct_mod1), 0) == SOCKET_ERROR) /* PRQA S 0310 */
             {
-            	(void) printf ("msgq struct send() FAILED!\n\n");
+                (void) printf ("msgq struct send() FAILED!\n\n");
             }
             (void) printf ("msgq struct  is sent!\n"); 
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
@@ -79,7 +79,7 @@ void processMessage(void)
         case STATEMACHINE_SEND_SHARED_MEMORY:
             if (send (_newSocket, (char *) &_diag_shm_struct, sizeof (_diag_shm_struct), 0) == SOCKET_ERROR) /* PRQA S 0310 */
             {
-            	(void) printf ("shmem struct send() FAILED!\n\n"); 
+                (void) printf ("shmem struct send() FAILED!\n\n"); 
             }
             (void) printf ("shmem struct  is sent!\n");
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
@@ -94,13 +94,13 @@ void processMessage(void)
 
 LOCAL void _receiveCommand(void)
 {
-	int recvSize;
+    int recvSize;
     uint32_t commandNum = EXIT_BG_TASK;
 
     recvSize = recv (_newSocket, &commandNum, sizeof (commandNum), 0);
     if (SOCKET_ERROR  == recvSize)
     {
-    	(void) printf ("Recv from _client failed!");
+        (void) printf ("Recv from _client failed!");
     }
     commandNum = ntohl_br (commandNum);
     
@@ -113,7 +113,7 @@ LOCAL void _receiveCommand(void)
         recvSize = recv (_newSocket, &_routineNumRecv, sizeof (_routineNumRecv), 0);
         if (SOCKET_ERROR == recvSize)
         {
-        	(void) printf ("Recv from _client failed!");
+            (void) printf ("Recv from _client failed!");
         }
         _routineNumRecv = ntohl_br (_routineNumRecv);
         _changeState = STATEMACHINE_START_ROUTINE;

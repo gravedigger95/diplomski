@@ -7,7 +7,13 @@
  *       that fill shared memory and message queue with diagnostic data.
  *   
  *  \version
- *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [23-Apr-2018] [Stefan Masalusic] Initial creation
+ *       
+ *  \history
+ *       [23-Apr-2018] Added ReadChipRegisters, StartTasks, and CreateMsgQueues functions
+ *       [27-Apr-2018] Added getErrorTime function
+ *       [4-May-2018]  Added _sharedMemAlloc, _module1_shMem_Alloc and
+ *                     _module1_FillSharedMem functions
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -73,7 +79,7 @@
  * INTERNAL VARIABLES
  ***********************************************************************/
 
-LOCAL s_DIAG_DATA       _diag_data_struct;
+s_DIAG_DATA       _diag_data_struct;
 LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr;
 LOCAL uint8_t _delete_cnt = 0U;
 
@@ -176,7 +182,7 @@ LOCAL void _module1_ReadChipRegisters(void)
     
     _delete_cnt++;
 
-    if (_delete_cnt == (uint8_t) 255U)
+    if (_delete_cnt == (uint8_t) MAX_CNT)
     {
         (void) remove ("/mmc0:1/err/errorLog.txt");
     }
@@ -194,10 +200,10 @@ uint32_t mdio_read_br(uint32_t regNumber)
     regNumber += (uint32_t) SET_READ_MASK;
     *phyGmiiAddress |= regNumber;
 
-    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)))
+    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) BUSY_BIT)))
     {
         cnt++;
-    	if(cnt > (uint32_t) 500)
+    	if(cnt > (uint8_t) MAX_CNT)
     	{
 			printf(" BR mdio_read_br(): Error reading back register\n");
     		return 0;
@@ -219,12 +225,12 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
     regNumber += SET_WRITE_MASK;
     *phyGmiiAddress |= regNumber;
 
-    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) 0x1)))
+    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) BUSY_BIT)))
     {
         cnt++;
-    	if(cnt > (uint32_t) 500)
+    	if(cnt > (uint8_t) MAX_CNT)
     	{
-			printf(" BR mdio_read_br(): Error reading back register\n");
+			printf(" BR mdio_write_br(): Error writing to register\n");
     		return;
     	}
     }
@@ -242,8 +248,9 @@ void module1_ReadChipRegistersTask(void)
         (void) msgQSend (diagMsgQId, (char *) &_diag_data_struct, sizeof (_diag_data_struct), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */  
 
         /* Read register values for sh mem */
-        (void) _module1_FillSharedMem();
-        (void) taskDelay (TASK_DELAY_25MS);
+        _module1_FillSharedMem();
+
+        (void) taskDelay (TASK_DELAY_250MS);
     }
 }
 
@@ -263,7 +270,7 @@ LOCAL STATUS _sharedMemAlloc(void)
     return err;
 }
 
-LOCAL STATUS _module1_FillSharedMem(void)
+LOCAL void _module1_FillSharedMem(void)
 {
     int8_t ret = OK;
 
@@ -303,9 +310,7 @@ LOCAL STATUS _module1_FillSharedMem(void)
     else
     {
         (void) printf ("fillShMem ERROR\n");
-        ret = ERROR;
     }
-    return ret;
 }
 
 LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size)

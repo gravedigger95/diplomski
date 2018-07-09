@@ -84,6 +84,7 @@ int Module3::startModule(int insertedNumber)
                 diagMsgQ.loopback_mode, diagMsgQ.phy_init_fail, diagMsgQ.wakeup, diagMsgQ.link_status_fail,
                 diagMsgQ.link_status_up, diagMsgQ.link_up, diagMsgQ.tx_mode, diagMsgQ.loc_rcvr_status,
                 diagMsgQ.rem_rcvr_status, diagMsgQ.phy_state);
+
                 fclose(fd_msgq);
             }
 
@@ -375,6 +376,11 @@ void *Module3::threadfunc(void * arg)
             break;
         }
 
+        if(diagMsgQ.link_status == 0)
+        {
+            continue;
+        }
+
         download = 1;
         commandNum = 1;
         commandNum = htonl (commandNum);
@@ -588,6 +594,47 @@ void Module3::printStates(void)
     else
     {
         printf("PHY Test mode!\n");
+    }
+
+    printf("\n\n\n ROUTINE STATE: ");
+    if(diagMsgQ.routine_status == 1)
+    {
+        printf("routine active!\n");
+    }
+    else if(diagMsgQ.routine_status == 2)
+    {
+        printf("routine finished!\n");
+    }
+    else if(diagMsgQ.routine_status == 3)
+    {
+        printf("routine aborted!\n");
+    }
+    else
+    {
+        printf("routine idle!\n");
+    }
+
+    printf("\n\n\n ROUTINE RESULTS: ");
+    if(diagMsgQ.routine_result == 0)
+    {
+        printf("incorrect results!\n");
+    }
+    else if(diagMsgQ.routine_result == 2)
+    {
+        printf("no results available!\n");
+    }
+    else
+    {
+        printf("correct results!\n");
+    }
+
+    if (diagMsgQ.ping_result == 1)
+    {
+        printf("Last ping routine result: Ping success!\n");
+    }
+    else
+    {
+        printf("Last ping routine result: Ping failed!\n");
     }
 }
 

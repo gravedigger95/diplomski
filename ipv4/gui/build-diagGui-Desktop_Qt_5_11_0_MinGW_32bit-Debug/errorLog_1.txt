@@ -1,132 +1,63 @@
-Error 0 | Link is down. | 1970-01-01 00:01:21
-Error 3 | Link failure. | 1970-01-01 00:01:21
-Error 0 | Link is down. | 1970-01-01 00:01:21
-Error 3 | Link failure. | 1970-01-01 00:01:21
-Error 0 | Link is down. | 1970-01-01 00:01:21
-Error 3 | Link failure. | 1970-01-01 00:01:21
-Error 0 | Link is down. | 1970-01-01 00:01:21
-Error 3 | Link failure. | 1970-01-01 00:01:21
-Error 0 | Link is down. | 1970-01-01 00:01:22
-Error 3 | Link failure. | 1970-01-01 00:01:22
-Error 0 | Link is down. | 1970-01-01 00:01:22
-Error 3 | Link failure. | 1970-01-01 00:01:22
-Error 0 | Link is down. | 1970-01-01 00:01:22
-Error 3 | Link failure. | 1970-01-01 00:01:22
-Error 0 | Link is down. | 1970-01-01 00:01:22
-Error 3 | Link failure. | 1970-01-01 00:01:22
-Error 0 | Link is down. | 1970-01-01 00:01:23
-Error 3 | Link failure. | 1970-01-01 00:01:23
-Error 0 | Link is down. | 1970-01-01 00:01:23
-Error 3 | Link failure. | 1970-01-01 00:01:23
-Error 0 | Link is down. | 1970-01-01 00:01:23
-Error 3 | Link failure. | 1970-01-01 00:01:23
-Error 0 | Link is down. | 1970-01-01 00:01:23
-Error 3 | Link failure. | 1970-01-01 00:01:23
-Error 0 | Link is down. | 1970-01-01 00:01:24
-Error 3 | Link failure. | 1970-01-01 00:01:24
-Error 0 | Link is down. | 1970-01-01 00:01:24
-Error 3 | Link failure. | 1970-01-01 00:01:24
-Error 0 | Link is down. | 1970-01-01 00:01:24
-Error 3 | Link failure. | 1970-01-01 00:01:24
-Error 0 | Link is down. | 1970-01-01 00:01:24
-Error 3 | Link failure. | 1970-01-01 00:01:24
-Error 0 | Link is down. | 1970-01-01 00:01:25
-Error 3 | Link failure. | 1970-01-01 00:01:25
-Error 0 | Link is down. | 1970-01-01 00:01:25
-Error 3 | Link failure. | 1970-01-01 00:01:25
-Error 0 | Link is down. | 1970-01-01 00:01:25
-Error 3 | Link failure. | 1970-01-01 00:01:25
-Error 0 | Link is down. | 1970-01-01 00:01:25
-Error 3 | Link failure. | 1970-01-01 00:01:25
-Error 0 | Link is down. | 1970-01-01 00:01:26
-Error 3 | Link failure. | 1970-01-01 00:01:26
-Error 0 | Link is down. | 1970-01-01 00:01:26
-Error 3 | Link failure. | 1970-01-01 00:01:26
-Error 0 | Link is down. | 1970-01-01 00:01:26
-Error 3 | Link failure. | 1970-01-01 00:01:26
-Error 0 | Link is down. | 1970-01-01 00:01:26
-Error 3 | Link failure. | 1970-01-01 00:01:26
-Error 0 | Link is down. | 1970-01-01 00:01:27
-Error 3 | Link failure. | 1970-01-01 00:01:27
-Error 0 | Link is down. | 1970-01-01 00:01:27
-Error 3 | Link failure. | 1970-01-01 00:01:27
-Error 0 | Link is down. | 1970-01-01 00:01:27
-Error 3 | Link failure. | 1970-01-01 00:01:27
-Error 0 | Link is down. | 1970-01-01 00:01:27
-Error 3 | Link failure. | 1970-01-01 00:01:27
-Error 0 | Link is down. | 1970-01-01 00:01:28
-Error 3 | Link failure. | 1970-01-01 00:01:28
-Error 0 | Link is down. | 1970-01-01 00:01:28
-Error 3 | Link failure. | 1970-01-01 00:01:28
-Error 0 | Link is down. | 1970-01-01 00:01:28
-Error 3 | Link failure. | 1970-01-01 00:01:28
-Error 0 | Link is down. | 1970-01-01 00:01:28
-Error 3 | Link failure. | 1970-01-01 00:01:28
-Error 0 | Link is down. | 1970-01-01 00:01:29
-Error 3 | Link failure. | 1970-01-01 00:01:29
-Error 0 | Link is down. | 1970-01-01 00:01:29
-Error 3 | Link failure. | 1970-01-01 00:01:29
-Error 0 | Link is down. | 1970-01-01 00:01:29
-Error 3 | Link failure. | 1970-01-01 00:01:29
-Error 0 | Link is down. | 1970-01-01 00:01:29
-Error 3 | Link failure. | 1970-01-01 00:01:29
-Error 0 | Link is down. | 1970-01-01 00:01:30
-Error 3 | Link failure. | 1970-01-01 00:01:30
-Error 0 | Link is down. | 1970-01-01 00:01:30
-Error 3 | Link failure. | 1970-01-01 00:01:30
-Error 0 | Link is down. | 1970-01-01 00:01:30
-Error 3 | Link failure. | 1970-01-01 00:01:30
-Error 0 | Link is down. | 1970-01-01 00:01:30
-Error 3 | Link failure. | 1970-01-01 00:01:30
-Error 0 | Link is down. | 1970-01-01 00:01:31
-Error 3 | Link failure. | 1970-01-01 00:01:31
-Error 0 | Link is down. | 1970-01-01 00:01:31
-Error 3 | Link failure. | 1970-01-01 00:01:31
-Error 0 | Link is down. | 1970-01-01 00:01:31
-Error 3 | Link failure. | 1970-01-01 00:01:31
-Error 0 | Link is down. | 1970-01-01 00:01:31
-Error 3 | Link failure. | 1970-01-01 00:01:31
-Error 0 | Link is down. | 1970-01-01 00:01:32
-Error 3 | Link failure. | 1970-01-01 00:01:32
-Error 0 | Link is down. | 1970-01-01 00:01:32
-Error 3 | Link failure. | 1970-01-01 00:01:32
-Error 0 | Link is down. | 1970-01-01 00:01:32
-Error 3 | Link failure. | 1970-01-01 00:01:32
-Error 0 | Link is down. | 1970-01-01 00:01:32
-Error 3 | Link failure. | 1970-01-01 00:01:32
-Error 0 | Link is down. | 1970-01-01 00:01:33
-Error 3 | Link failure. | 1970-01-01 00:01:33
-Error 0 | Link is down. | 1970-01-01 00:01:33
-Error 3 | Link failure. | 1970-01-01 00:01:33
-Error 0 | Link is down. | 1970-01-01 00:01:33
-Error 3 | Link failure. | 1970-01-01 00:01:33
-Error 0 | Link is down. | 1970-01-01 00:01:33
-Error 3 | Link failure. | 1970-01-01 00:01:33
-Error 0 | Link is down. | 1970-01-01 00:01:34
-Error 3 | Link failure. | 1970-01-01 00:01:34
-Error 0 | Link is down. | 1970-01-01 00:01:34
-Error 3 | Link failure. | 1970-01-01 00:01:34
-Error 0 | Link is down. | 1970-01-01 00:01:34
-Error 3 | Link failure. | 1970-01-01 00:01:34
-Error 0 | Link is down. | 1970-01-01 00:01:34
-Error 3 | Link failure. | 1970-01-01 00:01:34
-Error 0 | Link is down. | 1970-01-01 00:01:35
-Error 3 | Link failure. | 1970-01-01 00:01:35
-Error 0 | Link is down. | 1970-01-01 00:01:35
-Error 3 | Link failure. | 1970-01-01 00:01:35
-Error 0 | Link is down. | 1970-01-01 00:01:35
-Error 3 | Link failure. | 1970-01-01 00:01:35
-Error 0 | Link is down. | 1970-01-01 00:01:35
-Error 3 | Link failure. | 1970-01-01 00:01:35
-Error 0 | Link is down. | 1970-01-01 00:01:36
-Error 3 | Link failure. | 1970-01-01 00:01:36
-Error 0 | Link is down. | 1970-01-01 00:01:36
-Error 3 | Link failure. | 1970-01-01 00:01:36
-Error 0 | Link is down. | 1970-01-01 00:01:36
-Error 3 | Link failure. | 1970-01-01 00:01:36
-Error 0 | Link is down. | 1970-01-01 00:01:36
-Error 3 | Link failure. | 1970-01-01 00:01:36
-Error 0 | Link is down. | 1970-01-01 00:01:37
-Error 3 | Link failure. | 1970-01-01 00:01:37
-Error 0 | Link is down. | 1970-01-01 00:01:37
-Error 3 | Link failure. | 1970-01-01 00:01:37
+Error 3 | Link failure. | 1970-01-01 00:00:26
+Error 3 | Link failure. | 1970-01-01 00:00:27
+Error 3 | Link failure. | 1970-01-01 00:00:27
+Error 3 | Link failure. | 1970-01-01 00:00:27
+Error 3 | Link failure. | 1970-01-01 00:00:27
+Error 3 | Link failure. | 1970-01-01 00:00:28
+Error 3 | Link failure. | 1970-01-01 00:00:28
+Error 3 | Link failure. | 1970-01-01 00:00:28
+Error 3 | Link failure. | 1970-01-01 00:00:28
+Error 3 | Link failure. | 1970-01-01 00:00:29
+Error 3 | Link failure. | 1970-01-01 00:00:29
+Error 3 | Link failure. | 1970-01-01 00:00:29
+Error 3 | Link failure. | 1970-01-01 00:00:29
+Error 3 | Link failure. | 1970-01-01 00:00:30
+Error 3 | Link failure. | 1970-01-01 00:00:30
+Error 3 | Link failure. | 1970-01-01 00:00:30
+Error 3 | Link failure. | 1970-01-01 00:00:30
+Error 3 | Link failure. | 1970-01-01 00:00:31
+Error 3 | Link failure. | 1970-01-01 00:00:31
+Error 3 | Link failure. | 1970-01-01 00:00:31
+Error 3 | Link failure. | 1970-01-01 00:00:31
+Error 3 | Link failure. | 1970-01-01 00:00:32
+Error 3 | Link failure. | 1970-01-01 00:00:32
+Error 3 | Link failure. | 1970-01-01 00:00:32
+Error 3 | Link failure. | 1970-01-01 00:00:32
+Error 3 | Link failure. | 1970-01-01 00:00:33
+Error 3 | Link failure. | 1970-01-01 00:00:33
+Error 3 | Link failure. | 1970-01-01 00:00:33
+Error 3 | Link failure. | 1970-01-01 00:00:33
+Error 3 | Link failure. | 1970-01-01 00:00:34
+Error 3 | Link failure. | 1970-01-01 00:00:34
+Error 3 | Link failure. | 1970-01-01 00:00:34
+Error 3 | Link failure. | 1970-01-01 00:00:34
+Error 3 | Link failure. | 1970-01-01 00:00:35
+Error 3 | Link failure. | 1970-01-01 00:00:35
+Error 3 | Link failure. | 1970-01-01 00:00:35
+Error 3 | Link failure. | 1970-01-01 00:00:35
+Error 3 | Link failure. | 1970-01-01 00:00:36
+Error 3 | Link failure. | 1970-01-01 00:00:36
+Error 3 | Link failure. | 1970-01-01 00:00:36
+Error 3 | Link failure. | 1970-01-01 00:00:36
+Error 3 | Link failure. | 1970-01-01 00:00:37
+Error 3 | Link failure. | 1970-01-01 00:00:37
+Error 3 | Link failure. | 1970-01-01 00:00:37
+Error 3 | Link failure. | 1970-01-01 00:00:37
+Error 3 | Link failure. | 1970-01-01 00:00:38
+Error 3 | Link failure. | 1970-01-01 00:00:38
+Error 3 | Link failure. | 1970-01-01 00:00:38
+Error 3 | Link failure. | 1970-01-01 00:00:38
+Error 3 | Link failure. | 1970-01-01 00:00:39
+Error 3 | Link failure. | 1970-01-01 00:00:39
+Error 3 | Link failure. | 1970-01-01 00:00:39
+Error 3 | Link failure. | 1970-01-01 00:00:39
+Error 3 | Link failure. | 1970-01-01 00:00:40
+Error 3 | Link failure. | 1970-01-01 00:00:40
+Error 3 | Link failure. | 1970-01-01 00:00:40
+Error 3 | Link failure. | 1970-01-01 00:00:40
+Error 3 | Link failure. | 1970-01-01 00:00:41
+Error 3 | Link failure. | 1970-01-01 00:00:41
+Error 3 | Link failure. | 1970-01-01 00:00:41
+Error 3 | Link failure. | 1970-01-01 00:00:41
+Error 3 | Link failure. | 1970-01-01 00:00:42
+Error 3 | Link failure. | 1970-01-01 00:00:42

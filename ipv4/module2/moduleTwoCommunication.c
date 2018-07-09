@@ -98,7 +98,7 @@ STATUS _module2_ReadDiagMsgQ(void)
 
     if (length < 0)
     {
-    	(void) printf ("checkMSGq ERROR\n");
+        (void) printf ("checkMSGq ERROR\n");
         ret = ERROR;
     }
 
@@ -117,7 +117,7 @@ STATUS sharedMemAlloc_module2(void)
 
     if (NULL_PTR == _diag_shm_ptr_check)
     {
-    	(void) printf("module 2 shared memory alloc error.\n");
+        (void) printf("module 2 shared memory alloc error.\n");
         err = ERROR;
     }
     
@@ -141,7 +141,7 @@ LOCAL void * _module2_shMem_open(const char * fname, size_t size)
     
     if ((ftruncate (fd, (off_t) size) == -1) || (ERROR == err)) 
     {
-    	(void) fprintf (stderr, "BR ERROR truncating shm:'%s' sizeof()=%ld\n", fname, (unsigned long) size);
+        (void) fprintf (stderr, "BR ERROR truncating shm:'%s' sizeof()=%ld\n", fname, (unsigned long) size);
         perror ("ftruncate");
         err = ERROR;
         retAddr = NULL_PTR;
@@ -178,7 +178,7 @@ LOCAL STATUS _module2_shMem_Check(void)
     }
     else
     {
-    	(void) printf ("shMemCheck ERROR\n");
+        (void) printf ("shMemCheck ERROR\n");
         ret = ERROR;
     }
     return ret;

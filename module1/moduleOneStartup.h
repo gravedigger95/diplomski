@@ -1,12 +1,41 @@
 /*
- * moduleOneStartup.h
+ *  \file 
+ *      moduleOneStartup.h
  *
- *  Created on: Jun 27, 2018
- *      Author: bura
+ *  \brief 
+ *      Header file for moduleOneStartup.c
+ *      Includes macros for task spawns and registers offsets
+ *
+ *  \version
+ *       [19-Apr-2018] [Stefan Masalusic] Initial creation
+ *       
+ *  \history
+ *       [19-Apr-2018] Added InitPhy and CreateMsgQueues functions
+ *       [23-Apr-2018] Added StartTasks function    
+ *       [25-Apr-2018] Added ConfigureEthInterface and ConfigureVLANInterface functions
+ *       [18-May-2018] Added rtpModule function
+ *       [24-May-2018] Added function descriptions
+ *       [09-Jul-2018] Added macros
  */
 
 #ifndef MODULEONESTARTUP_H_
 #define MODULEONESTARTUP_H_
+
+/* ------------------------------------------------------------------------- */
+/* ------------------------------   Defines  ------------------------------- */
+/* ------------------------------------------------------------------------- */
+#define BYTES_NUM (0xFF)
+#define CYCLONE_ADDRESS_REGISTER_OFFSET (0x10U)
+#define CYCLONE_DATA_REGISTER_OFFSET (0x14U)
+#define RTPROCESS_TASK_PRIORITY (207)
+#define RTPROCESS_STACK_SIZE (0x19000)
+#define RTPROCESS_GLOBAL_SYMBOLS (0x01)
+
+#define DIAG_TASK_PRIORITY (202)
+#define DIAG_STACK_SIZE (2000)
+
+#define ROUTINES_TASK_PRIORITY (204)
+#define ROUTINES_STACK_SIZE (100)
 
 /************************************************************************
  * FUNCTION DECLARATIONS

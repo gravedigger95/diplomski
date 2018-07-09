@@ -1,8 +1,22 @@
 /*
- * readEthPhy.h
+ *  \file 
+ *      moduleOneReadEthPhy.h
  *
- *  Created on: Apr 26, 2018
- *      Author: bura
+ *  \brief 
+ *      Header file for moduleOneReadEthPhy.c
+ *      Includes registers, addresses, mask macros, structs for diagnostic data
+ *
+ *  \version
+ *       [23-Apr-2018] [Stefan Masalusic] Initial creation
+ *       
+ *  \history
+ *       [23-Apr-2018] Added ReadChipRegisters, ReadChipRegistersTask,
+ *                     mdio_read_br and mdio_write_br functions
+ *       [27-Apr-2018] Added getErrorTime function
+ *       [4-May-2018]  Added _sharedMemAlloc, _module1_shMem_Alloc and
+ *                     _module1_FillSharedMem functions
+ *       [24-May-2018] Added function descriptions
+ *       [09-Jul-2018] Added macros
  */
 
 #ifndef READETHPHY_H_
@@ -11,25 +25,24 @@
 /************************************************************************
  * PRIVATE MACRO DEFINITIONS
  ***********************************************************************/
-/* Registers base address + offsets and masks */
-#define GMIIADDRESS     ((uint32_t) 0xFF702010U)
-#define GMIIDATA        ((uint32_t) 0xFF702014U)
-#define CLEAR_MASK      ((uint32_t) 0xFFFF0000U)
-#define SET_READ_MASK   ((uint32_t) 0x00000001U)
-#define SET_WRITE_MASK  ((uint32_t) 0x00000003U)
-#define BIT_OFFSET      ((uint8_t) 6U)
-/* Message queue defines */
-#define MAX_MSG         ((uint8_t) 2U)
-#define MAX_MSG_LEN     ((uint8_t) 8U)
 /* Eth interface config params */
 #define HOST_BR         "fd53:7cb8:383:2::4f"   // IPv6
 #define MAC_BR          "8a:23:fe:0x00:0x00:02" // MAC
 #define PC_IPV6         "fd53:7cb8:383:3::73"
 /* Shared mem params */
 #define SH_MEM_NAME     "/shMemModule1to2"
-#define READ_BUFF_SIZE  ((int8_t) 6)
-#define ERROR_BUFF_SIZE ((uint8_t) 6U)
-#define NUM_OF_PACKETS  ((int8_t) 4)
+
+/* Registers base address + offsets and masks */
+#define GMIIADDRESS     ((uint32_t) 0xFF702010U)
+#define GMIIDATA        ((uint32_t) 0xFF702014U)
+#define CLEAR_MASK      ((uint32_t) 0xFFFF0000U)
+#define SET_READ_MASK   ((uint32_t) 0x00000001U)
+#define SET_WRITE_MASK  ((uint32_t) 0x00000003U)
+#define BUSY_BIT 		((uint32_t) 0x1U)
+#define BIT_OFFSET      ((uint8_t) 6U)
+/* Message queue defines */
+#define MAX_MSG         ((uint8_t) 2U)
+#define MAX_MSG_LEN     ((uint8_t) 8U)
 
 /* Diagnostic data bit masks */
 #define LINK_STATUS_MASK        ((uint32_t) 0x0004U)
@@ -53,22 +66,23 @@
 #define PHY_ID_REG3_MASK    ((uint32_t) 0x00FFU)
 #define INT_STATUS_MASK     ((uint32_t) 0x8000U)
 
-#define BR_NULL_PTR     (void *) (0)
-#define NULL_PTR        (void *) (0)
+#define NULL_PTR          (void *) (0)
 
-#define TASK_DELAY_25MS (uint32_t) (25U)
-#define TASK_DELAY_100MS (uint32_t) (100U)
+#define TASK_DELAY_250MS  (uint32_t) (25U)
+#define TASK_DELAY_1000MS (uint32_t) (100U)
 
 /* Registers */
-#define BASIC_STATUS_REGISTER ((uint32_t) (0x1))
-#define PHY_ID_REGISTER_1 ((uint32_t) (0x2))
-#define PHY_ID_REGISTER_2 ((uint32_t) (0x3))
-#define PHY_ID_REGISTER_3 ((uint32_t) (0x10))
-#define GENERAL_STATUS_REGISTER ((uint32_t) (0x18))
-#define EXTENDED_CONTROL_REGISTER ((uint32_t) (0x11))
-#define INTERRUPT_SOURCE_REGISTER ((uint32_t) (0x15))
+#define BASIC_STATUS_REGISTER         ((uint32_t) (0x1))
+#define PHY_ID_REGISTER_1             ((uint32_t) (0x2))
+#define PHY_ID_REGISTER_2             ((uint32_t) (0x3))
+#define PHY_ID_REGISTER_3             ((uint32_t) (0x10))
+#define GENERAL_STATUS_REGISTER       ((uint32_t) (0x18))
+#define EXTENDED_CONTROL_REGISTER     ((uint32_t) (0x11))
+#define INTERRUPT_SOURCE_REGISTER     ((uint32_t) (0x15))
 #define COMMUNICATION_STATUS_REGISTER ((uint32_t) (0x17))
-#define CONFIGURATION_REGISTER_1 ((uint32_t) (0x12))
+#define CONFIGURATION_REGISTER_1      ((uint32_t) (0x12))
+
+#define MAX_CNT (255U)
 
 typedef struct errorStruct
 {
@@ -76,7 +90,7 @@ typedef struct errorStruct
     uint8_t id;
     char description[50];
     uint8_t padding;
-}s_ERRORS;
+} s_ERRORS;
 
 /* Diagnostic data struct */
 typedef struct diagnosticDataMsgQ
@@ -96,8 +110,13 @@ typedef struct diagnosticDataMsgQ
     uint8_t signal_quality;
     uint16_t phy_id_reg1; //phy id reg 1 bit [15:0] 0x2
     uint8_t phy_state;
-   
+    uint8_t ping_result;
+    uint8_t routine_status;
+    uint8_t routine_result;
+    
     s_ERRORS errors_array[4];
+   
+    uint8_t padding1;
 } s_DIAG_DATA;
 
 typedef struct diagnosticDataShM
@@ -117,6 +136,8 @@ extern MSG_Q_ID diagMsgQId;
 extern volatile uint32_t * phyGmiiAddress;
 /* Phy data register */
 extern volatile uint32_t * phyGmiiData;
+
+extern s_DIAG_DATA _diag_data_struct;
 
 /************************************************************************
  * FUNCTION DECLARATIONS
@@ -155,9 +176,8 @@ LOCAL STATUS _sharedMemAlloc(void);
 /** 
  * \brief This function fills DIAG_SHM_DATA_t struct with diagnostic data 
  * \metric STAV1 10 Loading data in shMem structure.
- * \return OK if successful, ERROR otherwise 
  */
-LOCAL STATUS _module1_FillSharedMem(void);
+LOCAL void _module1_FillSharedMem(void);
 /** 
  * \brief This function opens shared memory and allocates it
  * \param fname Shared memory name

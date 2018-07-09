@@ -10,6 +10,12 @@
  *   
  *  \version
  *       [19-Apr-2018] [Stefan Masalusic] Initial creation
+ *       
+ *  \history
+ *       [19-Apr-2018] Added InitPhy and CreateMsgQueues functions
+ *       [23-Apr-2018] Added StartTasks function
+ *       [25-Apr-2018] Added ConfigureEthInterface and ConfigureVLANInterface functions
+ *       [18-May-2018] Added rtpModule function
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -107,60 +113,61 @@ volatile uint32_t * phyGmiiAddress;
 volatile uint32_t * phyGmiiData;
 
 /************************************************************************
- * INTERNAL VARIABLES
- ***********************************************************************/
-
-/************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
 void module1_InitPhy(void)
 {
-	char * ethIf_macVirtAddr = BR_NULL_PTR;
+    char * ethIf_macVirtAddr = NULL_PTR;
     FILE * fd;
+    int8_t retVal = 0;
     
     const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
 
-    ethIf_macVirtAddr = pmapGlobalMap (hwRegEthIfBaseaddr, (size_t) 0xFF,  /* PRQA S 0317 */
+    /* map cyclone V fpga address */
+    ethIf_macVirtAddr = pmapGlobalMap (hwRegEthIfBaseaddr, (size_t) BYTES_NUM,  /* PRQA S 0317 */
                 MMU_ATTR_SUP_RW | MMU_ATTR_CACHE_OFF | MMU_ATTR_CACHE_GUARDED); /* PRQA S 4436 */ /* PRQA S 4542 */
     
-    if ((ethIf_macVirtAddr == PMAP_FAILED) || (ethIf_macVirtAddr == BR_NULL_PTR)) /* PRQA S 0306 */
+    if ((ethIf_macVirtAddr == PMAP_FAILED) || (ethIf_macVirtAddr == NULL_PTR)) /* PRQA S 0306 */
     {
-        (void) printf ("pmapGlobalMap returned ERROR. (ethIf)\n"); 
+        (void) printf ("pmapGlobalMap returned ERROR. (ethIf)\n");
     }
     
-    phyGmiiAddress = ethIf_macVirtAddr + 0x10U; /* PRQA S 0488 */ /* PRQA S 0563 */
-    phyGmiiData = ethIf_macVirtAddr + 0x14U; /* PRQA S 0488 */ /* PRQA S 0563 */
+    /* add address and data registers offsets */
+    phyGmiiAddress = ethIf_macVirtAddr + CYCLONE_ADDRESS_REGISTER_OFFSET; /* PRQA S 0488 */ /* PRQA S 0563 */
+    phyGmiiData = ethIf_macVirtAddr + CYCLONE_DATA_REGISTER_OFFSET; /* PRQA S 0488 */ /* PRQA S 0563 */
     
-    printf("phyGmiiAddress = 0x%08x\n", phyGmiiAddress);
-    printf("phyGmiiData = 0x%08x\n", phyGmiiData);
-    printf("phyGmiiAddress = 0x%08x\n", *phyGmiiAddress);
-    printf("phyGmiiData = 0x%08x\n", *phyGmiiData);
-     
-    
+    /* open file for writing errors */
     fd = fopen ("/mmc0:1/err/errorLog.txt", "w");
-    if (NULL_PTR != fd)  
+    if (NULL_PTR != fd)
     { 
-        (void) fprintf (fd, "Error log: \n"); 
+        (void) fprintf (fd, "Error log: \n");
         (void) fclose (fd);
     }
 
-    (void) _module1_CreateMsgQueues(); 
+    retVal = _module1_CreateMsgQueues();
+    while (ERROR == retVal)
+    {
+    	retVal = _module1_CreateMsgQueues();
+    }
 }
 
 STATUS rtpModule(void)
 {
     RTP_ID id;
+    int8_t retVal = OK;
     const char * argv[] = {"/mmc0:1/module2.vxe", "module2", NULL_PTR};
     const char * envp[] = {"HEAP_INITIAL_SIZE=0x19000", "HEAP_MAX_SIZE=0x1000000", NULL_PTR};
     
-    id = rtpSpawn (argv[0], argv, envp, 207, 0x19000, 0x01, VX_FP_TASK);
+    /* rt process for module two startup */
+    id = rtpSpawn (argv[0], argv, envp, RTPROCESS_TASK_PRIORITY, RTPROCESS_STACK_SIZE, RTPROCESS_GLOBAL_SYMBOLS, VX_FP_TASK);
     
     if (RTP_ID_ERROR == id) /* PRQA S 0306 */
     {
         (void) printf ("ERROR to start %s\n", argv[0]);
+        retVal = ERROR;
     }
     
-    return (OK);
+    return retVal;
 }
 
 LOCAL STATUS _module1_CreateMsgQueues(void)
@@ -187,20 +194,20 @@ LOCAL STATUS _module1_CreateMsgQueues(void)
 
 void module1_StartTasks(void)
 {
-    if (taskSpawn("readDiag", 202, 0, 2000, (FUNCPTR) module1_ReadChipRegistersTask, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
+    if (taskSpawn("readDiag", DIAG_TASK_PRIORITY, 0, DIAG_STACK_SIZE, (FUNCPTR) module1_ReadChipRegistersTask, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of readDiagTask failed\n");
-        (void) msgQClose(diagMsgQId);
         (void) msgQUnlink("/diagMsgQ");
+        (void) msgQClose(diagMsgQId);
     }
     
-    if (taskSpawn("getRoutine", 204, 0, 100, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
+    if (taskSpawn("getRoutine", ROUTINES_TASK_PRIORITY, 0, ROUTINES_STACK_SIZE, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of getRoutineNum failed\n");
-        (void) msgQClose(routinesMsgQId);
         (void) msgQUnlink("/routinesMsgQ");
+        (void) msgQClose(routinesMsgQId);
     }
     
 }    
@@ -214,8 +221,8 @@ void module1_ConfigureEthInterface(void)
 
 void module1_ConfigureVLAN(void)
 {
-	(void) ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.60 up"); /* PRQA S 0752 */
-	(void) ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 0752 */
+    (void) ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.61 up"); /* PRQA S 0752 */
+    (void) ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 0752 */
 }
 
 

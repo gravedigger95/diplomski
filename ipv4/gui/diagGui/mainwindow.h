@@ -24,8 +24,6 @@ class MainWindow : public QMainWindow
 
     Module3 mod3;
 
-
-
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
