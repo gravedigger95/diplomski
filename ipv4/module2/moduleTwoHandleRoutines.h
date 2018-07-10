@@ -37,7 +37,6 @@
 #define SEND_MSG_QUEUE     ((uint32_t) 3U)
 #define SEND_SHARED_MEMORY ((uint32_t) 4U)
 
-
 #define ntohl_br(x)      ((((x) & 0x000000ffU) << 24U) |   \
                          (((x) & 0x0000ff00U) <<  8U) |   \
                          (((x) & 0x00ff0000U) >>  8U) |   \

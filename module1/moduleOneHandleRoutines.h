@@ -27,6 +27,13 @@
 /* Registers */
 #define EXTENDED_CONTROL_REGISTER ((uint32_t) (0x11))
 #define CONFIGURATION_REGISTER_1  ((uint32_t) (0x12))
+#define GENERAL_STATUS_REG    (0x18)
+#define LINK_FAIL_COUNTER_REG (0x1A)
+
+/* Link fail masks */
+#define REM_RCVR_CNT_MASK  (0x00FFU)
+#define LOC_RCVR_CNT_MASK  (0xFF00U)
+#define LINK_FAIL_CNT_MASK (0x00F8U)
 
 /* Routine states */
 #define ROUTINE_IDLE     (0U)
@@ -39,6 +46,7 @@
 #define ROUTINE_NORESULT         (2U)
 #define ROUTINE_CORRECTRESULTS   (1U)
 
+#define READ_LINK_FAIL    (7U)
 #define PING_TEST_ROUTINE (6U)
 #define NORMAL_OP         (0U)
 

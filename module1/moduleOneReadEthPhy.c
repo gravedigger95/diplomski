@@ -120,11 +120,11 @@ LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos);
  * GLOBAL VARIABLES
  ***********************************************************************/
 s_DIAG_DATA       _diag_data_struct;
+s_DIAG_SHM_DATA * _diag_shm_ptr;
 
 /************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
-LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr;
 LOCAL uint8_t _delete_cnt = 0U;
 
 /************************************************************************

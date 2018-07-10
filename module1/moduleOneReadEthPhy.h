@@ -123,6 +123,11 @@ typedef struct diagnosticDataShM
     uint8_t revision_no; //phy id reg 2 bit [3:0] 0x3
     uint8_t phy_id_reg3; //phy id reg 3 bit [7:0] 0x10
     uint8_t int_status; //gen status reg bit 15 0x18
+    uint16_t loc_rcvr_cnt;
+    uint16_t rem_rcvr_cnt;
+    uint16_t link_fail_cnt;
+    
+    uint16_t padding1;
 } s_DIAG_SHM_DATA;
 
 extern MSG_Q_ID diagMsgQId;
@@ -132,7 +137,9 @@ extern volatile uint32_t * phyGmiiAddress;
 /* Phy data register */
 extern volatile uint32_t * phyGmiiData;
 
-extern s_DIAG_DATA _diag_data_struct;
+extern s_DIAG_DATA       _diag_data_struct;
+extern s_DIAG_SHM_DATA * _diag_shm_ptr;
+
 
 /************************************************************************
  * FUNCTION DECLARATIONS

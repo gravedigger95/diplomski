@@ -205,6 +205,9 @@ LOCAL STATUS _module2_shMem_Check(void)
         _diag_shm_struct.type_no = _diag_shm_ptr_check->type_no;
         _diag_shm_struct.revision_no = _diag_shm_ptr_check->revision_no;
         _diag_shm_struct.phy_id_reg3 = _diag_shm_ptr_check->phy_id_reg3;
+        _diag_shm_struct.loc_rcvr_cnt = _diag_shm_ptr_check->loc_rcvr_cnt;
+        _diag_shm_struct.rem_rcvr_cnt = _diag_shm_ptr_check->rem_rcvr_cnt;
+        _diag_shm_struct.link_fail_cnt = _diag_shm_ptr_check->link_fail_cnt;      
     }
     else
     {
