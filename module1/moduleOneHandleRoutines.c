@@ -168,8 +168,6 @@ LOCAL void _testModes(int routine_trigger)
     	_diag_shm_ptr->rem_rcvr_cnt  = mdio_read_br(LINK_FAIL_COUNTER_REG) & REM_RCVR_CNT_MASK;
     	_diag_shm_ptr->loc_rcvr_cnt  = mdio_read_br(LINK_FAIL_COUNTER_REG) & LOC_RCVR_CNT_MASK;
     	_diag_shm_ptr->link_fail_cnt = mdio_read_br(GENERAL_STATUS_REG) & LINK_FAIL_CNT_MASK;
-
-        _normalOperationTest (0U);
     }
     else
     {
