@@ -14,6 +14,7 @@
  *       [27-Apr-2018] Added getErrorTime function
  *       [4-May-2018]  Added _sharedMemAlloc, _module1_shMem_Alloc and
  *                     _module1_FillSharedMem functions
+ *       [24-May-2018] Added function descriptions
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -57,6 +58,12 @@
  * Justification : This is checked and considered safe.
  */
 /* ------------------------------------------------------------------------- */
+/* Error Message: Msg(7:2461) Loop control variable, phyGmiiAddress, has file scope.MISRA C:2012 Rule-14.2
+ * 
+ * Justification : Variable is set only once, and cleared before every use in mdio_read_br()
+ * and mdio_write_br() functions. It is tested and working properly.
+ */
+/* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
 #include <vxworks.h>
@@ -76,17 +83,53 @@
 #include "moduleOneReadEthPhy.h"
 
 /************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/** 
+ * \brief Function that reads registers and fill diag data structure
+ * \metric STAV1 10 Loading data in msgQ struct. 
+ */
+LOCAL void _module1_ReadChipRegisters(void);
+/** 
+ * \brief This function takes pointer to allocated shared memory
+ * \return OK if successful, ERROR otherwise 
+ * \retVal ERROR if opening shared memory failed
+ */
+LOCAL STATUS _sharedMemAlloc(void);
+/** 
+ * \brief This function fills DIAG_SHM_DATA_t struct with diagnostic data 
+ * \metric STAV1 11 Loading data in shMem structure.
+ */
+LOCAL void _module1_FillSharedMem(void);
+/** 
+ * \brief This function opens shared memory and allocates it
+ * \param fname Shared memory name
+ * \param size Shared memory size
+ * \return Pointer to allocated shared memory 
+ */
+LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size);
+/** 
+ * \brief Function that gets time of error.
+ * \param time_info Struct tm with current processor time
+ * \param pos Position of error in errors_array struct
+ * \metric STAV1 11 Library functions.
+ */
+LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos);
+
+/************************************************************************
+ * GLOBAL VARIABLES
+ ***********************************************************************/
+s_DIAG_DATA       _diag_data_struct;
+
+/************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
-
-s_DIAG_DATA       _diag_data_struct;
 LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr;
 LOCAL uint8_t _delete_cnt = 0U;
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
-
 LOCAL void _module1_ReadChipRegisters(void)
 {
     uint8_t i = 0;
@@ -200,14 +243,14 @@ uint32_t mdio_read_br(uint32_t regNumber)
     regNumber += (uint32_t) SET_READ_MASK;
     *phyGmiiAddress |= regNumber;
 
-    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) BUSY_BIT)))
+    while ((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) BUSY_BIT)) /* PRQA S 2461 */
     {
         cnt++;
-    	if(cnt > (uint8_t) MAX_CNT)
-    	{
-			printf(" BR mdio_read_br(): Error reading back register\n");
-    		return 0;
-    	}
+        if ((uint8_t) MAX_CNT < cnt)
+        {
+            (void) printf (" BR mdio_read_br(): Error reading back register\n");
+            return 0;
+        }
     }
     
     return *phyGmiiData;
@@ -225,13 +268,13 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
     regNumber += SET_WRITE_MASK;
     *phyGmiiAddress |= regNumber;
 
-    while (((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) BUSY_BIT)))
+    while ((uint32_t) 0x0 != (*phyGmiiAddress & (uint32_t) BUSY_BIT)) /* PRQA S 2461 */
     {
         cnt++;
-    	if(cnt > (uint8_t) MAX_CNT)
-    	{
-			printf(" BR mdio_write_br(): Error writing to register\n");
-    		return;
+        if((uint8_t) MAX_CNT < cnt)
+        {
+            (void) printf(" BR mdio_write_br(): Error writing to register\n");
+            return;
     	}
     }
 }
@@ -330,7 +373,7 @@ LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size)
     /* set object size */
     if ((ftruncate (fd, (off_t) size) == -1) || (ERROR == err))
     {
-    	(void) fprintf (stderr, "BR ERROR truncating shm:'%s' sizeof()=%ld\n", fname, (unsigned long) size);
+        (void) fprintf (stderr, "BR ERROR truncating shm:'%s' sizeof()=%ld\n", fname, (unsigned long) size);
         perror ("ftruncate");
         err = ERROR;  
         retAddr = NULL_PTR;
@@ -359,7 +402,7 @@ LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos)
 
     if (strftime (_diag_data_struct.errors_array[pos].timestamp, 26, "%Y-%m-%d %H:%M:%S", time_info) == (size_t) 0)
     {
-    	(void) printf ("sprintf error\n");
+        (void) printf ("sprintf error\n");
     }   
     fd = fopen ("/mmc0:1/err/errorLog.txt", "a");
 

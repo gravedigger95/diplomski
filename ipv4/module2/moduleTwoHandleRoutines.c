@@ -6,7 +6,9 @@
  *       State machine functions that handle user commands using state machine.
  *   
  *  \version
- *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [13-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [15-Jun-2018] [Stefan Masalusic] Added functions
+ *       
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -40,6 +42,15 @@
 #include "moduleTwoFileSending.h"
 #include "moduleTwoServer.h"
 #include "moduleTwoRTP.h"
+
+/************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/** 
+ * \brief This function is used for receiving command from user via socket.
+ */
+LOCAL void _receiveCommand(void);
+
 /************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
@@ -48,8 +59,8 @@ LOCAL uint32_t _routineNumRecv  = 0;
 /************************************************************************
  * GLOBAL VARIABLES
  ***********************************************************************/
-uint8_t _changeState            = 0;    
-uint8_t _msg                    = 0;
+uint8_t _changeState = 0;
+uint8_t _msg         = 0;
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
@@ -59,16 +70,20 @@ void processMessage(void)
     switch (_msg)
     {
         case STATEMACHINE_WAIT_FOR_COMMAND:
+        	/* Receive command from user via socket */
             _receiveCommand();
             break;
         case STATEMACHINE_SEND_FILE:
+        	/* Send file to PC */
             uploadFile();
             break;
         case STATEMACHINE_START_ROUTINE:
+        	/* Start routine or test mode */
             (void) module2_SetRoutineNum ((int32_t) _routineNumRecv);
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
             break;
         case STATEMACHINE_SEND_MSG_QUEUE:
+        	/* Send diagnostic data to user */
             if (send (_newSocket, (char *) &_diag_data_struct_mod1, sizeof (_diag_data_struct_mod1), 0) == SOCKET_ERROR) /* PRQA S 0310 */
             {
                 (void) printf ("msgq struct send() FAILED!\n\n");
@@ -77,6 +92,7 @@ void processMessage(void)
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
             break;
         case STATEMACHINE_SEND_SHARED_MEMORY:
+        	/* Send diagnostic data to user */
             if (send (_newSocket, (char *) &_diag_shm_struct, sizeof (_diag_shm_struct), 0) == SOCKET_ERROR) /* PRQA S 0310 */
             {
                 (void) printf ("shmem struct send() FAILED!\n\n"); 
@@ -85,6 +101,7 @@ void processMessage(void)
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
             break;
         default:
+        	/* User terminated program */
             (void) close (_s);
             (void) close (_newSocket);
             (void) printf ("Client disconnected!\n");
@@ -96,7 +113,8 @@ LOCAL void _receiveCommand(void)
 {
     int recvSize;
     uint32_t commandNum = EXIT_BG_TASK;
-
+    
+    /* Receive command number from user */
     recvSize = recv (_newSocket, &commandNum, sizeof (commandNum), 0);
     if (SOCKET_ERROR  == recvSize)
     {
@@ -110,6 +128,7 @@ LOCAL void _receiveCommand(void)
     }
     else if (START_ROUTINE == commandNum)
     {
+    	/* Receive routine number from user */
         recvSize = recv (_newSocket, &_routineNumRecv, sizeof (_routineNumRecv), 0);
         if (SOCKET_ERROR == recvSize)
         {

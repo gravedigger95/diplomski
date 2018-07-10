@@ -10,11 +10,6 @@
  *       [23-Apr-2018] [Stefan Masalusic] Initial creation
  *       
  *  \history
- *       [23-Apr-2018] Added ReadChipRegisters, ReadChipRegistersTask,
- *                     mdio_read_br and mdio_write_br functions
- *       [27-Apr-2018] Added getErrorTime function
- *       [4-May-2018]  Added _sharedMemAlloc, _module1_shMem_Alloc and
- *                     _module1_FillSharedMem functions
  *       [24-May-2018] Added function descriptions
  *       [09-Jul-2018] Added macros
  */
@@ -143,11 +138,6 @@ extern s_DIAG_DATA _diag_data_struct;
  * FUNCTION DECLARATIONS
  ***********************************************************************/
 /** 
- * \brief Function that reads registers and fill diag data structure
- * \metric STAV1 10 Loading data in msgQ struct. 
- */
-LOCAL void _module1_ReadChipRegisters(void);
-/** 
  * \brief This function reads TJA1100 address register 
  * \param regNumber Number of desired BroadRReach register
  * 
@@ -155,42 +145,18 @@ LOCAL void _module1_ReadChipRegisters(void);
  * \retval 0           Reading from register failed
  * \retval phyGmiiData Reading from register success
  */
-uint32_t mdio_read_br(uint32_t addr);
+uint32_t mdio_read_br(uint32_t regNumber);
 /** 
  * \brief This function writes data to TJA1100 address register 
  * \param regNumber Number of BroadRReach register
  * \param dataWrite Data to be written
  */
-void mdio_write_br(uint32_t addr, uint16_t data);
+void mdio_write_br(uint32_t regNumber, uint16_t dataWrite);
 /** 
  * \brief This is task function for module1ReadChipRegisters()
  *        used for reading TJA1100 registers and sending data to 
  *        diagMsgQ via diag_data_struct
  */
 void module1_ReadChipRegistersTask(void);
-/** 
- * \brief This function takes pointer to allocated shared memory
- * \return OK if successful, ERROR otherwise 
- */
-LOCAL STATUS _sharedMemAlloc(void);
-/** 
- * \brief This function fills DIAG_SHM_DATA_t struct with diagnostic data 
- * \metric STAV1 10 Loading data in shMem structure.
- */
-LOCAL void _module1_FillSharedMem(void);
-/** 
- * \brief This function opens shared memory and allocates it
- * \param fname Shared memory name
- * \param size Shared memory size
- * \return Pointer to allocated shared memory 
- */
-LOCAL void * _module1_shMem_Alloc(const char * fname, size_t size);
-/** 
- * \brief Function that gets time of error.
- * \param time_info Struct tm with current processor time
- * \param pos Position of error in errors_array struct
- * \metric STAV1 11 Library functions.
- */
-LOCAL void _module1_getErrorTime(struct tm const * time_info, uint8_t pos);
 
 #endif /* READETHPHY_H_ */

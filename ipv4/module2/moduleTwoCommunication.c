@@ -7,7 +7,11 @@
  *       diagnostic data from moduleOne.
  *   
  *  \version
- *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [28-May-2018] [Stefan Masalusic] Initial creation
+ *  \history
+ *       [28-May-2018] Added _module2_ReadDiagMsgQ function
+ *       [1-Jun-2018] Added sharedMemAlloc_module2, _module2_shMem_open
+ *       and _module2_shMem_Check functions
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -58,20 +62,46 @@
  * Justification : This is VxWorks macro. It is checked and considered safe.
  */
 /* ------------------------------------------------------------------------- */
+/* Error Message: Msg(7:4542) A non-negative constant expression of 'essentially 
+ * signed' type (signed char) is being used as the left-hand operand of this bitwise operator (&).MISRA C:2012 Rule-10.1
+ * 
+ * Justification : This is checked and considered safe. This implementation increases
+ * code simplicity and visibility.
+ */
+/* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
 #include <vxworks.h>
 #include <stdio.h>
 #include <msgQLibCommon.h>
 #include <unistd.h>
+#include <sys/fcntlcom.h>
+#include <sys/stat.h>
 #include <sys/mman.h>
 #include "moduleTwoCommunication.h"
+
+/************************************************************************
+ * LOCAL FUNCTION DECLARATION
+ ***********************************************************************/
+/** 
+ * \brief This function opens shared memory in module 2 and allocates it
+ * \param fname Name of shared memory
+ * \param size Size of shared memory
+ * \return Pointer to allocated shared memory 
+ */
+LOCAL void * _module2_shMem_open(const char * fname, size_t size);
+/** 
+ * \brief This function is used for checking if module 1 wrote correctly
+ *        in shared memory
+ * \return OK if successful, ERROR otherwise 
+ */
+LOCAL STATUS _module2_shMem_Check(void);
 
 /************************************************************************
  * GLOBAL VARIABLES
  ***********************************************************************/
 s_DIAG_SHM_DATA _diag_shm_struct;
-s_DIAG_DATA _diag_data_struct_mod1;
+s_DIAG_DATA     _diag_data_struct_mod1;
 
 /************************************************************************
  * INTERNAL VARIABLES
@@ -84,10 +114,10 @@ LOCAL s_DIAG_SHM_DATA * _diag_shm_ptr_check;
 STATUS _module2_ReadDiagMsgQ(void)
 {
     int32_t length;
-    int8_t ret   = OK;
+    int8_t ret          = OK;
     MSG_Q_ID diagMsgQId = MSG_Q_ID_NULL;
     
-    diagMsgQId = msgQOpen ("/diagMsgQ", 1, sizeof (_diag_data_struct_mod1), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
+    diagMsgQId = msgQOpen ("/diagMsgQ", MAX_MSG, sizeof (_diag_data_struct_mod1), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
     if (MSG_Q_ID_NULL == diagMsgQId)
     {
         ret = ERROR;
@@ -131,7 +161,7 @@ LOCAL void * _module2_shMem_open(const char * fname, size_t size)
     int8_t err = OK;
     
     /* create a new SHM object if it doesn't exist*/
-    fd = shm_open (SH_MEM_NAME, 2, (int32_t) (0x0100U | 0x0080U));
+    fd = shm_open (SH_MEM_NAME, O_RDWR, (int32_t) (S_IRUSR | S_IWUSR)); /* PRQA S 4542 */
     if (fd == -1) 
     {
         perror("shm_open");
@@ -149,9 +179,9 @@ LOCAL void * _module2_shMem_open(const char * fname, size_t size)
     
     /* Map shared memory object in the address space of the process */
     retAddr = mmap (NULL_PTR, size,
-             (int32_t) (0x0001U | 0x0002U),
-             0x0001, fd, 0);
-    if ((retAddr == (void *) (-1)) || (ERROR == err)) /* PRQA S 0306 */
+             (int32_t) (PROT_READ | PROT_WRITE), /* PRQA S 4542 */
+             MAP_SHARED, fd, 0);
+    if ((MAP_FAILED == retAddr) || (ERROR == err)) /* PRQA S 0306 */
     {
          perror ("mmap");
          err = ERROR;

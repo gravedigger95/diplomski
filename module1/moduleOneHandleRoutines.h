@@ -10,9 +10,6 @@
  *       [7-May-2018] [Stefan Masalusic] Initial creation
  *       
  *  \history
- *       [7-May-2018]  Added module1_GetRoutineNum function
- *       [9-May-2018]  Added _testModes, _pingRoutine and
- *                     _normalOperationTest functions    
  *       [24-May-2018] Added function descriptions
  *       [09-Jul-2018] Added macros
  */
@@ -61,23 +58,7 @@ extern MSG_Q_ID routinesMsgQId;
 /** 
  * \brief This function gets number of routine which will be called
  *        and calls _testModes(int routine_trigger).
- * \return OK if successful, ERROR otherwise
  */
-STATUS module1_GetRoutineNum(void);
-/** 
- * \brief This function is used for activating test routines.
- * \param routine_trigger Number of routine to start
- */
-LOCAL void _testModes(int routine_trigger);
-/** 
- * \brief Routine used to ping PC when triggered
- * \return OK if successful, ERROR otherwise 
- */
-LOCAL STATUS _pingRoutine(void);
-/** 
- * \brief Routine for testing normal operation mode.
- * \param mode Number of routine mode
- */
-LOCAL void _normalOperationTest(uint16_t mode);
+void module1_GetRoutineNum(void);
 
 #endif /* MODULEONEHANDLEROUTINES_H_ */

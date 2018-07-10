@@ -6,7 +6,9 @@
  *       Functions that handle file sending to PC side.
  *   
  *  \version
- *       [19-Apr-2018] [Stefan Masalusic] Initial creation
+ *       [8-Jun-2018] [Stefan Masalusic] Initial creation
+ *  \history
+ *       [11-Jun-2018] Finished all functions
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -44,6 +46,30 @@
 #include "moduleTwoFileSending.h"
 
 /************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/** 
+ * \brief This function prepares and send filename to PC via socket.
+ * \param fs_name[] Name of file to be sent
+ */
+LOCAL void _processFileName(char fs_name[]);
+/** 
+ * \brief This function prepares and send filesize to PC via socket. 
+ * \metric STAV1 10 Required for correct implementation of file sending.
+ */
+LOCAL void _processFileSize(void);
+/** 
+ * \brief This function sends file data through socket.
+ * \metric STCAL 10 Required for correct implementation of file sending.
+ */
+LOCAL void _processFileSending(void);
+/** 
+ * \brief This function sends file to PC.
+ * \param fs_name[] Name of file to be sent with full path
+ */
+LOCAL void _sendFile(char fs_name[]);
+
+/************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
 LOCAL char _tempDir[BUFLEN];
@@ -59,15 +85,19 @@ void uploadFile(void)
     char tempStr[BUFLEN];
     
     (void) printf ("changeSTAT: %d\n\n", _changeState);
+    /* Change state machine state to idle */
     _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
+    
     networkFilesNum = htonl_br (networkFilesNum);
     
+    /* Inform other side how many files to expect */
     if (send (_newSocket, (char *) &networkFilesNum, sizeof (networkFilesNum), 0) == SOCKET_ERROR) /* PRQA S 0310 */
     {
         (void) printf ("Number of files send() FAILED!\n\n");
     }
     (void) printf ("Number of files is sent!\n");
-           
+    
+    /* Get file name */
     dirp = opendir ("/mmc0:1/err");
     if (NULL_PTR == dirp) 
     {
@@ -112,11 +142,14 @@ LOCAL void _processFileSending(void)
     uint32_t sdbuf[BUFLEN];
     
     (void) memset (sdbuf, 0, BUFLEN);
+    
+    /* Find beginning of file */
     (void) fseek (_fs, 0, SEEK_SET);
 
     /* Sending file... */
     while (blockSize != NULL)
     {
+    	/* Read file chunk by chunk and send */
         blockSize = (int) fread (sdbuf, sizeof (int8_t), BUFLEN, _fs);
         if (NULL == blockSize)
         {
@@ -162,7 +195,7 @@ LOCAL void _processFileSize(void)
     (void) printf ("Size of file is sent!\n");
 
     (void) printf ("\n\n\n\n\n\n char: %d, unsigned char: %d, int: %d, long long: %d \n\n\n\n\n\n\n",
-            sizeof (char), sizeof (unsigned char), sizeof (int), sizeof (long long));          
+            sizeof (char), sizeof (unsigned char), sizeof (int), sizeof (long long));
 }
 
 LOCAL void _processFileName(char fs_name[])

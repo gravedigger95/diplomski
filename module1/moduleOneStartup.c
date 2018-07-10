@@ -16,6 +16,8 @@
  *       [23-Apr-2018] Added StartTasks function
  *       [25-Apr-2018] Added ConfigureEthInterface and ConfigureVLANInterface functions
  *       [18-May-2018] Added rtpModule function
+ *       [24-May-2018] Added function descriptions
+ *       
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -102,6 +104,19 @@
 #include "moduleOneReadEthPhy.h"
 
 /************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/*
+ * \brief This function creates two public message queues.
+ *        One for sending diagnostic data to user space, and other
+ *        for calling different routines, e.g. ping...
+ *        
+ * \return OK if queues creating was successful, ERROR otherwise
+ * \retVal ERROR if opening msgQueues failed
+ */
+LOCAL STATUS _module1_CreateMsgQueues(void);
+
+/************************************************************************
  * GLOBAL VARIABLES
  ***********************************************************************/
 MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
@@ -119,7 +134,7 @@ void module1_InitPhy(void)
 {
     char * ethIf_macVirtAddr = NULL_PTR;
     FILE * fd;
-    int8_t retVal = 0;
+    int32_t retVal = 0;
     
     const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
 
@@ -147,7 +162,7 @@ void module1_InitPhy(void)
     retVal = _module1_CreateMsgQueues();
     while (ERROR == retVal)
     {
-    	retVal = _module1_CreateMsgQueues();
+        retVal = _module1_CreateMsgQueues();
     }
 }
 
@@ -186,7 +201,7 @@ LOCAL STATUS _module1_CreateMsgQueues(void)
     routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof (uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
     if (MSG_Q_ID_NULL == routinesMsgQId)
     {
-        (void) printf ("openMsgQ  routinesMsgQId ERROR\n");   
+        (void) printf ("openMsgQ  routinesMsgQId ERROR\n");
         ret = ERROR;
     }
     return ret;
@@ -224,5 +239,3 @@ void module1_ConfigureVLAN(void)
     (void) ifconfig("vlan10 create vlan 1234 vlanif hmi0 inet 192.168.122.61 up"); /* PRQA S 0752 */
     (void) ifconfig("vlan10 inet6 add fd53:7cb8:383:2::4a prefixlen 64 up"); /* PRQA S 0752 */
 }
-
-

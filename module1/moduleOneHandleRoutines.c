@@ -11,6 +11,7 @@
  *       [7-May-2018]  Added module1_GetRoutineNum function
  *       [9-May-2018]  Added _testModes, _pingRoutine and
  *                     _normalOperationTest functions    
+ *       [24-May-2018] Added function descriptions
  * ------------------------------------------------------------------------------
  */
  /* ------------------------------------------------------------------------- */
@@ -60,9 +61,28 @@
 #include "moduleOneHandleRoutines.h"
 
 /************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/** 
+ * \brief This function is used for activating test routines.
+ * \param routine_trigger Number of routine to start
+ */
+LOCAL void _testModes(int routine_trigger);
+/** 
+ * \brief Routine used to ping PC when triggered
+ * \return OK if successful, ERROR otherwise 
+ */
+LOCAL STATUS _pingRoutine(void);
+/** 
+ * \brief Routine for testing normal operation mode.
+ * \param mode Number of routine mode
+ */
+LOCAL void _normalOperationTest(uint16_t mode);
+
+/************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
-STATUS module1_GetRoutineNum(void)
+void module1_GetRoutineNum(void)
 {
     int32_t routineNum = 0;
     
@@ -75,8 +95,6 @@ STATUS module1_GetRoutineNum(void)
             /* Start desired routine */
         
             _testModes (routineNum);
-
-            (void) taskDelay (TASK_DELAY_1000MS);
         }
     }
 }

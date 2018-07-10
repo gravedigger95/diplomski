@@ -1,8 +1,17 @@
 /*
- * module2.h
+ *  \file 
+ *      moduleTwoRTP.h
  *
- *  Created on: Apr 26, 2018
- *      Author: bura
+ *  \brief 
+ *      Header file for moduleTwoRTP.c
+ *      Includes macros for task and msgQueue
+ *
+ *  \version
+ *       [28-May-2018] [Stefan Masalusic] Initial creation
+ *       
+ *  \history
+ *       [7-Jun-2018]  Added function descriptions
+ *       [09-Jul-2018] Added macros
  */
 
 #ifndef MODULE2_H_
@@ -12,14 +21,14 @@
  * PRIVATE MACRO DEFINITIONS
  ***********************************************************************/
 /* Message queue defines */
-#define MAX_MSG         ((uint8_t) 2U)
-#define BUFLEN ((uint16_t) 512U)
+#define BUFLEN  ((uint16_t) 512U)
 
 #define NULL_PTR (void *) (0)
-                         
-#define TASK_DELAY_25MS (uint32_t) (25U)
 
-#define STATEMACHINE_EXIT_BG_TASK ((uint8_t) 6U)
+/* Background task defines */
+#define TASK_DELAY_250MS (uint32_t) (25U)
+#define BG_TASK_PRIORITY (115)
+#define BG_STACK_SIZE    (2000U)
 
 /************************************************************************
  * FUNCTION DECLARATIONS
@@ -27,19 +36,10 @@
 /** 
  * \brief This function sends routine number to module 1 which activates
  *        appropriate routine
- * \param routineNum Number of desired routine
+ * \param routineNum Number of routine to be called
  * \return OK if successful, ERROR otherwise
+ * \retVal ERROR if opening or sending through msgQueue was unsuccessful
  */
 STATUS module2_SetRoutineNum(int routineNum);
-/** 
- * \brief This function is background task for communication with PC and
- *        triggering appropriate routines for testing.
- */
-LOCAL void _backgroundTask(void);
-/** 
- * \brief This function is used for initializing RTP module msg queues, shared memory
- *        and tasks. 
- */
-LOCAL void _module2_init(void);
 
 #endif /* MODULE2_H_ */

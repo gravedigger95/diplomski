@@ -7,7 +7,10 @@
  *       with PC side via socket.
  *   
  *  \version
- *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [30-May-2018] [Stefan Masalusic] Initial creation
+ *  \history
+ *       [31-May-2018] Added _establishCommunication and initCommunication functions
+ *       
  * ------------------------------------------------------------------------------
  */
 /* ------------------------------------------------------------------------- */
@@ -49,6 +52,14 @@
 #include "moduleTwoServer.h"
 
 /************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/** 
+ * \brief This function listen, accept and test communication with PC.
+ */
+LOCAL void _establishCommunication(void);
+
+/************************************************************************
  * GLOBAL VARIABLES
  ***********************************************************************/
 int _s, _newSocket;
@@ -86,8 +97,10 @@ void initCommunication(void)
         setsockopt(_s, SOL_SOCKET, SO_SNDBUF, (char *) &size, sizeof(size));
         setsockopt(_s, SOL_SOCKET, sO_RCVBUF, (char *) &size, sizeof(size));
     */    
+	
     struct sockaddr_in server;
     
+    /* Create socket */
     _s = socket (AF_INET, SOCK_STREAM, 0);
     if (SOCKET_ERROR == _s)
     {
@@ -95,12 +108,14 @@ void initCommunication(void)
     }
     (void) printf ("\n\nSocket created.\n");
     
+    /* Fill socket structure */
     (void) memset ((char *) &server, 0, sizeof (server)); /* PRQA S 0310 */
     server.sin_family = AF_INET;
     server.sin_addr.s_addr = INADDR_ANY;
     server.sin_port = htons_br ((uint16_t) SWU_BR_SERVERPORT); /* PRQA S 4397 */
     //inet_pton(AF_INET6, "::0", &server.sin6_addr);
     
+    /* Bind address to socket */
     if (bind (_s, (struct sockaddr *) &server , (int32_t) sizeof (server)) == SOCKET_ERROR) /* PRQA S 0310 */
     {
         (void) printf ("Bind failed: %s\n", strerror (errno));
@@ -122,7 +137,8 @@ LOCAL void _establishCommunication(void)
     struct sockaddr_in client;
     int recvSize;
     int c;
-
+    
+    /* Listen and accept communication on socket */
     (void) listen (_s, BACKLOG);
     
     (void) printf ("Waiting for incoming connections...\n\n\n\n");

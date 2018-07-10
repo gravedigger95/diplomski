@@ -3,29 +3,16 @@
  *      moduleTwoRTP.c
  *      
  *  \brief 
- *       Functions for initializing module two RTP and starting background task
- *       state machine.
+ *       Functions for initializing module two RTP, starting background task
+ *       state machine and sending routine number to module one.
  *   
  *  \version
- *       [27-Jun-2018] [Stefan Masalusic] Initial creation
+ *       [28-May-2018] [Stefan Masalusic] Initial creation
+ *  \history
+ *       [29-May-2018] Added _module2_init and module2_SetRoutineNum functions
+ *       [6-Jun-2018]  Added _backgroundTask function
  * ------------------------------------------------------------------------------
  */
-/* ------------------------------------------------------------------------- */
-/* ------------------------------  Includes  ------------------------------- */
-/* ------------------------------------------------------------------------- */
-#include <vxworks.h>
-#include <stdio.h>
-#include <msgQLibCommon.h>
-#include <taskLib.h>
-#include <string.h>
-#include <stdint.h>
-#include <time.h>
-#include "moduleTwoServer.h"
-#include "moduleTwoHandleRoutines.h"
-#include "moduleTwoFileSending.h"
-#include "moduleTwoCommunication.h"
-#include "moduleTwoRTP.h"
-
  /* ------------------------------------------------------------------------- */
 /*                         SUPRESSED MISRA VIOLATONS                         */
 /* ------------------------------------------------------------------------- */
@@ -67,6 +54,36 @@
  * 
  * Justification : This implementation increase code visibility.
  */
+/* ------------------------------------------------------------------------- */
+/* ------------------------------  Includes  ------------------------------- */
+/* ------------------------------------------------------------------------- */
+#include <vxworks.h>
+#include <stdio.h>
+#include <msgQLibCommon.h>
+#include <taskLib.h>
+#include <string.h>
+#include <stdint.h>
+#include <time.h>
+#include "moduleTwoServer.h"
+#include "moduleTwoHandleRoutines.h"
+#include "moduleTwoFileSending.h"
+#include "moduleTwoCommunication.h"
+#include "moduleTwoRTP.h"
+
+/************************************************************************
+ * LOCAL FUNCTION DECLARATIONS
+ ***********************************************************************/
+/** 
+ * \brief This function is background task for communication with PC and
+ *        triggering appropriate routines for testing.
+ */
+LOCAL void _backgroundTask(void);
+/** 
+ * \brief This function is used for initializing RTP module msg queues, shared memory
+ *        and tasks. 
+ */
+LOCAL void _module2_init(void);
+
 /************************************************************************
  * INTERNAL VARIABLES
  ***********************************************************************/
@@ -75,14 +92,16 @@ LOCAL MSG_Q_ID messages = MSG_Q_ID_NULL;
 /************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
-int main (void) {   
-    
+int main (void) 
+{
+    /* Initialize RTP */
     _module2_init();
     
+    /* Start RTP task */
     FOREVER
     {
         (void) _module2_ReadDiagMsgQ();
-        (void) taskDelay (TASK_DELAY_25MS); 
+        (void) taskDelay (TASK_DELAY_250MS); 
     }
 
     return 0;
@@ -100,16 +119,18 @@ LOCAL void _module2_init(void)
     {
         (void) printf ("MsgQCreate failed!\n");
     }
-    _changeState = 1;
-    
+    /* Set state machine initial state */
+    _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
     if (msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL) == ERROR) /* PRQA S 0310 */
     {
         (void) printf ("msgQSend RTP main ERROR\n");
     }
-        
+    
+    /* Start server */
     (void) initCommunication();
         
-    if (taskSpawn ("bgTask", 115, VX_FP_TASK, 2000, (FUNCPTR) _backgroundTask, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */ /* PRQA S 0310 */
+    /* Start background task */
+    if (taskSpawn ("bgTask", BG_TASK_PRIORITY, VX_FP_TASK, BG_STACK_SIZE, (FUNCPTR) _backgroundTask, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */ /* PRQA S 0310 */
                     0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of backgroundTask failed\n");
@@ -120,6 +141,7 @@ LOCAL void _backgroundTask(void)
 {
     FOREVER
     {
+    	/* Receive command and process it */
         (void) msgQReceive (messages, (char *) &_msg, sizeof (_msg), WAIT_FOREVER); /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */ 
         if (STATEMACHINE_EXIT_BG_TASK == _msg)
         {
@@ -129,7 +151,7 @@ LOCAL void _backgroundTask(void)
             taskExit(1);
         }   
         processMessage();
-        
+        /* Return to idle state */
         (void) msgQSend (messages, (char *) &_changeState, sizeof (_changeState), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */
     }
 } 
@@ -139,7 +161,7 @@ STATUS module2_SetRoutineNum(int routineNum)
     int8_t ret              = OK;
     MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
 
-    /* Open _msg queue */
+    /* Open msg queue */
     routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof(uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR); 
     if (MSG_Q_ID_NULL == routinesMsgQId)
     {

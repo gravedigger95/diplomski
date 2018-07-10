@@ -1,10 +1,18 @@
-/*
- * moduleTwoCommunication.h
- *
- *  Created on: Jun 27, 2018
- *      Author: bura
+/**
+ *  \file 
+ *      moduleTwoCommunication.h
+ *      
+ *  \brief 
+ *       Header file for moduleTwoCommunication.h
+ *   
+ *  \version
+ *       [28-May-2018] [Stefan Masalusic] Initial creation
+ *  \history
+ *       [28-May-2018] Defined structures
+ *       [7-Jun-2018]  Added function descriptions
+ *       [09-Jul-2018] Added macros
+ * ------------------------------------------------------------------------------
  */
-
 #ifndef MODULETWOCOMMUNICATION_H_
 #define MODULETWOCOMMUNICATION_H_
 
@@ -12,7 +20,9 @@
  * PRIVATE MACRO DEFINITIONS
  ***********************************************************************/
 #define NULL_PTR (void *) (0)
-#define SH_MEM_NAME     "/shMemModule1to2"
+
+#define SH_MEM_NAME "/shMemModule1to2"
+#define MAX_MSG     (2U)
 
 typedef struct errorStruct
 {
@@ -22,7 +32,7 @@ typedef struct errorStruct
     uint8_t padding;
 }s_ERRORS;
 
-/* Diagnostic data struct */
+/* Diagnostic data structs */
 typedef struct diagnosticDataMsgQ
 {
     uint8_t link_status; //basic status reg bit 2 0x1
@@ -68,7 +78,7 @@ typedef struct diagnosticDataShM
  * EXTERNAL VARIABLES
  ***********************************************************************/
 extern s_DIAG_SHM_DATA _diag_shm_struct;
-extern s_DIAG_DATA _diag_data_struct_mod1;
+extern s_DIAG_DATA     _diag_data_struct_mod1;
 
 /************************************************************************
  * FUNCTION DECLARATIONS
@@ -76,24 +86,13 @@ extern s_DIAG_DATA _diag_data_struct_mod1;
 /** 
  * \brief This function periodically reads diagnostic msgQ and shared memory
  * \return OK if successful, ERROR otherwise
+ * \retVal ERROR if opening or receiving from msgQueue failed
  */
 STATUS _module2_ReadDiagMsgQ(void);
 /** 
- * \brief This function opens shared memory in module 2 and allocates it
- * \param fname Name of shared memory
- * \param size Size of shared memory
- * \return Pointer to allocated shared memory 
- */
-LOCAL void * _module2_shMem_open(const char * fname, size_t size);
-/** 
- * \brief This function is used for checking if module 1 wrote correctly
- *        in shared memory
- * \return OK if successful, ERROR otherwise 
- */
-LOCAL STATUS _module2_shMem_Check(void);
-/** 
  * \brief This function opens shared memory in module 1 and allocates it
  * \return OK if successful, ERROR otherwise
+ * \retVal ERROR if opening shared memory failed
  */
 STATUS sharedMemAlloc_module2(void);
 
