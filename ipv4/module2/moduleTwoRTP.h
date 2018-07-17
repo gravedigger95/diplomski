@@ -28,7 +28,7 @@
 /* Background task defines */
 #define TASK_DELAY_250MS (uint32_t) (25U)
 #define BG_TASK_PRIORITY (115)
-#define BG_STACK_SIZE    (2000U)
+#define BG_STACK_SIZE    (5000U)
 
 /************************************************************************
  * FUNCTION DECLARATIONS

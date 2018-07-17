@@ -88,16 +88,16 @@ void processMessage(void)
             {
                 (void) printf ("msgq struct send() FAILED!\n\n");
             }
-            (void) printf ("msgq struct  is sent!\n"); 
+            (void) printf ("Message Queue struct is sent!\n"); 
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
             break;
         case STATEMACHINE_SEND_SHARED_MEMORY:
         	/* Send diagnostic data to user */
             if (send (_newSocket, (char *) &_diag_shm_struct, sizeof (_diag_shm_struct), 0) == SOCKET_ERROR) /* PRQA S 0310 */
             {
-                (void) printf ("shmem struct send() FAILED!\n\n"); 
+                (void) printf ("Shared memory struct send() FAILED!\n\n"); 
             }
-            (void) printf ("shmem struct  is sent!\n");
+            (void) printf ("Shared memory struct  is sent!\n");
             _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
             break;
         default:

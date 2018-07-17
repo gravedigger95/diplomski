@@ -80,13 +80,15 @@ LOCAL FILE * _fs;
  ***********************************************************************/
 void uploadFile(void)
 {
-    uint32_t networkFilesNum = 1U;
+    uint32_t networkFilesNum = 0U;
     DIR * dirp;
     char tempStr[BUFLEN];
     
     (void) printf ("changeSTAT: %d\n\n", _changeState);
     /* Change state machine state to idle */
     _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
+    
+    networkFilesNum = isDirectoryEmpty();
     
     networkFilesNum = htonl_br (networkFilesNum);
     
@@ -97,6 +99,12 @@ void uploadFile(void)
     }
     (void) printf ("Number of files is sent!\n");
     
+    networkFilesNum = ntohl_br (networkFilesNum);
+
+    if (networkFilesNum == 0U)
+    {
+        return;
+    }
     /* Get file name */
     dirp = opendir ("/mmc0:1/err");
     if (NULL_PTR == dirp) 
@@ -109,9 +117,35 @@ void uploadFile(void)
         _sendFile (tempStr);
         (void) closedir (dirp);  
     }
-    (void) printf ("****************************************************");
+    (void) printf ("****************************************************\n");
 }
 
+int isDirectoryEmpty (void) {
+    int n = 0;
+    struct dirent *d;
+    DIR *dir = opendir ("/mmc0:1/err");
+    
+    if (dir == NULL) //Not a directory or doesn't exist
+    {
+        return 1;
+    }
+    
+    while ((d = readdir (dir)) != NULL)
+    {
+        if (++n > 2)
+        break;
+    }
+    
+    closedir(dir);
+    if (n <= 2) //Directory Empty
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
 
 LOCAL void _sendFile(char fs_name[])
 {
@@ -146,6 +180,7 @@ LOCAL void _processFileSending(void)
     /* Find beginning of file */
     (void) fseek (_fs, 0, SEEK_SET);
 
+    (void) printf ("Sending file...\n");
     /* Sending file... */
     while (blockSize != NULL)
     {
@@ -161,7 +196,7 @@ LOCAL void _processFileSending(void)
      
         if (send (_newSocket, (uint8_t *) sdbuf, (uint32_t) blockSize, 0) < 0) /* PRQA S 0310 */
         {
-            (void) fprintf (stderr, "ERROR: Failed to send file %s. (errno = %d)\n", _tempDir, errno);
+            (void) fprintf (stderr, "\nERROR: Failed to send file %s. (errno = %d)\n", _tempDir, errno);
             break;
         }
         (void) memset (sdbuf, 0, (uint32_t) blockSize);
@@ -175,7 +210,7 @@ LOCAL void _processFileSize(void)
 {
     uint32_t fileLentgh      = 0U;
     
-    (void) printf ("Sending %s to the _client... \n\n", _tempDir);
+    (void) printf ("Sending %s to client... \n\n", _tempDir);
     _fs = fopen (_tempDir, "rb");
     if (NULL_PTR == _fs)
     {
@@ -193,9 +228,6 @@ LOCAL void _processFileSize(void)
         (void) printf ("Name of the file send() FAILED!\n\n");
     }
     (void) printf ("Size of file is sent!\n");
-
-    (void) printf ("\n\n\n\n\n\n char: %d, unsigned char: %d, int: %d, long long: %d \n\n\n\n\n\n\n",
-            sizeof (char), sizeof (unsigned char), sizeof (int), sizeof (long long));
 }
 
 LOCAL void _processFileName(char fs_name[])
@@ -222,5 +254,5 @@ LOCAL void _processFileName(char fs_name[])
     
     /* Concatenate filename with path */
     (void) strcat (_tempDir, fs_name);
-    (void) printf ("Fullpath: %s", _tempDir);
+    (void) printf ("Fullpath: %s\n", _tempDir);
 }

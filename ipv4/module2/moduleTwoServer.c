@@ -123,7 +123,7 @@ void initCommunication(void)
              
     (void) printf ("Bind done!");
             
-    (void) printf ("Listetning...\n");
+    (void) printf ("Listening...\n");
             
    _establishCommunication();
 }
@@ -150,7 +150,7 @@ LOCAL void _establishCommunication(void)
     {
         (void) printf ("Accept failed with error!\n");
     }
-    (void) printf ("Connection accepted!");
+    (void) printf ("Connection accepted!\n");
     
     /* Receive initial message from client */
     recvSize = recv (_newSocket, buffer, BUFLEN, 0);
@@ -171,13 +171,13 @@ LOCAL void _establishCommunication(void)
         {
             (void) printf ("First send() failed\n");
         }
-        (void) printf ("Everything is fine, let's chat!\n\n");
+        (void) printf ("Connection established!\n\n");
     }
     else
     {
         if (send (_newSocket, respondNotOK, strlen (respondOK), 0) == SOCKET_ERROR)
         {
-            (void) printf ("Second send() failed\n");
+            (void) printf ("Connection refused!\n");
         }
     }
 }
