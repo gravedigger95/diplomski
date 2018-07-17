@@ -1,0 +1,4 @@
+<map id="_BR_chip_reset" name="_BR_chip_reset">
+<area shape="rect" id="node2" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="168,5,271,32"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="169,56,269,83"/>
+</map>

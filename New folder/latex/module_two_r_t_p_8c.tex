@@ -1,0 +1,133 @@
+\hypertarget{module_two_r_t_p_8c}{}\section{module\+Two\+R\+T\+P.\+c File Reference}
+\label{module_two_r_t_p_8c}\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+
+
+Functions for initializing module two R\+TP, starting background task state machine and sending routine number to module one.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$msg\+Q\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$task\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Handle\+Routines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+File\+Sending.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+R\+T\+P.\+h\char`\"{}}\newline
+Include dependency graph for module\+Two\+R\+T\+P.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_r_t_p_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_r_t_p_8c_a9ee4f92e8a67de163459179d3ca92741}{\+\_\+background\+Task}} (void)
+\begin{DoxyCompactList}\small\item\em This function is background task for communication with PC and triggering appropriate routines for testing. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_r_t_p_8c_a3afd7a702d6fb3b617ad97092a6a3696}{\+\_\+module2\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em This function is used for initializing R\+TP module msg queues, shared memory and tasks. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\item 
+S\+T\+A\+T\+US \mbox{\hyperlink{module_two_r_t_p_8c_a1d89a3332b3aef10068c0e00caf13bfc}{module2\+\_\+\+Set\+Routine\+Num}} (int routine\+Num)
+\begin{DoxyCompactList}\small\item\em This function sends routine number to module 1 which activates appropriate routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL M\+S\+G\+\_\+\+Q\+\_\+\+ID \mbox{\hyperlink{module_two_r_t_p_8c_ac8177dfad068c9c36626d687ca48e3d4}{messages}} = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for initializing module two R\+TP, starting background task state machine and sending routine number to module one. 
+
+\mbox{\hyperlink{module_two_r_t_p_8c}{module\+Two\+R\+T\+P.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}28-\/\+May-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation  \mbox{[}29-\/\+May-\/2018\mbox{]} Added \+\_\+module2\+\_\+init and module2\+\_\+\+Set\+Routine\+Num functions \subsubsection*{\mbox{[}6-\/\+Jun-\/2018\mbox{]} Added \+\_\+background\+Task function }
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_r_t_p_8c_a9ee4f92e8a67de163459179d3ca92741}\label{module_two_r_t_p_8c_a9ee4f92e8a67de163459179d3ca92741}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!\+\_\+background\+Task@{\+\_\+background\+Task}}
+\index{\+\_\+background\+Task@{\+\_\+background\+Task}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+background\+Task()}{\_backgroundTask()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+background\+Task (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is background task for communication with PC and triggering appropriate routines for testing. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_r_t_p_8c_a9ee4f92e8a67de163459179d3ca92741_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_two_r_t_p_8c_a3afd7a702d6fb3b617ad97092a6a3696}\label{module_two_r_t_p_8c_a3afd7a702d6fb3b617ad97092a6a3696}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!\+\_\+module2\+\_\+init@{\+\_\+module2\+\_\+init}}
+\index{\+\_\+module2\+\_\+init@{\+\_\+module2\+\_\+init}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module2\+\_\+init()}{\_module2\_init()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+module2\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is used for initializing R\+TP module msg queues, shared memory and tasks. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_r_t_p_8c_a3afd7a702d6fb3b617ad97092a6a3696_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!main@{main}}
+\index{main@{main}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_two_r_t_p_8c_a1d89a3332b3aef10068c0e00caf13bfc}\label{module_two_r_t_p_8c_a1d89a3332b3aef10068c0e00caf13bfc}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!module2\+\_\+\+Set\+Routine\+Num@{module2\+\_\+\+Set\+Routine\+Num}}
+\index{module2\+\_\+\+Set\+Routine\+Num@{module2\+\_\+\+Set\+Routine\+Num}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{module2\+\_\+\+Set\+Routine\+Num()}{module2\_SetRoutineNum()}}
+{\footnotesize\ttfamily S\+T\+A\+T\+US module2\+\_\+\+Set\+Routine\+Num (\begin{DoxyParamCaption}\item[{int}]{routine\+Num }\end{DoxyParamCaption})}
+
+
+
+This function sends routine number to module 1 which activates appropriate routine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em routine\+Num} & Number of routine to be called \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening or sending through msg\+Queue was unsuccessful 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_r_t_p_8c_ac8177dfad068c9c36626d687ca48e3d4}\label{module_two_r_t_p_8c_ac8177dfad068c9c36626d687ca48e3d4}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!messages@{messages}}
+\index{messages@{messages}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{messages}{messages}}
+{\footnotesize\ttfamily L\+O\+C\+AL M\+S\+G\+\_\+\+Q\+\_\+\+ID messages = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL}
+

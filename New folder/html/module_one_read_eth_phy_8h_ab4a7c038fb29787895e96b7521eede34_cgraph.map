@@ -1,0 +1,8 @@
+<map id="module1_ReadChipRegistersTask" name="module1_ReadChipRegistersTask">
+<area shape="rect" id="node2" href="$module_one_read_eth_phy_8c.html#a4d2f336ff3392dcabf55d8aad27395c2" title="This function takes pointer to allocated shared memory. " alt="" coords="305,5,432,32"/>
+<area shape="rect" id="node4" href="$module_one_read_eth_phy_8c.html#ad3d33414850bbc909d7abadd9374d260" title="Function that reads registers and fill diag data structure &#160;STAV1 10 Loading data in msgQ struct..." alt="" coords="271,107,467,133"/>
+<area shape="rect" id="node7" href="$module_one_read_eth_phy_8c.html#aac64c1f68d24bc5a269cd0c8b2d6a483" title="This function fills DIAG_SHM_DATA_t struct with diagnostic data &#160;STAV1 11 Loading data in shMem struc..." alt="" coords="283,56,455,83"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a259f47509afd861ed65a4c74e1654da7" title="This function opens shared memory and allocates it. " alt="" coords="515,5,679,32"/>
+<area shape="rect" id="node5" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="547,56,647,83"/>
+<area shape="rect" id="node6" href="$module_one_read_eth_phy_8c.html#a7fa5a1147c84061bd511408e7fc92e77" title="Function that gets time of error. " alt="" coords="517,107,676,133"/>
+</map>

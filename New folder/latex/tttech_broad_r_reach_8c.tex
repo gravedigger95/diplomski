@@ -1,0 +1,692 @@
+\hypertarget{tttech_broad_r_reach_8c}{}\section{tttech\+Broad\+R\+Reach.\+c File Reference}
+\label{tttech_broad_r_reach_8c}\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$io\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$hwif/vxbus.\+h$>$}\newline
+{\ttfamily \#include $<$hwif/vxbus/vxb\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$end.\+h$>$}\newline
+{\ttfamily \#include $<$vx\+Fdt\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$pmap\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$vm\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$private/vm\+Lib\+P.\+h$>$}\newline
+{\ttfamily \#include $<$alt\+\_\+soc\+\_\+gen5.\+h$>$}\newline
+{\ttfamily \#include $<$ipnet\+\_\+cmd.\+h$>$}\newline
+{\ttfamily \#include $<$if6\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$inetlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Error\+Handler\+Proxy\+S\+S\+H\+\_\+\+K/\+E\+H\+P\+S\+S\+H\+\_\+\+K\+\_\+\+Client\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Error\+Handler\+Proxy\+S\+S\+H\+\_\+\+K/\+E\+H\+\_\+\+Error\+I\+D\+Mapping\+\_\+\+S\+S\+H-\/\+K.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Br\+\_\+\+C\+R\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$task\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$sys\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$data\+Collector\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$private/event\+Defs\+P.\+h$>$}\newline
+{\ttfamily \#include $<$if\+Lib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}tttech\+Broad\+R\+Reach.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tttech\+B\+R\+I\+F.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Startup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tttech\+Time\+Provider.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}firewall\+\_\+diag.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$prj\+Params.\+h$>$}\newline
+{\ttfamily \#include $<$net/if.\+h$>$}\newline
+{\ttfamily \#include $<$ifaddrs.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$ipcom\+\_\+clib.\+h$>$}\newline
+{\ttfamily \#include $<$ipcom\+\_\+cmd.\+h$>$}\newline
+{\ttfamily \#include $<$ipcom\+\_\+getopt.\+h$>$}\newline
+{\ttfamily \#include $<$ipcom\+\_\+sysctl.\+h$>$}\newline
+{\ttfamily \#include $<$ipcom\+\_\+time.\+h$>$}\newline
+{\ttfamily \#include $<$ping6\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$net/utils/ifconfig.\+h$>$}\newline
+{\ttfamily \#include $<$net/utils/route\+Cmd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ipnet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ipnet\+\_\+ctrl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ipnet\+\_\+h.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ipnet\+\_\+routesock.\+h\char`\"{}}\newline
+Include dependency graph for tttech\+Broad\+R\+Reach.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a4136abb1845b24b4c49a16baa9cb749f}{B\+R\+D\+B\+G\+\_\+\+M\+SG}}(A, ...)
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}~(void$\ast$)(0)
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a58e088136e440393b8cc917362151e30}{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_ab0715001c3b24126bc382f68a3d78e0d}{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK}}~(1 $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_ac574b500d002785d4d7af9d970662d6d}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II}}~0x0
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_abcea905059549f793378f43e000d57e5}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}~0xfffffffc
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a019620c7b04c87004a996ced5c9f62d2}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}~0xfffffff3
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_abd10e623ed1ce4f7f5a901a2dd305842}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET}}(value)~((value) \& ($\sim$\mbox{\hyperlink{tttech_broad_r_reach_8c_abcea905059549f793378f43e000d57e5}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}))
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a0f556791545edfe8162edace830ead68}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET}}(value)~(((value) $<$$<$ 2) \& ($\sim$\mbox{\hyperlink{tttech_broad_r_reach_8c_a019620c7b04c87004a996ced5c9f62d2}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}))
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_afd4a28ebb3f8521f0504ededa4348d1a}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0}}~0x00000004
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a762167a704b09c71ae8d5845279aaef0}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1}}~0x00000008
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a9ad86df1d1058bd64100438563dfffa9}{F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET}}~0x284U
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a0fac0c169afbd5b4e41115545e59270c}{F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET}}~0x280U
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a4999af67baa14d214ffd8d846e415ce9}{A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32}}(reg)~($\ast$(volatile U\+I\+N\+T32 $\ast$)(reg))
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_aa049e6847d1a5cfa1db1bd71b42a5d49}{A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32}}(reg,  data)~($\ast$((volatile U\+I\+N\+T32 $\ast$)(reg)) = (data))
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a01f6549f4595820edee8239da8c4bd1a}{M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT}}~40
+\item 
+\#define \mbox{\hyperlink{tttech_broad_r_reach_8c_a49434246705521994c2435a81c8f342b}{B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID}}~(uint16\+\_\+t)(2\+U)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tttech_broad_r_reach_8c_aa5ceb5a8ae6cf69417140d2872fc1e69}{V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+CL}} (vxb\+Clk\+Mgr\+Periph\+Enable)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_a08d226eccad61b0131321995daf26e58}{map\+Fpga}} (void)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_acfb865df9bcfd256cb7cda3fa097c6b3}{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init}} (V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID p\+Dev)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_ac08e620d6e8f6db70634a2084c234946}{tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init}} (V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID p\+Dev, E\+N\+D\+\_\+\+O\+BJ $\ast$p\+End)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_a9b10a501b054a49e934836bdf4403ab0}{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init}} (V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID p\+Dev)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_aea9e011a098e9e60feeccfce7040e237}{tttech\+\_\+sys\+Emac\+Init}} (V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID p\+Dev)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_a2ce0a510c4160b0cae4209f5dd426c63}{tttech\+\_\+sys\+Emac\+End\+Init}} (V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID p\+Dev, E\+N\+D\+\_\+\+O\+BJ $\ast$p\+End)
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_a2919eeac2e98e31d53446ba35bdb4cdb}{tttech\+\_\+sys\+Emac\+Phy\+Init}} (V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID p\+Dev)
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{tttech_broad_r_reach_8c_a0dd9b90e2234046d42347278e00d5de3}{\+\_\+tttech\+B\+R\+Diagnosis}} (void)
+\begin{DoxyCompactList}\small\item\em Search for any T\+J\+A1100 possible error in registers. \end{DoxyCompactList}\item 
+L\+O\+C\+AL int \mbox{\hyperlink{tttech_broad_r_reach_8c_a357ca26f42b029a6ff37230abf76c6fb}{\+\_\+tttech\+Switch\+Info}} (void)
+\begin{DoxyCompactList}\small\item\em Reads revision information about the F\+P\+GA firmware. \end{DoxyCompactList}\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{tttech_broad_r_reach_8c_a2fbd7f10fc3843d8a744dda32b0ac3f2}{\+\_\+tttech\+Cable\+Test}} (void)
+\begin{DoxyCompactList}\small\item\em T\+J\+A1100 cable Test functionality. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void $\ast$ \mbox{\hyperlink{tttech_broad_r_reach_8c_af2ac984f09d9abc2eb4532f2d53ea771}{\+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc}} (const char $\ast$fname, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Allocates shared memory for B\+R\+IF address and index report. \end{DoxyCompactList}\item 
+L\+O\+C\+AL int \mbox{\hyperlink{tttech_broad_r_reach_8c_a2961b12dad259ea50c4554b033fb62f4}{\+\_\+attach\+\_\+if\+\_\+to\+\_\+device}} (void)
+\begin{DoxyCompactList}\small\item\em attaches the Broader-\/\+Reach interface to device \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{tttech_broad_r_reach_8c_a22c1fcf7e151e7e9eaf6ad7a7b2a8d16}{\+\_\+\+B\+R\+\_\+chip\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em Resets BR chip. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{tttech_broad_r_reach_8c_a4f7737df5ebc5b97f6538cc903958db2}{\+\_\+\+B\+R\+Diag\+Task\+\_\+entry}} (void)
+\begin{DoxyCompactList}\small\item\em Set-\/up all diagnostic requirements. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{tttech_broad_r_reach_8c_aa5cd14e567f2ce6f694a0f9e993b7a6d}{\+\_\+ttech\+Start\+B\+R\+Diag\+Task}} (void)
+\begin{DoxyCompactList}\small\item\em Spawns the t\+B\+R\+Diag\+Task. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{tttech_broad_r_reach_8c_a85719c9e4fabae798c75070c23047506}{tttech\+B\+R\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tttech_broad_r_reach_8c_ae0e50bd36ab62eb9e23e3b3cd1c7c1c8}{tttech\+B\+R\+Diag\+Init}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_ad41dcce05c099f9c4d04142d0b8383f8}{s\+\_\+\+B\+R\+I\+F\+\_\+\+I\+N\+FO}} \mbox{\hyperlink{tttech_broad_r_reach_8c_a2781eee3556f0727fc62fdb7e11d63d0}{\+\_\+\+B\+R\+I\+F\+Info}}
+\item 
+L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_ad41dcce05c099f9c4d04142d0b8383f8}{s\+\_\+\+B\+R\+I\+F\+\_\+\+I\+N\+FO}} $\ast$ \mbox{\hyperlink{tttech_broad_r_reach_8c_a74ec818cecb25cd71a7c463622bb3fb8}{\+\_\+brif\+\_\+info}} = \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}
+\item 
+L\+O\+C\+AL s\+\_\+\+B\+R\+I\+F\+\_\+\+D\+A\+TA \mbox{\hyperlink{tttech_broad_r_reach_8c_a1978c56a26e559e5b448e1104fde78ee}{\+\_\+\+B\+R\+I\+F\+Data}}
+\item 
+s\+\_\+\+B\+R\+I\+F\+\_\+\+D\+A\+TA $\ast$ \mbox{\hyperlink{tttech_broad_r_reach_8c_a710621c592164b13f0ed9bd64b425d1e}{\+\_\+brif\+\_\+data}} = \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}
+\item 
+L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_a4cc4a84464063b5b8d3e9eff66e6eb98}{s\+\_\+\+B\+R\+\_\+\+D\+I\+A\+G\+\_\+\+P\+I\+N\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{tttech_broad_r_reach_8c_a155844dcfd8e574a226599574b80afcf}{\+\_\+\+B\+R\+I\+F\+Ping\+Data}} \mbox{[}\mbox{\hyperlink{tttech_broad_r_reach_8h_aff2297cc6dc8fe0757c56b93efacfb92}{B\+R\+\_\+\+M\+A\+X\+\_\+\+P\+I\+N\+G\+\_\+\+H\+O\+S\+TS}}\mbox{]}
+\item 
+L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_a4cc4a84464063b5b8d3e9eff66e6eb98}{s\+\_\+\+B\+R\+\_\+\+D\+I\+A\+G\+\_\+\+P\+I\+N\+G\+\_\+\+D\+A\+TA}} $\ast$ \mbox{\hyperlink{tttech_broad_r_reach_8c_aee2b973e71340f11e8f49c6bc016d008}{\+\_\+brif\+\_\+ping\+\_\+data}} = \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}
+\item 
+L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_a829d0d4ee83a5739f659f939df0ecb8a}{s\+\_\+\+B\+R\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{tttech_broad_r_reach_8c_ae9dc308fc7dc352e2e0d9f4261180809}{\+\_\+\+B\+R\+Diag\+Data}}
+\item 
+L\+O\+C\+AL uint8\+\_\+t \mbox{\hyperlink{tttech_broad_r_reach_8c_a823b7b6075d68ef49b1a96f3fcb13cec}{\+\_\+\+S\+S\+H\+Production\+\_\+buff}} \mbox{[}\mbox{\hyperlink{tttech_broad_r_reach_8h_ad75b741195f0db4f841a34d4cf0e41af}{S\+S\+H\+\_\+\+M\+A\+C\+\_\+\+P\+R\+O\+D\+\_\+\+P\+A\+G\+E\+S\+I\+ZE}}\mbox{]}
+\item 
+L\+O\+C\+AL uint16\+\_\+t \mbox{\hyperlink{tttech_broad_r_reach_8c_aeb40d949d7a59dc9702bb3946b001a70}{\+\_\+br\+Error\+Status}} = 0
+\item 
+L\+O\+C\+AL uint8\+\_\+t \mbox{\hyperlink{tttech_broad_r_reach_8c_ac529556b2769bef49d44df7a1c48d385}{\+\_\+cable\+\_\+test\+\_\+counter}} = 0
+\item 
+L\+O\+C\+AL uint16\+\_\+t \mbox{\hyperlink{tttech_broad_r_reach_8c_a3ff63f26a85064a1184f77fdc837d324}{\+\_\+cable\+\_\+test\+\_\+result}} = 0
+\item 
+L\+O\+C\+AL uint8\+\_\+t \mbox{\hyperlink{tttech_broad_r_reach_8c_a33e2cd6c47ffae90b14baedd40d9e8fa}{\+\_\+not\+\_\+started\+\_\+cycle\+\_\+num}} = 0
+\item 
+L\+O\+C\+AL const uint8\+\_\+t \mbox{\hyperlink{tttech_broad_r_reach_8c_a0e718d15271a9bebb65e1a4ce5397536}{\+\_\+\+Br\+\_\+\+M\+AC}} \mbox{[}6\mbox{]} = \mbox{\hyperlink{tttech_broad_r_reach_8h_ae5c33da77362021f9f62d3ba6eb530ee}{B\+R\+\_\+\+M\+A\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+E\+F\+A\+U\+LT}}
+\item 
+L\+O\+C\+AL const Dt\+\_\+\+E\+N\+U\+M\+\_\+\+E\+H\+Error\+ID \mbox{\hyperlink{tttech_broad_r_reach_8c_a49614cd2e6828bf323d147eab9c886b7}{\+\_\+br\+Error\+Codes}} \mbox{[}5\mbox{]}
+\item 
+L\+O\+C\+AL uint16 \mbox{\hyperlink{tttech_broad_r_reach_8c_a2cdac8e09135d89037ab3e3f30faa2f1}{br\+\_\+init\+\_\+fail\+\_\+cnt}} = 0
+\item 
+L\+O\+C\+AL uint16 \mbox{\hyperlink{tttech_broad_r_reach_8c_aa3afd00dfa6861c17fd2206d3ec988b9}{br\+\_\+fail\+\_\+drv\+\_\+cycle}} = 0
+\item 
+L\+O\+C\+AL char \mbox{\hyperlink{tttech_broad_r_reach_8c_a54678c7c9dfd5a1580a3b1fdbdd583be}{rw\+File\+\_\+drv\+\_\+cnt}} \mbox{[}1\mbox{]}
+\item 
+L\+O\+C\+AL volatile uint32\+\_\+t $\ast$ \mbox{\hyperlink{tttech_broad_r_reach_8c_a41d52d0caaf086cfb7b4081265c3992a}{id\+\_\+comp\+\_\+base}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{tttech_broad_r_reach_8c_a3d8a9527a2ee4a7ebf59175650142e75}{n}}\\
+\>uint8\_t \mbox{\hyperlink{tttech_broad_r_reach_8c_abe560666bd1551906c634f43482b5e50}{byte}} \mbox{[}4\mbox{]}\\
+\} \mbox{\hyperlink{tttech_broad_r_reach_8c_ae4d106c6408c5439d183fddc75cb5d0f}{ifsetv}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a4999af67baa14d214ffd8d846e415ce9}\label{tttech_broad_r_reach_8c_a4999af67baa14d214ffd8d846e415ce9}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32@{A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32}}
+\index{A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32@{A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32}{ALT\_READ\_32}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+R\+E\+A\+D\+\_\+32(\begin{DoxyParamCaption}\item[{}]{reg }\end{DoxyParamCaption})~($\ast$(volatile U\+I\+N\+T32 $\ast$)(reg))}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_abcea905059549f793378f43e000d57e5}\label{tttech_broad_r_reach_8c_abcea905059549f793378f43e000d57e5}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK}{ALT\_SYSMGR\_EMAC\_CTL\_PHYSEL\_0\_CLR\_MSK}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK~0xfffffffc}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_abd10e623ed1ce4f7f5a901a2dd305842}\label{tttech_broad_r_reach_8c_abd10e623ed1ce4f7f5a901a2dd305842}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET}{ALT\_SYSMGR\_EMAC\_CTL\_PHYSEL\_0\_SET}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})~((value) \& ($\sim$\mbox{\hyperlink{tttech_broad_r_reach_8c_abcea905059549f793378f43e000d57e5}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+0\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}))}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a019620c7b04c87004a996ced5c9f62d2}\label{tttech_broad_r_reach_8c_a019620c7b04c87004a996ced5c9f62d2}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK}{ALT\_SYSMGR\_EMAC\_CTL\_PHYSEL\_1\_CLR\_MSK}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK~0xfffffff3}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a0f556791545edfe8162edace830ead68}\label{tttech_broad_r_reach_8c_a0f556791545edfe8162edace830ead68}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET}{ALT\_SYSMGR\_EMAC\_CTL\_PHYSEL\_1\_SET}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{value }\end{DoxyParamCaption})~(((value) $<$$<$ 2) \& ($\sim$\mbox{\hyperlink{tttech_broad_r_reach_8c_a019620c7b04c87004a996ced5c9f62d2}{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+1\+\_\+\+C\+L\+R\+\_\+\+M\+SK}}))}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ac574b500d002785d4d7af9d970662d6d}\label{tttech_broad_r_reach_8c_ac574b500d002785d4d7af9d970662d6d}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II}{ALT\_SYSMGR\_EMAC\_CTL\_PHYSEL\_E\_GMII\_MII}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+E\+M\+A\+C\+\_\+\+C\+T\+L\+\_\+\+P\+H\+Y\+S\+E\+L\+\_\+\+E\+\_\+\+G\+M\+I\+I\+\_\+\+M\+II~0x0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_afd4a28ebb3f8521f0504ededa4348d1a}\label{tttech_broad_r_reach_8c_afd4a28ebb3f8521f0504ededa4348d1a}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0}{ALT\_SYSMGR\_FPGA\_INTF\_MOD\_EMAC0}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C0~0x00000004}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a762167a704b09c71ae8d5845279aaef0}\label{tttech_broad_r_reach_8c_a762167a704b09c71ae8d5845279aaef0}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1}}
+\index{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1@{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1}{ALT\_SYSMGR\_FPGA\_INTF\_MOD\_EMAC1}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+S\+Y\+S\+M\+G\+R\+\_\+\+F\+P\+G\+A\+\_\+\+I\+N\+T\+F\+\_\+\+M\+O\+D\+\_\+\+E\+M\+A\+C1~0x00000008}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aa049e6847d1a5cfa1db1bd71b42a5d49}\label{tttech_broad_r_reach_8c_aa049e6847d1a5cfa1db1bd71b42a5d49}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32@{A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32}}
+\index{A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32@{A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32}{ALT\_WRITE\_32}}
+{\footnotesize\ttfamily \#define A\+L\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+32(\begin{DoxyParamCaption}\item[{}]{reg,  }\item[{}]{data }\end{DoxyParamCaption})~($\ast$((volatile U\+I\+N\+T32 $\ast$)(reg)) = (data))}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}\label{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR@{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}
+\index{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR@{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}{BR\_NULL\_PTR}}
+{\footnotesize\ttfamily \#define B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR~(void$\ast$)(0)}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a49434246705521994c2435a81c8f342b}\label{tttech_broad_r_reach_8c_a49434246705521994c2435a81c8f342b}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID@{B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID}}
+\index{B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID@{B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID}{BR\_VLAN\_ID}}
+{\footnotesize\ttfamily \#define B\+R\+\_\+\+V\+L\+A\+N\+\_\+\+ID~(uint16\+\_\+t)(2\+U)}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a4136abb1845b24b4c49a16baa9cb749f}\label{tttech_broad_r_reach_8c_a4136abb1845b24b4c49a16baa9cb749f}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!B\+R\+D\+B\+G\+\_\+\+M\+SG@{B\+R\+D\+B\+G\+\_\+\+M\+SG}}
+\index{B\+R\+D\+B\+G\+\_\+\+M\+SG@{B\+R\+D\+B\+G\+\_\+\+M\+SG}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{B\+R\+D\+B\+G\+\_\+\+M\+SG}{BRDBG\_MSG}}
+{\footnotesize\ttfamily \#define B\+R\+D\+B\+G\+\_\+\+M\+SG(\begin{DoxyParamCaption}\item[{}]{A,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a58e088136e440393b8cc917362151e30}\label{tttech_broad_r_reach_8c_a58e088136e440393b8cc917362151e30}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK@{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK}}
+\index{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK@{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK}{CLK\_MGR\_PERPLL\_EMAC0\_CLK}}
+{\footnotesize\ttfamily \#define C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C0\+\_\+\+C\+LK~(1 $<$$<$ 0)}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ab0715001c3b24126bc382f68a3d78e0d}\label{tttech_broad_r_reach_8c_ab0715001c3b24126bc382f68a3d78e0d}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK@{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK}}
+\index{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK@{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK}{CLK\_MGR\_PERPLL\_EMAC1\_CLK}}
+{\footnotesize\ttfamily \#define C\+L\+K\+\_\+\+M\+G\+R\+\_\+\+P\+E\+R\+P\+L\+L\+\_\+\+E\+M\+A\+C1\+\_\+\+C\+LK~(1 $<$$<$ 1)}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a9ad86df1d1058bd64100438563dfffa9}\label{tttech_broad_r_reach_8c_a9ad86df1d1058bd64100438563dfffa9}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET@{F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET}}
+\index{F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET@{F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET}{FPGABR\_AR\_OFFSET}}
+{\footnotesize\ttfamily \#define F\+P\+G\+A\+B\+R\+\_\+\+A\+R\+\_\+\+O\+F\+F\+S\+ET~0x284U}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a0fac0c169afbd5b4e41115545e59270c}\label{tttech_broad_r_reach_8c_a0fac0c169afbd5b4e41115545e59270c}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET@{F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET}}
+\index{F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET@{F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET}{FPGABR\_DR\_OFFSET}}
+{\footnotesize\ttfamily \#define F\+P\+G\+A\+B\+R\+\_\+\+D\+R\+\_\+\+O\+F\+F\+S\+ET~0x280U}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a01f6549f4595820edee8239da8c4bd1a}\label{tttech_broad_r_reach_8c_a01f6549f4595820edee8239da8c4bd1a}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT}}
+\index{M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT}{MAX\_READ\_COUNT}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+R\+E\+A\+D\+\_\+\+C\+O\+U\+NT~40}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a2961b12dad259ea50c4554b033fb62f4}\label{tttech_broad_r_reach_8c_a2961b12dad259ea50c4554b033fb62f4}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+attach\+\_\+if\+\_\+to\+\_\+device@{\+\_\+attach\+\_\+if\+\_\+to\+\_\+device}}
+\index{\+\_\+attach\+\_\+if\+\_\+to\+\_\+device@{\+\_\+attach\+\_\+if\+\_\+to\+\_\+device}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+attach\+\_\+if\+\_\+to\+\_\+device()}{\_attach\_if\_to\_device()}}
+{\footnotesize\ttfamily L\+O\+C\+AL int \+\_\+attach\+\_\+if\+\_\+to\+\_\+device (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+attaches the Broader-\/\+Reach interface to device 
+
+sets M\+AC address and I\+Pv6 address of interface. If available M\+AC address is read from production data else default M\+AC address is set.
+
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR if attaching the interface failed, else OK 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_a2961b12dad259ea50c4554b033fb62f4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a22c1fcf7e151e7e9eaf6ad7a7b2a8d16}\label{tttech_broad_r_reach_8c_a22c1fcf7e151e7e9eaf6ad7a7b2a8d16}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+\_\+chip\+\_\+reset@{\+\_\+\+B\+R\+\_\+chip\+\_\+reset}}
+\index{\+\_\+\+B\+R\+\_\+chip\+\_\+reset@{\+\_\+\+B\+R\+\_\+chip\+\_\+reset}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+\_\+chip\+\_\+reset()}{\_BR\_chip\_reset()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+\+B\+R\+\_\+chip\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Resets BR chip. 
+
+Writes to T\+J\+A1100\+\_\+\+B\+A\+S\+I\+C\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+EG and T\+J\+A1100\+\_\+\+R\+S\+T\+\_\+\+P\+H\+Y\+\_\+\+R\+E\+S\+ET In loop waits for reset is done Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{tttech_broad_r_reach_8c_a22c1fcf7e151e7e9eaf6ad7a7b2a8d16_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_af2ac984f09d9abc2eb4532f2d53ea771}\label{tttech_broad_r_reach_8c_af2ac984f09d9abc2eb4532f2d53ea771}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc@{\+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc}}
+\index{\+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc@{\+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc()}{\_BR\_shMem\_Alloc()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void$\ast$ \+\_\+\+B\+R\+\_\+sh\+Mem\+\_\+\+Alloc (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Allocates shared memory for B\+R\+IF address and index report. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & Pointer to reserved shared memory \\
+\hline
+{\em size} & Size of reserved shared memory\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+exits with perror() if failed, else returns address of shared memory space \mbox{[}Cluster 2.\+5\+: Communication over a gateway and using V\+L\+AN\mbox{]}\{1707189\} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a4f7737df5ebc5b97f6538cc903958db2}\label{tttech_broad_r_reach_8c_a4f7737df5ebc5b97f6538cc903958db2}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+Diag\+Task\+\_\+entry@{\+\_\+\+B\+R\+Diag\+Task\+\_\+entry}}
+\index{\+\_\+\+B\+R\+Diag\+Task\+\_\+entry@{\+\_\+\+B\+R\+Diag\+Task\+\_\+entry}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+Diag\+Task\+\_\+entry()}{\_BRDiagTask\_entry()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+\+B\+R\+Diag\+Task\+\_\+entry (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Set-\/up all diagnostic requirements. 
+
+Calls Cable Test function. Reads N\+OR flash and check the C\+RC. Set M\+AC address. Delete automatic I\+Pv6 address. Enter loop repeating every 240ms In loop it calls \+\_\+tttech\+B\+R\+Diagnosis and \+\_\+tttech\+B\+R\+Test\+Modes
+
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR if it is not in normal mode, else OK 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_a4f7737df5ebc5b97f6538cc903958db2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aa5cd14e567f2ce6f694a0f9e993b7a6d}\label{tttech_broad_r_reach_8c_aa5cd14e567f2ce6f694a0f9e993b7a6d}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+ttech\+Start\+B\+R\+Diag\+Task@{\+\_\+ttech\+Start\+B\+R\+Diag\+Task}}
+\index{\+\_\+ttech\+Start\+B\+R\+Diag\+Task@{\+\_\+ttech\+Start\+B\+R\+Diag\+Task}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+ttech\+Start\+B\+R\+Diag\+Task()}{\_ttechStartBRDiagTask()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+ttech\+Start\+B\+R\+Diag\+Task (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Spawns the t\+B\+R\+Diag\+Task. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_aa5cd14e567f2ce6f694a0f9e993b7a6d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a0dd9b90e2234046d42347278e00d5de3}\label{tttech_broad_r_reach_8c_a0dd9b90e2234046d42347278e00d5de3}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+tttech\+B\+R\+Diagnosis@{\+\_\+tttech\+B\+R\+Diagnosis}}
+\index{\+\_\+tttech\+B\+R\+Diagnosis@{\+\_\+tttech\+B\+R\+Diagnosis}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+tttech\+B\+R\+Diagnosis()}{\_tttechBRDiagnosis()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+tttech\+B\+R\+Diagnosis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Search for any T\+J\+A1100 possible error in registers. 
+
+Reads registers and search for any possible defined error. The error is reported to error handler. N\+O\+TE\+: debug prints the position of the detected error in register, not the value of the register. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_a0dd9b90e2234046d42347278e00d5de3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a2fbd7f10fc3843d8a744dda32b0ac3f2}\label{tttech_broad_r_reach_8c_a2fbd7f10fc3843d8a744dda32b0ac3f2}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+tttech\+Cable\+Test@{\+\_\+tttech\+Cable\+Test}}
+\index{\+\_\+tttech\+Cable\+Test@{\+\_\+tttech\+Cable\+Test}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+tttech\+Cable\+Test()}{\_tttechCableTest()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US \+\_\+tttech\+Cable\+Test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+T\+J\+A1100 cable Test functionality. 
+
+Sets registers in order to run cable test (enabling configuration of C\+O\+N\+F\+IG registers,disabling A\+U\+T\+O\+\_\+\+OP, disabling L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+OL) and returns back configuration as been before cable test.
+
+Chip needs minimum of 100us to complete the test. (Average measured duration of the function = 750us)
+
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR if it is not in normal mode, else OK 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{tttech_broad_r_reach_8c_a2fbd7f10fc3843d8a744dda32b0ac3f2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a357ca26f42b029a6ff37230abf76c6fb}\label{tttech_broad_r_reach_8c_a357ca26f42b029a6ff37230abf76c6fb}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+tttech\+Switch\+Info@{\+\_\+tttech\+Switch\+Info}}
+\index{\+\_\+tttech\+Switch\+Info@{\+\_\+tttech\+Switch\+Info}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+tttech\+Switch\+Info()}{\_tttechSwitchInfo()}}
+{\footnotesize\ttfamily L\+O\+C\+AL int \+\_\+tttech\+Switch\+Info (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reads revision information about the F\+P\+GA firmware. 
+
+It is stored in \+\_\+\+B\+R\+Diag\+Data.
+
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+OR if F\+P\+GA cannot be found or mapped, OK else E\+R\+R\+NO\+: N/A 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{tttech_broad_r_reach_8c_a357ca26f42b029a6ff37230abf76c6fb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a08d226eccad61b0131321995daf26e58}\label{tttech_broad_r_reach_8c_a08d226eccad61b0131321995daf26e58}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!map\+Fpga@{map\+Fpga}}
+\index{map\+Fpga@{map\+Fpga}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{map\+Fpga()}{mapFpga()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US map\+Fpga (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ac08e620d6e8f6db70634a2084c234946}\label{tttech_broad_r_reach_8c_ac08e620d6e8f6db70634a2084c234946}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init@{tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init}}
+\index{tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init@{tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init()}{tttech\_BR\_EmacEndInit()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US tttech\+\_\+\+B\+R\+\_\+\+Emac\+End\+Init (\begin{DoxyParamCaption}\item[{V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID}]{p\+Dev,  }\item[{E\+N\+D\+\_\+\+O\+BJ $\ast$}]{p\+End }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_acfb865df9bcfd256cb7cda3fa097c6b3}\label{tttech_broad_r_reach_8c_acfb865df9bcfd256cb7cda3fa097c6b3}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init@{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init}}
+\index{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init@{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init()}{tttech\_BR\_EmacInit()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US tttech\+\_\+\+B\+R\+\_\+\+Emac\+Init (\begin{DoxyParamCaption}\item[{V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID}]{p\+Dev }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a9b10a501b054a49e934836bdf4403ab0}\label{tttech_broad_r_reach_8c_a9b10a501b054a49e934836bdf4403ab0}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init@{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init}}
+\index{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init@{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init()}{tttech\_BR\_EmacPhyInit()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US tttech\+\_\+\+B\+R\+\_\+\+Emac\+Phy\+Init (\begin{DoxyParamCaption}\item[{V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID}]{p\+Dev }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_a9b10a501b054a49e934836bdf4403ab0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a2ce0a510c4160b0cae4209f5dd426c63}\label{tttech_broad_r_reach_8c_a2ce0a510c4160b0cae4209f5dd426c63}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+\_\+sys\+Emac\+End\+Init@{tttech\+\_\+sys\+Emac\+End\+Init}}
+\index{tttech\+\_\+sys\+Emac\+End\+Init@{tttech\+\_\+sys\+Emac\+End\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+\_\+sys\+Emac\+End\+Init()}{tttech\_sysEmacEndInit()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US tttech\+\_\+sys\+Emac\+End\+Init (\begin{DoxyParamCaption}\item[{V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID}]{p\+Dev,  }\item[{E\+N\+D\+\_\+\+O\+BJ $\ast$}]{p\+End }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aea9e011a098e9e60feeccfce7040e237}\label{tttech_broad_r_reach_8c_aea9e011a098e9e60feeccfce7040e237}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+\_\+sys\+Emac\+Init@{tttech\+\_\+sys\+Emac\+Init}}
+\index{tttech\+\_\+sys\+Emac\+Init@{tttech\+\_\+sys\+Emac\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+\_\+sys\+Emac\+Init()}{tttech\_sysEmacInit()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US tttech\+\_\+sys\+Emac\+Init (\begin{DoxyParamCaption}\item[{V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID}]{p\+Dev }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{tttech_broad_r_reach_8c_aea9e011a098e9e60feeccfce7040e237_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a2919eeac2e98e31d53446ba35bdb4cdb}\label{tttech_broad_r_reach_8c_a2919eeac2e98e31d53446ba35bdb4cdb}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+\_\+sys\+Emac\+Phy\+Init@{tttech\+\_\+sys\+Emac\+Phy\+Init}}
+\index{tttech\+\_\+sys\+Emac\+Phy\+Init@{tttech\+\_\+sys\+Emac\+Phy\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+\_\+sys\+Emac\+Phy\+Init()}{tttech\_sysEmacPhyInit()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US tttech\+\_\+sys\+Emac\+Phy\+Init (\begin{DoxyParamCaption}\item[{V\+X\+B\+\_\+\+D\+E\+V\+\_\+\+ID}]{p\+Dev }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_a2919eeac2e98e31d53446ba35bdb4cdb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ae0e50bd36ab62eb9e23e3b3cd1c7c1c8}\label{tttech_broad_r_reach_8c_ae0e50bd36ab62eb9e23e3b3cd1c7c1c8}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+B\+R\+Diag\+Init@{tttech\+B\+R\+Diag\+Init}}
+\index{tttech\+B\+R\+Diag\+Init@{tttech\+B\+R\+Diag\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+B\+R\+Diag\+Init()}{tttechBRDiagInit()}}
+{\footnotesize\ttfamily void tttech\+B\+R\+Diag\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_ae0e50bd36ab62eb9e23e3b3cd1c7c1c8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a85719c9e4fabae798c75070c23047506}\label{tttech_broad_r_reach_8c_a85719c9e4fabae798c75070c23047506}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!tttech\+B\+R\+Init@{tttech\+B\+R\+Init}}
+\index{tttech\+B\+R\+Init@{tttech\+B\+R\+Init}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{tttech\+B\+R\+Init()}{tttechBRInit()}}
+{\footnotesize\ttfamily void tttech\+B\+R\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tttech_broad_r_reach_8c_a85719c9e4fabae798c75070c23047506_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aa5ceb5a8ae6cf69417140d2872fc1e69}\label{tttech_broad_r_reach_8c_aa5ceb5a8ae6cf69417140d2872fc1e69}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+CL@{V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+CL}}
+\index{V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+CL@{V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+CL}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+C\+L()}{VXB\_DEVMETHOD\_DECL()}}
+{\footnotesize\ttfamily V\+X\+B\+\_\+\+D\+E\+V\+M\+E\+T\+H\+O\+D\+\_\+\+D\+E\+CL (\begin{DoxyParamCaption}\item[{vxb\+Clk\+Mgr\+Periph\+Enable}]{ }\end{DoxyParamCaption})}
+
+from S\+AD ID\+:1741003 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a0e718d15271a9bebb65e1a4ce5397536}\label{tttech_broad_r_reach_8c_a0e718d15271a9bebb65e1a4ce5397536}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+Br\+\_\+\+M\+AC@{\+\_\+\+Br\+\_\+\+M\+AC}}
+\index{\+\_\+\+Br\+\_\+\+M\+AC@{\+\_\+\+Br\+\_\+\+M\+AC}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+Br\+\_\+\+M\+AC}{\_Br\_MAC}}
+{\footnotesize\ttfamily L\+O\+C\+AL const uint8\+\_\+t \+\_\+\+Br\+\_\+\+M\+AC\mbox{[}6\mbox{]} = \mbox{\hyperlink{tttech_broad_r_reach_8h_ae5c33da77362021f9f62d3ba6eb530ee}{B\+R\+\_\+\+M\+A\+C\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+D\+E\+F\+A\+U\+LT}}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ae9dc308fc7dc352e2e0d9f4261180809}\label{tttech_broad_r_reach_8c_ae9dc308fc7dc352e2e0d9f4261180809}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+Diag\+Data@{\+\_\+\+B\+R\+Diag\+Data}}
+\index{\+\_\+\+B\+R\+Diag\+Data@{\+\_\+\+B\+R\+Diag\+Data}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+Diag\+Data}{\_BRDiagData}}
+{\footnotesize\ttfamily L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_a829d0d4ee83a5739f659f939df0ecb8a}{s\+\_\+\+B\+R\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \+\_\+\+B\+R\+Diag\+Data}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a49614cd2e6828bf323d147eab9c886b7}\label{tttech_broad_r_reach_8c_a49614cd2e6828bf323d147eab9c886b7}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+br\+Error\+Codes@{\+\_\+br\+Error\+Codes}}
+\index{\+\_\+br\+Error\+Codes@{\+\_\+br\+Error\+Codes}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+br\+Error\+Codes}{\_brErrorCodes}}
+{\footnotesize\ttfamily L\+O\+C\+AL const Dt\+\_\+\+E\+N\+U\+M\+\_\+\+E\+H\+Error\+ID \+\_\+br\+Error\+Codes\mbox{[}5\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+        ERR\_EXTIF\_SSH\_BROADR\_1,
+        ERR\_EXTIF\_SSH\_BROADR\_2,
+        ERR\_EXTIF\_SSH\_BROADR\_3,
+        ERR\_EXTIF\_SSH\_BROADR\_O,
+        ERR\_EXTIF\_SSH\_BROADR\_S \}
+\end{DoxyCode}
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aeb40d949d7a59dc9702bb3946b001a70}\label{tttech_broad_r_reach_8c_aeb40d949d7a59dc9702bb3946b001a70}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+br\+Error\+Status@{\+\_\+br\+Error\+Status}}
+\index{\+\_\+br\+Error\+Status@{\+\_\+br\+Error\+Status}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+br\+Error\+Status}{\_brErrorStatus}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint16\+\_\+t \+\_\+br\+Error\+Status = 0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a710621c592164b13f0ed9bd64b425d1e}\label{tttech_broad_r_reach_8c_a710621c592164b13f0ed9bd64b425d1e}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+brif\+\_\+data@{\+\_\+brif\+\_\+data}}
+\index{\+\_\+brif\+\_\+data@{\+\_\+brif\+\_\+data}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+brif\+\_\+data}{\_brif\_data}}
+{\footnotesize\ttfamily s\+\_\+\+B\+R\+I\+F\+\_\+\+D\+A\+TA$\ast$ \+\_\+brif\+\_\+data = \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a74ec818cecb25cd71a7c463622bb3fb8}\label{tttech_broad_r_reach_8c_a74ec818cecb25cd71a7c463622bb3fb8}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+brif\+\_\+info@{\+\_\+brif\+\_\+info}}
+\index{\+\_\+brif\+\_\+info@{\+\_\+brif\+\_\+info}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+brif\+\_\+info}{\_brif\_info}}
+{\footnotesize\ttfamily L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_ad41dcce05c099f9c4d04142d0b8383f8}{s\+\_\+\+B\+R\+I\+F\+\_\+\+I\+N\+FO}}$\ast$ \+\_\+brif\+\_\+info = \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aee2b973e71340f11e8f49c6bc016d008}\label{tttech_broad_r_reach_8c_aee2b973e71340f11e8f49c6bc016d008}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+brif\+\_\+ping\+\_\+data@{\+\_\+brif\+\_\+ping\+\_\+data}}
+\index{\+\_\+brif\+\_\+ping\+\_\+data@{\+\_\+brif\+\_\+ping\+\_\+data}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+brif\+\_\+ping\+\_\+data}{\_brif\_ping\_data}}
+{\footnotesize\ttfamily L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_a4cc4a84464063b5b8d3e9eff66e6eb98}{s\+\_\+\+B\+R\+\_\+\+D\+I\+A\+G\+\_\+\+P\+I\+N\+G\+\_\+\+D\+A\+TA}}$\ast$ \+\_\+brif\+\_\+ping\+\_\+data = \mbox{\hyperlink{tttech_broad_r_reach_8c_aa870306719bb5e4ce97f4b9fd7722406}{B\+R\+\_\+\+N\+U\+L\+L\+\_\+\+P\+TR}}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a1978c56a26e559e5b448e1104fde78ee}\label{tttech_broad_r_reach_8c_a1978c56a26e559e5b448e1104fde78ee}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+I\+F\+Data@{\+\_\+\+B\+R\+I\+F\+Data}}
+\index{\+\_\+\+B\+R\+I\+F\+Data@{\+\_\+\+B\+R\+I\+F\+Data}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+I\+F\+Data}{\_BRIFData}}
+{\footnotesize\ttfamily L\+O\+C\+AL s\+\_\+\+B\+R\+I\+F\+\_\+\+D\+A\+TA \+\_\+\+B\+R\+I\+F\+Data}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a2781eee3556f0727fc62fdb7e11d63d0}\label{tttech_broad_r_reach_8c_a2781eee3556f0727fc62fdb7e11d63d0}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+I\+F\+Info@{\+\_\+\+B\+R\+I\+F\+Info}}
+\index{\+\_\+\+B\+R\+I\+F\+Info@{\+\_\+\+B\+R\+I\+F\+Info}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+I\+F\+Info}{\_BRIFInfo}}
+{\footnotesize\ttfamily L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_ad41dcce05c099f9c4d04142d0b8383f8}{s\+\_\+\+B\+R\+I\+F\+\_\+\+I\+N\+FO}} \+\_\+\+B\+R\+I\+F\+Info}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a155844dcfd8e574a226599574b80afcf}\label{tttech_broad_r_reach_8c_a155844dcfd8e574a226599574b80afcf}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+B\+R\+I\+F\+Ping\+Data@{\+\_\+\+B\+R\+I\+F\+Ping\+Data}}
+\index{\+\_\+\+B\+R\+I\+F\+Ping\+Data@{\+\_\+\+B\+R\+I\+F\+Ping\+Data}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+B\+R\+I\+F\+Ping\+Data}{\_BRIFPingData}}
+{\footnotesize\ttfamily L\+O\+C\+AL \mbox{\hyperlink{tttech_broad_r_reach_8h_a4cc4a84464063b5b8d3e9eff66e6eb98}{s\+\_\+\+B\+R\+\_\+\+D\+I\+A\+G\+\_\+\+P\+I\+N\+G\+\_\+\+D\+A\+TA}} \+\_\+\+B\+R\+I\+F\+Ping\+Data\mbox{[}\mbox{\hyperlink{tttech_broad_r_reach_8h_aff2297cc6dc8fe0757c56b93efacfb92}{B\+R\+\_\+\+M\+A\+X\+\_\+\+P\+I\+N\+G\+\_\+\+H\+O\+S\+TS}}\mbox{]}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ac529556b2769bef49d44df7a1c48d385}\label{tttech_broad_r_reach_8c_ac529556b2769bef49d44df7a1c48d385}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+cable\+\_\+test\+\_\+counter@{\+\_\+cable\+\_\+test\+\_\+counter}}
+\index{\+\_\+cable\+\_\+test\+\_\+counter@{\+\_\+cable\+\_\+test\+\_\+counter}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+cable\+\_\+test\+\_\+counter}{\_cable\_test\_counter}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint8\+\_\+t \+\_\+cable\+\_\+test\+\_\+counter = 0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a3ff63f26a85064a1184f77fdc837d324}\label{tttech_broad_r_reach_8c_a3ff63f26a85064a1184f77fdc837d324}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+cable\+\_\+test\+\_\+result@{\+\_\+cable\+\_\+test\+\_\+result}}
+\index{\+\_\+cable\+\_\+test\+\_\+result@{\+\_\+cable\+\_\+test\+\_\+result}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+cable\+\_\+test\+\_\+result}{\_cable\_test\_result}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint16\+\_\+t \+\_\+cable\+\_\+test\+\_\+result = 0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a33e2cd6c47ffae90b14baedd40d9e8fa}\label{tttech_broad_r_reach_8c_a33e2cd6c47ffae90b14baedd40d9e8fa}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+not\+\_\+started\+\_\+cycle\+\_\+num@{\+\_\+not\+\_\+started\+\_\+cycle\+\_\+num}}
+\index{\+\_\+not\+\_\+started\+\_\+cycle\+\_\+num@{\+\_\+not\+\_\+started\+\_\+cycle\+\_\+num}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+not\+\_\+started\+\_\+cycle\+\_\+num}{\_not\_started\_cycle\_num}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint8\+\_\+t \+\_\+not\+\_\+started\+\_\+cycle\+\_\+num = 0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a823b7b6075d68ef49b1a96f3fcb13cec}\label{tttech_broad_r_reach_8c_a823b7b6075d68ef49b1a96f3fcb13cec}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!\+\_\+\+S\+S\+H\+Production\+\_\+buff@{\+\_\+\+S\+S\+H\+Production\+\_\+buff}}
+\index{\+\_\+\+S\+S\+H\+Production\+\_\+buff@{\+\_\+\+S\+S\+H\+Production\+\_\+buff}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+S\+S\+H\+Production\+\_\+buff}{\_SSHProduction\_buff}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint8\+\_\+t \+\_\+\+S\+S\+H\+Production\+\_\+buff\mbox{[}\mbox{\hyperlink{tttech_broad_r_reach_8h_ad75b741195f0db4f841a34d4cf0e41af}{S\+S\+H\+\_\+\+M\+A\+C\+\_\+\+P\+R\+O\+D\+\_\+\+P\+A\+G\+E\+S\+I\+ZE}}\mbox{]}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_aa3afd00dfa6861c17fd2206d3ec988b9}\label{tttech_broad_r_reach_8c_aa3afd00dfa6861c17fd2206d3ec988b9}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!br\+\_\+fail\+\_\+drv\+\_\+cycle@{br\+\_\+fail\+\_\+drv\+\_\+cycle}}
+\index{br\+\_\+fail\+\_\+drv\+\_\+cycle@{br\+\_\+fail\+\_\+drv\+\_\+cycle}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{br\+\_\+fail\+\_\+drv\+\_\+cycle}{br\_fail\_drv\_cycle}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint16 br\+\_\+fail\+\_\+drv\+\_\+cycle = 0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a2cdac8e09135d89037ab3e3f30faa2f1}\label{tttech_broad_r_reach_8c_a2cdac8e09135d89037ab3e3f30faa2f1}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!br\+\_\+init\+\_\+fail\+\_\+cnt@{br\+\_\+init\+\_\+fail\+\_\+cnt}}
+\index{br\+\_\+init\+\_\+fail\+\_\+cnt@{br\+\_\+init\+\_\+fail\+\_\+cnt}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{br\+\_\+init\+\_\+fail\+\_\+cnt}{br\_init\_fail\_cnt}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint16 br\+\_\+init\+\_\+fail\+\_\+cnt = 0}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_abe560666bd1551906c634f43482b5e50}\label{tttech_broad_r_reach_8c_abe560666bd1551906c634f43482b5e50}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!byte@{byte}}
+\index{byte@{byte}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{byte}{byte}}
+{\footnotesize\ttfamily uint8\+\_\+t byte\mbox{[}4\mbox{]}}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a41d52d0caaf086cfb7b4081265c3992a}\label{tttech_broad_r_reach_8c_a41d52d0caaf086cfb7b4081265c3992a}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!id\+\_\+comp\+\_\+base@{id\+\_\+comp\+\_\+base}}
+\index{id\+\_\+comp\+\_\+base@{id\+\_\+comp\+\_\+base}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{id\+\_\+comp\+\_\+base}{id\_comp\_base}}
+{\footnotesize\ttfamily L\+O\+C\+AL volatile uint32\+\_\+t$\ast$ id\+\_\+comp\+\_\+base}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_ae4d106c6408c5439d183fddc75cb5d0f}\label{tttech_broad_r_reach_8c_ae4d106c6408c5439d183fddc75cb5d0f}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!ifsetv@{ifsetv}}
+\index{ifsetv@{ifsetv}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{ifsetv}{ifsetv}}
+{\footnotesize\ttfamily L\+O\+C\+AL \{ ... \}   ifsetv}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a3d8a9527a2ee4a7ebf59175650142e75}\label{tttech_broad_r_reach_8c_a3d8a9527a2ee4a7ebf59175650142e75}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!n@{n}}
+\index{n@{n}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily uint32\+\_\+t n}
+
+\mbox{\Hypertarget{tttech_broad_r_reach_8c_a54678c7c9dfd5a1580a3b1fdbdd583be}\label{tttech_broad_r_reach_8c_a54678c7c9dfd5a1580a3b1fdbdd583be}} 
+\index{tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}!rw\+File\+\_\+drv\+\_\+cnt@{rw\+File\+\_\+drv\+\_\+cnt}}
+\index{rw\+File\+\_\+drv\+\_\+cnt@{rw\+File\+\_\+drv\+\_\+cnt}!tttech\+Broad\+R\+Reach.\+c@{tttech\+Broad\+R\+Reach.\+c}}
+\subsubsection{\texorpdfstring{rw\+File\+\_\+drv\+\_\+cnt}{rwFile\_drv\_cnt}}
+{\footnotesize\ttfamily L\+O\+C\+AL char rw\+File\+\_\+drv\+\_\+cnt\mbox{[}1\mbox{]}}
+

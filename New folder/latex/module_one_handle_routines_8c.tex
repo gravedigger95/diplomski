@@ -1,0 +1,125 @@
+\hypertarget{module_one_handle_routines_8c}{}\section{module\+One\+Handle\+Routines.\+c File Reference}
+\label{module_one_handle_routines_8c}\index{module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}}
+
+
+Functions for receiving routine numbers and starting test modes.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$ping6\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$msg\+Q\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$task\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Read\+Eth\+Phy.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Handle\+Routines.\+h\char`\"{}}\newline
+Include dependency graph for module\+One\+Handle\+Routines.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_handle_routines_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_one_handle_routines_8c_a13ffca776e207f720598fece14e32d41}{\+\_\+test\+Modes}} (int routine\+\_\+trigger)
+\begin{DoxyCompactList}\small\item\em This function is used for activating test routines. \end{DoxyCompactList}\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{module_one_handle_routines_8c_ace50ff396b856ee978590de17c77ad4f}{\+\_\+ping\+Routine}} (void)
+\begin{DoxyCompactList}\small\item\em Routine used to ping PC when triggered. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_one_handle_routines_8c_a282d3cba04d9f8a400fbf53f683cbb7c}{\+\_\+normal\+Operation\+Test}} (uint16\+\_\+t mode)
+\begin{DoxyCompactList}\small\item\em Routine for testing normal operation mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_handle_routines_8c_a9d76ff69513e544453fdcbcb8fc5184c}{module1\+\_\+\+Get\+Routine\+Num}} (void)
+\begin{DoxyCompactList}\small\item\em This function gets number of routine which will be called and calls \mbox{\hyperlink{module_one_handle_routines_8c_a13ffca776e207f720598fece14e32d41}{\+\_\+test\+Modes(int routine\+\_\+trigger)}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for receiving routine numbers and starting test modes. 
+
+\mbox{\hyperlink{module_one_handle_routines_8c}{module\+One\+Handle\+Routines.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}7-\/\+Jun-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation  \mbox{[}7-\/\+May-\/2018\mbox{]} Added module1\+\_\+\+Get\+Routine\+Num function \mbox{[}9-\/\+May-\/2018\mbox{]} Added \+\_\+test\+Modes, \+\_\+ping\+Routine and \+\_\+normal\+Operation\+Test functions ~\newline
+\subsubsection*{\mbox{[}24-\/\+May-\/2018\mbox{]} Added function descriptions }
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_one_handle_routines_8c_a282d3cba04d9f8a400fbf53f683cbb7c}\label{module_one_handle_routines_8c_a282d3cba04d9f8a400fbf53f683cbb7c}} 
+\index{module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}!\+\_\+normal\+Operation\+Test@{\+\_\+normal\+Operation\+Test}}
+\index{\+\_\+normal\+Operation\+Test@{\+\_\+normal\+Operation\+Test}!module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+normal\+Operation\+Test()}{\_normalOperationTest()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+normal\+Operation\+Test (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+
+
+Routine for testing normal operation mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & Number of routine mode \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{module_one_handle_routines_8c_a282d3cba04d9f8a400fbf53f683cbb7c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_handle_routines_8c_ace50ff396b856ee978590de17c77ad4f}\label{module_one_handle_routines_8c_ace50ff396b856ee978590de17c77ad4f}} 
+\index{module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}!\+\_\+ping\+Routine@{\+\_\+ping\+Routine}}
+\index{\+\_\+ping\+Routine@{\+\_\+ping\+Routine}!module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+ping\+Routine()}{\_pingRoutine()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US \+\_\+ping\+Routine (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Routine used to ping PC when triggered. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{module_one_handle_routines_8c_a13ffca776e207f720598fece14e32d41}\label{module_one_handle_routines_8c_a13ffca776e207f720598fece14e32d41}} 
+\index{module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}!\+\_\+test\+Modes@{\+\_\+test\+Modes}}
+\index{\+\_\+test\+Modes@{\+\_\+test\+Modes}!module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+test\+Modes()}{\_testModes()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+test\+Modes (\begin{DoxyParamCaption}\item[{int}]{routine\+\_\+trigger }\end{DoxyParamCaption})}
+
+
+
+This function is used for activating test routines. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em routine\+\_\+trigger} & Number of routine to start \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_handle_routines_8c_a13ffca776e207f720598fece14e32d41_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_handle_routines_8c_a9d76ff69513e544453fdcbcb8fc5184c}\label{module_one_handle_routines_8c_a9d76ff69513e544453fdcbcb8fc5184c}} 
+\index{module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}!module1\+\_\+\+Get\+Routine\+Num@{module1\+\_\+\+Get\+Routine\+Num}}
+\index{module1\+\_\+\+Get\+Routine\+Num@{module1\+\_\+\+Get\+Routine\+Num}!module\+One\+Handle\+Routines.\+c@{module\+One\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Get\+Routine\+Num()}{module1\_GetRoutineNum()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Get\+Routine\+Num (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function gets number of routine which will be called and calls \mbox{\hyperlink{module_one_handle_routines_8c_a13ffca776e207f720598fece14e32d41}{\+\_\+test\+Modes(int routine\+\_\+trigger)}}. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_handle_routines_8c_a9d76ff69513e544453fdcbcb8fc5184c_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,13 @@
+<map id="tttechBRInit" name="tttechBRInit">
+<area shape="rect" id="node2" href="$module_one_startup_8c.html#a79652bed082e520034848c4418a7b5f2" title="Init function for eth phy chip interface. " alt="" coords="163,5,282,32"/>
+<area shape="rect" id="node4" href="$tttech_broad_r_reach_8c.html#aea9e011a098e9e60feeccfce7040e237" title="tttech_sysEmacInit" alt="" coords="155,56,290,83"/>
+<area shape="rect" id="node6" href="$tttech_broad_r_reach_8c.html#a2ce0a510c4160b0cae4209f5dd426c63" title="tttech_sysEmacEndInit" alt="" coords="144,107,301,133"/>
+<area shape="rect" id="node7" href="$tttech_broad_r_reach_8c.html#a2919eeac2e98e31d53446ba35bdb4cdb" title="tttech_sysEmacPhyInit" alt="" coords="144,157,301,184"/>
+<area shape="rect" id="node3" href="$module_one_startup_8c.html#a099fd2ed34be94194a2365c974416637" title="_module1_CreateMsgQueues" alt="" coords="349,5,543,32"/>
+<area shape="rect" id="node5" href="$tttech_broad_r_reach_8c.html#acfb865df9bcfd256cb7cda3fa097c6b3" title="tttech_BR_EmacInit" alt="" coords="377,56,515,83"/>
+<area shape="rect" id="node8" href="$tttech_broad_r_reach_8c.html#a9b10a501b054a49e934836bdf4403ab0" title="tttech_BR_EmacPhyInit" alt="" coords="365,157,527,184"/>
+<area shape="rect" id="node9" href="$tttech_broad_r_reach_8c.html#a08d226eccad61b0131321995daf26e58" title="mapFpga" alt="" coords="613,81,689,108"/>
+<area shape="rect" id="node10" href="$tttech_broad_r_reach_8c.html#a2fbd7f10fc3843d8a744dda32b0ac3f2" title="TJA1100 cable Test functionality. " alt="" coords="591,183,711,209"/>
+<area shape="rect" id="node11" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="760,157,860,184"/>
+<area shape="rect" id="node12" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="759,220,861,247"/>
+</map>

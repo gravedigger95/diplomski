@@ -1,0 +1,109 @@
+\hypertarget{module_two_server_8h}{}\section{module\+Two\+Server.\+h File Reference}
+\label{module_two_server_8h}\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_server_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{module_two_server_8h_afd8807aef011a7518ea028a4d29ebd4a}{S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT}}~29170
+\item 
+\#define \mbox{\hyperlink{module_two_server_8h_a633b0396ff93d336a088412a190a5072}{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}}~((int8\+\_\+t) -\/1)
+\item 
+\#define \mbox{\hyperlink{module_two_server_8h_aeefbbafa97642defe3ee6c3080b7d66f}{B\+A\+C\+K\+L\+OG}}~((int8\+\_\+t) 10)
+\item 
+\#define \mbox{\hyperlink{module_two_server_8h_ad974fe981249f5e84fbf1683b012c9f8}{B\+U\+F\+L\+EN}}~((uint16\+\_\+t) 512\+U)
+\item 
+\#define \mbox{\hyperlink{module_two_server_8h_a0173ca7fb2f125d84f83a44b06e30b4e}{htons\+\_\+br}}(x)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{module_two_server_8h_a9e672e3d06cb60f46dc825ed114c95f6}{init\+Communication}} (void)
+\begin{DoxyCompactList}\small\item\em This function is used for initializing sockets and testing connection for communication with PC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{module_two_server_8h_aa949e2ce72b999bdf5b00055c687e220}{\+\_\+new\+Socket}}
+\item 
+int \mbox{\hyperlink{module_two_server_8h_a4e70a3040b7b0329e17f44f063143544}{\+\_\+s}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{module_two_server_8h_aeefbbafa97642defe3ee6c3080b7d66f}\label{module_two_server_8h_aeefbbafa97642defe3ee6c3080b7d66f}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!B\+A\+C\+K\+L\+OG@{B\+A\+C\+K\+L\+OG}}
+\index{B\+A\+C\+K\+L\+OG@{B\+A\+C\+K\+L\+OG}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+L\+OG}{BACKLOG}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+L\+OG~((int8\+\_\+t) 10)}
+
+\mbox{\Hypertarget{module_two_server_8h_ad974fe981249f5e84fbf1683b012c9f8}\label{module_two_server_8h_ad974fe981249f5e84fbf1683b012c9f8}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!B\+U\+F\+L\+EN@{B\+U\+F\+L\+EN}}
+\index{B\+U\+F\+L\+EN@{B\+U\+F\+L\+EN}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{B\+U\+F\+L\+EN}{BUFLEN}}
+{\footnotesize\ttfamily \#define B\+U\+F\+L\+EN~((uint16\+\_\+t) 512\+U)}
+
+\mbox{\Hypertarget{module_two_server_8h_a0173ca7fb2f125d84f83a44b06e30b4e}\label{module_two_server_8h_a0173ca7fb2f125d84f83a44b06e30b4e}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!htons\+\_\+br@{htons\+\_\+br}}
+\index{htons\+\_\+br@{htons\+\_\+br}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{htons\+\_\+br}{htons\_br}}
+{\footnotesize\ttfamily \#define htons\+\_\+br(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((((x) & (uint16\_t) 0x00ff) << (uint16\_t) 8) |    \(\backslash\)
+                          (((x) & (uint16\_t) 0xff00) >> (uint16\_t) 8))
+\end{DoxyCode}
+\mbox{\Hypertarget{module_two_server_8h_a633b0396ff93d336a088412a190a5072}\label{module_two_server_8h_a633b0396ff93d336a088412a190a5072}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR@{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}}
+\index{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR@{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}{SOCKET\_ERROR}}
+{\footnotesize\ttfamily \#define S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR~((int8\+\_\+t) -\/1)}
+
+\mbox{\Hypertarget{module_two_server_8h_afd8807aef011a7518ea028a4d29ebd4a}\label{module_two_server_8h_afd8807aef011a7518ea028a4d29ebd4a}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT@{S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT}}
+\index{S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT@{S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT}{SWU\_BR\_SERVERPORT}}
+{\footnotesize\ttfamily \#define S\+W\+U\+\_\+\+B\+R\+\_\+\+S\+E\+R\+V\+E\+R\+P\+O\+RT~29170}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_server_8h_a9e672e3d06cb60f46dc825ed114c95f6}\label{module_two_server_8h_a9e672e3d06cb60f46dc825ed114c95f6}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!init\+Communication@{init\+Communication}}
+\index{init\+Communication@{init\+Communication}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{init\+Communication()}{initCommunication()}}
+{\footnotesize\ttfamily void init\+Communication (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is used for initializing sockets and testing connection for communication with PC. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{module_two_server_8h_a9e672e3d06cb60f46dc825ed114c95f6_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_server_8h_aa949e2ce72b999bdf5b00055c687e220}\label{module_two_server_8h_aa949e2ce72b999bdf5b00055c687e220}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!\+\_\+new\+Socket@{\+\_\+new\+Socket}}
+\index{\+\_\+new\+Socket@{\+\_\+new\+Socket}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+new\+Socket}{\_newSocket}}
+{\footnotesize\ttfamily int \+\_\+new\+Socket}
+
+\mbox{\Hypertarget{module_two_server_8h_a4e70a3040b7b0329e17f44f063143544}\label{module_two_server_8h_a4e70a3040b7b0329e17f44f063143544}} 
+\index{module\+Two\+Server.\+h@{module\+Two\+Server.\+h}!\+\_\+s@{\+\_\+s}}
+\index{\+\_\+s@{\+\_\+s}!module\+Two\+Server.\+h@{module\+Two\+Server.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+s}{\_s}}
+{\footnotesize\ttfamily int \+\_\+s}
+

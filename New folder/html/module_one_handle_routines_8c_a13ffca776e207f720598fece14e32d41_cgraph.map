@@ -1,0 +1,6 @@
+<map id="_testModes" name="_testModes">
+<area shape="rect" id="node2" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="343,5,443,32"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="341,81,444,108"/>
+<area shape="rect" id="node4" href="$module_one_handle_routines_8c.html#ace50ff396b856ee978590de17c77ad4f" title="Routine used to ping PC when triggered. " alt="" coords="170,81,267,108"/>
+<area shape="rect" id="node5" href="$module_one_handle_routines_8c.html#a282d3cba04d9f8a400fbf53f683cbb7c" title="Routine for testing normal operation mode. " alt="" coords="144,31,293,57"/>
+</map>

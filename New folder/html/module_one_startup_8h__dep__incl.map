@@ -1,0 +1,4 @@
+<map id="moduleOneStartup.h" name="moduleOneStartup.h">
+<area shape="rect" id="node2" href="$module_one_startup_8c.html" title="Interface functions for starting module that are used in tttechBroadRReach.c file. Functions for initializing PHY, creating message queues, configuring ethernet interface, starting tasks and RT process (moduleTwo). " alt="" coords="5,80,147,107"/>
+<area shape="rect" id="node3" href="$tttech_broad_r_reach_8c.html" title="tttechBroadRReach.c" alt="" coords="171,80,317,107"/>
+</map>

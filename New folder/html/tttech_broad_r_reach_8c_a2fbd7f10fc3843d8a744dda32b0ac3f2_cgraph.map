@@ -1,0 +1,4 @@
+<map id="_tttechCableTest" name="_tttechCableTest">
+<area shape="rect" id="node2" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="175,5,275,32"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="173,56,276,83"/>
+</map>

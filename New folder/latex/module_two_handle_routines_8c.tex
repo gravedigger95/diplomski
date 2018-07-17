@@ -1,0 +1,103 @@
+\hypertarget{module_two_handle_routines_8c}{}\section{module\+Two\+Handle\+Routines.\+c File Reference}
+\label{module_two_handle_routines_8c}\index{module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}}
+
+
+State machine functions that handle user commands using state machine.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sock\+Lib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Handle\+Routines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+File\+Sending.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+R\+T\+P.\+h\char`\"{}}\newline
+Include dependency graph for module\+Two\+Handle\+Routines.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_handle_routines_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_handle_routines_8c_a1064bbe96b41b68b71c05feb01082265}{\+\_\+receive\+Command}} (void)
+\begin{DoxyCompactList}\small\item\em This function is used for receiving command from user via socket. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_two_handle_routines_8c_aaa45aad864a26a1b85061ac41367a09b}{process\+Message}} (void)
+\begin{DoxyCompactList}\small\item\em This function is simple switch-\/case which acts like state-\/machine and calls functions or sends structs via socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL uint32\+\_\+t \mbox{\hyperlink{module_two_handle_routines_8c_a4baaff72df19c89966ce3d0cac787f7e}{\+\_\+routine\+Num\+Recv}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{module_two_handle_routines_8c_a9ed5394565962e7b3cbe304f5b1067bf}{\+\_\+change\+State}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{module_two_handle_routines_8c_af4b5cf39b889218a6da5f858af48c65f}{\+\_\+msg}} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+State machine functions that handle user commands using state machine. 
+
+\mbox{\hyperlink{module_two_handle_routines_8c}{module\+Two\+Handle\+Routines.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}13-\/\+Jun-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation \mbox{[}15-\/\+Jun-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Added functions 
+
+
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_handle_routines_8c_a1064bbe96b41b68b71c05feb01082265}\label{module_two_handle_routines_8c_a1064bbe96b41b68b71c05feb01082265}} 
+\index{module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}!\+\_\+receive\+Command@{\+\_\+receive\+Command}}
+\index{\+\_\+receive\+Command@{\+\_\+receive\+Command}!module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+receive\+Command()}{\_receiveCommand()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+receive\+Command (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is used for receiving command from user via socket. 
+
+\mbox{\Hypertarget{module_two_handle_routines_8c_aaa45aad864a26a1b85061ac41367a09b}\label{module_two_handle_routines_8c_aaa45aad864a26a1b85061ac41367a09b}} 
+\index{module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}!process\+Message@{process\+Message}}
+\index{process\+Message@{process\+Message}!module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{process\+Message()}{processMessage()}}
+{\footnotesize\ttfamily void process\+Message (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is simple switch-\/case which acts like state-\/machine and calls functions or sends structs via socket. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_handle_routines_8c_aaa45aad864a26a1b85061ac41367a09b_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_handle_routines_8c_a9ed5394565962e7b3cbe304f5b1067bf}\label{module_two_handle_routines_8c_a9ed5394565962e7b3cbe304f5b1067bf}} 
+\index{module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}!\+\_\+change\+State@{\+\_\+change\+State}}
+\index{\+\_\+change\+State@{\+\_\+change\+State}!module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+change\+State}{\_changeState}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+change\+State = 0}
+
+\mbox{\Hypertarget{module_two_handle_routines_8c_af4b5cf39b889218a6da5f858af48c65f}\label{module_two_handle_routines_8c_af4b5cf39b889218a6da5f858af48c65f}} 
+\index{module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}!\+\_\+msg@{\+\_\+msg}}
+\index{\+\_\+msg@{\+\_\+msg}!module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+msg}{\_msg}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+msg = 0}
+
+\mbox{\Hypertarget{module_two_handle_routines_8c_a4baaff72df19c89966ce3d0cac787f7e}\label{module_two_handle_routines_8c_a4baaff72df19c89966ce3d0cac787f7e}} 
+\index{module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}!\+\_\+routine\+Num\+Recv@{\+\_\+routine\+Num\+Recv}}
+\index{\+\_\+routine\+Num\+Recv@{\+\_\+routine\+Num\+Recv}!module\+Two\+Handle\+Routines.\+c@{module\+Two\+Handle\+Routines.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+routine\+Num\+Recv}{\_routineNumRecv}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint32\+\_\+t \+\_\+routine\+Num\+Recv = 0}
+

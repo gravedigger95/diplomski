@@ -1,0 +1,6 @@
+<map id="uploadFile" name="uploadFile">
+<area shape="rect" id="node2" href="$module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="135,56,213,83"/>
+<area shape="rect" id="node3" href="$module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="267,5,398,32"/>
+<area shape="rect" id="node4" href="$module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="271,56,394,83"/>
+<area shape="rect" id="node5" href="$module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="261,107,404,133"/>
+</map>

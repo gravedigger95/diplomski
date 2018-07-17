@@ -1,0 +1,5 @@
+<map id="moduleOneReadEthPhy.h" name="moduleOneReadEthPhy.h">
+<area shape="rect" id="node2" href="$module_one_handle_routines_8c.html" title="Functions for receiving routine numbers and starting test modes. " alt="" coords="5,80,196,107"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html" title="Functions to read and write in TJA1100 registers and functions that fill shared memory and message qu..." alt="" coords="220,80,392,107"/>
+<area shape="rect" id="node4" href="$module_one_startup_8c.html" title="Interface functions for starting module that are used in tttechBroadRReach.c file. Functions for initializing PHY, creating message queues, configuring ethernet interface, starting tasks and RT process (moduleTwo). " alt="" coords="417,80,558,107"/>
+</map>

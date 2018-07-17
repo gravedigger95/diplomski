@@ -1,0 +1,168 @@
+\hypertarget{module_two_communication_8h}{}\section{module\+Two\+Communication.\+h File Reference}
+\label{module_two_communication_8h}\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+
+
+Header file for \mbox{\hyperlink{module_two_communication_8c}{module\+Two\+Communication.\+c}}.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_communication_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structerror_struct}{error\+Struct}}
+\item 
+struct \mbox{\hyperlink{structdiagnostic_data_msg_q}{diagnostic\+Data\+MsgQ}}
+\item 
+struct \mbox{\hyperlink{structdiagnostic_data_sh_m}{diagnostic\+Data\+ShM}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{module_two_communication_8h_a530f11a96e508d171d28564c8dc20942}{N\+U\+L\+L\+\_\+\+P\+TR}}~(void $\ast$) (0)
+\item 
+\#define \mbox{\hyperlink{module_two_communication_8h_ad89c5a76e69b781c64de110635a95d1d}{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}}~\char`\"{}/sh\+Mem\+Module1to2\char`\"{}
+\item 
+\#define \mbox{\hyperlink{module_two_communication_8h_aa24597a54a085c6c2c33b64138f09eff}{M\+A\+X\+\_\+\+M\+SG}}~(2\+U)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structerror_struct}{error\+Struct}} \mbox{\hyperlink{module_two_communication_8h_aed782b3a5727361a6b656be14d539f9c}{s\+\_\+\+E\+R\+R\+O\+RS}}
+\item 
+typedef struct \mbox{\hyperlink{structdiagnostic_data_msg_q}{diagnostic\+Data\+MsgQ}} \mbox{\hyperlink{module_two_communication_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}}
+\item 
+typedef struct \mbox{\hyperlink{structdiagnostic_data_sh_m}{diagnostic\+Data\+ShM}} \mbox{\hyperlink{module_two_communication_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\+T\+A\+T\+US \mbox{\hyperlink{module_two_communication_8h_ad9ebcb5d93ac5f4bc33d47aac6b88683}{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ}} (void)
+\begin{DoxyCompactList}\small\item\em This function periodically reads diagnostic msgQ and shared memory. \end{DoxyCompactList}\item 
+S\+T\+A\+T\+US \mbox{\hyperlink{module_two_communication_8h_a99a7dd6823d02d0f1f5d9bcfedd08fc4}{shared\+Mem\+Alloc\+\_\+module2}} (void)
+\begin{DoxyCompactList}\small\item\em This function opens shared memory in module 1 and allocates it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module_two_communication_8h_a154b6cb142b2f257168f6ce8bf4f0552}{\+\_\+diag\+\_\+shm\+\_\+struct}}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module_two_communication_8h_ab9ff18db9b7ba52dfe985635411d0978}{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for \mbox{\hyperlink{module_two_communication_8c}{module\+Two\+Communication.\+c}}. 
+
+\mbox{\hyperlink{module_two_communication_8h}{module\+Two\+Communication.\+h}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}28-\/\+May-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation  \mbox{[}28-\/\+May-\/2018\mbox{]} Defined structures \mbox{[}7-\/\+Jun-\/2018\mbox{]} Added function descriptions \subsubsection*{\mbox{[}09-\/\+Jul-\/2018\mbox{]} Added macros }
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{module_two_communication_8h_aa24597a54a085c6c2c33b64138f09eff}\label{module_two_communication_8h_aa24597a54a085c6c2c33b64138f09eff}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!M\+A\+X\+\_\+\+M\+SG@{M\+A\+X\+\_\+\+M\+SG}}
+\index{M\+A\+X\+\_\+\+M\+SG@{M\+A\+X\+\_\+\+M\+SG}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+M\+SG}{MAX\_MSG}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+M\+SG~(2\+U)}
+
+\mbox{\Hypertarget{module_two_communication_8h_a530f11a96e508d171d28564c8dc20942}\label{module_two_communication_8h_a530f11a96e508d171d28564c8dc20942}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!N\+U\+L\+L\+\_\+\+P\+TR@{N\+U\+L\+L\+\_\+\+P\+TR}}
+\index{N\+U\+L\+L\+\_\+\+P\+TR@{N\+U\+L\+L\+\_\+\+P\+TR}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{N\+U\+L\+L\+\_\+\+P\+TR}{NULL\_PTR}}
+{\footnotesize\ttfamily \#define N\+U\+L\+L\+\_\+\+P\+TR~(void $\ast$) (0)}
+
+\mbox{\Hypertarget{module_two_communication_8h_ad89c5a76e69b781c64de110635a95d1d}\label{module_two_communication_8h_ad89c5a76e69b781c64de110635a95d1d}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME@{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}}
+\index{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME@{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}{SH\_MEM\_NAME}}
+{\footnotesize\ttfamily \#define S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME~\char`\"{}/sh\+Mem\+Module1to2\char`\"{}}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{module_two_communication_8h_a58c449f6052675fb4288c20122741cb8}\label{module_two_communication_8h_a58c449f6052675fb4288c20122741cb8}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}}
+\index{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}{s\_DIAG\_DATA}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdiagnostic_data_msg_q}{diagnostic\+Data\+MsgQ}}  \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}}}
+
+\mbox{\Hypertarget{module_two_communication_8h_a1f542cc6438c66026963a340365d442a}\label{module_two_communication_8h_a1f542cc6438c66026963a340365d442a}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}
+\index{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}{s\_DIAG\_SHM\_DATA}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdiagnostic_data_sh_m}{diagnostic\+Data\+ShM}}  \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}}
+
+\mbox{\Hypertarget{module_two_communication_8h_aed782b3a5727361a6b656be14d539f9c}\label{module_two_communication_8h_aed782b3a5727361a6b656be14d539f9c}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!s\+\_\+\+E\+R\+R\+O\+RS@{s\+\_\+\+E\+R\+R\+O\+RS}}
+\index{s\+\_\+\+E\+R\+R\+O\+RS@{s\+\_\+\+E\+R\+R\+O\+RS}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{s\+\_\+\+E\+R\+R\+O\+RS}{s\_ERRORS}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structerror_struct}{error\+Struct}} \mbox{\hyperlink{module_one_read_eth_phy_8h_a20a1de38f8a31b563f5185bf73d836b0}{s\+\_\+\+E\+R\+R\+O\+RS}}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_communication_8h_ad9ebcb5d93ac5f4bc33d47aac6b88683}\label{module_two_communication_8h_ad9ebcb5d93ac5f4bc33d47aac6b88683}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ@{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ}}
+\index{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ@{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+module2\+\_\+\+Read\+Diag\+Msg\+Q()}{\_module2\_ReadDiagMsgQ()}}
+{\footnotesize\ttfamily S\+T\+A\+T\+US \+\_\+module2\+\_\+\+Read\+Diag\+MsgQ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function periodically reads diagnostic msgQ and shared memory. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening or receiving from msg\+Queue failed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_communication_8h_ad9ebcb5d93ac5f4bc33d47aac6b88683_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_two_communication_8h_a99a7dd6823d02d0f1f5d9bcfedd08fc4}\label{module_two_communication_8h_a99a7dd6823d02d0f1f5d9bcfedd08fc4}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!shared\+Mem\+Alloc\+\_\+module2@{shared\+Mem\+Alloc\+\_\+module2}}
+\index{shared\+Mem\+Alloc\+\_\+module2@{shared\+Mem\+Alloc\+\_\+module2}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{shared\+Mem\+Alloc\+\_\+module2()}{sharedMemAlloc\_module2()}}
+{\footnotesize\ttfamily S\+T\+A\+T\+US shared\+Mem\+Alloc\+\_\+module2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function opens shared memory in module 1 and allocates it. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening shared memory failed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_communication_8h_a99a7dd6823d02d0f1f5d9bcfedd08fc4_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_communication_8h_ab9ff18db9b7ba52dfe985635411d0978}\label{module_two_communication_8h_ab9ff18db9b7ba52dfe985635411d0978}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1@{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}}
+\index{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1@{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}{\_diag\_data\_struct\_mod1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}
+
+\mbox{\Hypertarget{module_two_communication_8h_a154b6cb142b2f257168f6ce8bf4f0552}\label{module_two_communication_8h_a154b6cb142b2f257168f6ce8bf4f0552}} 
+\index{module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}!\+\_\+diag\+\_\+shm\+\_\+struct@{\+\_\+diag\+\_\+shm\+\_\+struct}}
+\index{\+\_\+diag\+\_\+shm\+\_\+struct@{\+\_\+diag\+\_\+shm\+\_\+struct}!module\+Two\+Communication.\+h@{module\+Two\+Communication.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+shm\+\_\+struct}{\_diag\_shm\_struct}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} \+\_\+diag\+\_\+shm\+\_\+struct}
+

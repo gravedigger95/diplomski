@@ -1,0 +1,10 @@
+<map id="_backgroundTask" name="_backgroundTask">
+<area shape="rect" id="node2" href="$module_two_handle_routines_8c.html#aaa45aad864a26a1b85061ac41367a09b" title="This function is simple switch&#45;case which acts like state&#45;machine and calls functions or sends struct..." alt="" coords="177,56,299,83"/>
+<area shape="rect" id="node3" href="$module_two_handle_routines_8c.html#a1064bbe96b41b68b71c05feb01082265" title="This function is used for receiving command from user via socket. " alt="" coords="367,5,495,32"/>
+<area shape="rect" id="node4" href="$module_two_file_sending_8c.html#adb58ea2632a87ebf50ddc6dc9737a94a" title="This function sends number of files that are going to be sent through socket and calls _sendFile()..." alt="" coords="391,56,472,83"/>
+<area shape="rect" id="node9" href="$module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="347,107,516,133"/>
+<area shape="rect" id="node5" href="$module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="564,56,643,83"/>
+<area shape="rect" id="node6" href="$module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="697,5,827,32"/>
+<area shape="rect" id="node7" href="$module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="701,56,823,83"/>
+<area shape="rect" id="node8" href="$module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="691,107,833,133"/>
+</map>

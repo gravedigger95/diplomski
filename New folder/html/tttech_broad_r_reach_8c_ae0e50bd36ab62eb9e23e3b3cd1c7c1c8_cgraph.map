@@ -1,0 +1,28 @@
+<map id="tttechBRDiagInit" name="tttechBRDiagInit">
+<area shape="rect" id="node2" href="$tttech_broad_r_reach_8c.html#a357ca26f42b029a6ff37230abf76c6fb" title="Reads revision information about the FPGA firmware. " alt="" coords="188,221,309,248"/>
+<area shape="rect" id="node4" href="$tttech_broad_r_reach_8c.html#a2961b12dad259ea50c4554b033fb62f4" title="attaches the Broader&#45;Reach interface to device " alt="" coords="179,525,318,552"/>
+<area shape="rect" id="node8" href="$tttech_broad_r_reach_8c.html#aa5cd14e567f2ce6f694a0f9e993b7a6d" title="Spawns the tBRDiagTask. " alt="" coords="169,449,328,476"/>
+<area shape="rect" id="node3" href="$tttech_broad_r_reach_8c.html#a08d226eccad61b0131321995daf26e58" title="mapFpga" alt="" coords="1169,5,1245,32"/>
+<area shape="rect" id="node5" href="$tttech_broad_r_reach_8c.html#af2ac984f09d9abc2eb4532f2d53ea771" title="Allocates shared memory for BRIF address and index report. " alt="" coords="410,512,543,539"/>
+<area shape="rect" id="node6" href="$module_one_startup_8c.html#a87cefb3488669012643b8b9330086f0d" title="Configures VLAN interface. " alt="" coords="393,563,560,589"/>
+<area shape="rect" id="node7" href="$module_one_startup_8c.html#a91042455237b23c8e02334dc2ad5f779" title="Configures hmi0 ethernet interface. " alt="" coords="376,613,577,640"/>
+<area shape="rect" id="node9" href="$tttech_broad_r_reach_8c.html#a4f7737df5ebc5b97f6538cc903958db2" title="Set&#45;up all diagnostic requirements. " alt="" coords="408,385,545,412"/>
+<area shape="rect" id="node17" href="$module_one_startup_8c.html#a33e10b04aa05e68980ba8cd27d86f51e" title="Functions for starting module 1 tasks for reading ETH PHY chip registers and retrieving test mode num..." alt="" coords="406,461,547,488"/>
+<area shape="rect" id="node10" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="1385,411,1485,437"/>
+<area shape="rect" id="node11" href="$tttech_broad_r_reach_8c.html#a22c1fcf7e151e7e9eaf6ad7a7b2a8d16" title="Resets BR chip. " alt="" coords="895,323,1010,349"/>
+<area shape="rect" id="node13" href="$tttech_broad_r_reach_8c.html#a0dd9b90e2234046d42347278e00d5de3" title="Search for any TJA1100 possible error in registers. " alt="" coords="642,335,779,361"/>
+<area shape="rect" id="node16" href="$module_one_startup_8c.html#ae66f7a060103dcd1441b15d39845cab7" title="Initial function for starting RTP task in user space. " alt="" coords="671,284,750,311"/>
+<area shape="rect" id="node12" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="1384,208,1487,235"/>
+<area shape="rect" id="node14" href="$tttech_broad_r_reach_8c.html#a9b10a501b054a49e934836bdf4403ab0" title="tttech_BR_EmacPhyInit" alt="" coords="872,107,1033,133"/>
+<area shape="rect" id="node15" href="$tttech_broad_r_reach_8c.html#a2fbd7f10fc3843d8a744dda32b0ac3f2" title="TJA1100 cable Test functionality. " alt="" coords="1147,107,1267,133"/>
+<area shape="rect" id="node18" href="$module_one_read_eth_phy_8c.html#ab4a7c038fb29787895e96b7521eede34" title="This is task function for module1ReadChipRegisters() used for reading TJA1100 registers and sending d..." alt="" coords="844,639,1061,665"/>
+<area shape="rect" id="node24" href="$module_one_handle_routines_8c.html#a9d76ff69513e544453fdcbcb8fc5184c" title="This function gets number of routine which will be called and calls _testModes(int routine_trigger)..." alt="" coords="625,512,796,539"/>
+<area shape="rect" id="node19" href="$module_one_read_eth_phy_8c.html#a4d2f336ff3392dcabf55d8aad27395c2" title="This function takes pointer to allocated shared memory. " alt="" coords="1144,715,1271,741"/>
+<area shape="rect" id="node21" href="$module_one_read_eth_phy_8c.html#ad3d33414850bbc909d7abadd9374d260" title="Function that reads registers and fill diag data structure &#160;STAV1 10 Loading data in msgQ struct..." alt="" coords="1109,664,1305,691"/>
+<area shape="rect" id="node23" href="$module_one_read_eth_phy_8c.html#aac64c1f68d24bc5a269cd0c8b2d6a483" title="This function fills DIAG_SHM_DATA_t struct with diagnostic data &#160;STAV1 11 Loading data in shMem struc..." alt="" coords="1121,613,1293,640"/>
+<area shape="rect" id="node20" href="$module_one_read_eth_phy_8c.html#a259f47509afd861ed65a4c74e1654da7" title="This function opens shared memory and allocates it. " alt="" coords="1353,715,1517,741"/>
+<area shape="rect" id="node22" href="$module_one_read_eth_phy_8c.html#a7fa5a1147c84061bd511408e7fc92e77" title="Function that gets time of error. " alt="" coords="1356,664,1515,691"/>
+<area shape="rect" id="node25" href="$module_one_handle_routines_8c.html#a13ffca776e207f720598fece14e32d41" title="This function is used for activating test routines. " alt="" coords="907,512,998,539"/>
+<area shape="rect" id="node26" href="$module_one_handle_routines_8c.html#ace50ff396b856ee978590de17c77ad4f" title="Routine used to ping PC when triggered. " alt="" coords="1159,563,1256,589"/>
+<area shape="rect" id="node27" href="$module_one_handle_routines_8c.html#a282d3cba04d9f8a400fbf53f683cbb7c" title="Routine for testing normal operation mode. " alt="" coords="1133,360,1282,387"/>
+</map>

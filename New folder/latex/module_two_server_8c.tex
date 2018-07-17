@@ -1,0 +1,95 @@
+\hypertarget{module_two_server_8c}{}\section{module\+Two\+Server.\+c File Reference}
+\label{module_two_server_8c}\index{module\+Two\+Server.\+c@{module\+Two\+Server.\+c}}
+
+
+Functions for starting T\+C\+P/\+IP server and accepting communication with PC side via socket.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$socket.\+h$>$}\newline
+{\ttfamily \#include $<$sock\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$inet\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Server.\+h\char`\"{}}\newline
+Include dependency graph for module\+Two\+Server.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_server_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_server_8c_aa69feb5b671b31fbbedd5f3ee303a311}{\+\_\+establish\+Communication}} (void)
+\begin{DoxyCompactList}\small\item\em This function listen, accept and test communication with PC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_two_server_8c_a9e672e3d06cb60f46dc825ed114c95f6}{init\+Communication}} (void)
+\begin{DoxyCompactList}\small\item\em This function is used for initializing sockets and testing connection for communication with PC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{module_two_server_8c_a4e70a3040b7b0329e17f44f063143544}{\+\_\+s}}
+\item 
+int \mbox{\hyperlink{module_two_server_8c_aa949e2ce72b999bdf5b00055c687e220}{\+\_\+new\+Socket}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions for starting T\+C\+P/\+IP server and accepting communication with PC side via socket. 
+
+\mbox{\hyperlink{module_two_server_8c}{module\+Two\+Server.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}30-\/\+May-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation  \mbox{[}31-\/\+May-\/2018\mbox{]} Added \+\_\+establish\+Communication and init\+Communication functions 
+
+
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_server_8c_aa69feb5b671b31fbbedd5f3ee303a311}\label{module_two_server_8c_aa69feb5b671b31fbbedd5f3ee303a311}} 
+\index{module\+Two\+Server.\+c@{module\+Two\+Server.\+c}!\+\_\+establish\+Communication@{\+\_\+establish\+Communication}}
+\index{\+\_\+establish\+Communication@{\+\_\+establish\+Communication}!module\+Two\+Server.\+c@{module\+Two\+Server.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+establish\+Communication()}{\_establishCommunication()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+establish\+Communication (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function listen, accept and test communication with PC. 
+
+\mbox{\Hypertarget{module_two_server_8c_a9e672e3d06cb60f46dc825ed114c95f6}\label{module_two_server_8c_a9e672e3d06cb60f46dc825ed114c95f6}} 
+\index{module\+Two\+Server.\+c@{module\+Two\+Server.\+c}!init\+Communication@{init\+Communication}}
+\index{init\+Communication@{init\+Communication}!module\+Two\+Server.\+c@{module\+Two\+Server.\+c}}
+\subsubsection{\texorpdfstring{init\+Communication()}{initCommunication()}}
+{\footnotesize\ttfamily void init\+Communication (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is used for initializing sockets and testing connection for communication with PC. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{module_two_server_8c_a9e672e3d06cb60f46dc825ed114c95f6_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_server_8c_aa949e2ce72b999bdf5b00055c687e220}\label{module_two_server_8c_aa949e2ce72b999bdf5b00055c687e220}} 
+\index{module\+Two\+Server.\+c@{module\+Two\+Server.\+c}!\+\_\+new\+Socket@{\+\_\+new\+Socket}}
+\index{\+\_\+new\+Socket@{\+\_\+new\+Socket}!module\+Two\+Server.\+c@{module\+Two\+Server.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+new\+Socket}{\_newSocket}}
+{\footnotesize\ttfamily int \+\_\+new\+Socket}
+
+\mbox{\Hypertarget{module_two_server_8c_a4e70a3040b7b0329e17f44f063143544}\label{module_two_server_8c_a4e70a3040b7b0329e17f44f063143544}} 
+\index{module\+Two\+Server.\+c@{module\+Two\+Server.\+c}!\+\_\+s@{\+\_\+s}}
+\index{\+\_\+s@{\+\_\+s}!module\+Two\+Server.\+c@{module\+Two\+Server.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+s}{\_s}}
+{\footnotesize\ttfamily int \+\_\+s}
+

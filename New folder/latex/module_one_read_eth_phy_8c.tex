@@ -1,0 +1,246 @@
+\hypertarget{module_one_read_eth_phy_8c}{}\section{module\+One\+Read\+Eth\+Phy.\+c File Reference}
+\label{module_one_read_eth_phy_8c}\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+
+
+Functions to read and write in T\+J\+A1100 registers and functions that fill shared memory and message queue with diagnostic data.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$mem\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$pmap\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$vm\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$msg\+Q\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$task\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$net/utils/ifconfig.\+h$>$}\newline
+{\ttfamily \#include $<$sys/fcntlcom.\+h$>$}\newline
+{\ttfamily \#include $<$stat.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Read\+Eth\+Phy.\+h\char`\"{}}\newline
+Include dependency graph for module\+One\+Read\+Eth\+Phy.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_read_eth_phy_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_one_read_eth_phy_8c_ad3d33414850bbc909d7abadd9374d260}{\+\_\+module1\+\_\+\+Read\+Chip\+Registers}} (void)
+\begin{DoxyCompactList}\small\item\em Function that reads registers and fill diag data structure  S\+T\+A\+V1 10 Loading data in msgQ struct. \end{DoxyCompactList}\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{module_one_read_eth_phy_8c_a4d2f336ff3392dcabf55d8aad27395c2}{\+\_\+shared\+Mem\+Alloc}} (void)
+\begin{DoxyCompactList}\small\item\em This function takes pointer to allocated shared memory. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_one_read_eth_phy_8c_aac64c1f68d24bc5a269cd0c8b2d6a483}{\+\_\+module1\+\_\+\+Fill\+Shared\+Mem}} (void)
+\begin{DoxyCompactList}\small\item\em This function fills D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+T\+A\+\_\+t struct with diagnostic data  S\+T\+A\+V1 11 Loading data in sh\+Mem structure. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void $\ast$ \mbox{\hyperlink{module_one_read_eth_phy_8c_a259f47509afd861ed65a4c74e1654da7}{\+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc}} (const char $\ast$fname, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em This function opens shared memory and allocates it. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_one_read_eth_phy_8c_a7fa5a1147c84061bd511408e7fc92e77}{\+\_\+module1\+\_\+get\+Error\+Time}} (struct tm const $\ast$time\+\_\+info, uint8\+\_\+t pos)
+\begin{DoxyCompactList}\small\item\em Function that gets time of error. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{module_one_read_eth_phy_8c_a47c6c4d64e604e8e2c2e17b23a63e053}{mdio\+\_\+read\+\_\+br}} (uint32\+\_\+t reg\+Number)
+\begin{DoxyCompactList}\small\item\em This function reads T\+J\+A1100 address register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_read_eth_phy_8c_a50ee291d74529a7a8e2ea86f6aa2f2bf}{mdio\+\_\+write\+\_\+br}} (uint32\+\_\+t reg\+Number, uint16\+\_\+t data\+Write)
+\begin{DoxyCompactList}\small\item\em This function writes data to T\+J\+A1100 address register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_read_eth_phy_8c_ab4a7c038fb29787895e96b7521eede34}{module1\+\_\+\+Read\+Chip\+Registers\+Task}} (void)
+\begin{DoxyCompactList}\small\item\em This is task function for module1\+Read\+Chip\+Registers() used for reading T\+J\+A1100 registers and sending data to diag\+MsgQ via diag\+\_\+data\+\_\+struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module_one_read_eth_phy_8c_ab6154d17a17c7941b815a06de15f8c54}{\+\_\+diag\+\_\+data\+\_\+struct}}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} $\ast$ \mbox{\hyperlink{module_one_read_eth_phy_8c_ac83d0a83ca252211302d67059d2b781e}{\+\_\+diag\+\_\+shm\+\_\+ptr}}
+\item 
+L\+O\+C\+AL uint8\+\_\+t \mbox{\hyperlink{module_one_read_eth_phy_8c_a48ce9a0018fd97bde8d9f92965f22267}{\+\_\+delete\+\_\+cnt}} = 0U
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to read and write in T\+J\+A1100 registers and functions that fill shared memory and message queue with diagnostic data. 
+
+\mbox{\hyperlink{module_one_read_eth_phy_8c}{module\+One\+Read\+Eth\+Phy.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}23-\/\+Apr-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation
+\end{DoxyVersion}
+\mbox{[}23-\/\+Apr-\/2018\mbox{]} Added Read\+Chip\+Registers, Start\+Tasks, and Create\+Msg\+Queues functions \mbox{[}27-\/\+Apr-\/2018\mbox{]} Added get\+Error\+Time function \mbox{[}4-\/\+May-\/2018\mbox{]} Added \+\_\+shared\+Mem\+Alloc, \+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc and \+\_\+module1\+\_\+\+Fill\+Shared\+Mem functions \subsubsection*{\mbox{[}24-\/\+May-\/2018\mbox{]} Added function descriptions }
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_aac64c1f68d24bc5a269cd0c8b2d6a483}\label{module_one_read_eth_phy_8c_aac64c1f68d24bc5a269cd0c8b2d6a483}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+module1\+\_\+\+Fill\+Shared\+Mem@{\+\_\+module1\+\_\+\+Fill\+Shared\+Mem}}
+\index{\+\_\+module1\+\_\+\+Fill\+Shared\+Mem@{\+\_\+module1\+\_\+\+Fill\+Shared\+Mem}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module1\+\_\+\+Fill\+Shared\+Mem()}{\_module1\_FillSharedMem()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+module1\+\_\+\+Fill\+Shared\+Mem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function fills D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+T\+A\+\_\+t struct with diagnostic data  S\+T\+A\+V1 11 Loading data in sh\+Mem structure. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{module_one_read_eth_phy_8c_aac64c1f68d24bc5a269cd0c8b2d6a483_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_a7fa5a1147c84061bd511408e7fc92e77}\label{module_one_read_eth_phy_8c_a7fa5a1147c84061bd511408e7fc92e77}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+module1\+\_\+get\+Error\+Time@{\+\_\+module1\+\_\+get\+Error\+Time}}
+\index{\+\_\+module1\+\_\+get\+Error\+Time@{\+\_\+module1\+\_\+get\+Error\+Time}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module1\+\_\+get\+Error\+Time()}{\_module1\_getErrorTime()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+module1\+\_\+get\+Error\+Time (\begin{DoxyParamCaption}\item[{struct tm const $\ast$}]{time\+\_\+info,  }\item[{uint8\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+
+
+Function that gets time of error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+\_\+info} & Struct tm with current processor time \\
+\hline
+{\em pos} & Position of error in errors\+\_\+array struct  S\+T\+A\+V1 11 Library functions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_ad3d33414850bbc909d7abadd9374d260}\label{module_one_read_eth_phy_8c_ad3d33414850bbc909d7abadd9374d260}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+module1\+\_\+\+Read\+Chip\+Registers@{\+\_\+module1\+\_\+\+Read\+Chip\+Registers}}
+\index{\+\_\+module1\+\_\+\+Read\+Chip\+Registers@{\+\_\+module1\+\_\+\+Read\+Chip\+Registers}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module1\+\_\+\+Read\+Chip\+Registers()}{\_module1\_ReadChipRegisters()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+module1\+\_\+\+Read\+Chip\+Registers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function that reads registers and fill diag data structure  S\+T\+A\+V1 10 Loading data in msgQ struct. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_read_eth_phy_8c_ad3d33414850bbc909d7abadd9374d260_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_a259f47509afd861ed65a4c74e1654da7}\label{module_one_read_eth_phy_8c_a259f47509afd861ed65a4c74e1654da7}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc@{\+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc}}
+\index{\+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc@{\+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc()}{\_module1\_shMem\_Alloc()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void $\ast$ \+\_\+module1\+\_\+sh\+Mem\+\_\+\+Alloc (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+This function opens shared memory and allocates it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & Shared memory name \\
+\hline
+{\em size} & Shared memory size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to allocated shared memory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_a4d2f336ff3392dcabf55d8aad27395c2}\label{module_one_read_eth_phy_8c_a4d2f336ff3392dcabf55d8aad27395c2}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+shared\+Mem\+Alloc@{\+\_\+shared\+Mem\+Alloc}}
+\index{\+\_\+shared\+Mem\+Alloc@{\+\_\+shared\+Mem\+Alloc}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+shared\+Mem\+Alloc()}{\_sharedMemAlloc()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US \+\_\+shared\+Mem\+Alloc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function takes pointer to allocated shared memory. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening shared memory failed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{module_one_read_eth_phy_8c_a4d2f336ff3392dcabf55d8aad27395c2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_a47c6c4d64e604e8e2c2e17b23a63e053}\label{module_one_read_eth_phy_8c_a47c6c4d64e604e8e2c2e17b23a63e053}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!mdio\+\_\+read\+\_\+br@{mdio\+\_\+read\+\_\+br}}
+\index{mdio\+\_\+read\+\_\+br@{mdio\+\_\+read\+\_\+br}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{mdio\+\_\+read\+\_\+br()}{mdio\_read\_br()}}
+{\footnotesize\ttfamily uint32\+\_\+t mdio\+\_\+read\+\_\+br (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{reg\+Number }\end{DoxyParamCaption})}
+
+
+
+This function reads T\+J\+A1100 address register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Number} & Number of desired Broad\+R\+Reach register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data\+Read Data read from register 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Reading from register failed \\
+\hline
+{\em phy\+Gmii\+Data} & Reading from register success \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_a50ee291d74529a7a8e2ea86f6aa2f2bf}\label{module_one_read_eth_phy_8c_a50ee291d74529a7a8e2ea86f6aa2f2bf}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!mdio\+\_\+write\+\_\+br@{mdio\+\_\+write\+\_\+br}}
+\index{mdio\+\_\+write\+\_\+br@{mdio\+\_\+write\+\_\+br}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{mdio\+\_\+write\+\_\+br()}{mdio\_write\_br()}}
+{\footnotesize\ttfamily void mdio\+\_\+write\+\_\+br (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{reg\+Number,  }\item[{uint16\+\_\+t}]{data\+Write }\end{DoxyParamCaption})}
+
+
+
+This function writes data to T\+J\+A1100 address register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Number} & Number of Broad\+R\+Reach register \\
+\hline
+{\em data\+Write} & Data to be written \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_ab4a7c038fb29787895e96b7521eede34}\label{module_one_read_eth_phy_8c_ab4a7c038fb29787895e96b7521eede34}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!module1\+\_\+\+Read\+Chip\+Registers\+Task@{module1\+\_\+\+Read\+Chip\+Registers\+Task}}
+\index{module1\+\_\+\+Read\+Chip\+Registers\+Task@{module1\+\_\+\+Read\+Chip\+Registers\+Task}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Read\+Chip\+Registers\+Task()}{module1\_ReadChipRegistersTask()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Read\+Chip\+Registers\+Task (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This is task function for module1\+Read\+Chip\+Registers() used for reading T\+J\+A1100 registers and sending data to diag\+MsgQ via diag\+\_\+data\+\_\+struct. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_read_eth_phy_8c_ab4a7c038fb29787895e96b7521eede34_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_a48ce9a0018fd97bde8d9f92965f22267}\label{module_one_read_eth_phy_8c_a48ce9a0018fd97bde8d9f92965f22267}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+delete\+\_\+cnt@{\+\_\+delete\+\_\+cnt}}
+\index{\+\_\+delete\+\_\+cnt@{\+\_\+delete\+\_\+cnt}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+delete\+\_\+cnt}{\_delete\_cnt}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint8\+\_\+t \+\_\+delete\+\_\+cnt = 0U}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_ab6154d17a17c7941b815a06de15f8c54}\label{module_one_read_eth_phy_8c_ab6154d17a17c7941b815a06de15f8c54}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+diag\+\_\+data\+\_\+struct@{\+\_\+diag\+\_\+data\+\_\+struct}}
+\index{\+\_\+diag\+\_\+data\+\_\+struct@{\+\_\+diag\+\_\+data\+\_\+struct}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+data\+\_\+struct}{\_diag\_data\_struct}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \+\_\+diag\+\_\+data\+\_\+struct}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8c_ac83d0a83ca252211302d67059d2b781e}\label{module_one_read_eth_phy_8c_ac83d0a83ca252211302d67059d2b781e}} 
+\index{module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}!\+\_\+diag\+\_\+shm\+\_\+ptr@{\+\_\+diag\+\_\+shm\+\_\+ptr}}
+\index{\+\_\+diag\+\_\+shm\+\_\+ptr@{\+\_\+diag\+\_\+shm\+\_\+ptr}!module\+One\+Read\+Eth\+Phy.\+c@{module\+One\+Read\+Eth\+Phy.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+shm\+\_\+ptr}{\_diag\_shm\_ptr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}$\ast$ \+\_\+diag\+\_\+shm\+\_\+ptr}
+

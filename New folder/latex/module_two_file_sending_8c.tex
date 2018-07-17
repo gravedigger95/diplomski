@@ -1,0 +1,149 @@
+\hypertarget{module_two_file_sending_8c}{}\section{module\+Two\+File\+Sending.\+c File Reference}
+\label{module_two_file_sending_8c}\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+
+
+Functions that handle file sending to PC side.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$sock\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Handle\+Routines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+File\+Sending.\+h\char`\"{}}\newline
+Include dependency graph for module\+Two\+File\+Sending.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_file_sending_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_file_sending_8c_a171d25e73f48edc57c8e207c7185693f}{\+\_\+process\+File\+Name}} (char fs\+\_\+name\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function prepares and send filename to PC via socket. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_file_sending_8c_aa76180fc2669d77f3ea52e452e97ff58}{\+\_\+process\+File\+Size}} (void)
+\begin{DoxyCompactList}\small\item\em This function prepares and send filesize to PC via socket.  S\+T\+A\+V1 10 Required for correct implementation of file sending. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_file_sending_8c_ad079ec43554602f3e23e69e4b7c666fb}{\+\_\+process\+File\+Sending}} (void)
+\begin{DoxyCompactList}\small\item\em This function sends file data through socket.  S\+T\+C\+AL 10 Required for correct implementation of file sending. \end{DoxyCompactList}\item 
+L\+O\+C\+AL void \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File}} (char fs\+\_\+name\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function sends file to PC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_two_file_sending_8c_adb58ea2632a87ebf50ddc6dc9737a94a}{upload\+File}} (void)
+\begin{DoxyCompactList}\small\item\em This function sends number of files that are going to be sent through socket and calls \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL char \mbox{\hyperlink{module_two_file_sending_8c_aa747251104a2854d1373be8a48b58b90}{\+\_\+temp\+Dir}} \mbox{[}\mbox{\hyperlink{module_two_server_8h_ad974fe981249f5e84fbf1683b012c9f8}{B\+U\+F\+L\+EN}}\mbox{]}
+\item 
+L\+O\+C\+AL F\+I\+LE $\ast$ \mbox{\hyperlink{module_two_file_sending_8c_abab72f2ea0fac72c01be486949902537}{\+\_\+fs}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions that handle file sending to PC side. 
+
+\mbox{\hyperlink{module_two_file_sending_8c}{module\+Two\+File\+Sending.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}8-\/\+Jun-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation  \subsubsection*{\mbox{[}11-\/\+Jun-\/2018\mbox{]} Finished all functions }
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_file_sending_8c_a171d25e73f48edc57c8e207c7185693f}\label{module_two_file_sending_8c_a171d25e73f48edc57c8e207c7185693f}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+process\+File\+Name@{\+\_\+process\+File\+Name}}
+\index{\+\_\+process\+File\+Name@{\+\_\+process\+File\+Name}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+process\+File\+Name()}{\_processFileName()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+process\+File\+Name (\begin{DoxyParamCaption}\item[{char}]{fs\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This function prepares and send filename to PC via socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs\+\_\+name\mbox{[}$\,$\mbox{]}} & Name of file to be sent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{module_two_file_sending_8c_ad079ec43554602f3e23e69e4b7c666fb}\label{module_two_file_sending_8c_ad079ec43554602f3e23e69e4b7c666fb}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+process\+File\+Sending@{\+\_\+process\+File\+Sending}}
+\index{\+\_\+process\+File\+Sending@{\+\_\+process\+File\+Sending}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+process\+File\+Sending()}{\_processFileSending()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+process\+File\+Sending (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function sends file data through socket.  S\+T\+C\+AL 10 Required for correct implementation of file sending. 
+
+\mbox{\Hypertarget{module_two_file_sending_8c_aa76180fc2669d77f3ea52e452e97ff58}\label{module_two_file_sending_8c_aa76180fc2669d77f3ea52e452e97ff58}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+process\+File\+Size@{\+\_\+process\+File\+Size}}
+\index{\+\_\+process\+File\+Size@{\+\_\+process\+File\+Size}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+process\+File\+Size()}{\_processFileSize()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+process\+File\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function prepares and send filesize to PC via socket.  S\+T\+A\+V1 10 Required for correct implementation of file sending. 
+
+\mbox{\Hypertarget{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}\label{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+send\+File@{\+\_\+send\+File}}
+\index{\+\_\+send\+File@{\+\_\+send\+File}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+send\+File()}{\_sendFile()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void \+\_\+send\+File (\begin{DoxyParamCaption}\item[{char}]{fs\+\_\+name\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This function sends file to PC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fs\+\_\+name\mbox{[}$\,$\mbox{]}} & Name of file to be sent with full path \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_two_file_sending_8c_adb58ea2632a87ebf50ddc6dc9737a94a}\label{module_two_file_sending_8c_adb58ea2632a87ebf50ddc6dc9737a94a}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!upload\+File@{upload\+File}}
+\index{upload\+File@{upload\+File}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{upload\+File()}{uploadFile()}}
+{\footnotesize\ttfamily void upload\+File (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function sends number of files that are going to be sent through socket and calls \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File()}}. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_file_sending_8c_adb58ea2632a87ebf50ddc6dc9737a94a_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_file_sending_8c_abab72f2ea0fac72c01be486949902537}\label{module_two_file_sending_8c_abab72f2ea0fac72c01be486949902537}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+fs@{\+\_\+fs}}
+\index{\+\_\+fs@{\+\_\+fs}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+fs}{\_fs}}
+{\footnotesize\ttfamily L\+O\+C\+AL F\+I\+LE$\ast$ \+\_\+fs}
+
+\mbox{\Hypertarget{module_two_file_sending_8c_aa747251104a2854d1373be8a48b58b90}\label{module_two_file_sending_8c_aa747251104a2854d1373be8a48b58b90}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+temp\+Dir@{\+\_\+temp\+Dir}}
+\index{\+\_\+temp\+Dir@{\+\_\+temp\+Dir}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+temp\+Dir}{\_tempDir}}
+{\footnotesize\ttfamily L\+O\+C\+AL char \+\_\+temp\+Dir\mbox{[}\mbox{\hyperlink{module_two_server_8h_ad974fe981249f5e84fbf1683b012c9f8}{B\+U\+F\+L\+EN}}\mbox{]}}
+

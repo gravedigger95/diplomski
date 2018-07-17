@@ -1,0 +1,7 @@
+<map id="module1_GetRoutineNum" name="module1_GetRoutineNum">
+<area shape="rect" id="node2" href="$module_one_handle_routines_8c.html#a13ffca776e207f720598fece14e32d41" title="This function is used for activating test routines. " alt="" coords="224,56,315,83"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="561,5,661,32"/>
+<area shape="rect" id="node4" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="560,81,663,108"/>
+<area shape="rect" id="node5" href="$module_one_handle_routines_8c.html#ace50ff396b856ee978590de17c77ad4f" title="Routine used to ping PC when triggered. " alt="" coords="389,81,486,108"/>
+<area shape="rect" id="node6" href="$module_one_handle_routines_8c.html#a282d3cba04d9f8a400fbf53f683cbb7c" title="Routine for testing normal operation mode. " alt="" coords="363,31,512,57"/>
+</map>

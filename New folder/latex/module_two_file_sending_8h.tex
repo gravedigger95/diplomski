@@ -1,0 +1,81 @@
+\hypertarget{module_two_file_sending_8h}{}\section{module\+Two\+File\+Sending.\+h File Reference}
+\label{module_two_file_sending_8h}\index{module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_file_sending_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{module_two_file_sending_8h_ad974fe981249f5e84fbf1683b012c9f8}{B\+U\+F\+L\+EN}}~((uint16\+\_\+t) 512\+U)
+\item 
+\#define \mbox{\hyperlink{module_two_file_sending_8h_a633b0396ff93d336a088412a190a5072}{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}}~((int8\+\_\+t) -\/1)
+\item 
+\#define \mbox{\hyperlink{module_two_file_sending_8h_a530f11a96e508d171d28564c8dc20942}{N\+U\+L\+L\+\_\+\+P\+TR}}~(void $\ast$) (0)
+\item 
+\#define \mbox{\hyperlink{module_two_file_sending_8h_a6b554933ce08fd98588eee4387353251}{htonl\+\_\+br}}(x)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{module_two_file_sending_8h_adb58ea2632a87ebf50ddc6dc9737a94a}{upload\+File}} (void)
+\begin{DoxyCompactList}\small\item\em This function sends number of files that are going to be sent through socket and calls \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{module_two_file_sending_8h_ad974fe981249f5e84fbf1683b012c9f8}\label{module_two_file_sending_8h_ad974fe981249f5e84fbf1683b012c9f8}} 
+\index{module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}!B\+U\+F\+L\+EN@{B\+U\+F\+L\+EN}}
+\index{B\+U\+F\+L\+EN@{B\+U\+F\+L\+EN}!module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}}
+\subsubsection{\texorpdfstring{B\+U\+F\+L\+EN}{BUFLEN}}
+{\footnotesize\ttfamily \#define B\+U\+F\+L\+EN~((uint16\+\_\+t) 512\+U)}
+
+\mbox{\Hypertarget{module_two_file_sending_8h_a6b554933ce08fd98588eee4387353251}\label{module_two_file_sending_8h_a6b554933ce08fd98588eee4387353251}} 
+\index{module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}!htonl\+\_\+br@{htonl\+\_\+br}}
+\index{htonl\+\_\+br@{htonl\+\_\+br}!module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}}
+\subsubsection{\texorpdfstring{htonl\+\_\+br}{htonl\_br}}
+{\footnotesize\ttfamily \#define htonl\+\_\+br(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((((x) & 0x000000ffU) << 24U) |   \(\backslash\)
+                         (((x) & 0x0000ff00U) <<  8U) |   \(\backslash\)
+                         (((x) & 0x00ff0000U) >>  8U) |   \(\backslash\)
+                         (((x) & 0xff000000U) >> 24U))
+\end{DoxyCode}
+\mbox{\Hypertarget{module_two_file_sending_8h_a530f11a96e508d171d28564c8dc20942}\label{module_two_file_sending_8h_a530f11a96e508d171d28564c8dc20942}} 
+\index{module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}!N\+U\+L\+L\+\_\+\+P\+TR@{N\+U\+L\+L\+\_\+\+P\+TR}}
+\index{N\+U\+L\+L\+\_\+\+P\+TR@{N\+U\+L\+L\+\_\+\+P\+TR}!module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}}
+\subsubsection{\texorpdfstring{N\+U\+L\+L\+\_\+\+P\+TR}{NULL\_PTR}}
+{\footnotesize\ttfamily \#define N\+U\+L\+L\+\_\+\+P\+TR~(void $\ast$) (0)}
+
+\mbox{\Hypertarget{module_two_file_sending_8h_a633b0396ff93d336a088412a190a5072}\label{module_two_file_sending_8h_a633b0396ff93d336a088412a190a5072}} 
+\index{module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}!S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR@{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}}
+\index{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR@{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}!module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}}
+\subsubsection{\texorpdfstring{S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR}{SOCKET\_ERROR}}
+{\footnotesize\ttfamily \#define S\+O\+C\+K\+E\+T\+\_\+\+E\+R\+R\+OR~((int8\+\_\+t) -\/1)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_file_sending_8h_adb58ea2632a87ebf50ddc6dc9737a94a}\label{module_two_file_sending_8h_adb58ea2632a87ebf50ddc6dc9737a94a}} 
+\index{module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}!upload\+File@{upload\+File}}
+\index{upload\+File@{upload\+File}!module\+Two\+File\+Sending.\+h@{module\+Two\+File\+Sending.\+h}}
+\subsubsection{\texorpdfstring{upload\+File()}{uploadFile()}}
+{\footnotesize\ttfamily void upload\+File (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function sends number of files that are going to be sent through socket and calls \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File()}}. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_file_sending_8h_adb58ea2632a87ebf50ddc6dc9737a94a_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,525 @@
+\hypertarget{module_one_read_eth_phy_8h}{}\section{module\+One\+Read\+Eth\+Phy.\+h File Reference}
+\label{module_one_read_eth_phy_8h}\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_read_eth_phy_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structerror_struct}{error\+Struct}}
+\item 
+struct \mbox{\hyperlink{structdiagnostic_data_msg_q}{diagnostic\+Data\+MsgQ}}
+\item 
+struct \mbox{\hyperlink{structdiagnostic_data_sh_m}{diagnostic\+Data\+ShM}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a555f824010392043fd8a9384d1ec3b15}{H\+O\+S\+T\+\_\+\+BR}}~\char`\"{}fd53\+:7cb8\+:383\+:2\+::4f\char`\"{}
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ae72fb1d3362993b4cbbe6d79fd424c6e}{M\+A\+C\+\_\+\+BR}}~\char`\"{}8a\+:23\+:fe\+:0x00\+:0x00\+:02\char`\"{}
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a306abfd62ab935890f8c4a226b7ce350}{P\+C\+\_\+\+I\+P\+V6}}~\char`\"{}fd53\+:7cb8\+:383\+:3\+::73\char`\"{}
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ad89c5a76e69b781c64de110635a95d1d}{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}}~\char`\"{}/sh\+Mem\+Module1to2\char`\"{}
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a64d438edbdcb3832dd5a4dc0f261d5dd}{G\+M\+I\+I\+A\+D\+D\+R\+E\+SS}}~((uint32\+\_\+t) 0x\+F\+F702010\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a7fe6fa7743bd33dd5be21796001ccc55}{G\+M\+I\+I\+D\+A\+TA}}~((uint32\+\_\+t) 0x\+F\+F702014\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ae72e1fb9c55d5804aec7e9a342db7b34}{C\+L\+E\+A\+R\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x\+F\+F\+F\+F0000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a8150b21f39fdf77abaa90e4a13aacaaa}{S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x00000001\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a7a7f4a7b0a9f49e347105cd8acc3efa4}{S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x00000003\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a7e9eda34f27d379d599f1dc4cd837ff3}{B\+U\+S\+Y\+\_\+\+B\+IT}}~((uint32\+\_\+t) 0x1\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a936d080dc46f388c9449a7bf26ce7c40}{B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}}~((uint8\+\_\+t) 6\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_aa24597a54a085c6c2c33b64138f09eff}{M\+A\+X\+\_\+\+M\+SG}}~((uint8\+\_\+t) 2\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a51d90ea93d4b55e086cb490f7478e684}{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN}}~((uint8\+\_\+t) 8\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a5c6f13cd61f3d2e005687bbe43cd212c}{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0004\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a7510b53d2c374d1846f5b4af999548a0}{L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x8000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a2b5d1b8c5aa42d1b5f0d8a5adb572abe}{P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x7800\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a9bc69d8279625eb1da0625adbca5942c}{L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0018\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ac0485e3a69e3c935a4feae824a5f6fcb}{P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0800\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a2b472fdbbf78dae0a12b301125591ef2}{W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x4000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_aafe6c908d5d05c93bf7cc01bdf8689e3}{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0400\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a45f2e383f7d5d29437c8c3d9db9b37db}{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0200\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a061337cd00b354e7cd796d4332a39f40}{L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x8000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a04599ec8f5078977a78cd558661d6caf}{T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x6000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a9a4931e5e2ee2b0ee77efac783e3af57}{L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x1000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a185405e27cd55f75f217d0bc07fdc2c4}{R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0800\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_aa8de95c611d52d7fd61de6a0563e41ce}{J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x0002\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a7b0d046cc887a20e50184f6d9ed89ad9}{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x\+F\+C00\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a06f085911ecd47aa9a10517aeba09c2a}{T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x03\+F0\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a914aa7070c5c3f0ca2b73615a1622e15}{R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x000\+F\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a950b5294c49f552f3634cf8ed2c30db6}{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x00\+F\+F\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a61aa6e34efda022931edbba16af52940}{I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}}~((uint32\+\_\+t) 0x8000\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a530f11a96e508d171d28564c8dc20942}{N\+U\+L\+L\+\_\+\+P\+TR}}~(void $\ast$) (0)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a146d7dedfdc15b1c2395679adb8d8ed4}{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS}}~(uint32\+\_\+t) (25\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a1e27817ee436cbdeba83c2a35fe9cd44}{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS}}~(uint32\+\_\+t) (100\+U)
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a541dee5b5d73b673359a46ad53ff9527}{B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~((uint32\+\_\+t) (0x1))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a92d5ac48c7f09632af3039f2e787cb3b}{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}}~((uint32\+\_\+t) (0x2))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ae0f83d5f7de36094abd838fafe92cc8d}{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2}}~((uint32\+\_\+t) (0x3))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a18c09617ca430f3dab9eebbe16dbf4f1}{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3}}~((uint32\+\_\+t) (0x10))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ade5100260c2704fcf09efb04195ab30d}{G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~((uint32\+\_\+t) (0x18))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_affbfbb29eccba558f22033239167d870}{E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~((uint32\+\_\+t) (0x11))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a55dac77bf62fc543e1f6c3f8e97b98d4}{I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~((uint32\+\_\+t) (0x15))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_a7b3231c45827132795a985df98b30788}{C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}~((uint32\+\_\+t) (0x17))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ad6a5f0870f87a830a9281a48c20d1967}{C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}}~((uint32\+\_\+t) (0x12))
+\item 
+\#define \mbox{\hyperlink{module_one_read_eth_phy_8h_ab9a10f48a2538ff4e5d537c4d8d41a70}{M\+A\+X\+\_\+\+C\+NT}}~(255\+U)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structerror_struct}{error\+Struct}} \mbox{\hyperlink{module_one_read_eth_phy_8h_a20a1de38f8a31b563f5185bf73d836b0}{s\+\_\+\+E\+R\+R\+O\+RS}}
+\item 
+typedef struct \mbox{\hyperlink{structdiagnostic_data_msg_q}{diagnostic\+Data\+MsgQ}} \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}}
+\item 
+typedef struct \mbox{\hyperlink{structdiagnostic_data_sh_m}{diagnostic\+Data\+ShM}} \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{module_one_read_eth_phy_8h_a47c6c4d64e604e8e2c2e17b23a63e053}{mdio\+\_\+read\+\_\+br}} (uint32\+\_\+t reg\+Number)
+\begin{DoxyCompactList}\small\item\em This function reads T\+J\+A1100 address register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_read_eth_phy_8h_a50ee291d74529a7a8e2ea86f6aa2f2bf}{mdio\+\_\+write\+\_\+br}} (uint32\+\_\+t reg\+Number, uint16\+\_\+t data\+Write)
+\begin{DoxyCompactList}\small\item\em This function writes data to T\+J\+A1100 address register. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_read_eth_phy_8h_ab4a7c038fb29787895e96b7521eede34}{module1\+\_\+\+Read\+Chip\+Registers\+Task}} (void)
+\begin{DoxyCompactList}\small\item\em This is task function for module1\+Read\+Chip\+Registers() used for reading T\+J\+A1100 registers and sending data to diag\+MsgQ via diag\+\_\+data\+\_\+struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+M\+S\+G\+\_\+\+Q\+\_\+\+ID \mbox{\hyperlink{module_one_read_eth_phy_8h_a6ae24b34485eed59336d11223d848886}{diag\+Msg\+Q\+Id}}
+\item 
+volatile uint32\+\_\+t $\ast$ \mbox{\hyperlink{module_one_read_eth_phy_8h_a30a534f860e9976401cc923843ef91c7}{phy\+Gmii\+Address}}
+\item 
+volatile uint32\+\_\+t $\ast$ \mbox{\hyperlink{module_one_read_eth_phy_8h_a552978b3e139f218293760bfa8b8dfaa}{phy\+Gmii\+Data}}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module_one_read_eth_phy_8h_ab6154d17a17c7941b815a06de15f8c54}{\+\_\+diag\+\_\+data\+\_\+struct}}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} $\ast$ \mbox{\hyperlink{module_one_read_eth_phy_8h_ac83d0a83ca252211302d67059d2b781e}{\+\_\+diag\+\_\+shm\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a541dee5b5d73b673359a46ad53ff9527}\label{module_one_read_eth_phy_8h_a541dee5b5d73b673359a46ad53ff9527}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}
+\index{B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}{BASIC\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define B\+A\+S\+I\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER~((uint32\+\_\+t) (0x1))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a936d080dc46f388c9449a7bf26ce7c40}\label{module_one_read_eth_phy_8h_a936d080dc46f388c9449a7bf26ce7c40}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!B\+I\+T\+\_\+\+O\+F\+F\+S\+ET@{B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}}
+\index{B\+I\+T\+\_\+\+O\+F\+F\+S\+ET@{B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{B\+I\+T\+\_\+\+O\+F\+F\+S\+ET}{BIT\_OFFSET}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+\+O\+F\+F\+S\+ET~((uint8\+\_\+t) 6\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a7e9eda34f27d379d599f1dc4cd837ff3}\label{module_one_read_eth_phy_8h_a7e9eda34f27d379d599f1dc4cd837ff3}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!B\+U\+S\+Y\+\_\+\+B\+IT@{B\+U\+S\+Y\+\_\+\+B\+IT}}
+\index{B\+U\+S\+Y\+\_\+\+B\+IT@{B\+U\+S\+Y\+\_\+\+B\+IT}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{B\+U\+S\+Y\+\_\+\+B\+IT}{BUSY\_BIT}}
+{\footnotesize\ttfamily \#define B\+U\+S\+Y\+\_\+\+B\+IT~((uint32\+\_\+t) 0x1\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ae72e1fb9c55d5804aec7e9a342db7b34}\label{module_one_read_eth_phy_8h_ae72e1fb9c55d5804aec7e9a342db7b34}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!C\+L\+E\+A\+R\+\_\+\+M\+A\+SK@{C\+L\+E\+A\+R\+\_\+\+M\+A\+SK}}
+\index{C\+L\+E\+A\+R\+\_\+\+M\+A\+SK@{C\+L\+E\+A\+R\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{C\+L\+E\+A\+R\+\_\+\+M\+A\+SK}{CLEAR\_MASK}}
+{\footnotesize\ttfamily \#define C\+L\+E\+A\+R\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x\+F\+F\+F\+F0000\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a7b3231c45827132795a985df98b30788}\label{module_one_read_eth_phy_8h_a7b3231c45827132795a985df98b30788}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}
+\index{C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}{COMMUNICATION\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+O\+N\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER~((uint32\+\_\+t) (0x17))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ad6a5f0870f87a830a9281a48c20d1967}\label{module_one_read_eth_phy_8h_ad6a5f0870f87a830a9281a48c20d1967}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1@{C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}}
+\index{C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1@{C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}{CONFIGURATION\_REGISTER\_1}}
+{\footnotesize\ttfamily \#define C\+O\+N\+F\+I\+G\+U\+R\+A\+T\+I\+O\+N\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1~((uint32\+\_\+t) (0x12))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_affbfbb29eccba558f22033239167d870}\label{module_one_read_eth_phy_8h_affbfbb29eccba558f22033239167d870}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}
+\index{E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER}{EXTENDED\_CONTROL\_REGISTER}}
+{\footnotesize\ttfamily \#define E\+X\+T\+E\+N\+D\+E\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+G\+I\+S\+T\+ER~((uint32\+\_\+t) (0x11))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ade5100260c2704fcf09efb04195ab30d}\label{module_one_read_eth_phy_8h_ade5100260c2704fcf09efb04195ab30d}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}
+\index{G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER}{GENERAL\_STATUS\_REGISTER}}
+{\footnotesize\ttfamily \#define G\+E\+N\+E\+R\+A\+L\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+S\+T\+ER~((uint32\+\_\+t) (0x18))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a64d438edbdcb3832dd5a4dc0f261d5dd}\label{module_one_read_eth_phy_8h_a64d438edbdcb3832dd5a4dc0f261d5dd}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!G\+M\+I\+I\+A\+D\+D\+R\+E\+SS@{G\+M\+I\+I\+A\+D\+D\+R\+E\+SS}}
+\index{G\+M\+I\+I\+A\+D\+D\+R\+E\+SS@{G\+M\+I\+I\+A\+D\+D\+R\+E\+SS}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{G\+M\+I\+I\+A\+D\+D\+R\+E\+SS}{GMIIADDRESS}}
+{\footnotesize\ttfamily \#define G\+M\+I\+I\+A\+D\+D\+R\+E\+SS~((uint32\+\_\+t) 0x\+F\+F702010\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a7fe6fa7743bd33dd5be21796001ccc55}\label{module_one_read_eth_phy_8h_a7fe6fa7743bd33dd5be21796001ccc55}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!G\+M\+I\+I\+D\+A\+TA@{G\+M\+I\+I\+D\+A\+TA}}
+\index{G\+M\+I\+I\+D\+A\+TA@{G\+M\+I\+I\+D\+A\+TA}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{G\+M\+I\+I\+D\+A\+TA}{GMIIDATA}}
+{\footnotesize\ttfamily \#define G\+M\+I\+I\+D\+A\+TA~((uint32\+\_\+t) 0x\+F\+F702014\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a555f824010392043fd8a9384d1ec3b15}\label{module_one_read_eth_phy_8h_a555f824010392043fd8a9384d1ec3b15}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!H\+O\+S\+T\+\_\+\+BR@{H\+O\+S\+T\+\_\+\+BR}}
+\index{H\+O\+S\+T\+\_\+\+BR@{H\+O\+S\+T\+\_\+\+BR}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{H\+O\+S\+T\+\_\+\+BR}{HOST\_BR}}
+{\footnotesize\ttfamily \#define H\+O\+S\+T\+\_\+\+BR~\char`\"{}fd53\+:7cb8\+:383\+:2\+::4f\char`\"{}}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a61aa6e34efda022931edbba16af52940}\label{module_one_read_eth_phy_8h_a61aa6e34efda022931edbba16af52940}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK@{I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}}
+\index{I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK@{I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}{INT\_STATUS\_MASK}}
+{\footnotesize\ttfamily \#define I\+N\+T\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x8000\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a55dac77bf62fc543e1f6c3f8e97b98d4}\label{module_one_read_eth_phy_8h_a55dac77bf62fc543e1f6c3f8e97b98d4}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER}}
+\index{I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER@{I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER}{INTERRUPT\_SOURCE\_REGISTER}}
+{\footnotesize\ttfamily \#define I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+R\+E\+G\+I\+S\+T\+ER~((uint32\+\_\+t) (0x15))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_aa8de95c611d52d7fd61de6a0563e41ce}\label{module_one_read_eth_phy_8h_aa8de95c611d52d7fd61de6a0563e41ce}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK@{J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK}}
+\index{J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK@{J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK}{JABBER\_DETECT\_MASK}}
+{\footnotesize\ttfamily \#define J\+A\+B\+B\+E\+R\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0002\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a7510b53d2c374d1846f5b4af999548a0}\label{module_one_read_eth_phy_8h_a7510b53d2c374d1846f5b4af999548a0}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK}}
+\index{L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK}{LINK\_CONTROL\_MASK}}
+{\footnotesize\ttfamily \#define L\+I\+N\+K\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x8000\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_aafe6c908d5d05c93bf7cc01bdf8689e3}\label{module_one_read_eth_phy_8h_aafe6c908d5d05c93bf7cc01bdf8689e3}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}}
+\index{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}{LINK\_STATUS\_FAIL\_MASK}}
+{\footnotesize\ttfamily \#define L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0400\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a5c6f13cd61f3d2e005687bbe43cd212c}\label{module_one_read_eth_phy_8h_a5c6f13cd61f3d2e005687bbe43cd212c}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}}
+\index{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK}{LINK\_STATUS\_MASK}}
+{\footnotesize\ttfamily \#define L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0004\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a45f2e383f7d5d29437c8c3d9db9b37db}\label{module_one_read_eth_phy_8h_a45f2e383f7d5d29437c8c3d9db9b37db}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK}}
+\index{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK}{LINK\_STATUS\_UP\_MASK}}
+{\footnotesize\ttfamily \#define L\+I\+N\+K\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+U\+P\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0200\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a061337cd00b354e7cd796d4332a39f40}\label{module_one_read_eth_phy_8h_a061337cd00b354e7cd796d4332a39f40}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK}}
+\index{L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK@{L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK}{LINK\_UP\_MASK}}
+{\footnotesize\ttfamily \#define L\+I\+N\+K\+\_\+\+U\+P\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x8000\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a9a4931e5e2ee2b0ee77efac783e3af57}\label{module_one_read_eth_phy_8h_a9a4931e5e2ee2b0ee77efac783e3af57}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK@{L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}}
+\index{L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK@{L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}{LOC\_RCVR\_MASK}}
+{\footnotesize\ttfamily \#define L\+O\+C\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x1000\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a9bc69d8279625eb1da0625adbca5942c}\label{module_one_read_eth_phy_8h_a9bc69d8279625eb1da0625adbca5942c}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK@{L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}
+\index{L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK@{L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}{LOOPBACK\_MODE\_MASK}}
+{\footnotesize\ttfamily \#define L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0018\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ae72fb1d3362993b4cbbe6d79fd424c6e}\label{module_one_read_eth_phy_8h_ae72fb1d3362993b4cbbe6d79fd424c6e}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!M\+A\+C\+\_\+\+BR@{M\+A\+C\+\_\+\+BR}}
+\index{M\+A\+C\+\_\+\+BR@{M\+A\+C\+\_\+\+BR}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+C\+\_\+\+BR}{MAC\_BR}}
+{\footnotesize\ttfamily \#define M\+A\+C\+\_\+\+BR~\char`\"{}8a\+:23\+:fe\+:0x00\+:0x00\+:02\char`\"{}}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ab9a10f48a2538ff4e5d537c4d8d41a70}\label{module_one_read_eth_phy_8h_ab9a10f48a2538ff4e5d537c4d8d41a70}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!M\+A\+X\+\_\+\+C\+NT@{M\+A\+X\+\_\+\+C\+NT}}
+\index{M\+A\+X\+\_\+\+C\+NT@{M\+A\+X\+\_\+\+C\+NT}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+C\+NT}{MAX\_CNT}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+C\+NT~(255\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_aa24597a54a085c6c2c33b64138f09eff}\label{module_one_read_eth_phy_8h_aa24597a54a085c6c2c33b64138f09eff}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!M\+A\+X\+\_\+\+M\+SG@{M\+A\+X\+\_\+\+M\+SG}}
+\index{M\+A\+X\+\_\+\+M\+SG@{M\+A\+X\+\_\+\+M\+SG}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+M\+SG}{MAX\_MSG}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+M\+SG~((uint8\+\_\+t) 2\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a51d90ea93d4b55e086cb490f7478e684}\label{module_one_read_eth_phy_8h_a51d90ea93d4b55e086cb490f7478e684}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN@{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN}}
+\index{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN@{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN}{MAX\_MSG\_LEN}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+L\+EN~((uint8\+\_\+t) 8\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a530f11a96e508d171d28564c8dc20942}\label{module_one_read_eth_phy_8h_a530f11a96e508d171d28564c8dc20942}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!N\+U\+L\+L\+\_\+\+P\+TR@{N\+U\+L\+L\+\_\+\+P\+TR}}
+\index{N\+U\+L\+L\+\_\+\+P\+TR@{N\+U\+L\+L\+\_\+\+P\+TR}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{N\+U\+L\+L\+\_\+\+P\+TR}{NULL\_PTR}}
+{\footnotesize\ttfamily \#define N\+U\+L\+L\+\_\+\+P\+TR~(void $\ast$) (0)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a306abfd62ab935890f8c4a226b7ce350}\label{module_one_read_eth_phy_8h_a306abfd62ab935890f8c4a226b7ce350}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+C\+\_\+\+I\+P\+V6@{P\+C\+\_\+\+I\+P\+V6}}
+\index{P\+C\+\_\+\+I\+P\+V6@{P\+C\+\_\+\+I\+P\+V6}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+C\+\_\+\+I\+P\+V6}{PC\_IPV6}}
+{\footnotesize\ttfamily \#define P\+C\+\_\+\+I\+P\+V6~\char`\"{}fd53\+:7cb8\+:383\+:3\+::73\char`\"{}}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ac0485e3a69e3c935a4feae824a5f6fcb}\label{module_one_read_eth_phy_8h_ac0485e3a69e3c935a4feae824a5f6fcb}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}}
+\index{P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK}{PHY\_FAIL\_MASK}}
+{\footnotesize\ttfamily \#define P\+H\+Y\+\_\+\+F\+A\+I\+L\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0800\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a7b0d046cc887a20e50184f6d9ed89ad9}\label{module_one_read_eth_phy_8h_a7b0d046cc887a20e50184f6d9ed89ad9}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK}}
+\index{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK}{PHY\_ID\_REG2\_MASK}}
+{\footnotesize\ttfamily \#define P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G2\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x\+F\+C00\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a950b5294c49f552f3634cf8ed2c30db6}\label{module_one_read_eth_phy_8h_a950b5294c49f552f3634cf8ed2c30db6}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK}}
+\index{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK}{PHY\_ID\_REG3\_MASK}}
+{\footnotesize\ttfamily \#define P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G3\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x00\+F\+F\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a92d5ac48c7f09632af3039f2e787cb3b}\label{module_one_read_eth_phy_8h_a92d5ac48c7f09632af3039f2e787cb3b}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}}
+\index{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1}{PHY\_ID\_REGISTER\_1}}
+{\footnotesize\ttfamily \#define P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+1~((uint32\+\_\+t) (0x2))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ae0f83d5f7de36094abd838fafe92cc8d}\label{module_one_read_eth_phy_8h_ae0f83d5f7de36094abd838fafe92cc8d}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2}}
+\index{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2}{PHY\_ID\_REGISTER\_2}}
+{\footnotesize\ttfamily \#define P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+2~((uint32\+\_\+t) (0x3))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a18c09617ca430f3dab9eebbe16dbf4f1}\label{module_one_read_eth_phy_8h_a18c09617ca430f3dab9eebbe16dbf4f1}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3}}
+\index{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3@{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3}{PHY\_ID\_REGISTER\_3}}
+{\footnotesize\ttfamily \#define P\+H\+Y\+\_\+\+I\+D\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+\_\+3~((uint32\+\_\+t) (0x10))}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a2b5d1b8c5aa42d1b5f0d8a5adb572abe}\label{module_one_read_eth_phy_8h_a2b5d1b8c5aa42d1b5f0d8a5adb572abe}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK@{P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}
+\index{P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK@{P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}{POWER\_MODE\_MASK}}
+{\footnotesize\ttfamily \#define P\+O\+W\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x7800\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a185405e27cd55f75f217d0bc07fdc2c4}\label{module_one_read_eth_phy_8h_a185405e27cd55f75f217d0bc07fdc2c4}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK@{R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}}
+\index{R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK@{R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK}{REM\_RCVR\_MASK}}
+{\footnotesize\ttfamily \#define R\+E\+M\+\_\+\+R\+C\+V\+R\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x0800\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a914aa7070c5c3f0ca2b73615a1622e15}\label{module_one_read_eth_phy_8h_a914aa7070c5c3f0ca2b73615a1622e15}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK@{R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK}}
+\index{R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK@{R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK}{REVISION\_NO\_MASK}}
+{\footnotesize\ttfamily \#define R\+E\+V\+I\+S\+I\+O\+N\+\_\+\+N\+O\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x000\+F\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a8150b21f39fdf77abaa90e4a13aacaaa}\label{module_one_read_eth_phy_8h_a8150b21f39fdf77abaa90e4a13aacaaa}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK@{S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK}}
+\index{S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK@{S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK}{SET\_READ\_MASK}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+R\+E\+A\+D\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x00000001\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a7a7f4a7b0a9f49e347105cd8acc3efa4}\label{module_one_read_eth_phy_8h_a7a7f4a7b0a9f49e347105cd8acc3efa4}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK@{S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK}}
+\index{S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK@{S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK}{SET\_WRITE\_MASK}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x00000003\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ad89c5a76e69b781c64de110635a95d1d}\label{module_one_read_eth_phy_8h_ad89c5a76e69b781c64de110635a95d1d}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME@{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}}
+\index{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME@{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME}{SH\_MEM\_NAME}}
+{\footnotesize\ttfamily \#define S\+H\+\_\+\+M\+E\+M\+\_\+\+N\+A\+ME~\char`\"{}/sh\+Mem\+Module1to2\char`\"{}}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a1e27817ee436cbdeba83c2a35fe9cd44}\label{module_one_read_eth_phy_8h_a1e27817ee436cbdeba83c2a35fe9cd44}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS@{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS}}
+\index{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS@{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS}{TASK\_DELAY\_1000MS}}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+1000\+MS~(uint32\+\_\+t) (100\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a146d7dedfdc15b1c2395679adb8d8ed4}\label{module_one_read_eth_phy_8h_a146d7dedfdc15b1c2395679adb8d8ed4}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS@{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS}}
+\index{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS@{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS}{TASK\_DELAY\_250MS}}
+{\footnotesize\ttfamily \#define T\+A\+S\+K\+\_\+\+D\+E\+L\+A\+Y\+\_\+250\+MS~(uint32\+\_\+t) (25\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a04599ec8f5078977a78cd558661d6caf}\label{module_one_read_eth_phy_8h_a04599ec8f5078977a78cd558661d6caf}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK@{T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}}
+\index{T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK@{T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK}{TX\_MODE\_MASK}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x6000\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a06f085911ecd47aa9a10517aeba09c2a}\label{module_one_read_eth_phy_8h_a06f085911ecd47aa9a10517aeba09c2a}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK@{T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK}}
+\index{T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK@{T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK}{TYPE\_NO\_MASK}}
+{\footnotesize\ttfamily \#define T\+Y\+P\+E\+\_\+\+N\+O\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x03\+F0\+U)}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a2b472fdbbf78dae0a12b301125591ef2}\label{module_one_read_eth_phy_8h_a2b472fdbbf78dae0a12b301125591ef2}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK@{W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK}}
+\index{W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK@{W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK}{WAKEUP\_MASK}}
+{\footnotesize\ttfamily \#define W\+A\+K\+E\+U\+P\+\_\+\+M\+A\+SK~((uint32\+\_\+t) 0x4000\+U)}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}\label{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}}
+\index{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}{s\_DIAG\_DATA}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdiagnostic_data_msg_q}{diagnostic\+Data\+MsgQ}}  \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}}}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}\label{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}
+\index{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA@{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}{s\_DIAG\_SHM\_DATA}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdiagnostic_data_sh_m}{diagnostic\+Data\+ShM}}  \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a20a1de38f8a31b563f5185bf73d836b0}\label{module_one_read_eth_phy_8h_a20a1de38f8a31b563f5185bf73d836b0}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!s\+\_\+\+E\+R\+R\+O\+RS@{s\+\_\+\+E\+R\+R\+O\+RS}}
+\index{s\+\_\+\+E\+R\+R\+O\+RS@{s\+\_\+\+E\+R\+R\+O\+RS}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{s\+\_\+\+E\+R\+R\+O\+RS}{s\_ERRORS}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structerror_struct}{error\+Struct}}  \mbox{\hyperlink{module_one_read_eth_phy_8h_a20a1de38f8a31b563f5185bf73d836b0}{s\+\_\+\+E\+R\+R\+O\+RS}}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a47c6c4d64e604e8e2c2e17b23a63e053}\label{module_one_read_eth_phy_8h_a47c6c4d64e604e8e2c2e17b23a63e053}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!mdio\+\_\+read\+\_\+br@{mdio\+\_\+read\+\_\+br}}
+\index{mdio\+\_\+read\+\_\+br@{mdio\+\_\+read\+\_\+br}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{mdio\+\_\+read\+\_\+br()}{mdio\_read\_br()}}
+{\footnotesize\ttfamily uint32\+\_\+t mdio\+\_\+read\+\_\+br (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{reg\+Number }\end{DoxyParamCaption})}
+
+
+
+This function reads T\+J\+A1100 address register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Number} & Number of desired Broad\+R\+Reach register\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data\+Read Data read from register 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & Reading from register failed \\
+\hline
+{\em phy\+Gmii\+Data} & Reading from register success \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a50ee291d74529a7a8e2ea86f6aa2f2bf}\label{module_one_read_eth_phy_8h_a50ee291d74529a7a8e2ea86f6aa2f2bf}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!mdio\+\_\+write\+\_\+br@{mdio\+\_\+write\+\_\+br}}
+\index{mdio\+\_\+write\+\_\+br@{mdio\+\_\+write\+\_\+br}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{mdio\+\_\+write\+\_\+br()}{mdio\_write\_br()}}
+{\footnotesize\ttfamily void mdio\+\_\+write\+\_\+br (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{reg\+Number,  }\item[{uint16\+\_\+t}]{data\+Write }\end{DoxyParamCaption})}
+
+
+
+This function writes data to T\+J\+A1100 address register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reg\+Number} & Number of Broad\+R\+Reach register \\
+\hline
+{\em data\+Write} & Data to be written \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ab4a7c038fb29787895e96b7521eede34}\label{module_one_read_eth_phy_8h_ab4a7c038fb29787895e96b7521eede34}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!module1\+\_\+\+Read\+Chip\+Registers\+Task@{module1\+\_\+\+Read\+Chip\+Registers\+Task}}
+\index{module1\+\_\+\+Read\+Chip\+Registers\+Task@{module1\+\_\+\+Read\+Chip\+Registers\+Task}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Read\+Chip\+Registers\+Task()}{module1\_ReadChipRegistersTask()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Read\+Chip\+Registers\+Task (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This is task function for module1\+Read\+Chip\+Registers() used for reading T\+J\+A1100 registers and sending data to diag\+MsgQ via diag\+\_\+data\+\_\+struct. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_read_eth_phy_8h_ab4a7c038fb29787895e96b7521eede34_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ab6154d17a17c7941b815a06de15f8c54}\label{module_one_read_eth_phy_8h_ab6154d17a17c7941b815a06de15f8c54}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!\+\_\+diag\+\_\+data\+\_\+struct@{\+\_\+diag\+\_\+data\+\_\+struct}}
+\index{\+\_\+diag\+\_\+data\+\_\+struct@{\+\_\+diag\+\_\+data\+\_\+struct}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+data\+\_\+struct}{\_diag\_data\_struct}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \+\_\+diag\+\_\+data\+\_\+struct}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_ac83d0a83ca252211302d67059d2b781e}\label{module_one_read_eth_phy_8h_ac83d0a83ca252211302d67059d2b781e}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!\+\_\+diag\+\_\+shm\+\_\+ptr@{\+\_\+diag\+\_\+shm\+\_\+ptr}}
+\index{\+\_\+diag\+\_\+shm\+\_\+ptr@{\+\_\+diag\+\_\+shm\+\_\+ptr}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+shm\+\_\+ptr}{\_diag\_shm\_ptr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}$\ast$ \+\_\+diag\+\_\+shm\+\_\+ptr}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a6ae24b34485eed59336d11223d848886}\label{module_one_read_eth_phy_8h_a6ae24b34485eed59336d11223d848886}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!diag\+Msg\+Q\+Id@{diag\+Msg\+Q\+Id}}
+\index{diag\+Msg\+Q\+Id@{diag\+Msg\+Q\+Id}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{diag\+Msg\+Q\+Id}{diagMsgQId}}
+{\footnotesize\ttfamily M\+S\+G\+\_\+\+Q\+\_\+\+ID diag\+Msg\+Q\+Id}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a30a534f860e9976401cc923843ef91c7}\label{module_one_read_eth_phy_8h_a30a534f860e9976401cc923843ef91c7}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!phy\+Gmii\+Address@{phy\+Gmii\+Address}}
+\index{phy\+Gmii\+Address@{phy\+Gmii\+Address}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{phy\+Gmii\+Address}{phyGmiiAddress}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t$\ast$ phy\+Gmii\+Address}
+
+\mbox{\Hypertarget{module_one_read_eth_phy_8h_a552978b3e139f218293760bfa8b8dfaa}\label{module_one_read_eth_phy_8h_a552978b3e139f218293760bfa8b8dfaa}} 
+\index{module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}!phy\+Gmii\+Data@{phy\+Gmii\+Data}}
+\index{phy\+Gmii\+Data@{phy\+Gmii\+Data}!module\+One\+Read\+Eth\+Phy.\+h@{module\+One\+Read\+Eth\+Phy.\+h}}
+\subsubsection{\texorpdfstring{phy\+Gmii\+Data}{phyGmiiData}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t$\ast$ phy\+Gmii\+Data}
+

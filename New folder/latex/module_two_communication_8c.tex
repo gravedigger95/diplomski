@@ -1,0 +1,152 @@
+\hypertarget{module_two_communication_8c}{}\section{module\+Two\+Communication.\+c File Reference}
+\label{module_two_communication_8c}\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+
+
+Interface functions for reading shared memory and message queues with diagnostic data from module\+One.  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$msg\+Q\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/fcntlcom.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+Two\+Communication.\+h\char`\"{}}\newline
+Include dependency graph for module\+Two\+Communication.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_communication_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL void $\ast$ \mbox{\hyperlink{module_two_communication_8c_a5ad7266c95615845b7af8c438c93cf30}{\+\_\+module2\+\_\+sh\+Mem\+\_\+open}} (const char $\ast$fname, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em This function opens shared memory in module 2 and allocates it. \end{DoxyCompactList}\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{module_two_communication_8c_adb6d8ad518b2f8d8161f37e00963d0be}{\+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check}} (void)
+\begin{DoxyCompactList}\small\item\em This function is used for checking if module 1 wrote correctly in shared memory. \end{DoxyCompactList}\item 
+S\+T\+A\+T\+US \mbox{\hyperlink{module_two_communication_8c_ad9ebcb5d93ac5f4bc33d47aac6b88683}{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ}} (void)
+\begin{DoxyCompactList}\small\item\em This function periodically reads diagnostic msgQ and shared memory. \end{DoxyCompactList}\item 
+S\+T\+A\+T\+US \mbox{\hyperlink{module_two_communication_8c_a99a7dd6823d02d0f1f5d9bcfedd08fc4}{shared\+Mem\+Alloc\+\_\+module2}} (void)
+\begin{DoxyCompactList}\small\item\em This function opens shared memory in module 1 and allocates it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module_two_communication_8c_a154b6cb142b2f257168f6ce8bf4f0552}{\+\_\+diag\+\_\+shm\+\_\+struct}}
+\item 
+\mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module_two_communication_8c_ab9ff18db9b7ba52dfe985635411d0978}{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}}
+\item 
+L\+O\+C\+AL \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} $\ast$ \mbox{\hyperlink{module_two_communication_8c_ac4998211cf8688b40208142ea2810198}{\+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface functions for reading shared memory and message queues with diagnostic data from module\+One. 
+
+\mbox{\hyperlink{module_two_communication_8c}{module\+Two\+Communication.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}28-\/\+May-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation  \mbox{[}28-\/\+May-\/2018\mbox{]} Added \+\_\+module2\+\_\+\+Read\+Diag\+MsgQ function \mbox{[}1-\/\+Jun-\/2018\mbox{]} Added shared\+Mem\+Alloc\+\_\+module2, \+\_\+module2\+\_\+sh\+Mem\+\_\+open \subsubsection*{and \+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check functions }
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_communication_8c_ad9ebcb5d93ac5f4bc33d47aac6b88683}\label{module_two_communication_8c_ad9ebcb5d93ac5f4bc33d47aac6b88683}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ@{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ}}
+\index{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ@{\+\_\+module2\+\_\+\+Read\+Diag\+MsgQ}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module2\+\_\+\+Read\+Diag\+Msg\+Q()}{\_module2\_ReadDiagMsgQ()}}
+{\footnotesize\ttfamily S\+T\+A\+T\+US \+\_\+module2\+\_\+\+Read\+Diag\+MsgQ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function periodically reads diagnostic msgQ and shared memory. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening or receiving from msg\+Queue failed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_communication_8c_ad9ebcb5d93ac5f4bc33d47aac6b88683_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_two_communication_8c_adb6d8ad518b2f8d8161f37e00963d0be}\label{module_two_communication_8c_adb6d8ad518b2f8d8161f37e00963d0be}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!\+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check@{\+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check}}
+\index{\+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check@{\+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check()}{\_module2\_shMem\_Check()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US \+\_\+module2\+\_\+sh\+Mem\+\_\+\+Check (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is used for checking if module 1 wrote correctly in shared memory. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{module_two_communication_8c_a5ad7266c95615845b7af8c438c93cf30}\label{module_two_communication_8c_a5ad7266c95615845b7af8c438c93cf30}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!\+\_\+module2\+\_\+sh\+Mem\+\_\+open@{\+\_\+module2\+\_\+sh\+Mem\+\_\+open}}
+\index{\+\_\+module2\+\_\+sh\+Mem\+\_\+open@{\+\_\+module2\+\_\+sh\+Mem\+\_\+open}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module2\+\_\+sh\+Mem\+\_\+open()}{\_module2\_shMem\_open()}}
+{\footnotesize\ttfamily L\+O\+C\+AL void $\ast$ \+\_\+module2\+\_\+sh\+Mem\+\_\+open (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+This function opens shared memory in module 2 and allocates it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fname} & Name of shared memory \\
+\hline
+{\em size} & Size of shared memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to allocated shared memory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{module_two_communication_8c_a99a7dd6823d02d0f1f5d9bcfedd08fc4}\label{module_two_communication_8c_a99a7dd6823d02d0f1f5d9bcfedd08fc4}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!shared\+Mem\+Alloc\+\_\+module2@{shared\+Mem\+Alloc\+\_\+module2}}
+\index{shared\+Mem\+Alloc\+\_\+module2@{shared\+Mem\+Alloc\+\_\+module2}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{shared\+Mem\+Alloc\+\_\+module2()}{sharedMemAlloc\_module2()}}
+{\footnotesize\ttfamily S\+T\+A\+T\+US shared\+Mem\+Alloc\+\_\+module2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function opens shared memory in module 1 and allocates it. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening shared memory failed 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_two_communication_8c_a99a7dd6823d02d0f1f5d9bcfedd08fc4_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_communication_8c_ab9ff18db9b7ba52dfe985635411d0978}\label{module_two_communication_8c_ab9ff18db9b7ba52dfe985635411d0978}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1@{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}}
+\index{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1@{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}{\_diag\_data\_struct\_mod1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \+\_\+diag\+\_\+data\+\_\+struct\+\_\+mod1}
+
+\mbox{\Hypertarget{module_two_communication_8c_ac4998211cf8688b40208142ea2810198}\label{module_two_communication_8c_ac4998211cf8688b40208142ea2810198}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!\+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check@{\+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check}}
+\index{\+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check@{\+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check}{\_diag\_shm\_ptr\_check}}
+{\footnotesize\ttfamily L\+O\+C\+AL \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}}$\ast$ \+\_\+diag\+\_\+shm\+\_\+ptr\+\_\+check}
+
+\mbox{\Hypertarget{module_two_communication_8c_a154b6cb142b2f257168f6ce8bf4f0552}\label{module_two_communication_8c_a154b6cb142b2f257168f6ce8bf4f0552}} 
+\index{module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}!\+\_\+diag\+\_\+shm\+\_\+struct@{\+\_\+diag\+\_\+shm\+\_\+struct}}
+\index{\+\_\+diag\+\_\+shm\+\_\+struct@{\+\_\+diag\+\_\+shm\+\_\+struct}!module\+Two\+Communication.\+c@{module\+Two\+Communication.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+diag\+\_\+shm\+\_\+struct}{\_diag\_shm\_struct}}
+{\footnotesize\ttfamily \mbox{\hyperlink{module_one_read_eth_phy_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} \+\_\+diag\+\_\+shm\+\_\+struct}
+

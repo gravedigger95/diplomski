@@ -1,0 +1,169 @@
+\hypertarget{module_one_startup_8c}{}\section{module\+One\+Startup.\+c File Reference}
+\label{module_one_startup_8c}\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+
+
+Interface functions for starting module that are used in \mbox{\hyperlink{tttech_broad_r_reach_8c}{tttech\+Broad\+R\+Reach.\+c}} file. Functions for initializing P\+HY, creating message queues, configuring ethernet interface, starting tasks and RT process (module\+Two).  
+
+
+{\ttfamily \#include $<$vxworks.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$msg\+Q\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$vm\+Lib\+Common.\+h$>$}\newline
+{\ttfamily \#include $<$rtp\+Libcommon.\+h$>$}\newline
+{\ttfamily \#include $<$task\+Libcommon.\+h$>$}\newline
+{\ttfamily \#include $<$pmap\+Lib.\+h$>$}\newline
+{\ttfamily \#include $<$net/utils/ifconfig.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Handle\+Routines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Startup.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}module\+One\+Read\+Eth\+Phy.\+h\char`\"{}}\newline
+Include dependency graph for module\+One\+Startup.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_startup_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+O\+C\+AL S\+T\+A\+T\+US \mbox{\hyperlink{module_one_startup_8c_a099fd2ed34be94194a2365c974416637}{\+\_\+module1\+\_\+\+Create\+Msg\+Queues}} (void)
+\item 
+void \mbox{\hyperlink{module_one_startup_8c_a79652bed082e520034848c4418a7b5f2}{module1\+\_\+\+Init\+Phy}} (void)
+\begin{DoxyCompactList}\small\item\em Init function for eth phy chip interface. \end{DoxyCompactList}\item 
+S\+T\+A\+T\+US \mbox{\hyperlink{module_one_startup_8c_ae66f7a060103dcd1441b15d39845cab7}{rtp\+Module}} (void)
+\begin{DoxyCompactList}\small\item\em Initial function for starting R\+TP task in user space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_startup_8c_a33e10b04aa05e68980ba8cd27d86f51e}{module1\+\_\+\+Start\+Tasks}} (void)
+\begin{DoxyCompactList}\small\item\em Functions for starting module 1 tasks for reading E\+TH P\+HY chip registers and retrieving test mode numbers.  S\+T\+A\+V1 13 Assembler instructions that tool can\textquotesingle{}t handle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_startup_8c_a91042455237b23c8e02334dc2ad5f779}{module1\+\_\+\+Configure\+Eth\+Interface}} (void)
+\begin{DoxyCompactList}\small\item\em Configures hmi0 ethernet interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{module_one_startup_8c_a87cefb3488669012643b8b9330086f0d}{module1\+\_\+\+Configure\+V\+L\+AN}} (void)
+\begin{DoxyCompactList}\small\item\em Configures V\+L\+AN interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+M\+S\+G\+\_\+\+Q\+\_\+\+ID \mbox{\hyperlink{module_one_startup_8c_a7399395bce7dd3dd0341d0b7d7e78ec9}{routines\+Msg\+Q\+Id}} = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL
+\item 
+M\+S\+G\+\_\+\+Q\+\_\+\+ID \mbox{\hyperlink{module_one_startup_8c_a6ae24b34485eed59336d11223d848886}{diag\+Msg\+Q\+Id}} = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL
+\item 
+volatile uint32\+\_\+t $\ast$ \mbox{\hyperlink{module_one_startup_8c_a30a534f860e9976401cc923843ef91c7}{phy\+Gmii\+Address}}
+\item 
+volatile uint32\+\_\+t $\ast$ \mbox{\hyperlink{module_one_startup_8c_a552978b3e139f218293760bfa8b8dfaa}{phy\+Gmii\+Data}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interface functions for starting module that are used in \mbox{\hyperlink{tttech_broad_r_reach_8c}{tttech\+Broad\+R\+Reach.\+c}} file. Functions for initializing P\+HY, creating message queues, configuring ethernet interface, starting tasks and RT process (module\+Two). 
+
+\mbox{\hyperlink{module_one_startup_8c}{module\+One\+Startup.\+c}}
+
+\begin{DoxyVersion}{Version}
+\mbox{[}19-\/\+Apr-\/2018\mbox{]} \mbox{[}Stefan Masalusic\mbox{]} Initial creation
+\end{DoxyVersion}
+\mbox{[}19-\/\+Apr-\/2018\mbox{]} Added Init\+Phy and Create\+Msg\+Queues functions \mbox{[}23-\/\+Apr-\/2018\mbox{]} Added Start\+Tasks function \mbox{[}25-\/\+Apr-\/2018\mbox{]} Added Configure\+Eth\+Interface and Configure\+V\+L\+A\+N\+Interface functions \mbox{[}18-\/\+May-\/2018\mbox{]} Added rtp\+Module function \mbox{[}24-\/\+May-\/2018\mbox{]} Added function descriptions 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module_one_startup_8c_a099fd2ed34be94194a2365c974416637}\label{module_one_startup_8c_a099fd2ed34be94194a2365c974416637}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!\+\_\+module1\+\_\+\+Create\+Msg\+Queues@{\+\_\+module1\+\_\+\+Create\+Msg\+Queues}}
+\index{\+\_\+module1\+\_\+\+Create\+Msg\+Queues@{\+\_\+module1\+\_\+\+Create\+Msg\+Queues}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+module1\+\_\+\+Create\+Msg\+Queues()}{\_module1\_CreateMsgQueues()}}
+{\footnotesize\ttfamily L\+O\+C\+AL S\+T\+A\+T\+US \+\_\+module1\+\_\+\+Create\+Msg\+Queues (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{module_one_startup_8c_a91042455237b23c8e02334dc2ad5f779}\label{module_one_startup_8c_a91042455237b23c8e02334dc2ad5f779}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!module1\+\_\+\+Configure\+Eth\+Interface@{module1\+\_\+\+Configure\+Eth\+Interface}}
+\index{module1\+\_\+\+Configure\+Eth\+Interface@{module1\+\_\+\+Configure\+Eth\+Interface}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Configure\+Eth\+Interface()}{module1\_ConfigureEthInterface()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Configure\+Eth\+Interface (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configures hmi0 ethernet interface. 
+
+\mbox{\Hypertarget{module_one_startup_8c_a87cefb3488669012643b8b9330086f0d}\label{module_one_startup_8c_a87cefb3488669012643b8b9330086f0d}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!module1\+\_\+\+Configure\+V\+L\+AN@{module1\+\_\+\+Configure\+V\+L\+AN}}
+\index{module1\+\_\+\+Configure\+V\+L\+AN@{module1\+\_\+\+Configure\+V\+L\+AN}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Configure\+V\+L\+A\+N()}{module1\_ConfigureVLAN()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Configure\+V\+L\+AN (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configures V\+L\+AN interface. 
+
+\mbox{\Hypertarget{module_one_startup_8c_a79652bed082e520034848c4418a7b5f2}\label{module_one_startup_8c_a79652bed082e520034848c4418a7b5f2}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!module1\+\_\+\+Init\+Phy@{module1\+\_\+\+Init\+Phy}}
+\index{module1\+\_\+\+Init\+Phy@{module1\+\_\+\+Init\+Phy}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Init\+Phy()}{module1\_InitPhy()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Init\+Phy (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Init function for eth phy chip interface. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_startup_8c_a79652bed082e520034848c4418a7b5f2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_startup_8c_a33e10b04aa05e68980ba8cd27d86f51e}\label{module_one_startup_8c_a33e10b04aa05e68980ba8cd27d86f51e}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!module1\+\_\+\+Start\+Tasks@{module1\+\_\+\+Start\+Tasks}}
+\index{module1\+\_\+\+Start\+Tasks@{module1\+\_\+\+Start\+Tasks}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{module1\+\_\+\+Start\+Tasks()}{module1\_StartTasks()}}
+{\footnotesize\ttfamily void module1\+\_\+\+Start\+Tasks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Functions for starting module 1 tasks for reading E\+TH P\+HY chip registers and retrieving test mode numbers.  S\+T\+A\+V1 13 Assembler instructions that tool can\textquotesingle{}t handle. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module_one_startup_8c_a33e10b04aa05e68980ba8cd27d86f51e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{module_one_startup_8c_ae66f7a060103dcd1441b15d39845cab7}\label{module_one_startup_8c_ae66f7a060103dcd1441b15d39845cab7}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!rtp\+Module@{rtp\+Module}}
+\index{rtp\+Module@{rtp\+Module}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{rtp\+Module()}{rtpModule()}}
+{\footnotesize\ttfamily S\+T\+A\+T\+US rtp\+Module (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initial function for starting R\+TP task in user space. 
+
+\begin{DoxyReturn}{Returns}
+OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if rtp\+Spawn() function fails 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module_one_startup_8c_a6ae24b34485eed59336d11223d848886}\label{module_one_startup_8c_a6ae24b34485eed59336d11223d848886}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!diag\+Msg\+Q\+Id@{diag\+Msg\+Q\+Id}}
+\index{diag\+Msg\+Q\+Id@{diag\+Msg\+Q\+Id}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{diag\+Msg\+Q\+Id}{diagMsgQId}}
+{\footnotesize\ttfamily M\+S\+G\+\_\+\+Q\+\_\+\+ID diag\+Msg\+Q\+Id = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL}
+
+\mbox{\Hypertarget{module_one_startup_8c_a30a534f860e9976401cc923843ef91c7}\label{module_one_startup_8c_a30a534f860e9976401cc923843ef91c7}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!phy\+Gmii\+Address@{phy\+Gmii\+Address}}
+\index{phy\+Gmii\+Address@{phy\+Gmii\+Address}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{phy\+Gmii\+Address}{phyGmiiAddress}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t$\ast$ phy\+Gmii\+Address}
+
+\mbox{\Hypertarget{module_one_startup_8c_a552978b3e139f218293760bfa8b8dfaa}\label{module_one_startup_8c_a552978b3e139f218293760bfa8b8dfaa}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!phy\+Gmii\+Data@{phy\+Gmii\+Data}}
+\index{phy\+Gmii\+Data@{phy\+Gmii\+Data}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{phy\+Gmii\+Data}{phyGmiiData}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t$\ast$ phy\+Gmii\+Data}
+
+\mbox{\Hypertarget{module_one_startup_8c_a7399395bce7dd3dd0341d0b7d7e78ec9}\label{module_one_startup_8c_a7399395bce7dd3dd0341d0b7d7e78ec9}} 
+\index{module\+One\+Startup.\+c@{module\+One\+Startup.\+c}!routines\+Msg\+Q\+Id@{routines\+Msg\+Q\+Id}}
+\index{routines\+Msg\+Q\+Id@{routines\+Msg\+Q\+Id}!module\+One\+Startup.\+c@{module\+One\+Startup.\+c}}
+\subsubsection{\texorpdfstring{routines\+Msg\+Q\+Id}{routinesMsgQId}}
+{\footnotesize\ttfamily M\+S\+G\+\_\+\+Q\+\_\+\+ID routines\+Msg\+Q\+Id = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL}
+

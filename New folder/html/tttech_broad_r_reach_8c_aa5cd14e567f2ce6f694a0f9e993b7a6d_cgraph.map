@@ -1,0 +1,22 @@
+<map id="_ttechStartBRDiagTask" name="_ttechStartBRDiagTask">
+<area shape="rect" id="node2" href="$tttech_broad_r_reach_8c.html#a4f7737df5ebc5b97f6538cc903958db2" title="Set&#45;up all diagnostic requirements. " alt="" coords="214,449,351,475"/>
+<area shape="rect" id="node11" href="$module_one_startup_8c.html#a33e10b04aa05e68980ba8cd27d86f51e" title="Functions for starting module 1 tasks for reading ETH PHY chip registers and retrieving test mode num..." alt="" coords="212,499,353,526"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="1161,398,1261,425"/>
+<area shape="rect" id="node4" href="$tttech_broad_r_reach_8c.html#a22c1fcf7e151e7e9eaf6ad7a7b2a8d16" title="Resets BR chip. " alt="" coords="671,347,786,374"/>
+<area shape="rect" id="node6" href="$tttech_broad_r_reach_8c.html#a0dd9b90e2234046d42347278e00d5de3" title="Search for any TJA1100 possible error in registers. " alt="" coords="418,347,555,374"/>
+<area shape="rect" id="node10" href="$module_one_startup_8c.html#ae66f7a060103dcd1441b15d39845cab7" title="Initial function for starting RTP task in user space. " alt="" coords="447,398,526,425"/>
+<area shape="rect" id="node5" href="$module_one_read_eth_phy_8c.html#a50ee291d74529a7a8e2ea86f6aa2f2bf" title="This function writes data to TJA1100 address register. " alt="" coords="1160,145,1263,171"/>
+<area shape="rect" id="node7" href="$tttech_broad_r_reach_8c.html#a9b10a501b054a49e934836bdf4403ab0" title="tttech_BR_EmacPhyInit" alt="" coords="648,195,809,222"/>
+<area shape="rect" id="node8" href="$tttech_broad_r_reach_8c.html#a08d226eccad61b0131321995daf26e58" title="mapFpga" alt="" coords="945,43,1021,70"/>
+<area shape="rect" id="node9" href="$tttech_broad_r_reach_8c.html#a2fbd7f10fc3843d8a744dda32b0ac3f2" title="TJA1100 cable Test functionality. " alt="" coords="923,195,1043,222"/>
+<area shape="rect" id="node12" href="$module_one_read_eth_phy_8c.html#ab4a7c038fb29787895e96b7521eede34" title="This is task function for module1ReadChipRegisters() used for reading TJA1100 registers and sending d..." alt="" coords="620,626,837,653"/>
+<area shape="rect" id="node18" href="$module_one_handle_routines_8c.html#a9d76ff69513e544453fdcbcb8fc5184c" title="This function gets number of routine which will be called and calls _testModes(int routine_trigger)..." alt="" coords="401,499,572,526"/>
+<area shape="rect" id="node13" href="$module_one_read_eth_phy_8c.html#a4d2f336ff3392dcabf55d8aad27395c2" title="This function takes pointer to allocated shared memory. " alt="" coords="920,702,1047,729"/>
+<area shape="rect" id="node15" href="$module_one_read_eth_phy_8c.html#ad3d33414850bbc909d7abadd9374d260" title="Function that reads registers and fill diag data structure &#160;STAV1 10 Loading data in msgQ struct..." alt="" coords="885,651,1081,678"/>
+<area shape="rect" id="node17" href="$module_one_read_eth_phy_8c.html#aac64c1f68d24bc5a269cd0c8b2d6a483" title="This function fills DIAG_SHM_DATA_t struct with diagnostic data &#160;STAV1 11 Loading data in shMem struc..." alt="" coords="897,601,1069,627"/>
+<area shape="rect" id="node14" href="$module_one_read_eth_phy_8c.html#a259f47509afd861ed65a4c74e1654da7" title="This function opens shared memory and allocates it. " alt="" coords="1129,702,1293,729"/>
+<area shape="rect" id="node16" href="$module_one_read_eth_phy_8c.html#a7fa5a1147c84061bd511408e7fc92e77" title="Function that gets time of error. " alt="" coords="1132,651,1291,678"/>
+<area shape="rect" id="node19" href="$module_one_handle_routines_8c.html#a13ffca776e207f720598fece14e32d41" title="This function is used for activating test routines. " alt="" coords="683,398,774,425"/>
+<area shape="rect" id="node20" href="$module_one_handle_routines_8c.html#ace50ff396b856ee978590de17c77ad4f" title="Routine used to ping PC when triggered. " alt="" coords="935,449,1032,475"/>
+<area shape="rect" id="node21" href="$module_one_handle_routines_8c.html#a282d3cba04d9f8a400fbf53f683cbb7c" title="Routine for testing normal operation mode. " alt="" coords="909,246,1058,273"/>
+</map>

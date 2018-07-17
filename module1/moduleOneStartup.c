@@ -133,7 +133,6 @@ volatile uint32_t * phyGmiiData;
 void module1_InitPhy(void)
 {
     char * ethIf_macVirtAddr = NULL_PTR;
-    FILE * fd;
     int32_t retVal = 0;
     
     const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
@@ -150,14 +149,6 @@ void module1_InitPhy(void)
     /* add address and data registers offsets */
     phyGmiiAddress = ethIf_macVirtAddr + CYCLONE_ADDRESS_REGISTER_OFFSET; /* PRQA S 0488 */ /* PRQA S 0563 */
     phyGmiiData = ethIf_macVirtAddr + CYCLONE_DATA_REGISTER_OFFSET; /* PRQA S 0488 */ /* PRQA S 0563 */
-    
-    /* open file for writing errors */
-    fd = fopen ("/mmc0:1/err/errorLog.txt", "w");
-    if (NULL_PTR != fd)
-    { 
-        (void) fprintf (fd, "Error log: \n");
-        (void) fclose (fd);
-    }
 
     retVal = _module1_CreateMsgQueues();
     while (ERROR == retVal)

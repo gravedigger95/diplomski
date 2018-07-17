@@ -1,0 +1,18 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$module_two_r_t_p_8c.html#a3afd7a702d6fb3b617ad97092a6a3696" title="This function is used for initializing RTP module msg queues, shared memory and tasks. " alt="" coords="141,69,243,96"/>
+<area shape="rect" id="node16" href="$module_two_communication_8c.html#ad9ebcb5d93ac5f4bc33d47aac6b88683" title="This function periodically reads diagnostic msgQ and shared memory. " alt="" coords="104,132,280,159"/>
+<area shape="rect" id="node3" href="$module_two_communication_8c.html#a99a7dd6823d02d0f1f5d9bcfedd08fc4" title="This function opens shared memory in module 1 and allocates it. " alt="" coords="328,5,503,32"/>
+<area shape="rect" id="node5" href="$module_two_server_8c.html#a9e672e3d06cb60f46dc825ed114c95f6" title="This function is used for initializing sockets and testing connection for communication with PC..." alt="" coords="351,56,480,83"/>
+<area shape="rect" id="node7" href="$module_two_r_t_p_8c.html#a9ee4f92e8a67de163459179d3ca92741" title="This function is background task for communication with PC and triggering appropriate routines for te..." alt="" coords="353,107,477,133"/>
+<area shape="rect" id="node4" href="$module_two_communication_8c.html#a5ad7266c95615845b7af8c438c93cf30" title="This function opens shared memory in module 2 and allocates it. " alt="" coords="555,5,717,32"/>
+<area shape="rect" id="node6" href="$module_two_server_8c.html#aa69feb5b671b31fbbedd5f3ee303a311" title="This function listen, accept and test communication with PC. " alt="" coords="551,56,721,83"/>
+<area shape="rect" id="node8" href="$module_two_handle_routines_8c.html#aaa45aad864a26a1b85061ac41367a09b" title="This function is simple switch&#45;case which acts like state&#45;machine and calls functions or sends struct..." alt="" coords="575,107,697,133"/>
+<area shape="rect" id="node9" href="$module_two_handle_routines_8c.html#a1064bbe96b41b68b71c05feb01082265" title="This function is used for receiving command from user via socket. " alt="" coords="790,56,918,83"/>
+<area shape="rect" id="node10" href="$module_two_file_sending_8c.html#adb58ea2632a87ebf50ddc6dc9737a94a" title="This function sends number of files that are going to be sent through socket and calls _sendFile()..." alt="" coords="813,107,895,133"/>
+<area shape="rect" id="node15" href="$module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="769,157,939,184"/>
+<area shape="rect" id="node11" href="$module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="987,107,1065,133"/>
+<area shape="rect" id="node12" href="$module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="1119,56,1250,83"/>
+<area shape="rect" id="node13" href="$module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="1123,107,1246,133"/>
+<area shape="rect" id="node14" href="$module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="1113,157,1256,184"/>
+<area shape="rect" id="node17" href="$module_two_communication_8c.html#adb6d8ad518b2f8d8161f37e00963d0be" title="This function is used for checking if module 1 wrote correctly in shared memory. " alt="" coords="329,157,501,184"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="_module1_ReadChipRegisters" name="_module1_ReadChipRegisters">
+<area shape="rect" id="node2" href="$module_one_read_eth_phy_8c.html#a47c6c4d64e604e8e2c2e17b23a63e053" title="This function reads TJA1100 address register. " alt="" coords="279,5,379,32"/>
+<area shape="rect" id="node3" href="$module_one_read_eth_phy_8c.html#a7fa5a1147c84061bd511408e7fc92e77" title="Function that gets time of error. " alt="" coords="249,56,408,83"/>
+</map>

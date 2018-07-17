@@ -1,0 +1,5 @@
+<map id="_attach_if_to_device" name="_attach_if_to_device">
+<area shape="rect" id="node2" href="$tttech_broad_r_reach_8c.html#af2ac984f09d9abc2eb4532f2d53ea771" title="Allocates shared memory for BRIF address and index report. " alt="" coords="226,5,359,32"/>
+<area shape="rect" id="node3" href="$module_one_startup_8c.html#a87cefb3488669012643b8b9330086f0d" title="Configures VLAN interface. " alt="" coords="209,56,376,83"/>
+<area shape="rect" id="node4" href="$module_one_startup_8c.html#a91042455237b23c8e02334dc2ad5f779" title="Configures hmi0 ethernet interface. " alt="" coords="192,107,393,133"/>
+</map>
