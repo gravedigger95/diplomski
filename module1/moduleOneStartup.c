@@ -208,7 +208,7 @@ void module1_StartTasks(void)
         (void) msgQClose(diagMsgQId);
     }
     
-    if (taskSpawn("getRoutine", ROUTINES_TASK_PRIORITY, 0, ROUTINES_STACK_SIZE, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
+    if (taskSpawn("getRoutine", ROUTINES_TASK_PRIORITY, 0, ROUTINES_STACK_SIZE, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of getRoutineNum failed\n");

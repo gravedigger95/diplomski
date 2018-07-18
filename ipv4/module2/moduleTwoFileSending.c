@@ -68,6 +68,11 @@ LOCAL void _processFileSending(void);
  * \param fs_name[] Name of file to be sent with full path
  */
 LOCAL void _sendFile(char fs_name[]);
+/** 
+ * \brief This function checks if directory is empty.
+ * \return ret 0 if empty, 1 if not empty
+ */
+LOCAL int isDirectoryEmpty(void);
 
 /************************************************************************
  * INTERNAL VARIABLES
@@ -88,8 +93,7 @@ void uploadFile(void)
     /* Change state machine state to idle */
     _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
     
-    networkFilesNum = isDirectoryEmpty();
-    
+    networkFilesNum = (uint32_t) isDirectoryEmpty();    
     networkFilesNum = htonl_br (networkFilesNum);
     
     /* Inform other side how many files to expect */
@@ -120,31 +124,41 @@ void uploadFile(void)
     (void) printf ("****************************************************\n");
 }
 
-int isDirectoryEmpty (void) {
+LOCAL int isDirectoryEmpty(void) 
+{
     int n = 0;
     struct dirent *d;
     DIR *dir = opendir ("/mmc0:1/err");
+    int8_t ret = 0;
     
-    if (dir == NULL) //Not a directory or doesn't exist
+    if (dir == NULL_PTR) //Not a directory or doesn't exist
     {
-        return 1;
+        ret = 1;
     }
     
-    while ((d = readdir (dir)) != NULL)
+    d = readdir (dir);
+    
+    while (d != NULL_PTR)
     {
-        if (++n > 2)
-        break;
+        d = readdir (dir);
+        n++;
+        if (n > 2)
+        {
+            break;      	
+        }
     }
     
-    closedir(dir);
+    (void) closedir(dir);
     if (n <= 2) //Directory Empty
     {
-        return 0;
+        ret = 0;
     }
     else
     {
-        return 1;
+        ret = 1;
     }
+    
+    return ret;
 }
 
 LOCAL void _sendFile(char fs_name[])
