@@ -14,35 +14,39 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     getMsgQ_button = new QPushButton("Get MsgQ", this);
-    getMsgQ_button->setGeometry(QRect(QPoint(100, 150),
+    getMsgQ_button->setGeometry(QRect(QPoint(100, 200),
     QSize(100, 25)));
 
     getShMem_button = new QPushButton("Get ShMem", this);
-    getShMem_button->setGeometry(QRect(QPoint(100, 200),
+    getShMem_button->setGeometry(QRect(QPoint(100, 250),
     QSize(100, 25)));
 
     disconnect = new QPushButton("Exit", this);
-    disconnect->setGeometry(QRect(QPoint(100, 300),
+    disconnect->setGeometry(QRect(QPoint(100, 350),
     QSize(100, 25)));
 
     init_button = new QPushButton("Start Client", this);
     init_button->setGeometry(QRect(QPoint(100, 100),
     QSize(100, 25)));
 
+    dl_button = new QPushButton("Download file", this);
+    dl_button->setGeometry(QRect(QPoint(100, 150),
+    QSize(100, 25)));
+
     sendRoutine_button = new QPushButton("Send Routine", this);
-    sendRoutine_button->setGeometry(QRect(QPoint(100, 250),
+    sendRoutine_button->setGeometry(QRect(QPoint(100, 300),
     QSize(100, 25)));
 
     routineText = new QLineEdit(tr(""), this);
-    routineText->setGeometry(QRect(QPoint(200,250), QSize(25,25)));
+    routineText->setGeometry(QRect(QPoint(200,300), QSize(25,25)));
 
     showText = new QTextEdit(tr(""), this);
-    showText->setGeometry(QRect(QPoint(250,100), QSize(500,500)));
+    showText->setGeometry(QRect(QPoint(350,100), QSize(500,500)));
 
     infoBar = new QLabel(this);
-    infoBar->setGeometry(QRect(QPoint(100,350), QSize(100,100)));
+    infoBar->setGeometry(QRect(QPoint(100,400), QSize(200,100)));
 
-    QString info = "Routines:\n0 - Normal operation test\n1 to 5 - Test Modes\n6 - Ping routine";
+    QString info = "Routines:\n0 - Normal operation test\n1 to 5 - Test Modes\n6 - Ping routine\n(Click Get msgQ to read result)\n7 - Read Link Fail Count\n(Click get shMem to read result)";
 
     infoBar->setText(info);
 
@@ -52,7 +56,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->getMsgQ_button, SIGNAL (released()), this, SLOT (handeMsgQ_button()));
     connect(this->getShMem_button, SIGNAL (released()), this, SLOT (handeShMem_button()));
     connect(this->sendRoutine_button, SIGNAL (released()), this, SLOT (handleRoutineClick()));
+    connect(this->dl_button, SIGNAL (released()), this, SLOT (handleDownloadClick()));
     connect(this->disconnect, SIGNAL (released()), this, SLOT (handleDisconnectClick()));
+    connect(this, SIGNAL (downloadFile()), this, SLOT (getFile()));
     connect(this, SIGNAL (getMsgQStatus()), this, SLOT (getMsgQ()));
     connect(this, SIGNAL (getShMemStatus()), this, SLOT (getShMem()));
     connect(this, SIGNAL (disconnectClicked()), this, SLOT (terminateProgram()));
@@ -65,11 +71,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::handeMsgQ_button()
 {
     emit getMsgQStatus();
+}
+
+void MainWindow::handleDownloadClick()
+{
+    emit downloadFile();
 }
 
 void MainWindow::handeShMem_button()
@@ -91,7 +100,7 @@ void MainWindow::insertRoutine()
 {
     int m = routineText->text().toInt();
 
-    if (m <= 6 && m >= 0)
+    if (m <= 7 && m >= 0)
     {
 
         mod3.startModule(2);
@@ -106,6 +115,14 @@ void MainWindow::insertRoutine()
 void MainWindow::getMsgQ()
 {
     mod3.startModule(3);
+    fflush(stdout);
+    readfile();
+    clearFile();
+}
+
+void MainWindow::getFile()
+{
+    mod3.startModule(1);
     fflush(stdout);
     readfile();
     clearFile();

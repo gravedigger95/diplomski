@@ -34,7 +34,7 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-        _module3.h
+    module3.h
 
 FORMS += \
         mainwindow.ui

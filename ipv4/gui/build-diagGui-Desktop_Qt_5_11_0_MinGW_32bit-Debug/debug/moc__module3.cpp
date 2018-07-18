@@ -82,7 +82,7 @@ static const uint qt_meta_data_Module3[] = {
  // slots: parameters
     QMetaType::Int, QMetaType::Int,    5,
     QMetaType::Void,
-    QMetaType::Int,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void,
 
@@ -100,8 +100,7 @@ void Module3::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 2: { int _r = _t->startModule((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 3: _t->receiveFile(); break;
-        case 4: { int _r = _t->initCommunication();
-            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 4: _t->initCommunication(); break;
         case 5: _t->sendRoutineNum((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->printStates(); break;
         default: ;

@@ -11,7 +11,7 @@
 #include <QLabel>
 
 extern "C" {
-#include "_module3.h"
+#include "module3.h"
 }
 
 namespace Ui {
@@ -32,6 +32,7 @@ public:
 
 signals:
     void getMsgQStatus();
+    void downloadFile();
     void getShMemStatus();
     void insertRoutineNumber();
     void disconnectClicked();
@@ -42,15 +43,18 @@ private slots:
     void handeShMem_button();
     void initComm();
     void handleRoutineClick();
+    void handleDownloadClick();
     void insertRoutine();
     void handleDisconnectClick();
     void terminateProgram();
     void getMsgQ();
+    void getFile();
     void getShMem();
 
 private:
     Ui::MainWindow *ui;
     QPushButton *getMsgQ_button;
+    QPushButton *dl_button;
     QPushButton *init_button;
     QPushButton *disconnect;
     QPushButton *sendRoutine_button;
