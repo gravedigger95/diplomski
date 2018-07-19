@@ -167,14 +167,21 @@ STATUS rtpModule(void)
     
     /* rt process for module two startup */
     id = rtpSpawn (argv[0], argv, envp, RTPROCESS_TASK_PRIORITY, RTPROCESS_STACK_SIZE, RTPROCESS_GLOBAL_SYMBOLS, VX_FP_TASK);
-    restartMsgQId = msgQOpen ("/restartMsgQ", MAX_MSG, sizeof (id), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
-    (void) msgQSend (restartMsgQId, (char *) &id, sizeof (id), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */  
-
     if (RTP_ID_ERROR == id) /* PRQA S 0306 */
     {
         (void) printf ("ERROR to start %s\n", argv[0]);
         retVal = ERROR;
     }
+    
+    restartMsgQId = msgQOpen ("/restartMsgQ", MAX_MSG, sizeof (id), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
+    
+    if (MSG_Q_ID_NULL == restartMsgQId)
+    {
+        (void) printf ("openMsgQ  routinesMsgQId ERROR\n");
+        retVal = ERROR;
+    }
+
+    (void) msgQSend (restartMsgQId, (char *) &id, sizeof (id), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */  
     
     return retVal;
 }
