@@ -114,6 +114,12 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:ac8177dfad068c9c36626d687ca48e3d4"><td class="memItemLeft" align="right" valign="top">LOCAL MSG_Q_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="module_two_r_t_p_8c.html#ac8177dfad068c9c36626d687ca48e3d4">messages</a> = MSG_Q_ID_NULL</td></tr>
 <tr class="separator:ac8177dfad068c9c36626d687ca48e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b990a7306a2a71e9c46b1203e070a63"><td class="memItemLeft" align="right" valign="top">LOCAL MSG_Q_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="module_two_r_t_p_8c.html#a0b990a7306a2a71e9c46b1203e070a63">restartMsgQId</a> = MSG_Q_ID_NULL</td></tr>
+<tr class="separator:a0b990a7306a2a71e9c46b1203e070a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953fafb3ad20fb905525cad0080ca2ba"><td class="memItemLeft" align="right" valign="top">LOCAL uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="module_two_r_t_p_8c.html#a953fafb3ad20fb905525cad0080ca2ba">restart</a> = <a class="el" href="module_two_r_t_p_8h.html#a0a55fac1d0cc1aedfb75ae9d9cad0297">NO_RESTART</a></td></tr>
+<tr class="separator:a953fafb3ad20fb905525cad0080ca2ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa549ee1d4d086663d744c5fe1b17ddc3"><td class="memItemLeft" align="right" valign="top">LOCAL RTP_ID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="module_two_r_t_p_8c.html#aa549ee1d4d086663d744c5fe1b17ddc3">id</a></td></tr>
+<tr class="separator:aa549ee1d4d086663d744c5fe1b17ddc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions for initializing module two RTP, starting background task state machine and sending routine number to module one. </p>
@@ -146,11 +152,12 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node2" href="module_two_handle_routines_8c.html#aaa45aad864a26a1b85061ac41367a09b" title="This function is simple switch&#45;case which acts like state&#45;machine and calls functions or sends struct..." alt="" coords="177,56,299,83"/>
 <area shape="rect" id="node3" href="module_two_handle_routines_8c.html#a1064bbe96b41b68b71c05feb01082265" title="This function is used for receiving command from user via socket. " alt="" coords="367,5,495,32"/>
 <area shape="rect" id="node4" href="module_two_file_sending_8c.html#adb58ea2632a87ebf50ddc6dc9737a94a" title="This function sends number of files that are going to be sent through socket and calls _sendFile()..." alt="" coords="391,56,472,83"/>
-<area shape="rect" id="node9" href="module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="347,107,516,133"/>
-<area shape="rect" id="node5" href="module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="564,56,643,83"/>
-<area shape="rect" id="node6" href="module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="697,5,827,32"/>
-<area shape="rect" id="node7" href="module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="701,56,823,83"/>
-<area shape="rect" id="node8" href="module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="691,107,833,133"/>
+<area shape="rect" id="node10" href="module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="347,107,516,133"/>
+<area shape="rect" id="node5" href="module_two_file_sending_8c.html#ad74615ce7ddddac740387127284aef89" title="This function checks if directory is empty. " alt="" coords="564,31,693,57"/>
+<area shape="rect" id="node6" href="module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="589,81,668,108"/>
+<area shape="rect" id="node7" href="module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="747,31,878,57"/>
+<area shape="rect" id="node8" href="module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="751,81,874,108"/>
+<area shape="rect" id="node9" href="module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="741,132,884,159"/>
 </map>
 </div>
 
@@ -186,11 +193,12 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node7" href="module_two_handle_routines_8c.html#aaa45aad864a26a1b85061ac41367a09b" title="This function is simple switch&#45;case which acts like state&#45;machine and calls functions or sends struct..." alt="" coords="403,107,525,133"/>
 <area shape="rect" id="node8" href="module_two_handle_routines_8c.html#a1064bbe96b41b68b71c05feb01082265" title="This function is used for receiving command from user via socket. " alt="" coords="618,56,746,83"/>
 <area shape="rect" id="node9" href="module_two_file_sending_8c.html#adb58ea2632a87ebf50ddc6dc9737a94a" title="This function sends number of files that are going to be sent through socket and calls _sendFile()..." alt="" coords="641,107,723,133"/>
-<area shape="rect" id="node14" href="module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="597,157,767,184"/>
-<area shape="rect" id="node10" href="module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="815,107,893,133"/>
-<area shape="rect" id="node11" href="module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="947,56,1078,83"/>
-<area shape="rect" id="node12" href="module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="951,107,1074,133"/>
-<area shape="rect" id="node13" href="module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="941,157,1084,184"/>
+<area shape="rect" id="node15" href="module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="597,157,767,184"/>
+<area shape="rect" id="node10" href="module_two_file_sending_8c.html#ad74615ce7ddddac740387127284aef89" title="This function checks if directory is empty. " alt="" coords="815,81,944,108"/>
+<area shape="rect" id="node11" href="module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="840,132,919,159"/>
+<area shape="rect" id="node12" href="module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="998,81,1129,108"/>
+<area shape="rect" id="node13" href="module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="1002,132,1125,159"/>
+<area shape="rect" id="node14" href="module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="992,183,1135,209"/>
 </map>
 </div>
 
@@ -217,7 +225,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
 <map name="module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="module_two_r_t_p_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
 <area shape="rect" id="node2" href="module_two_r_t_p_8c.html#a3afd7a702d6fb3b617ad97092a6a3696" title="This function is used for initializing RTP module msg queues, shared memory and tasks. " alt="" coords="141,69,243,96"/>
-<area shape="rect" id="node16" href="module_two_communication_8c.html#ad9ebcb5d93ac5f4bc33d47aac6b88683" title="This function periodically reads diagnostic msgQ and shared memory. " alt="" coords="104,132,280,159"/>
+<area shape="rect" id="node17" href="module_two_communication_8c.html#ad9ebcb5d93ac5f4bc33d47aac6b88683" title="This function periodically reads diagnostic msgQ and shared memory. " alt="" coords="104,132,280,159"/>
 <area shape="rect" id="node3" href="module_two_communication_8c.html#a99a7dd6823d02d0f1f5d9bcfedd08fc4" title="This function opens shared memory in module 1 and allocates it. " alt="" coords="328,5,503,32"/>
 <area shape="rect" id="node5" href="module_two_server_8c.html#a9e672e3d06cb60f46dc825ed114c95f6" title="This function is used for initializing sockets and testing connection for communication with PC..." alt="" coords="351,56,480,83"/>
 <area shape="rect" id="node7" href="module_two_r_t_p_8c.html#a9ee4f92e8a67de163459179d3ca92741" title="This function is background task for communication with PC and triggering appropriate routines for te..." alt="" coords="353,107,477,133"/>
@@ -226,12 +234,13 @@ Here is the call graph for this function:</div>
 <area shape="rect" id="node8" href="module_two_handle_routines_8c.html#aaa45aad864a26a1b85061ac41367a09b" title="This function is simple switch&#45;case which acts like state&#45;machine and calls functions or sends struct..." alt="" coords="575,107,697,133"/>
 <area shape="rect" id="node9" href="module_two_handle_routines_8c.html#a1064bbe96b41b68b71c05feb01082265" title="This function is used for receiving command from user via socket. " alt="" coords="790,56,918,83"/>
 <area shape="rect" id="node10" href="module_two_file_sending_8c.html#adb58ea2632a87ebf50ddc6dc9737a94a" title="This function sends number of files that are going to be sent through socket and calls _sendFile()..." alt="" coords="813,107,895,133"/>
-<area shape="rect" id="node15" href="module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="769,157,939,184"/>
-<area shape="rect" id="node11" href="module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="987,107,1065,133"/>
-<area shape="rect" id="node12" href="module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="1119,56,1250,83"/>
-<area shape="rect" id="node13" href="module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="1123,107,1246,133"/>
-<area shape="rect" id="node14" href="module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="1113,157,1256,184"/>
-<area shape="rect" id="node17" href="module_two_communication_8c.html#adb6d8ad518b2f8d8161f37e00963d0be" title="This function is used for checking if module 1 wrote correctly in shared memory. " alt="" coords="329,157,501,184"/>
+<area shape="rect" id="node16" href="module_two_r_t_p_8c.html#a1d89a3332b3aef10068c0e00caf13bfc" title="This function sends routine number to module 1 which activates appropriate routine. " alt="" coords="769,157,939,184"/>
+<area shape="rect" id="node11" href="module_two_file_sending_8c.html#ad74615ce7ddddac740387127284aef89" title="This function checks if directory is empty. " alt="" coords="987,81,1116,108"/>
+<area shape="rect" id="node12" href="module_two_file_sending_8c.html#a0817368c3c0a7b326aaa73ce4789c954" title="This function sends file to PC. " alt="" coords="1012,132,1091,159"/>
+<area shape="rect" id="node13" href="module_two_file_sending_8c.html#a171d25e73f48edc57c8e207c7185693f" title="This function prepares and send filename to PC via socket. " alt="" coords="1170,81,1301,108"/>
+<area shape="rect" id="node14" href="module_two_file_sending_8c.html#aa76180fc2669d77f3ea52e452e97ff58" title="This function prepares and send filesize to PC via socket. &#160;STAV1 10 Required for correct implementat..." alt="" coords="1174,132,1297,159"/>
+<area shape="rect" id="node15" href="module_two_file_sending_8c.html#ad079ec43554602f3e23e69e4b7c666fb" title="This function sends file data through socket. &#160;STCAL 10 Required for correct implementation of file s..." alt="" coords="1164,183,1307,209"/>
+<area shape="rect" id="node18" href="module_two_communication_8c.html#adb6d8ad518b2f8d8161f37e00963d0be" title="This function is used for checking if module 1 wrote correctly in shared memory. " alt="" coords="329,157,501,184"/>
 </map>
 </div>
 
@@ -265,6 +274,20 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="aa549ee1d4d086663d744c5fe1b17ddc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa549ee1d4d086663d744c5fe1b17ddc3">&#9670;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LOCAL RTP_ID id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac8177dfad068c9c36626d687ca48e3d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8177dfad068c9c36626d687ca48e3d4">&#9670;&nbsp;</a></span>messages</h2>
 
@@ -273,6 +296,34 @@ Here is the call graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">LOCAL MSG_Q_ID messages = MSG_Q_ID_NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a953fafb3ad20fb905525cad0080ca2ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a953fafb3ad20fb905525cad0080ca2ba">&#9670;&nbsp;</a></span>restart</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LOCAL uint32_t restart = <a class="el" href="module_two_r_t_p_8h.html#a0a55fac1d0cc1aedfb75ae9d9cad0297">NO_RESTART</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b990a7306a2a71e9c46b1203e070a63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b990a7306a2a71e9c46b1203e070a63">&#9670;&nbsp;</a></span>restartMsgQId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LOCAL MSG_Q_ID restartMsgQId = MSG_Q_ID_NULL</td>
         </tr>
       </table>
 </div><div class="memdoc">

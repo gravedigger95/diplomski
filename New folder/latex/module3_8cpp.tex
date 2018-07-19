@@ -1,0 +1,129 @@
+\hypertarget{module3_8cpp}{}\section{module3.\+cpp File Reference}
+\label{module3_8cpp}\index{module3.\+cpp@{module3.\+cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$winsock2.\+h$>$}\newline
+{\ttfamily \#include $<$ws2tcpip.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$module3.\+h$>$}\newline
+Include dependency graph for module3.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{module3_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{module3_8cpp_a9bed4a5724ac5d5ff76fbe36f0851323}{H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC}}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{module3_8cpp_a0b1c23a9d0f8a76b936c25c44e739b82}{dequeue\+Loop\+Wrapper}} (void $\ast$arg)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+S\+O\+C\+K\+ET \mbox{\hyperlink{module3_8cpp_ab8fc9c83dd0c6b800727240e351927e9}{s}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{module3_8cpp_ab79d0298bf40871324558491e62eeecb}{file\+\_\+cnt}} = 0U
+\item 
+uint8\+\_\+t \mbox{\hyperlink{module3_8cpp_a4a3da89cf9b53baa4e27e9b8d2a8491d}{done}} = \mbox{\hyperlink{module3_8h_a403d1f0f0fd3c38c0b218c9847d1cd7f}{R\+O\+U\+T\+I\+N\+E\+\_\+\+N\+U\+M\+\_\+\+S\+E\+NT}}
+\item 
+int \mbox{\hyperlink{module3_8cpp_a1c5675eceda73acf829cc5bd0d171463}{command\+Num}} = -\/1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{module3_8cpp_a0c0b0e42f272b15d079093e5a73cf71b}{download}} = \mbox{\hyperlink{module3_8h_a5dae31ce3085d355fa86c08fb0b28c7e}{N\+O\+T\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+I\+NG}}
+\item 
+\mbox{\hyperlink{__module3_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module3_8cpp_aefd3928a5dfc916ccd89239ea420907b}{diag\+MsgQ}}
+\item 
+\mbox{\hyperlink{__module3_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} \mbox{\hyperlink{module3_8cpp_a242ca4a8d45088539695ad03d2b74116}{diag\+Sh\+Mem}}
+\item 
+pthread\+\_\+t \mbox{\hyperlink{module3_8cpp_a3a5ba243b3ab4b6093afb178de0f9509}{tid}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{module3_8cpp_a9bed4a5724ac5d5ff76fbe36f0851323}\label{module3_8cpp_a9bed4a5724ac5d5ff76fbe36f0851323}} 
+\index{module3.\+cpp@{module3.\+cpp}!H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC@{H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC}}
+\index{H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC@{H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC}{HAVE\_STRUCT\_TIMESPEC}}
+{\footnotesize\ttfamily \#define H\+A\+V\+E\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+I\+M\+E\+S\+P\+EC}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{module3_8cpp_a0b1c23a9d0f8a76b936c25c44e739b82}\label{module3_8cpp_a0b1c23a9d0f8a76b936c25c44e739b82}} 
+\index{module3.\+cpp@{module3.\+cpp}!dequeue\+Loop\+Wrapper@{dequeue\+Loop\+Wrapper}}
+\index{dequeue\+Loop\+Wrapper@{dequeue\+Loop\+Wrapper}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{dequeue\+Loop\+Wrapper()}{dequeueLoopWrapper()}}
+{\footnotesize\ttfamily void $\ast$ dequeue\+Loop\+Wrapper (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{module3_8cpp_a0b1c23a9d0f8a76b936c25c44e739b82_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{module3_8cpp_a1c5675eceda73acf829cc5bd0d171463}\label{module3_8cpp_a1c5675eceda73acf829cc5bd0d171463}} 
+\index{module3.\+cpp@{module3.\+cpp}!command\+Num@{command\+Num}}
+\index{command\+Num@{command\+Num}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{command\+Num}{commandNum}}
+{\footnotesize\ttfamily int command\+Num = -\/1}
+
+\mbox{\Hypertarget{module3_8cpp_aefd3928a5dfc916ccd89239ea420907b}\label{module3_8cpp_aefd3928a5dfc916ccd89239ea420907b}} 
+\index{module3.\+cpp@{module3.\+cpp}!diag\+MsgQ@{diag\+MsgQ}}
+\index{diag\+MsgQ@{diag\+MsgQ}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{diag\+MsgQ}{diagMsgQ}}
+{\footnotesize\ttfamily \mbox{\hyperlink{__module3_8h_a58c449f6052675fb4288c20122741cb8}{s\+\_\+\+D\+I\+A\+G\+\_\+\+D\+A\+TA}} diag\+MsgQ}
+
+\mbox{\Hypertarget{module3_8cpp_a242ca4a8d45088539695ad03d2b74116}\label{module3_8cpp_a242ca4a8d45088539695ad03d2b74116}} 
+\index{module3.\+cpp@{module3.\+cpp}!diag\+Sh\+Mem@{diag\+Sh\+Mem}}
+\index{diag\+Sh\+Mem@{diag\+Sh\+Mem}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{diag\+Sh\+Mem}{diagShMem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{__module3_8h_a1f542cc6438c66026963a340365d442a}{s\+\_\+\+D\+I\+A\+G\+\_\+\+S\+H\+M\+\_\+\+D\+A\+TA}} diag\+Sh\+Mem}
+
+\mbox{\Hypertarget{module3_8cpp_a4a3da89cf9b53baa4e27e9b8d2a8491d}\label{module3_8cpp_a4a3da89cf9b53baa4e27e9b8d2a8491d}} 
+\index{module3.\+cpp@{module3.\+cpp}!done@{done}}
+\index{done@{done}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{done}{done}}
+{\footnotesize\ttfamily uint8\+\_\+t done = \mbox{\hyperlink{module3_8h_a403d1f0f0fd3c38c0b218c9847d1cd7f}{R\+O\+U\+T\+I\+N\+E\+\_\+\+N\+U\+M\+\_\+\+S\+E\+NT}}}
+
+\mbox{\Hypertarget{module3_8cpp_a0c0b0e42f272b15d079093e5a73cf71b}\label{module3_8cpp_a0c0b0e42f272b15d079093e5a73cf71b}} 
+\index{module3.\+cpp@{module3.\+cpp}!download@{download}}
+\index{download@{download}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{download}{download}}
+{\footnotesize\ttfamily uint8\+\_\+t download = \mbox{\hyperlink{module3_8h_a5dae31ce3085d355fa86c08fb0b28c7e}{N\+O\+T\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+I\+NG}}}
+
+\mbox{\Hypertarget{module3_8cpp_ab79d0298bf40871324558491e62eeecb}\label{module3_8cpp_ab79d0298bf40871324558491e62eeecb}} 
+\index{module3.\+cpp@{module3.\+cpp}!file\+\_\+cnt@{file\+\_\+cnt}}
+\index{file\+\_\+cnt@{file\+\_\+cnt}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{file\+\_\+cnt}{file\_cnt}}
+{\footnotesize\ttfamily uint32\+\_\+t file\+\_\+cnt = 0U}
+
+\mbox{\Hypertarget{module3_8cpp_ab8fc9c83dd0c6b800727240e351927e9}\label{module3_8cpp_ab8fc9c83dd0c6b800727240e351927e9}} 
+\index{module3.\+cpp@{module3.\+cpp}!s@{s}}
+\index{s@{s}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily S\+O\+C\+K\+ET s}
+
+\mbox{\Hypertarget{module3_8cpp_a3a5ba243b3ab4b6093afb178de0f9509}\label{module3_8cpp_a3a5ba243b3ab4b6093afb178de0f9509}} 
+\index{module3.\+cpp@{module3.\+cpp}!tid@{tid}}
+\index{tid@{tid}!module3.\+cpp@{module3.\+cpp}}
+\subsubsection{\texorpdfstring{tid}{tid}}
+{\footnotesize\ttfamily pthread\+\_\+t tid}
+

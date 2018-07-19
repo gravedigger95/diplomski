@@ -152,14 +152,14 @@ LOCAL void _module1_ReadChipRegisters(void)
     printf ("GSR 0x%04x\n\n", mdio_read_br (0x18));
     printf ("BCR 0x%04x\n\n", mdio_read_br (0x1A));
     */
-    
+
     _diag_data_struct.phy_id_reg1 = (uint16_t) (mdio_read_br (PHY_ID_REGISTER_1));
     //printf ("MSGQ phy_id_reg1 0x%04x\n\n", _diag_data_struct.phy_id_reg1);
 
-    _diag_data_struct.link_status = (uint8_t) (mdio_read_br (BASIC_STATUS_REGISTER) & LINK_STATUS_MASK);
+    _diag_data_struct.link_status = (uint16_t) (mdio_read_br (BASIC_STATUS_REGISTER) & LINK_STATUS_MASK);
     //printf ("link_status 0x%04x\n\n", _diag_data_struct.link_status);
 
-    if ((uint8_t) 0U == _diag_data_struct.link_status)
+    if ((uint16_t) 0U == _diag_data_struct.link_status)
     {
         i = 0;
         (void) strcpy (_diag_data_struct.errors_array[i].description, "Link is down.");
@@ -167,16 +167,16 @@ LOCAL void _module1_ReadChipRegisters(void)
         _module1_getErrorTime(timeinfo, i);
     }
     
-    _diag_data_struct.link_control = (uint8_t) (mdio_read_br (EXTENDED_CONTROL_REGISTER) & LINK_CONTROL_MASK);
+    _diag_data_struct.link_control = (uint16_t) (mdio_read_br (EXTENDED_CONTROL_REGISTER) & LINK_CONTROL_MASK);
     //printf ("link_control 0x%04x\n\n", _diag_data_struct.link_control);
-    _diag_data_struct.power_mode = (uint8_t) (mdio_read_br (EXTENDED_CONTROL_REGISTER) & POWER_MODE_MASK);
+    _diag_data_struct.power_mode = (uint16_t) (mdio_read_br (EXTENDED_CONTROL_REGISTER) & POWER_MODE_MASK);
     //printf ("power_mode 0x%04x\n\n", _diag_data_struct.power_mode);
-    _diag_data_struct.loopback_mode = (uint8_t) (mdio_read_br (EXTENDED_CONTROL_REGISTER) & LOOPBACK_MODE_MASK);
+    _diag_data_struct.loopback_mode = (uint16_t) (mdio_read_br (EXTENDED_CONTROL_REGISTER) & LOOPBACK_MODE_MASK);
     //printf ("loopback_mode 0x%04x\n\n", _diag_data_struct.loopback_mode);
-    _diag_data_struct.phy_init_fail = (uint8_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & PHY_FAIL_MASK);
+    _diag_data_struct.phy_init_fail = (uint16_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & PHY_FAIL_MASK);
     //printf ("phy_init_fail 0x%04x\n\n", _diag_data_struct.phy_init_fail);
     
-    if ((uint8_t) 1U == _diag_data_struct.phy_init_fail)
+    if ((uint16_t) 1U == _diag_data_struct.phy_init_fail)
     {
         i = 1;
         (void) strcpy (_diag_data_struct.errors_array[i].description, "PHY initialization error detected.");
@@ -184,12 +184,12 @@ LOCAL void _module1_ReadChipRegisters(void)
         _module1_getErrorTime(timeinfo, i);
     }
     
-    _diag_data_struct.wakeup = (uint8_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & WAKEUP_MASK);
+    _diag_data_struct.wakeup = (uint16_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & WAKEUP_MASK);
     //printf ("wakeup 0x%04x\n\n", _diag_data_struct.wakeup);
-    _diag_data_struct.link_status_fail = (uint8_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & LINK_STATUS_FAIL_MASK);
+    _diag_data_struct.link_status_fail = (uint16_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & LINK_STATUS_FAIL_MASK);
     //printf ("link_status_fail 0x%04x\n\n", _diag_data_struct.link_status_fail);
     
-    if ((uint8_t) 1U == _diag_data_struct.link_status_fail)
+    if ((uint16_t) 1U == _diag_data_struct.link_status_fail)
     {
         i = 2;
         (void) strcpy (_diag_data_struct.errors_array[i].description, "LINK_UP bit changed from OK to FAIL.");
@@ -197,12 +197,12 @@ LOCAL void _module1_ReadChipRegisters(void)
         _module1_getErrorTime(timeinfo, i);
     }
     
-    _diag_data_struct.link_status_up = (uint8_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & LINK_STATUS_UP_MASK);
+    _diag_data_struct.link_status_up = (uint16_t) (mdio_read_br (INTERRUPT_SOURCE_REGISTER) & LINK_STATUS_UP_MASK);
     //printf ("link_status_up 0x%04x\n\n", _diag_data_struct.link_status_up);
-    _diag_data_struct.link_up = (uint8_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & LINK_UP_MASK);
+    _diag_data_struct.link_up = (uint16_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & LINK_UP_MASK);
     //printf ("link_up 0x%04x\n\n", _diag_data_struct.link_up);
     
-    if ((uint8_t) 0U == _diag_data_struct.link_up)
+    if ((uint16_t) 0U == _diag_data_struct.link_up)
     {
         i = 3;
         (void) strcpy (_diag_data_struct.errors_array[i].description, "Link failure.");
@@ -210,17 +210,17 @@ LOCAL void _module1_ReadChipRegisters(void)
         _module1_getErrorTime(timeinfo, i);
     }
     
-    _diag_data_struct.tx_mode = (uint8_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & TX_MODE_MASK);
+    _diag_data_struct.tx_mode = (uint16_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & TX_MODE_MASK);
     //printf ("tx_mode 0x%04x\n\n", _diag_data_struct.tx_mode);
-    _diag_data_struct.loc_rcvr_status = (uint8_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & LOC_RCVR_MASK);
+    _diag_data_struct.loc_rcvr_status = (uint16_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & LOC_RCVR_MASK);
     //printf ("loc_rcvr_status 0x%04x\n\n", _diag_data_struct.loc_rcvr_status);
-    _diag_data_struct.rem_rcvr_status = (uint8_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & REM_RCVR_MASK);   
+    _diag_data_struct.rem_rcvr_status = (uint16_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & REM_RCVR_MASK);   
     //printf ("rem_rcvr_status 0x%04x\n\n", _diag_data_struct.rem_rcvr_status);
 
-    _diag_data_struct.phy_state = (uint8_t)  (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & 0x0003U);
+    _diag_data_struct.phy_state = (uint16_t)  (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & 0x0003U);
     //printf ("phy_state 0x%04x\n\n", _diag_data_struct.phy_state);
     
-    _diag_data_struct.signal_quality = (uint8_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & 0x00C0U);
+    _diag_data_struct.signal_quality = (uint16_t) (mdio_read_br (COMMUNICATION_STATUS_REGISTER) & 0x00C0U);
     
     _delete_cnt++;
 
@@ -281,7 +281,7 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
 void module1_ReadChipRegistersTask(void)
 {
     (void) _sharedMemAlloc();
-    
+        
     FOREVER
     {
         /* Read register values for msg queue */
@@ -318,19 +318,19 @@ LOCAL void _module1_FillSharedMem(void)
 
     if (_diag_shm_ptr != NULL_PTR)
     {
-        _diag_shm_ptr->jabber_detect = (uint8_t) (mdio_read_br (BASIC_STATUS_REGISTER) & JABBER_DETECT_MASK);
+        _diag_shm_ptr->jabber_detect = (uint16_t) (mdio_read_br (BASIC_STATUS_REGISTER) & JABBER_DETECT_MASK);
         //printf ("jabber_detect 0x%04x\n\n", _diag_shm_ptr->jabber_detect);
         _diag_shm_ptr->phy_id_reg1 = (uint16_t) (mdio_read_br (PHY_ID_REGISTER_1));
         //printf ("SHARED FILL phy_id_reg1 0x%04x\n\n", _diag_shm_ptr->phy_id_reg1);  
-        _diag_shm_ptr->phy_id_reg2 = (uint8_t) (mdio_read_br (PHY_ID_REGISTER_2) & PHY_ID_REG2_MASK);
+        _diag_shm_ptr->phy_id_reg2 = (uint16_t) (mdio_read_br (PHY_ID_REGISTER_2) & PHY_ID_REG2_MASK);
         //printf ("phy_id_reg2 0x%04x\n\n", _diag_shm_ptr->phy_id_reg2);
-        _diag_shm_ptr->type_no = (uint8_t) (mdio_read_br (PHY_ID_REGISTER_2) & TYPE_NO_MASK);
+        _diag_shm_ptr->type_no = (uint16_t) (mdio_read_br (PHY_ID_REGISTER_2) & TYPE_NO_MASK);
         //printf ("type_no 0x%04x\n\n", _diag_shm_ptr->type_no);
-        _diag_shm_ptr->revision_no = (uint8_t) (mdio_read_br (PHY_ID_REGISTER_2) & REVISION_NO_MASK);
+        _diag_shm_ptr->revision_no = (uint16_t) (mdio_read_br (PHY_ID_REGISTER_2) & REVISION_NO_MASK);
         //printf ("revision_no 0x%04x\n\n", _diag_shm_ptr->revision_no);
-        _diag_shm_ptr->phy_id_reg3 = (uint8_t) (mdio_read_br (PHY_ID_REGISTER_3) & PHY_ID_REG3_MASK);
+        _diag_shm_ptr->phy_id_reg3 = (uint16_t) (mdio_read_br (PHY_ID_REGISTER_3) & PHY_ID_REG3_MASK);
         //printf ("phy_id_reg3 0x%04x\n\n", _diag_shm_ptr->phy_id_reg3);
-        _diag_shm_ptr->int_status = (uint8_t) (mdio_read_br (GENERAL_STATUS_REGISTER) & INT_STATUS_MASK);
+        _diag_shm_ptr->int_status = (uint16_t) (mdio_read_br (GENERAL_STATUS_REGISTER) & INT_STATUS_MASK);
 
         /*
         printf("REGISTAR 0x00 = 0x%04x\n\n", mdio_read_br(0x00));

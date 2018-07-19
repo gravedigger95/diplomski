@@ -133,7 +133,6 @@ volatile uint32_t * phyGmiiData;
 void module1_InitPhy(void)
 {
     char * ethIf_macVirtAddr = NULL_PTR;
-    FILE * fd;
     int32_t retVal = 0;
     
     const UINT32 hwRegEthIfBaseaddr = (UINT32) 0xFF702000U;
@@ -150,14 +149,6 @@ void module1_InitPhy(void)
     /* add address and data registers offsets */
     phyGmiiAddress = ethIf_macVirtAddr + CYCLONE_ADDRESS_REGISTER_OFFSET; /* PRQA S 0488 */ /* PRQA S 0563 */
     phyGmiiData = ethIf_macVirtAddr + CYCLONE_DATA_REGISTER_OFFSET; /* PRQA S 0488 */ /* PRQA S 0563 */
-    
-    /* open file for writing errors */
-    fd = fopen ("/mmc0:1/err/errorLog.txt", "w");
-    if (NULL_PTR != fd)
-    { 
-        (void) fprintf (fd, "Error log: \n");
-        (void) fclose (fd);
-    }
 
     retVal = _module1_CreateMsgQueues();
     while (ERROR == retVal)
@@ -169,18 +160,28 @@ void module1_InitPhy(void)
 STATUS rtpModule(void)
 {
     RTP_ID id;
+    MSG_Q_ID restartMsgQId = MSG_Q_ID_NULL;
     int8_t retVal = OK;
     const char * argv[] = {"/mmc0:1/module2.vxe", "module2", NULL_PTR};
     const char * envp[] = {"HEAP_INITIAL_SIZE=0x19000", "HEAP_MAX_SIZE=0x1000000", NULL_PTR};
     
     /* rt process for module two startup */
     id = rtpSpawn (argv[0], argv, envp, RTPROCESS_TASK_PRIORITY, RTPROCESS_STACK_SIZE, RTPROCESS_GLOBAL_SYMBOLS, VX_FP_TASK);
-    
     if (RTP_ID_ERROR == id) /* PRQA S 0306 */
     {
         (void) printf ("ERROR to start %s\n", argv[0]);
         retVal = ERROR;
     }
+    
+    restartMsgQId = msgQOpen ("/restartMsgQ", MAX_MSG, sizeof (id), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
+    
+    if (MSG_Q_ID_NULL == restartMsgQId)
+    {
+        (void) printf ("openMsgQ  routinesMsgQId ERROR\n");
+        retVal = ERROR;
+    }
+
+    (void) msgQSend (restartMsgQId, (char *) &id, sizeof (id), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */  
     
     return retVal;
 }
@@ -204,6 +205,7 @@ LOCAL STATUS _module1_CreateMsgQueues(void)
         (void) printf ("openMsgQ  routinesMsgQId ERROR\n");
         ret = ERROR;
     }
+        
     return ret;
 }
 
@@ -217,7 +219,7 @@ void module1_StartTasks(void)
         (void) msgQClose(diagMsgQId);
     }
     
-    if (taskSpawn("getRoutine", ROUTINES_TASK_PRIORITY, 0, ROUTINES_STACK_SIZE, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */
+    if (taskSpawn("getRoutine", ROUTINES_TASK_PRIORITY, 0, ROUTINES_STACK_SIZE, (FUNCPTR) module1_GetRoutineNum, 0, 0, /* PRQA S 0752 */ /* PRQA S 0313 */
             0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of getRoutineNum failed\n");

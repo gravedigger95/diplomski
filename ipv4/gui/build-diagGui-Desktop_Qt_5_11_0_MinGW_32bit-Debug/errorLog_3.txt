@@ -1,14 +1,6 @@
-Error 0 | Link is down. | 1970-01-01 00:01:07
-Error 3 | Link failure. | 1970-01-01 00:01:07
-Error 0 | Link is down. | 1970-01-01 00:01:08
-Error 3 | Link failure. | 1970-01-01 00:01:08
-Error 0 | Link is down. | 1970-01-01 00:01:08
-Error 3 | Link failure. | 1970-01-01 00:01:08
-Error 0 | Link is down. | 1970-01-01 00:01:08
-Error 3 | Link failure. | 1970-01-01 00:01:08
-Error 0 | Link is down. | 1970-01-01 00:01:08
-Error 3 | Link failure. | 1970-01-01 00:01:08
-Error 0 | Link is down. | 1970-01-01 00:01:09
-Error 3 | Link failure. | 1970-01-01 00:01:09
-Error 0 | Link is down. | 1970-01-01 00:01:09
-Error 3 | Link failure. | 1970-01-01 00:01:09
+Error 0 | Link is down. | 1970-01-01 00:00:41
+Error 3 | Link failure. | 1970-01-01 00:00:41
+Error 0 | Link is down. | 1970-01-01 00:00:41
+Error 3 | Link failure. | 1970-01-01 00:00:41
+Error 0 | Link is down. | 1970-01-01 00:00:42
+Error 3 | Link failure. | 1970-01-01 00:00:42

@@ -54,6 +54,12 @@
  * 
  * Justification : This implementation increase code visibility.
  */
+ /* ------------------------------------------------------------------------- */
+/* Error Message: Msg(7:0429) [C] Function argument is not of arithmetic type.
+ * MISRA C:2012 Rule-1.1; REFERENCE - ISO:C90-6.3.2.2 Function calls
+ * 
+ * Justification : This is Wind River macro. It is checked and considered safe.
+ */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------  Includes  ------------------------------- */
 /* ------------------------------------------------------------------------- */
@@ -88,18 +94,27 @@ LOCAL void _module2_init(void);
  * INTERNAL VARIABLES
  ***********************************************************************/
 LOCAL MSG_Q_ID messages = MSG_Q_ID_NULL;
+LOCAL MSG_Q_ID restartMsgQId = MSG_Q_ID_NULL;
+LOCAL uint32_t restart = NO_RESTART;
+LOCAL RTP_ID id;
 
 /************************************************************************
  * FUNCTION IMPLEMENTATION
  ***********************************************************************/
 int main (void) 
 {
+	restart = NO_RESTART;
     /* Initialize RTP */
     _module2_init();
-    
     /* Start RTP task */
     FOREVER
     {
+        if (restart == RESTART)
+        {
+            _module2_init();
+            (void) taskRestart (id); /* PRQA S 0429 */ /* PRQA S 2753 */
+            restart = NO_RESTART;
+        }
         (void) _module2_ReadDiagMsgQ();
         (void) taskDelay (TASK_DELAY_250MS); 
     }
@@ -113,7 +128,6 @@ LOCAL void _module2_init(void)
     {
         (void) printf ("Error allocating module 2\n");
     }  
-    
     messages = msgQCreate (BUFLEN, BUFLEN, MSG_Q_FIFO);
     if (MSG_Q_ID_NULL == messages)
     {
@@ -125,22 +139,30 @@ LOCAL void _module2_init(void)
     {
         (void) printf ("msgQSend RTP main ERROR\n");
     }
+
+    restartMsgQId = msgQOpen ("/restartMsgQ", MAX_MSG, sizeof(id), MSG_Q_FIFO, OM_CREATE, NULL_PTR); 
+    if (MSG_Q_ID_NULL == restartMsgQId)
+    {
+        (void) printf ("restartMsgQId open ERROR\n");
+    }
     
+    (void) msgQReceive (restartMsgQId, (char *) &id, sizeof (id), NO_WAIT); /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */ 
+
     /* Start server */
     (void) initCommunication();
         
     /* Start background task */
     if (taskSpawn ("bgTask", BG_TASK_PRIORITY, VX_FP_TASK, BG_STACK_SIZE, (FUNCPTR) _backgroundTask, 0, 0,  /* PRQA S 0752 */ /* PRQA S 0313 */ /* PRQA S 0310 */
-                    0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
+            0, 0, 0, 0, 0, 0, 0, 0) == ERROR)
     {
         (void) printf("taskSpawn of backgroundTask failed\n");
     }
 }
 
 LOCAL void _backgroundTask(void)
-{
+{	
     FOREVER
-    {
+    {		
     	/* Receive command and process it */
         (void) msgQReceive (messages, (char *) &_msg, sizeof (_msg), WAIT_FOREVER); /* PRQA S 3101 */ /* PRQA S 3102 */ /* PRQA S 0310 */ 
         if (STATEMACHINE_EXIT_BG_TASK == _msg)
@@ -148,6 +170,7 @@ LOCAL void _backgroundTask(void)
             (void) printf ("Terminating task...\n");
             processMessage();
             (void) msgQClose (messages);
+            restart = RESTART;
             taskExit(1);
         }   
         processMessage();
@@ -160,7 +183,7 @@ STATUS module2_SetRoutineNum(int routineNum)
 {
     int8_t ret              = OK;
     MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
-
+    
     /* Open msg queue */
     routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof(uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR); 
     if (MSG_Q_ID_NULL == routinesMsgQId)

@@ -29,6 +29,8 @@
 #define TASK_DELAY_250MS (uint32_t) (25U)
 #define BG_TASK_PRIORITY (115)
 #define BG_STACK_SIZE    (5000U)
+#define RESTART (1U)
+#define NO_RESTART 0
 
 /************************************************************************
  * FUNCTION DECLARATIONS

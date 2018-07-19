@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['mac_5fbr',['MAC_BR',['../module_one_read_eth_phy_8h.html#ae72fb1d3362993b4cbbe6d79fd424c6e',1,'moduleOneReadEthPhy.h']]],
-  ['mac_5flen_5fb',['MAC_LEN_B',['../tttech_broad_r_reach_8h.html#aff119a367ed88b15a0c6b90afd5f4f31',1,'tttechBroadRReach.h']]],
-  ['mask_5fset_5fvlan',['MASK_SET_VLAN',['../tttech_broad_r_reach_8h.html#abd1d8517bf2dce2177293559237a0673',1,'tttechBroadRReach.h']]],
-  ['max_5fbr_5finit_5ffail',['MAX_BR_INIT_FAIL',['../tttech_broad_r_reach_8h.html#a75b4a3c87ef3ff6d057abe28c4554f1f',1,'tttechBroadRReach.h']]],
-  ['max_5fcnt',['MAX_CNT',['../module_one_read_eth_phy_8h.html#ab9a10f48a2538ff4e5d537c4d8d41a70',1,'moduleOneReadEthPhy.h']]],
-  ['max_5fconsq_5fdos',['MAX_CONSQ_DOS',['../tttech_broad_r_reach_8h.html#a28990db6d6fbd517fd8ca90c0ef8d6fb',1,'tttechBroadRReach.h']]],
-  ['max_5fdrv_5fsessions',['MAX_DRV_SESSIONS',['../tttech_broad_r_reach_8h.html#adb983d68737c936f3277b8f6f7125f7b',1,'tttechBroadRReach.h']]],
-  ['max_5fmsg',['MAX_MSG',['../module_one_read_eth_phy_8h.html#aa24597a54a085c6c2c33b64138f09eff',1,'MAX_MSG():&#160;moduleOneReadEthPhy.h'],['../module_two_communication_8h.html#aa24597a54a085c6c2c33b64138f09eff',1,'MAX_MSG():&#160;moduleTwoCommunication.h']]],
-  ['max_5fmsg_5flen',['MAX_MSG_LEN',['../module_one_read_eth_phy_8h.html#a51d90ea93d4b55e086cb490f7478e684',1,'moduleOneReadEthPhy.h']]],
-  ['max_5fread_5fcount',['MAX_READ_COUNT',['../tttech_broad_r_reach_8c.html#a01f6549f4595820edee8239da8c4bd1a',1,'tttechBroadRReach.c']]]
+  ['link_5fcontrol_5fmask',['LINK_CONTROL_MASK',['../module_one_read_eth_phy_8h.html#a7510b53d2c374d1846f5b4af999548a0',1,'moduleOneReadEthPhy.h']]],
+  ['link_5ffail_5fcnt_5fmask',['LINK_FAIL_CNT_MASK',['../module_one_handle_routines_8h.html#a0a49170f6977f14ccc80bfe320eafd79',1,'moduleOneHandleRoutines.h']]],
+  ['link_5ffail_5fcounter_5freg',['LINK_FAIL_COUNTER_REG',['../module_one_handle_routines_8h.html#a18efc60ba4470dd61847046e7505e170',1,'moduleOneHandleRoutines.h']]],
+  ['link_5fstatus_5ffail_5fmask',['LINK_STATUS_FAIL_MASK',['../module_one_read_eth_phy_8h.html#aafe6c908d5d05c93bf7cc01bdf8689e3',1,'moduleOneReadEthPhy.h']]],
+  ['link_5fstatus_5fmask',['LINK_STATUS_MASK',['../module_one_read_eth_phy_8h.html#a5c6f13cd61f3d2e005687bbe43cd212c',1,'moduleOneReadEthPhy.h']]],
+  ['link_5fstatus_5fup_5fmask',['LINK_STATUS_UP_MASK',['../module_one_read_eth_phy_8h.html#a45f2e383f7d5d29437c8c3d9db9b37db',1,'moduleOneReadEthPhy.h']]],
+  ['link_5fup_5fmask',['LINK_UP_MASK',['../module_one_read_eth_phy_8h.html#a061337cd00b354e7cd796d4332a39f40',1,'moduleOneReadEthPhy.h']]],
+  ['loc_5frcvr_5fcnt_5fmask',['LOC_RCVR_CNT_MASK',['../module_one_handle_routines_8h.html#a27aedb47a9777cd1c22186aa3e56fbc8',1,'moduleOneHandleRoutines.h']]],
+  ['loc_5frcvr_5fmask',['LOC_RCVR_MASK',['../module_one_read_eth_phy_8h.html#a9a4931e5e2ee2b0ee77efac783e3af57',1,'moduleOneReadEthPhy.h']]],
+  ['loopback_5fmode_5fmask',['LOOPBACK_MODE_MASK',['../module_one_read_eth_phy_8h.html#a9bc69d8279625eb1da0625adbca5942c',1,'moduleOneReadEthPhy.h']]]
 ];

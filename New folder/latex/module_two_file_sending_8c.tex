@@ -15,8 +15,7 @@ Functions that handle file sending to PC side.
 {\ttfamily \#include \char`\"{}module\+Two\+Server.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}module\+Two\+Handle\+Routines.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}module\+Two\+File\+Sending.\+h\char`\"{}}\newline
-Include dependency graph for module\+Two\+File\+Sending.\+c\+:
-\nopagebreak
+Include dependency graph for module\+Two\+File\+Sending.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -34,6 +33,8 @@ L\+O\+C\+AL void \mbox{\hyperlink{module_two_file_sending_8c_ad079ec43554602f3e2
 \begin{DoxyCompactList}\small\item\em This function sends file data through socket.  S\+T\+C\+AL 10 Required for correct implementation of file sending. \end{DoxyCompactList}\item 
 L\+O\+C\+AL void \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File}} (char fs\+\_\+name\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em This function sends file to PC. \end{DoxyCompactList}\item 
+L\+O\+C\+AL int \mbox{\hyperlink{module_two_file_sending_8c_ad74615ce7ddddac740387127284aef89}{\+\_\+is\+Directory\+Empty}} (void)
+\begin{DoxyCompactList}\small\item\em This function checks if directory is empty. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{module_two_file_sending_8c_adb58ea2632a87ebf50ddc6dc9737a94a}{upload\+File}} (void)
 \begin{DoxyCompactList}\small\item\em This function sends number of files that are going to be sent through socket and calls \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Variables}
@@ -56,6 +57,19 @@ Functions that handle file sending to PC side.
 
 
 \subsection{Function Documentation}
+\mbox{\Hypertarget{module_two_file_sending_8c_ad74615ce7ddddac740387127284aef89}\label{module_two_file_sending_8c_ad74615ce7ddddac740387127284aef89}} 
+\index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+is\+Directory\+Empty@{\+\_\+is\+Directory\+Empty}}
+\index{\+\_\+is\+Directory\+Empty@{\+\_\+is\+Directory\+Empty}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+is\+Directory\+Empty()}{\_isDirectoryEmpty()}}
+{\footnotesize\ttfamily L\+O\+C\+AL int \+\_\+is\+Directory\+Empty (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function checks if directory is empty. 
+
+\begin{DoxyReturn}{Returns}
+ret 0 if empty, 1 if not empty 
+\end{DoxyReturn}
 \mbox{\Hypertarget{module_two_file_sending_8c_a171d25e73f48edc57c8e207c7185693f}\label{module_two_file_sending_8c_a171d25e73f48edc57c8e207c7185693f}} 
 \index{module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}!\+\_\+process\+File\+Name@{\+\_\+process\+File\+Name}}
 \index{\+\_\+process\+File\+Name@{\+\_\+process\+File\+Name}!module\+Two\+File\+Sending.\+c@{module\+Two\+File\+Sending.\+c}}
@@ -106,8 +120,7 @@ This function sends file to PC.
 {\em fs\+\_\+name\mbox{[}$\,$\mbox{]}} & Name of file to be sent with full path \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -124,8 +137,7 @@ Here is the call graph for this function\+:
 
 This function sends number of files that are going to be sent through socket and calls \mbox{\hyperlink{module_two_file_sending_8c_a0817368c3c0a7b326aaa73ce4789c954}{\+\_\+send\+File()}}. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

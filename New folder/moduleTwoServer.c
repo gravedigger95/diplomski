@@ -102,6 +102,10 @@ void initCommunication(void)
     
     /* Create socket */
     _s = socket (AF_INET, SOCK_STREAM, 0);
+    if (setsockopt (_s, SOL_SOCKET, SO_REUSEADDR, &(int){ 1 }, (int32_t)sizeof(int)) < 0)
+    {
+        (void) printf ("setsockopt(SO_REUSEADDR) failed");    	
+    }
     if (SOCKET_ERROR == _s)
     {
         (void) printf ("Could not create socket!\n");

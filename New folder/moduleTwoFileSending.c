@@ -68,6 +68,11 @@ LOCAL void _processFileSending(void);
  * \param fs_name[] Name of file to be sent with full path
  */
 LOCAL void _sendFile(char fs_name[]);
+/** 
+ * \brief This function checks if directory is empty.
+ * \return ret 0 if empty, 1 if not empty
+ */
+LOCAL int _isDirectoryEmpty(void);
 
 /************************************************************************
  * INTERNAL VARIABLES
@@ -80,7 +85,7 @@ LOCAL FILE * _fs;
  ***********************************************************************/
 void uploadFile(void)
 {
-    uint32_t networkFilesNum = 1U;
+    uint32_t networkFilesNum = 0U;
     DIR * dirp;
     char tempStr[BUFLEN];
     
@@ -88,6 +93,7 @@ void uploadFile(void)
     /* Change state machine state to idle */
     _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
     
+    networkFilesNum = (uint32_t) _isDirectoryEmpty();    
     networkFilesNum = htonl_br (networkFilesNum);
     
     /* Inform other side how many files to expect */
@@ -97,6 +103,12 @@ void uploadFile(void)
     }
     (void) printf ("Number of files is sent!\n");
     
+    networkFilesNum = ntohl_br (networkFilesNum);
+
+    if (networkFilesNum == 0U)
+    {
+        return;
+    }
     /* Get file name */
     dirp = opendir ("/mmc0:1/err");
     if (NULL_PTR == dirp) 
@@ -112,6 +124,42 @@ void uploadFile(void)
     (void) printf ("****************************************************\n");
 }
 
+LOCAL int _isDirectoryEmpty(void) 
+{
+    int n = 0;
+    struct dirent *d;
+    DIR *dir = opendir ("/mmc0:1/err");
+    int8_t ret = 0;
+    
+    if (dir == NULL_PTR) //Not a directory or doesn't exist
+    {
+        ret = 1;
+    }
+    
+    d = readdir (dir);
+    
+    while (d != NULL_PTR)
+    {
+        d = readdir (dir);
+        n++;
+        if (n > 2)
+        {
+            break;      	
+        }
+    }
+    
+    (void) closedir(dir);
+    if (n <= 2) //Directory Empty
+    {
+        ret = 0;
+    }
+    else
+    {
+        ret = 1;
+    }
+    
+    return ret;
+}
 
 LOCAL void _sendFile(char fs_name[])
 {

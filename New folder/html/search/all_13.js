@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vxb_5fdevmethod_5fdecl',['VXB_DEVMETHOD_DECL',['../tttech_broad_r_reach_8c.html#aa5ceb5a8ae6cf69417140d2872fc1e69',1,'tttechBroadRReach.c']]]
+  ['ui',['Ui',['../namespace_ui.html',1,'Ui'],['../class_main_window.html#a35466a70ed47252a0191168126a352a5',1,'MainWindow::ui()']]],
+  ['uploadfile',['uploadFile',['../module_two_file_sending_8c.html#adb58ea2632a87ebf50ddc6dc9737a94a',1,'uploadFile(void):&#160;moduleTwoFileSending.c'],['../module_two_file_sending_8h.html#adb58ea2632a87ebf50ddc6dc9737a94a',1,'uploadFile(void):&#160;moduleTwoFileSending.c']]]
 ];

@@ -72,7 +72,7 @@ LOCAL void _sendFile(char fs_name[]);
  * \brief This function checks if directory is empty.
  * \return ret 0 if empty, 1 if not empty
  */
-LOCAL int isDirectoryEmpty(void);
+LOCAL int _isDirectoryEmpty(void);
 
 /************************************************************************
  * INTERNAL VARIABLES
@@ -93,7 +93,7 @@ void uploadFile(void)
     /* Change state machine state to idle */
     _changeState = STATEMACHINE_WAIT_FOR_COMMAND;
     
-    networkFilesNum = (uint32_t) isDirectoryEmpty();    
+    networkFilesNum = (uint32_t) _isDirectoryEmpty();    
     networkFilesNum = htonl_br (networkFilesNum);
     
     /* Inform other side how many files to expect */
@@ -124,7 +124,7 @@ void uploadFile(void)
     (void) printf ("****************************************************\n");
 }
 
-LOCAL int isDirectoryEmpty(void) 
+LOCAL int _isDirectoryEmpty(void) 
 {
     int n = 0;
     struct dirent *d;

@@ -1,61 +1,6 @@
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
-Error log: 
+Error 0 | Link is down. | 1970-01-01 00:00:50
+Error 3 | Link failure. | 1970-01-01 00:00:50
+Error 0 | Link is down. | 1970-01-01 00:00:50
+Error 3 | Link failure. | 1970-01-01 00:00:50
+Error 0 | Link is down. | 1970-01-01 00:00:51
+Error 3 | Link failure. | 1970-01-01 00:00:51

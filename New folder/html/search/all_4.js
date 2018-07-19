@@ -1,10 +1,21 @@
 var searchData=
 [
+  ['dequeueloopwrapper',['dequeueLoopWrapper',['../module3_8cpp.html#a0b1c23a9d0f8a76b936c25c44e739b82',1,'module3.cpp']]],
   ['description',['description',['../structerror_struct.html#aed437236613db32b2b56361e2cbf3ce6',1,'errorStruct']]],
   ['diag_5fstack_5fsize',['DIAG_STACK_SIZE',['../module_one_startup_8h.html#a334fb2873a136829fc34ac52223b1655',1,'moduleOneStartup.h']]],
   ['diag_5ftask_5fpriority',['DIAG_TASK_PRIORITY',['../module_one_startup_8h.html#a8d62b95e7a0fed63c7e2db18ee0695ce',1,'moduleOneStartup.h']]],
+  ['diagmsgq',['diagMsgQ',['../module3_8cpp.html#aefd3928a5dfc916ccd89239ea420907b',1,'module3.cpp']]],
   ['diagmsgqid',['diagMsgQId',['../module_one_read_eth_phy_8h.html#a6ae24b34485eed59336d11223d848886',1,'diagMsgQId():&#160;moduleOneStartup.c'],['../module_one_startup_8c.html#a6ae24b34485eed59336d11223d848886',1,'diagMsgQId():&#160;moduleOneStartup.c']]],
   ['diagnosticdatamsgq',['diagnosticDataMsgQ',['../structdiagnostic_data_msg_q.html',1,'']]],
   ['diagnosticdatashm',['diagnosticDataShM',['../structdiagnostic_data_sh_m.html',1,'']]],
+  ['diagshmem',['diagShMem',['../module3_8cpp.html#a242ca4a8d45088539695ad03d2b74116',1,'module3.cpp']]],
+  ['disconnect',['disconnect',['../class_main_window.html#a9d4a6f9ce2275a736abcedf0bba2bad9',1,'MainWindow']]],
+  ['disconnectclicked',['disconnectClicked',['../class_main_window.html#a18ba5e9b20b321fec60894796e053ca5',1,'MainWindow']]],
+  ['dl_5fbutton',['dl_button',['../class_main_window.html#afb9e7419ea1c7c1f109857ac8ed9e703',1,'MainWindow']]],
+  ['done',['done',['../module3_8cpp.html#a4a3da89cf9b53baa4e27e9b8d2a8491d',1,'module3.cpp']]],
+  ['download',['download',['../module3_8cpp.html#a0c0b0e42f272b15d079093e5a73cf71b',1,'module3.cpp']]],
+  ['download_5ffile',['DOWNLOAD_FILE',['../module3_8h.html#ad797720c6e0fe8ffae0c44788a3be2c9',1,'module3.h']]],
+  ['download_5fin_5fprogress',['DOWNLOAD_IN_PROGRESS',['../module3_8h.html#a84a7e33e8efc6438973bc1cf89839cbe',1,'module3.h']]],
+  ['downloadfile',['downloadFile',['../class_main_window.html#af8f815f498b3ecec7c8e19dfbc8b6c47',1,'MainWindow']]],
   ['drv_5fcycle_5fcnt',['DRV_CYCLE_CNT',['../tttech_broad_r_reach_8h.html#a4ea3b4d1bf13175be1f2a32f09054c63',1,'tttechBroadRReach.h']]]
 ];

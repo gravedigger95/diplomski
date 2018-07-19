@@ -17,8 +17,7 @@ Functions for initializing module two R\+TP, starting background task state mach
 {\ttfamily \#include \char`\"{}module\+Two\+File\+Sending.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}module\+Two\+Communication.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}module\+Two\+R\+T\+P.\+h\char`\"{}}\newline
-Include dependency graph for module\+Two\+R\+T\+P.\+c\+:
-\nopagebreak
+Include dependency graph for module\+Two\+R\+T\+P.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -40,6 +39,12 @@ S\+T\+A\+T\+US \mbox{\hyperlink{module_two_r_t_p_8c_a1d89a3332b3aef10068c0e00caf
 \begin{DoxyCompactItemize}
 \item 
 L\+O\+C\+AL M\+S\+G\+\_\+\+Q\+\_\+\+ID \mbox{\hyperlink{module_two_r_t_p_8c_ac8177dfad068c9c36626d687ca48e3d4}{messages}} = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL
+\item 
+L\+O\+C\+AL M\+S\+G\+\_\+\+Q\+\_\+\+ID \mbox{\hyperlink{module_two_r_t_p_8c_a0b990a7306a2a71e9c46b1203e070a63}{restart\+Msg\+Q\+Id}} = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL
+\item 
+L\+O\+C\+AL uint32\+\_\+t \mbox{\hyperlink{module_two_r_t_p_8c_a953fafb3ad20fb905525cad0080ca2ba}{restart}} = \mbox{\hyperlink{module_two_r_t_p_8h_a0a55fac1d0cc1aedfb75ae9d9cad0297}{N\+O\+\_\+\+R\+E\+S\+T\+A\+RT}}
+\item 
+L\+O\+C\+AL R\+T\+P\+\_\+\+ID \mbox{\hyperlink{module_two_r_t_p_8c_aa549ee1d4d086663d744c5fe1b17ddc3}{id}}
 \end{DoxyCompactItemize}
 
 
@@ -64,8 +69,7 @@ Functions for initializing module two R\+TP, starting background task state mach
 
 This function is background task for communication with PC and triggering appropriate routines for testing. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -82,8 +86,7 @@ Here is the call graph for this function\+:
 
 This function is used for initializing R\+TP module msg queues, shared memory and tasks. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -96,8 +99,7 @@ Here is the call graph for this function\+:
 \subsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -125,9 +127,27 @@ OK if successful, E\+R\+R\+OR otherwise  E\+R\+R\+OR if opening or sending throu
 
 
 \subsection{Variable Documentation}
+\mbox{\Hypertarget{module_two_r_t_p_8c_aa549ee1d4d086663d744c5fe1b17ddc3}\label{module_two_r_t_p_8c_aa549ee1d4d086663d744c5fe1b17ddc3}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!id@{id}}
+\index{id@{id}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily L\+O\+C\+AL R\+T\+P\+\_\+\+ID id}
+
 \mbox{\Hypertarget{module_two_r_t_p_8c_ac8177dfad068c9c36626d687ca48e3d4}\label{module_two_r_t_p_8c_ac8177dfad068c9c36626d687ca48e3d4}} 
 \index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!messages@{messages}}
 \index{messages@{messages}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
 \subsubsection{\texorpdfstring{messages}{messages}}
 {\footnotesize\ttfamily L\+O\+C\+AL M\+S\+G\+\_\+\+Q\+\_\+\+ID messages = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL}
+
+\mbox{\Hypertarget{module_two_r_t_p_8c_a953fafb3ad20fb905525cad0080ca2ba}\label{module_two_r_t_p_8c_a953fafb3ad20fb905525cad0080ca2ba}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!restart@{restart}}
+\index{restart@{restart}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{restart}{restart}}
+{\footnotesize\ttfamily L\+O\+C\+AL uint32\+\_\+t restart = \mbox{\hyperlink{module_two_r_t_p_8h_a0a55fac1d0cc1aedfb75ae9d9cad0297}{N\+O\+\_\+\+R\+E\+S\+T\+A\+RT}}}
+
+\mbox{\Hypertarget{module_two_r_t_p_8c_a0b990a7306a2a71e9c46b1203e070a63}\label{module_two_r_t_p_8c_a0b990a7306a2a71e9c46b1203e070a63}} 
+\index{module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}!restart\+Msg\+Q\+Id@{restart\+Msg\+Q\+Id}}
+\index{restart\+Msg\+Q\+Id@{restart\+Msg\+Q\+Id}!module\+Two\+R\+T\+P.\+c@{module\+Two\+R\+T\+P.\+c}}
+\subsubsection{\texorpdfstring{restart\+Msg\+Q\+Id}{restartMsgQId}}
+{\footnotesize\ttfamily L\+O\+C\+AL M\+S\+G\+\_\+\+Q\+\_\+\+ID restart\+Msg\+Q\+Id = M\+S\+G\+\_\+\+Q\+\_\+\+I\+D\+\_\+\+N\+U\+LL}
 
