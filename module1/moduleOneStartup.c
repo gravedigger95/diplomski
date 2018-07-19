@@ -160,13 +160,16 @@ void module1_InitPhy(void)
 STATUS rtpModule(void)
 {
     RTP_ID id;
+    MSG_Q_ID restartMsgQId = MSG_Q_ID_NULL;
     int8_t retVal = OK;
     const char * argv[] = {"/mmc0:1/module2.vxe", "module2", NULL_PTR};
     const char * envp[] = {"HEAP_INITIAL_SIZE=0x19000", "HEAP_MAX_SIZE=0x1000000", NULL_PTR};
     
     /* rt process for module two startup */
     id = rtpSpawn (argv[0], argv, envp, RTPROCESS_TASK_PRIORITY, RTPROCESS_STACK_SIZE, RTPROCESS_GLOBAL_SYMBOLS, VX_FP_TASK);
-    
+    restartMsgQId = msgQOpen ("/restartMsgQ", MAX_MSG, sizeof (id), MSG_Q_FIFO, OM_CREATE, NULL_PTR);
+    (void) msgQSend (restartMsgQId, (char *) &id, sizeof (id), NO_WAIT, MSG_PRI_NORMAL); /* PRQA S 0310 */  
+
     if (RTP_ID_ERROR == id) /* PRQA S 0306 */
     {
         (void) printf ("ERROR to start %s\n", argv[0]);
@@ -195,6 +198,7 @@ LOCAL STATUS _module1_CreateMsgQueues(void)
         (void) printf ("openMsgQ  routinesMsgQId ERROR\n");
         ret = ERROR;
     }
+        
     return ret;
 }
 

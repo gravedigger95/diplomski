@@ -127,6 +127,8 @@ typedef struct diagnosticDataShM
 } s_DIAG_SHM_DATA;
 
 extern MSG_Q_ID diagMsgQId;
+extern MSG_Q_ID restartMsgQId;
+
 
 /* Phy address register */
 extern volatile uint32_t * phyGmiiAddress;

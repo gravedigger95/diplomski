@@ -281,9 +281,7 @@ void mdio_write_br(uint32_t regNumber, uint16_t dataWrite)
 void module1_ReadChipRegistersTask(void)
 {
     (void) _sharedMemAlloc();
-    
-    mdio_write_br(0x15, 0x8E00U);
-    
+        
     FOREVER
     {
         /* Read register values for msg queue */
