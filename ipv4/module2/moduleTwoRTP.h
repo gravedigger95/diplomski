@@ -35,13 +35,5 @@
 /************************************************************************
  * FUNCTION DECLARATIONS
  ***********************************************************************/
-/** 
- * \brief This function sends routine number to module 1 which activates
- *        appropriate routine
- * \param routineNum Number of routine to be called
- * \return OK if successful, ERROR otherwise
- * \retVal ERROR if opening or sending through msgQueue was unsuccessful
- */
-STATUS module2_SetRoutineNum(int routineNum);
 
 #endif /* MODULE2_H_ */

@@ -217,3 +217,25 @@ LOCAL STATUS _module2_shMem_Check(void)
     return ret;
 }
 
+STATUS module2_SetRoutineNum(int routineNum)
+{
+    int8_t ret              = OK;
+    MSG_Q_ID routinesMsgQId = MSG_Q_ID_NULL;
+    
+    /* Open msg queue */
+    routinesMsgQId = msgQOpen ("/routinesMsgQ", MAX_MSG, sizeof(uint32_t), MSG_Q_FIFO, OM_CREATE, NULL_PTR); 
+    if (MSG_Q_ID_NULL == routinesMsgQId)
+    {
+        (void) printf ("setRoutineNum open ERROR\n");
+        ret = ERROR;
+    }
+    
+    /* Send routine number to module 1 */ 
+    if (msgQSend (routinesMsgQId, (char *) &routineNum, sizeof (routineNum), NO_WAIT, MSG_PRI_NORMAL) == ERROR) /* PRQA S 0310 */
+    {
+        (void) printf ("setRoutineNum send ERROR\n");
+        ret = ERROR;
+    }
+    return ret;
+}
+
